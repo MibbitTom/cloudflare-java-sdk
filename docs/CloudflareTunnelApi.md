@@ -34,12 +34,12 @@ Removes a connection (aka Cloudflare Tunnel Connector) from a Cloudflare Tunnel 
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareTunnelApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareTunnelApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -116,12 +116,12 @@ Creates a new Cloudflare Tunnel in an account.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareTunnelApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareTunnelApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -194,12 +194,12 @@ Creates a new Warp Connector Tunnel in an account.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareTunnelApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareTunnelApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -272,12 +272,12 @@ Deletes a Cloudflare Tunnel from an account.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareTunnelApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareTunnelApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -352,12 +352,12 @@ Deletes a Warp Connector Tunnel from an account.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareTunnelApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareTunnelApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -432,12 +432,12 @@ Fetches a single Cloudflare Tunnel.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareTunnelApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareTunnelApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -510,12 +510,12 @@ Gets a management token used to access the management resources (i.e. Streaming 
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareTunnelApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareTunnelApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -590,12 +590,12 @@ Gets the token used to associate cloudflared with a specific tunnel.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareTunnelApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareTunnelApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -668,12 +668,12 @@ Fetches a single Warp Connector Tunnel.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareTunnelApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareTunnelApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -746,12 +746,12 @@ Gets the token used to associate warp device with a specific Warp Connector tunn
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareTunnelApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareTunnelApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -824,12 +824,12 @@ Fetches connector and connection details for a Cloudflare Tunnel.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareTunnelApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareTunnelApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -904,12 +904,12 @@ Lists and filters all types of Tunnels in an account.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareTunnelApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareTunnelApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1002,12 +1002,12 @@ Fetches connection details for a Cloudflare Tunnel.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareTunnelApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareTunnelApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1080,12 +1080,12 @@ Lists and filters Cloudflare Tunnels in an account.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareTunnelApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareTunnelApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1176,12 +1176,12 @@ Lists and filters Warp Connector Tunnels in an account.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareTunnelApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareTunnelApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1272,12 +1272,12 @@ Updates an existing Cloudflare Tunnel.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareTunnelApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareTunnelApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1352,12 +1352,12 @@ Updates an existing Warp Connector Tunnel.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareTunnelApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareTunnelApi;
 
 public class Example {
   public static void main(String[] args) {

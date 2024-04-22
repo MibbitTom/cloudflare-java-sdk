@@ -24,12 +24,12 @@ Creates a new R2 bucket.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.R2BucketApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.R2BucketApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -94,12 +94,12 @@ Deletes an existing R2 bucket.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.R2BucketApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.R2BucketApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -164,12 +164,12 @@ Disables Sippy on this bucket
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.R2BucketApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.R2BucketApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -234,12 +234,12 @@ Gets metadata for an existing R2 bucket.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.R2BucketApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.R2BucketApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -304,12 +304,12 @@ Gets configuration for Sippy for an existing R2 bucket.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.R2BucketApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.R2BucketApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -374,12 +374,12 @@ Lists all R2 buckets on your account
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.R2BucketApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.R2BucketApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -454,12 +454,12 @@ Sets configuration for Sippy for an existing R2 bucket.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.R2BucketApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.R2BucketApi;
 
 public class Example {
   public static void main(String[] args) {

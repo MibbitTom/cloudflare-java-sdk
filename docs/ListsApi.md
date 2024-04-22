@@ -28,12 +28,12 @@ Creates a new list of the specified type.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ListsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ListsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -106,12 +106,12 @@ Appends new items to the list.  This operation is asynchronous. To get current t
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ListsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ListsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -186,12 +186,12 @@ Deletes a specific list and all its items.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ListsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ListsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -264,12 +264,12 @@ Removes one or more items from a list.  This operation is asynchronous. To get c
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ListsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ListsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -344,12 +344,12 @@ Fetches the details of a list.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ListsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ListsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -422,12 +422,12 @@ Fetches a list item in the list.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ListsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ListsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -502,12 +502,12 @@ Gets the current status of an asynchronous operation on a list.  The &#x60;statu
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ListsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ListsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -580,12 +580,12 @@ Fetches all the items in the list.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ListsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ListsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -664,12 +664,12 @@ Fetches all lists in the account.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ListsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ListsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -740,12 +740,12 @@ Updates the description of a list.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ListsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ListsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -820,12 +820,12 @@ Removes all existing items from the list and adds the provided items to the list
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ListsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ListsApi;
 
 public class Example {
   public static void main(String[] args) {

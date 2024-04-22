@@ -24,12 +24,12 @@ Create network monitoring rules for account. Currently only supports creating a 
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MagicNetworkMonitoringRulesApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.MagicNetworkMonitoringRulesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -100,12 +100,12 @@ Delete a network monitoring rule for account.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MagicNetworkMonitoringRulesApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.MagicNetworkMonitoringRulesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -178,12 +178,12 @@ List a single network monitoring rule for account.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MagicNetworkMonitoringRulesApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.MagicNetworkMonitoringRulesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -256,12 +256,12 @@ Lists network monitoring rules for account.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MagicNetworkMonitoringRulesApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.MagicNetworkMonitoringRulesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -332,12 +332,12 @@ Update advertisement for rule.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MagicNetworkMonitoringRulesApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.MagicNetworkMonitoringRulesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -410,12 +410,12 @@ Update a network monitoring rule for account.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MagicNetworkMonitoringRulesApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.MagicNetworkMonitoringRulesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -488,12 +488,12 @@ Update network monitoring rules for account.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MagicNetworkMonitoringRulesApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.MagicNetworkMonitoringRulesApi;
 
 public class Example {
   public static void main(String[] args) {

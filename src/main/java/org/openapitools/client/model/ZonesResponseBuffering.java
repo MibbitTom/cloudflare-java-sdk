@@ -47,12 +47,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.openapitools.client.JSON;
+import invalidPackageName.JSON;
 
 /**
  * Enables or disables buffering of responses from the proxied server. Cloudflare may buffer the whole payload to deliver it at once to the client versus allowing it to be delivered in chunks. By default, the proxied server streams directly and is not buffered by Cloudflare. This is limited to Enterprise Zones.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:11:08.999300719+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:29:23.936635354+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class ZonesResponseBuffering {
   public static final String SERIALIZED_NAME_EDITABLE = "editable";
   @SerializedName(SERIALIZED_NAME_EDITABLE)

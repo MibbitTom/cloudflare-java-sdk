@@ -22,12 +22,12 @@ Specify variants that allow you to resize images for different use cases.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareImagesVariantsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareImagesVariantsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -104,12 +104,12 @@ Deleting a variant purges the cache for all images associated with the variant.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareImagesVariantsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareImagesVariantsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -186,12 +186,12 @@ Lists existing variants.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareImagesVariantsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareImagesVariantsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -266,12 +266,12 @@ Updating a variant purges the cache for all images associated with the variant.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareImagesVariantsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareImagesVariantsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -350,12 +350,12 @@ Fetch details for a single variant.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CloudflareImagesVariantsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.CloudflareImagesVariantsApi;
 
 public class Example {
   public static void main(String[] args) {

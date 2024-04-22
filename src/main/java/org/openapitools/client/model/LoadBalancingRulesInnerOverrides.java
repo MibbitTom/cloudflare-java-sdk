@@ -54,12 +54,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.openapitools.client.JSON;
+import invalidPackageName.JSON;
 
 /**
  * A collection of overrides to apply to the load balancer when this rule&#39;s condition is true. All fields are optional.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:11:08.999300719+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:29:23.936635354+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class LoadBalancingRulesInnerOverrides {
   public static final String SERIALIZED_NAME_ADAPTIVE_ROUTING = "adaptive_routing";
   @SerializedName(SERIALIZED_NAME_ADAPTIVE_ROUTING)

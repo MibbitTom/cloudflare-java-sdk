@@ -23,12 +23,12 @@ Create a new network monitoring configuration.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MagicNetworkMonitoringConfigurationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.MagicNetworkMonitoringConfigurationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -99,12 +99,12 @@ Delete an existing network monitoring configuration.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MagicNetworkMonitoringConfigurationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.MagicNetworkMonitoringConfigurationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -175,12 +175,12 @@ Lists default sampling and router IPs for account.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MagicNetworkMonitoringConfigurationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.MagicNetworkMonitoringConfigurationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -251,12 +251,12 @@ Lists default sampling, router IPs, and rules for account.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MagicNetworkMonitoringConfigurationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.MagicNetworkMonitoringConfigurationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -327,12 +327,12 @@ Update fields in an existing network monitoring configuration.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MagicNetworkMonitoringConfigurationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.MagicNetworkMonitoringConfigurationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -403,12 +403,12 @@ Update an existing network monitoring configuration, requires the entire configu
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MagicNetworkMonitoringConfigurationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.MagicNetworkMonitoringConfigurationApi;
 
 public class Example {
   public static void main(String[] args) {

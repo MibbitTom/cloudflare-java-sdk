@@ -22,12 +22,12 @@ Create secondary zone configuration for incoming zone transfers.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SecondaryDnsSecondaryZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.SecondaryDnsSecondaryZoneApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -100,12 +100,12 @@ Delete secondary zone configuration for incoming zone transfers.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SecondaryDnsSecondaryZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.SecondaryDnsSecondaryZoneApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -176,12 +176,12 @@ Sends AXFR zone transfer request to primary nameserver(s).
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SecondaryDnsSecondaryZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.SecondaryDnsSecondaryZoneApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -252,12 +252,12 @@ Get secondary zone configuration for incoming zone transfers.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SecondaryDnsSecondaryZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.SecondaryDnsSecondaryZoneApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -328,12 +328,12 @@ Update secondary zone configuration for incoming zone transfers.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SecondaryDnsSecondaryZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.SecondaryDnsSecondaryZoneApi;
 
 public class Example {
   public static void main(String[] args) {

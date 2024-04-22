@@ -47,12 +47,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.openapitools.client.JSON;
+import invalidPackageName.JSON;
 
 /**
  * Reply to all requests for URLs that use \&quot;http\&quot; with a 301 redirect to the equivalent \&quot;https\&quot; URL. If you only want to redirect for a subset of requests, consider creating an \&quot;Always use HTTPS\&quot; page rule.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:11:08.999300719+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:29:23.936635354+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class ZonesAlwaysUseHttps {
   public static final String SERIALIZED_NAME_EDITABLE = "editable";
   @SerializedName(SERIALIZED_NAME_EDITABLE)

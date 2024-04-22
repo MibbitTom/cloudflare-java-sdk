@@ -20,12 +20,12 @@ Retrieve a single BGP Prefix according to its identifier
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IpAddressManagementBgpPrefixesApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.IpAddressManagementBgpPrefixesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -100,12 +100,12 @@ List all BGP Prefixes within the specified IP Prefix. BGP Prefixes are used to c
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IpAddressManagementBgpPrefixesApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.IpAddressManagementBgpPrefixesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -178,12 +178,12 @@ Update the properties of a BGP Prefix, such as the on demand advertisement statu
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IpAddressManagementBgpPrefixesApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.IpAddressManagementBgpPrefixesApi;
 
 public class Example {
   public static void main(String[] args) {

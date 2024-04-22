@@ -45,12 +45,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.openapitools.client.JSON;
+import invalidPackageName.JSON;
 
 /**
  * Origin Max HTTP Setting Version sets the highest HTTP version Cloudflare will attempt to use with your origin. This setting allows Cloudflare to make HTTP/2 requests to your origin. (Refer to [Enable HTTP/2 to Origin](https://developers.cloudflare.com/cache/how-to/enable-http2-to-origin/), for more information.). The default value is \&quot;2\&quot; for all plan types except ENT where it is \&quot;1\&quot;
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:11:08.999300719+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:29:23.936635354+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class CacheOriginMaxHttpVersion {
   /**
    * Value of the zone setting.

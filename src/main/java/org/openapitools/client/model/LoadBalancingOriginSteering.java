@@ -44,12 +44,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.openapitools.client.JSON;
+import invalidPackageName.JSON;
 
 /**
  * Configures origin steering for the pool. Controls how origins are selected for new sessions and traffic without session affinity.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:11:08.999300719+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:29:23.936635354+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class LoadBalancingOriginSteering {
   /**
    * The type of origin steering policy to use. - &#x60;\&quot;random\&quot;&#x60;: Select an origin randomly. - &#x60;\&quot;hash\&quot;&#x60;: Select an origin by computing a hash over the CF-Connecting-IP address. - &#x60;\&quot;least_outstanding_requests\&quot;&#x60;: Select an origin by taking into consideration origin weights, as well as each origin&#39;s number of outstanding requests. Origins with more pending requests are weighted proportionately less relative to others. - &#x60;\&quot;least_connections\&quot;&#x60;: Select an origin by taking into consideration origin weights, as well as each origin&#39;s number of open connections. Origins with more open connections are weighted proportionately less relative to others. Supported for HTTP/1 and HTTP/2 connections.

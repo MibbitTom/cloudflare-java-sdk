@@ -24,12 +24,12 @@ Get Details for a single mTLS API Shield Client Certificate
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ApiShieldClientCertificatesForAZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ApiShieldClientCertificatesForAZoneApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -102,12 +102,12 @@ Create a new API Shield mTLS Client Certificate
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ApiShieldClientCertificatesForAZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ApiShieldClientCertificatesForAZoneApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -180,12 +180,12 @@ Set a API Shield mTLS Client Certificate to pending_revocation status for proces
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ApiShieldClientCertificatesForAZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ApiShieldClientCertificatesForAZoneApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -258,12 +258,12 @@ If a API Shield mTLS Client Certificate is in a pending_revocation state, you ma
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ApiShieldClientCertificatesForAZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ApiShieldClientCertificatesForAZoneApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -336,12 +336,12 @@ List all of your Zone&#39;s API Shield mTLS Client Certificates by Status and/or
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ApiShieldClientCertificatesForAZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ApiShieldClientCertificatesForAZoneApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -422,12 +422,12 @@ List Hostname Associations
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ApiShieldClientCertificatesForAZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ApiShieldClientCertificatesForAZoneApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -500,12 +500,12 @@ Replace Hostname Associations
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ApiShieldClientCertificatesForAZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ApiShieldClientCertificatesForAZoneApi;
 
 public class Example {
   public static void main(String[] args) {

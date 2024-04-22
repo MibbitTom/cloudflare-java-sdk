@@ -51,12 +51,12 @@ Execute @cf/deepseek-ai/deepseek-math-7b-instruct model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -131,12 +131,12 @@ Execute @cf/defog/sqlcoder-7b-2 model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -211,12 +211,12 @@ Execute @cf/google/gemma-2b-it-lora model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -291,12 +291,12 @@ Execute @cf/google/gemma-7b-it-lora model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -371,12 +371,12 @@ Execute @cf/meta/llama-2-7b-chat-fp16 model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -451,12 +451,12 @@ Execute @cf/meta/llama-2-7b-chat-int8 model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -531,12 +531,12 @@ Execute @cf/meta/llama-3-8b-instruct model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -611,12 +611,12 @@ Execute @cf/meta-llama/llama-2-7b-chat-hf-lora model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -691,12 +691,12 @@ Execute @cf/microsoft/phi-2 model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -771,12 +771,12 @@ Execute @cf/mistral/mistral-7b-instruct-v0.1 model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -851,12 +851,12 @@ Execute @cf/mistral/mistral-7b-instruct-v0.1-vllm model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -931,12 +931,12 @@ Execute @cf/mistral/mistral-7b-instruct-v0.2-lora model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1011,12 +1011,12 @@ Execute @cf/mistral/mixtral-8x7b-instruct-v0.1-awq model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1091,12 +1091,12 @@ Execute @cf/openchat/openchat-3.5-0106 model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1171,12 +1171,12 @@ Execute @cf/qwen/qwen1.5-0.5b-chat model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1251,12 +1251,12 @@ Execute @cf/qwen/qwen1.5-14b-chat-awq model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1331,12 +1331,12 @@ Execute @cf/qwen/qwen1.5-1.8b-chat model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1411,12 +1411,12 @@ Execute @cf/qwen/qwen1.5-7b-chat-awq model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1491,12 +1491,12 @@ Execute @cf/sven/test model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1571,12 +1571,12 @@ Execute @cf/thebloke/discolm-german-7b-v1-awq model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1651,12 +1651,12 @@ Execute @cf/tiiuae/falcon-7b-instruct model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1731,12 +1731,12 @@ Execute @cf/tinyllama/tinyllama-1.1b-chat-v1.0 model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1811,12 +1811,12 @@ Execute @hf/google/gemma-7b-it model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1891,12 +1891,12 @@ Execute @hf/mistral/mistral-7b-instruct-v0.2 model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1971,12 +1971,12 @@ Execute @hf/nexusflow/starling-lm-7b-beta model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -2051,12 +2051,12 @@ Execute @hf/nousresearch/hermes-2-pro-mistral-7b model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -2131,12 +2131,12 @@ Execute @hf/thebloke/codellama-7b-instruct-awq model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -2211,12 +2211,12 @@ Execute @hf/thebloke/deepseek-coder-6.7b-base-awq model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -2291,12 +2291,12 @@ Execute @hf/thebloke/deepseek-coder-6.7b-instruct-awq model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -2371,12 +2371,12 @@ Execute @hf/thebloke/llama-2-13b-chat-awq model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -2451,12 +2451,12 @@ Execute @hf/thebloke/llamaguard-7b-awq model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -2531,12 +2531,12 @@ Execute @hf/thebloke/mistral-7b-instruct-v0.1-awq model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -2611,12 +2611,12 @@ Execute @hf/thebloke/neural-chat-7b-v3-1-awq model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -2691,12 +2691,12 @@ Execute @hf/thebloke/openchat_3.5-awq model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -2771,12 +2771,12 @@ Execute @hf/thebloke/openhermes-2.5-mistral-7b-awq model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -2851,12 +2851,12 @@ Execute @hf/thebloke/zephyr-7b-beta-awq model.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WorkersAiTextGenerationApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WorkersAiTextGenerationApi;
 
 public class Example {
   public static void main(String[] args) {

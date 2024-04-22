@@ -47,12 +47,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.openapitools.client.JSON;
+import invalidPackageName.JSON;
 
 /**
  * If there is sensitive content on your website that you want visible to real visitors, but that you want to hide from suspicious visitors, all you have to do is wrap the content with Cloudflare SSE tags. Wrap any content that you want to be excluded from suspicious visitors in the following SSE tags: &lt;!--sse--&gt;&lt;!--/sse--&gt;. For example: &lt;!--sse--&gt;  Bad visitors won&#39;t see my phone number, 555-555-5555 &lt;!--/sse--&gt;. Note: SSE only will work with HTML. If you have HTML minification enabled, you won&#39;t see the SSE tags in your HTML source when it&#39;s served through Cloudflare. SSE will still function in this case, as Cloudflare&#39;s HTML minification and SSE functionality occur on-the-fly as the resource moves through our network to the visitor&#39;s computer. (https://support.cloudflare.com/hc/en-us/articles/200170036).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:11:08.999300719+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:29:23.936635354+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class ZonesServerSideExclude {
   public static final String SERIALIZED_NAME_EDITABLE = "editable";
   @SerializedName(SERIALIZED_NAME_EDITABLE)

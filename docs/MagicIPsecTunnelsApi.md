@@ -24,12 +24,12 @@ Creates new IPsec tunnels associated with an account. Use &#x60;?validate_only&#
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MagicIPsecTunnelsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.MagicIPsecTunnelsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -102,12 +102,12 @@ Disables and removes a specific static IPsec Tunnel associated with an account. 
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MagicIPsecTunnelsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.MagicIPsecTunnelsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -180,12 +180,12 @@ Generates a Pre Shared Key for a specific IPsec tunnel used in the IKE session. 
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MagicIPsecTunnelsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.MagicIPsecTunnelsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -258,12 +258,12 @@ Lists details for a specific IPsec tunnel.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MagicIPsecTunnelsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.MagicIPsecTunnelsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -336,12 +336,12 @@ Lists IPsec tunnels associated with an account.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MagicIPsecTunnelsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.MagicIPsecTunnelsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -412,12 +412,12 @@ Updates a specific IPsec tunnel associated with an account. Use &#x60;?validate_
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MagicIPsecTunnelsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.MagicIPsecTunnelsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -492,12 +492,12 @@ Update multiple IPsec tunnels associated with an account. Use &#x60;?validate_on
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MagicIPsecTunnelsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.MagicIPsecTunnelsApi;
 
 public class Example {
   public static void main(String[] args) {

@@ -21,12 +21,12 @@ Delete Hostname Client Certificate
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PerHostnameAuthenticatedOriginPullApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.PerHostnameAuthenticatedOriginPullApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -99,12 +99,12 @@ Associate a hostname to a certificate and enable, disable or invalidate the asso
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PerHostnameAuthenticatedOriginPullApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.PerHostnameAuthenticatedOriginPullApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -177,12 +177,12 @@ Get the certificate by ID to be used for client authentication on a hostname.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PerHostnameAuthenticatedOriginPullApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.PerHostnameAuthenticatedOriginPullApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -253,12 +253,12 @@ Get the Hostname Status for Client Authentication
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PerHostnameAuthenticatedOriginPullApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.PerHostnameAuthenticatedOriginPullApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -329,12 +329,12 @@ List Certificates
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PerHostnameAuthenticatedOriginPullApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.PerHostnameAuthenticatedOriginPullApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -405,12 +405,12 @@ Upload a certificate to be used for client authentication on a hostname. 10 host
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PerHostnameAuthenticatedOriginPullApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.PerHostnameAuthenticatedOriginPullApi;
 
 public class Example {
   public static void main(String[] args) {

@@ -2,7 +2,7 @@
 
 Cloudflare API
 - API version: 4.0.0
-  - Build date: 2024-04-22T11:11:08.999300719+01:00[Europe/London]
+  - Build date: 2024-04-22T11:31:20.290775906+01:00[Europe/London]
   - Generator version: 7.5.0
 
 To get started using Cloudflare's products and services via the API, refer to [how to interact with Cloudflare](https://developers.cloudflare.com/fundamentals/basic-tasks/interact-with-cloudflare/), which covers using tools like [Terraform](https://developers.cloudflare.com/terraform/#cloudflare-terraform) and the [official SDKs](https://developers.cloudflare.com/fundamentals/api/reference/sdks/) to maintain your Cloudflare resources.
@@ -88,12 +88,12 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```java
 
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.AccessApplicationsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.AccessApplicationsApi;
 
 public class Example {
   public static void main(String[] args) {

@@ -44,12 +44,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.openapitools.client.JSON;
+import invalidPackageName.JSON;
 
 /**
  * IpAccessRulesForAZoneDeleteAnIpAccessRuleRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:11:08.999300719+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:29:23.936635354+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class IpAccessRulesForAZoneDeleteAnIpAccessRuleRequest {
   /**
    * The level to attempt to delete similar rules defined for other zones with the same owner. The default value is &#x60;none&#x60;, which will only delete the current rule. Using &#x60;basic&#x60; will delete rules that match the same action (mode) and configuration, while using &#x60;aggressive&#x60; will delete rules that match the same configuration.

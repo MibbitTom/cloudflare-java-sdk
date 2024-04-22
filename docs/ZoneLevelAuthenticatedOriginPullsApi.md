@@ -21,12 +21,12 @@ Delete Certificate
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ZoneLevelAuthenticatedOriginPullsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ZoneLevelAuthenticatedOriginPullsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -97,12 +97,12 @@ Get Certificate Details
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ZoneLevelAuthenticatedOriginPullsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ZoneLevelAuthenticatedOriginPullsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -175,12 +175,12 @@ Get whether zone-level authenticated origin pulls is enabled or not. It is false
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ZoneLevelAuthenticatedOriginPullsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ZoneLevelAuthenticatedOriginPullsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -249,12 +249,12 @@ List Certificates
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ZoneLevelAuthenticatedOriginPullsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ZoneLevelAuthenticatedOriginPullsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -325,12 +325,12 @@ Enable or disable zone-level authenticated origin pulls. &#39;enabled&#39; shoul
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ZoneLevelAuthenticatedOriginPullsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ZoneLevelAuthenticatedOriginPullsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -403,12 +403,12 @@ Upload your own certificate you want Cloudflare to use for edge-to-origin commun
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ZoneLevelAuthenticatedOriginPullsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ZoneLevelAuthenticatedOriginPullsApi;
 
 public class Example {
   public static void main(String[] args) {

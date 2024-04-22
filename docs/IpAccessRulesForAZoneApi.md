@@ -21,12 +21,12 @@ Creates a new IP Access rule for a zone.  Note: To create an IP Access rule that
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IpAccessRulesForAZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.IpAccessRulesForAZoneApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -99,12 +99,12 @@ Deletes an IP Access rule defined at the zone level.  Optionally, you can use th
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IpAccessRulesForAZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.IpAccessRulesForAZoneApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -179,12 +179,12 @@ Fetches IP Access rules of a zone. You can filter the results using several opti
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IpAccessRulesForAZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.IpAccessRulesForAZoneApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -267,12 +267,12 @@ Updates an IP Access rule defined at the zone level. You can only update the rul
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IpAccessRulesForAZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.IpAccessRulesForAZoneApi;
 
 public class Example {
   public static void main(String[] args) {

@@ -20,12 +20,12 @@ Fetches the details of a WAF rule group.  **Note:** Applies only to the [previou
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WafRuleGroupsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WafRuleGroupsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -104,12 +104,12 @@ Fetches the WAF rule groups in a WAF package.  **Note:** Applies only to the [pr
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WafRuleGroupsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WafRuleGroupsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -202,12 +202,12 @@ Updates a WAF rule group. You can update the state (&#x60;mode&#x60; parameter) 
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.WafRuleGroupsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.WafRuleGroupsApi;
 
 public class Example {
   public static void main(String[] args) {

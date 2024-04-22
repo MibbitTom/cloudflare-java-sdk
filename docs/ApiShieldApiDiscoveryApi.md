@@ -21,12 +21,12 @@ Retrieve the most up to date view of discovered operations
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ApiShieldApiDiscoveryApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ApiShieldApiDiscoveryApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -121,12 +121,12 @@ Retrieve the most up to date view of discovered operations, rendered as OpenAPI 
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ApiShieldApiDiscoveryApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ApiShieldApiDiscoveryApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -201,12 +201,12 @@ Update the &#x60;state&#x60; on a discovered operation
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ApiShieldApiDiscoveryApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ApiShieldApiDiscoveryApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -285,12 +285,12 @@ Update the &#x60;state&#x60; on one or more discovered operations
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ApiShieldApiDiscoveryApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.ApiShieldApiDiscoveryApi;
 
 public class Example {
   public static void main(String[] args) {

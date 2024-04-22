@@ -45,12 +45,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.openapitools.client.JSON;
+import invalidPackageName.JSON;
 
 /**
  * Queue Producer bindings used for Pages Functions.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:11:08.999300719+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:29:23.936635354+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class PagesDeploymentConfigsValuesQueueProducers {
   public static final String SERIALIZED_NAME_Q_U_E_U_E_P_R_O_D_U_C_E_R_B_I_N_D_I_N_G = "QUEUE_PRODUCER_BINDING";
   @SerializedName(SERIALIZED_NAME_Q_U_E_U_E_P_R_O_D_U_C_E_R_B_I_N_D_I_N_G)

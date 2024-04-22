@@ -22,12 +22,12 @@ Creates a new Service Binding, routing traffic to IPs within the given CIDR to a
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IpAddressManagementServiceBindingsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.IpAddressManagementServiceBindingsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -102,12 +102,12 @@ Delete a Service Binding
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IpAddressManagementServiceBindingsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.IpAddressManagementServiceBindingsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -182,12 +182,12 @@ Fetch a single Service Binding
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IpAddressManagementServiceBindingsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.IpAddressManagementServiceBindingsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -262,12 +262,12 @@ List the Cloudflare services this prefix is currently bound to. Traffic sent to 
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IpAddressManagementServiceBindingsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.IpAddressManagementServiceBindingsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -340,12 +340,12 @@ Bring-Your-Own IP (BYOIP) prefixes onboarded to Cloudflare must be bound to a se
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IpAddressManagementServiceBindingsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.IpAddressManagementServiceBindingsApi;
 
 public class Example {
   public static void main(String[] args) {

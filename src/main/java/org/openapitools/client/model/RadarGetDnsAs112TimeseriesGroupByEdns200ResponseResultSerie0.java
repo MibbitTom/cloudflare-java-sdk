@@ -46,12 +46,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.openapitools.client.JSON;
+import invalidPackageName.JSON;
 
 /**
  * RadarGetDnsAs112TimeseriesGroupByEdns200ResponseResultSerie0
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:11:08.999300719+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:29:23.936635354+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class RadarGetDnsAs112TimeseriesGroupByEdns200ResponseResultSerie0 {
   public static final String SERIALIZED_NAME_N_O_T_S_U_P_P_O_R_T_E_D = "NOT_SUPPORTED";
   @SerializedName(SERIALIZED_NAME_N_O_T_S_U_P_P_O_R_T_E_D)

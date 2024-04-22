@@ -29,12 +29,12 @@ Get test details and aggregate performance metrics for an http test for a given 
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DexSyntheticApplicationMontitoringApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.DexSyntheticApplicationMontitoringApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -117,12 +117,12 @@ Get percentiles for an http test for a given time period between 1 hour and 7 da
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DexSyntheticApplicationMontitoringApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.DexSyntheticApplicationMontitoringApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -203,12 +203,12 @@ List Cloudflare colos that account&#39;s devices were connected to during a time
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DexSyntheticApplicationMontitoringApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.DexSyntheticApplicationMontitoringApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -285,12 +285,12 @@ List DEX tests
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DexSyntheticApplicationMontitoringApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.DexSyntheticApplicationMontitoringApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -371,12 +371,12 @@ Returns unique count of devices that have run synthetic application monitoring t
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DexSyntheticApplicationMontitoringApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.DexSyntheticApplicationMontitoringApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -451,12 +451,12 @@ Get test details and aggregate performance metrics for an traceroute test for a 
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DexSyntheticApplicationMontitoringApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.DexSyntheticApplicationMontitoringApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -539,12 +539,12 @@ Get a breakdown of metrics by hop for individual traceroute test runs
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DexSyntheticApplicationMontitoringApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.DexSyntheticApplicationMontitoringApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -625,12 +625,12 @@ Get percentiles for a traceroute test for a given time period between 1 hour and
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DexSyntheticApplicationMontitoringApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.DexSyntheticApplicationMontitoringApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -711,12 +711,12 @@ Get a breakdown of hops and performance metrics for a specific traceroute test r
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DexSyntheticApplicationMontitoringApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.DexSyntheticApplicationMontitoringApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -789,12 +789,12 @@ List details for devices using WARP
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DexSyntheticApplicationMontitoringApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.DexSyntheticApplicationMontitoringApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -887,12 +887,12 @@ List details for live (up to 60 minutes) devices using WARP
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DexSyntheticApplicationMontitoringApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.DexSyntheticApplicationMontitoringApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -965,12 +965,12 @@ List details for devices using WARP, up to 7 days
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DexSyntheticApplicationMontitoringApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.DexSyntheticApplicationMontitoringApi;
 
 public class Example {
   public static void main(String[] args) {

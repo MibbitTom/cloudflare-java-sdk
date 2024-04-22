@@ -21,12 +21,12 @@ Delete a Priority Intelligence Report
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PriorityIntelligenceRequirementsPirApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.PriorityIntelligenceRequirementsPirApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -97,12 +97,12 @@ Get a Priority Intelligence Requirement
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PriorityIntelligenceRequirementsPirApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.PriorityIntelligenceRequirementsPirApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -173,12 +173,12 @@ List Priority Intelligence Requirements
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PriorityIntelligenceRequirementsPirApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.PriorityIntelligenceRequirementsPirApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -249,12 +249,12 @@ Create a New Priority Requirement
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PriorityIntelligenceRequirementsPirApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.PriorityIntelligenceRequirementsPirApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -325,12 +325,12 @@ Get Priority Intelligence Requirement Quota
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PriorityIntelligenceRequirementsPirApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.PriorityIntelligenceRequirementsPirApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -399,12 +399,12 @@ Update a Priority Intelligence Requirement
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PriorityIntelligenceRequirementsPirApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.PriorityIntelligenceRequirementsPirApi;
 
 public class Example {
   public static void main(String[] args) {

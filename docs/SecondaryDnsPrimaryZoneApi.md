@@ -25,12 +25,12 @@ Create primary zone configuration for outgoing zone transfers.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SecondaryDnsPrimaryZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.SecondaryDnsPrimaryZoneApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -103,12 +103,12 @@ Delete primary zone configuration for outgoing zone transfers.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SecondaryDnsPrimaryZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.SecondaryDnsPrimaryZoneApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -179,12 +179,12 @@ Disable outgoing zone transfers for primary zone and clears IXFR backlog of prim
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SecondaryDnsPrimaryZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.SecondaryDnsPrimaryZoneApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -255,12 +255,12 @@ Enable outgoing zone transfers for primary zone.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SecondaryDnsPrimaryZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.SecondaryDnsPrimaryZoneApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -331,12 +331,12 @@ Notifies the secondary nameserver(s) and clears IXFR backlog of primary zone.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SecondaryDnsPrimaryZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.SecondaryDnsPrimaryZoneApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -407,12 +407,12 @@ Get primary zone transfer status.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SecondaryDnsPrimaryZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.SecondaryDnsPrimaryZoneApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -483,12 +483,12 @@ Get primary zone configuration for outgoing zone transfers.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SecondaryDnsPrimaryZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.SecondaryDnsPrimaryZoneApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -559,12 +559,12 @@ Update primary zone configuration for outgoing zone transfers.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SecondaryDnsPrimaryZoneApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.SecondaryDnsPrimaryZoneApi;
 
 public class Example {
   public static void main(String[] args) {

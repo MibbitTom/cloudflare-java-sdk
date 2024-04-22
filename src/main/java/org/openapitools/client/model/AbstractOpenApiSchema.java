@@ -13,7 +13,7 @@
 
 package org.openapitools.client.model;
 
-import org.openapitools.client.ApiException;
+import invalidPackageName.ApiException;
 import java.util.Objects;
 import java.lang.reflect.Type;
 import java.util.Map;
@@ -21,7 +21,7 @@ import java.util.Map;
 /**
  * Abstract class for oneOf,anyOf schemas defined in OpenAPI spec
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:11:08.999300719+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:29:23.936635354+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public abstract class AbstractOpenApiSchema {
 
     // store the actual instance of the schema/object

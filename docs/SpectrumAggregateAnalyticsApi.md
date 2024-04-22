@@ -18,12 +18,12 @@ Retrieves analytics aggregated from the last minute of usage on Spectrum applica
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SpectrumAggregateAnalyticsApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.SpectrumAggregateAnalyticsApi;
 
 public class Example {
   public static void main(String[] args) {

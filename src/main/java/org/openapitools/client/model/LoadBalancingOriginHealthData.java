@@ -45,12 +45,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.openapitools.client.JSON;
+import invalidPackageName.JSON;
 
 /**
  * The origin ipv4/ipv6 address or domain name mapped to it&#39;s health data.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:11:08.999300719+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:29:23.936635354+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class LoadBalancingOriginHealthData {
   public static final String SERIALIZED_NAME_FAILURE_REASON = "failure_reason";
   @SerializedName(SERIALIZED_NAME_FAILURE_REASON)

@@ -44,12 +44,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.openapitools.client.JSON;
+import invalidPackageName.JSON;
 
 /**
  * Configures cookie attributes for the waiting room cookie. This encrypted cookie stores a user&#39;s status in the waiting room, such as queue position.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:11:08.999300719+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:29:23.936635354+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class WaitingroomCookieAttributes {
   /**
    * Configures the SameSite attribute on the waiting room cookie. Value &#x60;auto&#x60; will be translated to &#x60;lax&#x60; or &#x60;none&#x60; depending if **Always Use HTTPS** is enabled. Note that when using value &#x60;none&#x60;, the secure attribute cannot be set to &#x60;never&#x60;.

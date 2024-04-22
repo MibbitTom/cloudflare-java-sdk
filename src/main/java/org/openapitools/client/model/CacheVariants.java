@@ -45,12 +45,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.openapitools.client.JSON;
+import invalidPackageName.JSON;
 
 /**
  * Variant support enables caching variants of images with certain file extensions in addition to the original. This only applies when the origin server sends the &#39;Vary: Accept&#39; response header. If the origin server sends &#39;Vary: Accept&#39; but does not serve the variant requested, the response will not be cached. This will be indicated with BYPASS cache status in the response headers.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:11:08.999300719+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:29:23.936635354+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class CacheVariants {
   /**
    * ID of the zone setting.

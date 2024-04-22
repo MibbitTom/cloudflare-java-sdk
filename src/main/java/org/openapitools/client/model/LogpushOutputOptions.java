@@ -47,12 +47,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.openapitools.client.JSON;
+import invalidPackageName.JSON;
 
 /**
  * The structured replacement for &#x60;logpull_options&#x60;. When including this field, the &#x60;logpull_option&#x60; field will be ignored.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:11:08.999300719+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:29:23.936635354+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class LogpushOutputOptions {
   public static final String SERIALIZED_NAME_C_V_E20214428 = "CVE-2021-4428";
   @SerializedName(SERIALIZED_NAME_C_V_E20214428)

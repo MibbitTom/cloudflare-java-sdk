@@ -44,12 +44,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.openapitools.client.JSON;
+import invalidPackageName.JSON;
 
 /**
  * Account settings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:11:08.999300719+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:29:23.936635354+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class IamAccountSettings {
   /**
    * Specifies the default nameservers to be used for new zones added to this account.  - &#x60;cloudflare.standard&#x60; for Cloudflare-branded nameservers - &#x60;custom.account&#x60; for account custom nameservers - &#x60;custom.tenant&#x60; for tenant custom nameservers  See [Custom Nameservers](https://developers.cloudflare.com/dns/additional-options/custom-nameservers/) for more information.

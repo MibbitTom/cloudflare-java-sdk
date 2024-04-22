@@ -21,12 +21,12 @@ Creates a new token for integrating with PagerDuty.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.NotificationDestinationsWithPagerDutyApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.NotificationDestinationsWithPagerDutyApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -101,12 +101,12 @@ Links PagerDuty with the account using the integration token.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.NotificationDestinationsWithPagerDutyApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.NotificationDestinationsWithPagerDutyApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -183,12 +183,12 @@ Deletes all the PagerDuty Services connected to the account.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.NotificationDestinationsWithPagerDutyApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.NotificationDestinationsWithPagerDutyApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -263,12 +263,12 @@ Get a list of all configured PagerDuty services.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.NotificationDestinationsWithPagerDutyApi;
+import cloudflare.ApiClient;
+import cloudflare.ApiException;
+import cloudflare.Configuration;
+import cloudflare.auth.*;
+import cloudflare.models.*;
+import cloudflare.sdk.NotificationDestinationsWithPagerDutyApi;
 
 public class Example {
   public static void main(String[] args) {

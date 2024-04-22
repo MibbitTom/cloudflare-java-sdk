@@ -45,12 +45,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.openapitools.client.JSON;
+import invalidPackageName.JSON;
 
 /**
  * Specifies a detailed status for a video. If the &#x60;state&#x60; is &#x60;inprogress&#x60; or &#x60;error&#x60;, the &#x60;step&#x60; field returns &#x60;encoding&#x60; or &#x60;manifest&#x60;. If the &#x60;state&#x60; is &#x60;inprogress&#x60;, &#x60;pctComplete&#x60; returns a number between 0 and 100 to indicate the approximate percent of completion. If the &#x60;state&#x60; is &#x60;error&#x60;, &#x60;errorReasonCode&#x60; and &#x60;errorReasonText&#x60; provide additional details.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:11:08.999300719+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:29:23.936635354+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class StreamMediaStatus {
   public static final String SERIALIZED_NAME_ERROR_REASON_CODE = "errorReasonCode";
   @SerializedName(SERIALIZED_NAME_ERROR_REASON_CODE)
