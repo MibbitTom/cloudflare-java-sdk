@@ -1,0 +1,14 @@
+
+
+# RadarGetHttpTimeseriesGroupByDeviceType200ResponseResult
+
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**meta** | **Object** |  |  |
+|**serie0** | [**RadarGetHttpTimeseriesGroupByDeviceType200ResponseResultSerie0**](RadarGetHttpTimeseriesGroupByDeviceType200ResponseResultSerie0.md) |  |  |
+
+
+

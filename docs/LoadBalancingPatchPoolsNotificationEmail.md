@@ -1,0 +1,11 @@
+
+
+# LoadBalancingPatchPoolsNotificationEmail
+
+## Enum
+
+
+* `u` (value: `"\"\""`)
+
+
+
