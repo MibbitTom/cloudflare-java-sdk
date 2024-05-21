@@ -1397,8 +1397,6 @@ components:
                   updated_at:
                     $ref: >-
                       #/components/schemas/tls-certificates-and-hostnames_components-schemas-updated_at
-                  value:
-                    $ref: '#/components/schemas/tls-certificates-and-hostnames_value'
               type: array
         - properties:
             result_info:
@@ -1817,8 +1815,6 @@ components:
         updated_at:
           $ref: >-
             #/components/schemas/tls-certificates-and-hostnames_components-schemas-updated_at
-        value:
-          $ref: '#/components/schemas/tls-certificates-and-hostnames_value'
     tls-certificates-and-hostnames_settingObjectDelete:
       properties:
         created_at:
@@ -2296,17 +2292,6 @@ components:
         - 90
         - 365
       type: integer
-    tls-certificates-and-hostnames_value:
-      description: The tls setting value.
-      example:
-        - ECDHE-RSA-AES128-GCM-SHA256
-        - AES128-GCM-SHA256
-      oneOf:
-        - type: number
-        - type: string
-        - items:
-            type: string
-          type: array
     tls-certificates-and-hostnames_verification:
       properties:
         brand_check:

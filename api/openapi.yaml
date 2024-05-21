@@ -2503,8 +2503,6 @@ components:
           example: 2023-07-10T20:01:50.219171Z
           format: date-time
           type: string
-        value:
-          $ref: '#/components/schemas/tls-certificates-and-hostnames_value'
     tls-certificates-and-hostnames_settingObjectDelete:
       properties:
         created_at:
@@ -2765,17 +2763,6 @@ components:
       - 90
       - 365
       type: integer
-    tls-certificates-and-hostnames_value:
-      description: The tls setting value.
-      example:
-      - ECDHE-RSA-AES128-GCM-SHA256
-      - AES128-GCM-SHA256
-      oneOf:
-      - type: number
-      - type: string
-      - items:
-          type: string
-        type: array
     tls-certificates-and-hostnames_verification:
       properties:
         brand_check:
@@ -3170,8 +3157,6 @@ components:
           example: 2023-07-10T20:01:50.219171Z
           format: date-time
           type: string
-        value:
-          $ref: '#/components/schemas/tls-certificates-and-hostnames_value'
     tls_certificates_and_hostnames_per_hostname_settings_response_collection_allOf_result_info:
       properties:
         count:

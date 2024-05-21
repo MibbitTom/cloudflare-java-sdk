@@ -126,7 +126,6 @@ docs/TlsCertificatesAndHostnamesValidationMethod.md
 docs/TlsCertificatesAndHostnamesValidationMethodDefinition.md
 docs/TlsCertificatesAndHostnamesValidationRecord.md
 docs/TlsCertificatesAndHostnamesValidityDays.md
-docs/TlsCertificatesAndHostnamesValue.md
 docs/TlsCertificatesAndHostnamesVerification.md
 docs/TlsCertificatesAndHostnamesVerificationInfo.md
 docs/TlsCertificatesAndHostnamesVerificationType.md
@@ -272,7 +271,6 @@ src/main/java/cloudflare/sdk/models/TlsCertificatesAndHostnamesValidationMethod.
 src/main/java/cloudflare/sdk/models/TlsCertificatesAndHostnamesValidationMethodDefinition.java
 src/main/java/cloudflare/sdk/models/TlsCertificatesAndHostnamesValidationRecord.java
 src/main/java/cloudflare/sdk/models/TlsCertificatesAndHostnamesValidityDays.java
-src/main/java/cloudflare/sdk/models/TlsCertificatesAndHostnamesValue.java
 src/main/java/cloudflare/sdk/models/TlsCertificatesAndHostnamesVerification.java
 src/main/java/cloudflare/sdk/models/TlsCertificatesAndHostnamesVerificationInfo.java
 src/main/java/cloudflare/sdk/models/TlsCertificatesAndHostnamesVerificationType.java
@@ -399,7 +397,6 @@ src/test/java/cloudflare/sdk/models/TlsCertificatesAndHostnamesValidationMethodD
 src/test/java/cloudflare/sdk/models/TlsCertificatesAndHostnamesValidationMethodTest.java
 src/test/java/cloudflare/sdk/models/TlsCertificatesAndHostnamesValidationRecordTest.java
 src/test/java/cloudflare/sdk/models/TlsCertificatesAndHostnamesValidityDaysTest.java
-src/test/java/cloudflare/sdk/models/TlsCertificatesAndHostnamesValueTest.java
 src/test/java/cloudflare/sdk/models/TlsCertificatesAndHostnamesVerificationInfoTest.java
 src/test/java/cloudflare/sdk/models/TlsCertificatesAndHostnamesVerificationTest.java
 src/test/java/cloudflare/sdk/models/TlsCertificatesAndHostnamesVerificationTypeTest.java

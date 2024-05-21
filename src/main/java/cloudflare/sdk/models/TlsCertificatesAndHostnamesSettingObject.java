@@ -19,7 +19,6 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import cloudflare.sdk.models.TlsCertificatesAndHostnamesValue;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -37,10 +36,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   TlsCertificatesAndHostnamesSettingObject.JSON_PROPERTY_CREATED_AT,
   TlsCertificatesAndHostnamesSettingObject.JSON_PROPERTY_HOSTNAME,
   TlsCertificatesAndHostnamesSettingObject.JSON_PROPERTY_STATUS,
-  TlsCertificatesAndHostnamesSettingObject.JSON_PROPERTY_UPDATED_AT,
-  TlsCertificatesAndHostnamesSettingObject.JSON_PROPERTY_VALUE
+  TlsCertificatesAndHostnamesSettingObject.JSON_PROPERTY_UPDATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T10:12:24.693742223+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T11:53:03.004303930+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class TlsCertificatesAndHostnamesSettingObject {
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
@@ -53,9 +51,6 @@ public class TlsCertificatesAndHostnamesSettingObject {
 
   public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
   private OffsetDateTime updatedAt;
-
-  public static final String JSON_PROPERTY_VALUE = "value";
-  private TlsCertificatesAndHostnamesValue value;
 
   public TlsCertificatesAndHostnamesSettingObject() { 
   }
@@ -160,31 +155,6 @@ public class TlsCertificatesAndHostnamesSettingObject {
   }
 
 
-  public TlsCertificatesAndHostnamesSettingObject value(TlsCertificatesAndHostnamesValue value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public TlsCertificatesAndHostnamesValue getValue() {
-    return value;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValue(TlsCertificatesAndHostnamesValue value) {
-    this.value = value;
-  }
-
-
   /**
    * Return true if this tls-certificates-and-hostnames_settingObject object is equal to o.
    */
@@ -200,13 +170,12 @@ public class TlsCertificatesAndHostnamesSettingObject {
     return Objects.equals(this.createdAt, tlsCertificatesAndHostnamesSettingObject.createdAt) &&
         Objects.equals(this.hostname, tlsCertificatesAndHostnamesSettingObject.hostname) &&
         Objects.equals(this.status, tlsCertificatesAndHostnamesSettingObject.status) &&
-        Objects.equals(this.updatedAt, tlsCertificatesAndHostnamesSettingObject.updatedAt) &&
-        Objects.equals(this.value, tlsCertificatesAndHostnamesSettingObject.value);
+        Objects.equals(this.updatedAt, tlsCertificatesAndHostnamesSettingObject.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, hostname, status, updatedAt, value);
+    return Objects.hash(createdAt, hostname, status, updatedAt);
   }
 
   @Override
@@ -217,7 +186,6 @@ public class TlsCertificatesAndHostnamesSettingObject {
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -283,11 +251,6 @@ public class TlsCertificatesAndHostnamesSettingObject {
     // add `updated_at` to the URL query string
     if (getUpdatedAt() != null) {
       joiner.add(String.format("%supdated_at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `value` to the URL query string
-    if (getValue() != null) {
-      joiner.add(getValue().toUrlQueryString(prefix + "value" + suffix));
     }
 
     return joiner.toString();

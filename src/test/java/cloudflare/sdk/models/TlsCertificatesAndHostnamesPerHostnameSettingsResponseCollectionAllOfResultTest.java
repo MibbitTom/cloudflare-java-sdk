@@ -13,7 +13,6 @@
 
 package cloudflare.sdk.models;
 
-import cloudflare.sdk.models.TlsCertificatesAndHostnamesValue;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -69,14 +68,6 @@ class TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAllOfResul
     @Test
     void updatedAtTest() {
         // TODO: test updatedAt
-    }
-
-    /**
-     * Test the property 'value'
-     */
-    @Test
-    void valueTest() {
-        // TODO: test value
     }
 
 }

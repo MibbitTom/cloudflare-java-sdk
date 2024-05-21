@@ -4,7 +4,7 @@ Cloudflare API
 
 - API version: 4.0.0
 
-- Build date: 2024-05-21T10:12:24.693742223+01:00[Europe/London]
+- Build date: 2024-05-21T11:53:03.004303930+01:00[Europe/London]
 
 - Generator version: 7.5.0
 
@@ -247,7 +247,6 @@ Class | Method | HTTP request | Description
  - [TlsCertificatesAndHostnamesValidationMethodDefinition](docs/TlsCertificatesAndHostnamesValidationMethodDefinition.md)
  - [TlsCertificatesAndHostnamesValidationRecord](docs/TlsCertificatesAndHostnamesValidationRecord.md)
  - [TlsCertificatesAndHostnamesValidityDays](docs/TlsCertificatesAndHostnamesValidityDays.md)
- - [TlsCertificatesAndHostnamesValue](docs/TlsCertificatesAndHostnamesValue.md)
  - [TlsCertificatesAndHostnamesVerification](docs/TlsCertificatesAndHostnamesVerification.md)
  - [TlsCertificatesAndHostnamesVerificationInfo](docs/TlsCertificatesAndHostnamesVerificationInfo.md)
  - [TlsCertificatesAndHostnamesVerificationType](docs/TlsCertificatesAndHostnamesVerificationType.md)

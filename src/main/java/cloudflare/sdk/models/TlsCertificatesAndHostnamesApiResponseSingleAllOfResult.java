@@ -43,7 +43,7 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import cloudflare.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T10:12:24.693742223+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T11:53:03.004303930+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 @JsonDeserialize(using=TlsCertificatesAndHostnamesApiResponseSingleAllOfResult.TlsCertificatesAndHostnamesApiResponseSingleAllOfResultDeserializer.class)
 @JsonSerialize(using = TlsCertificatesAndHostnamesApiResponseSingleAllOfResult.TlsCertificatesAndHostnamesApiResponseSingleAllOfResultSerializer.class)
 public class TlsCertificatesAndHostnamesApiResponseSingleAllOfResult extends AbstractOpenApiSchema {

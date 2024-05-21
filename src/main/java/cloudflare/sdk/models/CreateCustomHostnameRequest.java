@@ -38,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateCustomHostnameRequest.JSON_PROPERTY_HOSTNAME,
   CreateCustomHostnameRequest.JSON_PROPERTY_SSL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T10:12:24.693742223+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T11:53:03.004303930+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class CreateCustomHostnameRequest {
   public static final String JSON_PROPERTY_CUSTOM_METADATA = "custom_metadata";
   private TlsCertificatesAndHostnamesCustomMetadata customMetadata;
