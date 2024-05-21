@@ -18,29 +18,29 @@ import cloudflare.sdk.models.TlsCertificatesAndHostnamesCertificatePacksComponen
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesSchemasCertificateAuthority;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesValidationMethod;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesValidityDays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesAdvancedCertificatePackResponseSingleAllOfResult
  */
-public class TlsCertificatesAndHostnamesAdvancedCertificatePackResponseSingleAllOfResultTest {
+class TlsCertificatesAndHostnamesAdvancedCertificatePackResponseSingleAllOfResultTest {
     private final TlsCertificatesAndHostnamesAdvancedCertificatePackResponseSingleAllOfResult model = new TlsCertificatesAndHostnamesAdvancedCertificatePackResponseSingleAllOfResult();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesAdvancedCertificatePackResponseSingleAllOfResult
      */
     @Test
-    public void testTlsCertificatesAndHostnamesAdvancedCertificatePackResponseSingleAllOfResult() {
+    void testTlsCertificatesAndHostnamesAdvancedCertificatePackResponseSingleAllOfResult() {
         // TODO: test TlsCertificatesAndHostnamesAdvancedCertificatePackResponseSingleAllOfResult
     }
 
@@ -48,7 +48,7 @@ public class TlsCertificatesAndHostnamesAdvancedCertificatePackResponseSingleAll
      * Test the property 'certificateAuthority'
      */
     @Test
-    public void certificateAuthorityTest() {
+    void certificateAuthorityTest() {
         // TODO: test certificateAuthority
     }
 
@@ -56,7 +56,7 @@ public class TlsCertificatesAndHostnamesAdvancedCertificatePackResponseSingleAll
      * Test the property 'cloudflareBranding'
      */
     @Test
-    public void cloudflareBrandingTest() {
+    void cloudflareBrandingTest() {
         // TODO: test cloudflareBranding
     }
 
@@ -64,7 +64,7 @@ public class TlsCertificatesAndHostnamesAdvancedCertificatePackResponseSingleAll
      * Test the property 'hosts'
      */
     @Test
-    public void hostsTest() {
+    void hostsTest() {
         // TODO: test hosts
     }
 
@@ -72,7 +72,7 @@ public class TlsCertificatesAndHostnamesAdvancedCertificatePackResponseSingleAll
      * Test the property 'id'
      */
     @Test
-    public void idTest() {
+    void idTest() {
         // TODO: test id
     }
 
@@ -80,7 +80,7 @@ public class TlsCertificatesAndHostnamesAdvancedCertificatePackResponseSingleAll
      * Test the property 'status'
      */
     @Test
-    public void statusTest() {
+    void statusTest() {
         // TODO: test status
     }
 
@@ -88,7 +88,7 @@ public class TlsCertificatesAndHostnamesAdvancedCertificatePackResponseSingleAll
      * Test the property 'type'
      */
     @Test
-    public void typeTest() {
+    void typeTest() {
         // TODO: test type
     }
 
@@ -96,7 +96,7 @@ public class TlsCertificatesAndHostnamesAdvancedCertificatePackResponseSingleAll
      * Test the property 'validationMethod'
      */
     @Test
-    public void validationMethodTest() {
+    void validationMethodTest() {
         // TODO: test validationMethod
     }
 
@@ -104,7 +104,7 @@ public class TlsCertificatesAndHostnamesAdvancedCertificatePackResponseSingleAll
      * Test the property 'validityDays'
      */
     @Test
-    public void validityDaysTest() {
+    void validityDaysTest() {
         // TODO: test validityDays
     }
 

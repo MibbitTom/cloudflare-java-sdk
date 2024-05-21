@@ -13,82 +13,66 @@
 
 package cloudflare.sdk.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesCertificateStatus;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesSchemasSignature;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesSchemasValidationMethod;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesVerificationInfo;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesVerificationType;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import cloudflare.JSON;
 
 /**
  * TlsCertificatesAndHostnamesVerification
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:31:20.290775906+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@JsonPropertyOrder({
+  TlsCertificatesAndHostnamesVerification.JSON_PROPERTY_BRAND_CHECK,
+  TlsCertificatesAndHostnamesVerification.JSON_PROPERTY_CERT_PACK_UUID,
+  TlsCertificatesAndHostnamesVerification.JSON_PROPERTY_CERTIFICATE_STATUS,
+  TlsCertificatesAndHostnamesVerification.JSON_PROPERTY_SIGNATURE,
+  TlsCertificatesAndHostnamesVerification.JSON_PROPERTY_VALIDATION_METHOD,
+  TlsCertificatesAndHostnamesVerification.JSON_PROPERTY_VERIFICATION_INFO,
+  TlsCertificatesAndHostnamesVerification.JSON_PROPERTY_VERIFICATION_STATUS,
+  TlsCertificatesAndHostnamesVerification.JSON_PROPERTY_VERIFICATION_TYPE
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T10:12:24.693742223+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class TlsCertificatesAndHostnamesVerification {
-  public static final String SERIALIZED_NAME_BRAND_CHECK = "brand_check";
-  @SerializedName(SERIALIZED_NAME_BRAND_CHECK)
+  public static final String JSON_PROPERTY_BRAND_CHECK = "brand_check";
   private Boolean brandCheck;
 
-  public static final String SERIALIZED_NAME_CERT_PACK_UUID = "cert_pack_uuid";
-  @SerializedName(SERIALIZED_NAME_CERT_PACK_UUID)
+  public static final String JSON_PROPERTY_CERT_PACK_UUID = "cert_pack_uuid";
   private String certPackUuid;
 
-  public static final String SERIALIZED_NAME_CERTIFICATE_STATUS = "certificate_status";
-  @SerializedName(SERIALIZED_NAME_CERTIFICATE_STATUS)
+  public static final String JSON_PROPERTY_CERTIFICATE_STATUS = "certificate_status";
   private TlsCertificatesAndHostnamesCertificateStatus certificateStatus;
 
-  public static final String SERIALIZED_NAME_SIGNATURE = "signature";
-  @SerializedName(SERIALIZED_NAME_SIGNATURE)
+  public static final String JSON_PROPERTY_SIGNATURE = "signature";
   private TlsCertificatesAndHostnamesSchemasSignature signature;
 
-  public static final String SERIALIZED_NAME_VALIDATION_METHOD = "validation_method";
-  @SerializedName(SERIALIZED_NAME_VALIDATION_METHOD)
+  public static final String JSON_PROPERTY_VALIDATION_METHOD = "validation_method";
   private TlsCertificatesAndHostnamesSchemasValidationMethod validationMethod;
 
-  public static final String SERIALIZED_NAME_VERIFICATION_INFO = "verification_info";
-  @SerializedName(SERIALIZED_NAME_VERIFICATION_INFO)
+  public static final String JSON_PROPERTY_VERIFICATION_INFO = "verification_info";
   private TlsCertificatesAndHostnamesVerificationInfo verificationInfo;
 
-  public static final String SERIALIZED_NAME_VERIFICATION_STATUS = "verification_status";
-  @SerializedName(SERIALIZED_NAME_VERIFICATION_STATUS)
+  public static final String JSON_PROPERTY_VERIFICATION_STATUS = "verification_status";
   private Boolean verificationStatus;
 
-  public static final String SERIALIZED_NAME_VERIFICATION_TYPE = "verification_type";
-  @SerializedName(SERIALIZED_NAME_VERIFICATION_TYPE)
+  public static final String JSON_PROPERTY_VERIFICATION_TYPE = "verification_type";
   private TlsCertificatesAndHostnamesVerificationType verificationType;
 
-  public TlsCertificatesAndHostnamesVerification() {
+  public TlsCertificatesAndHostnamesVerification() { 
   }
 
   public TlsCertificatesAndHostnamesVerification brandCheck(Boolean brandCheck) {
@@ -101,10 +85,16 @@ public class TlsCertificatesAndHostnamesVerification {
    * @return brandCheck
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BRAND_CHECK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getBrandCheck() {
     return brandCheck;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_BRAND_CHECK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrandCheck(Boolean brandCheck) {
     this.brandCheck = brandCheck;
   }
@@ -120,10 +110,16 @@ public class TlsCertificatesAndHostnamesVerification {
    * @return certPackUuid
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CERT_PACK_UUID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getCertPackUuid() {
     return certPackUuid;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CERT_PACK_UUID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCertPackUuid(String certPackUuid) {
     this.certPackUuid = certPackUuid;
   }
@@ -139,10 +135,16 @@ public class TlsCertificatesAndHostnamesVerification {
    * @return certificateStatus
   **/
   @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CERTIFICATE_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public TlsCertificatesAndHostnamesCertificateStatus getCertificateStatus() {
     return certificateStatus;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CERTIFICATE_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCertificateStatus(TlsCertificatesAndHostnamesCertificateStatus certificateStatus) {
     this.certificateStatus = certificateStatus;
   }
@@ -158,10 +160,16 @@ public class TlsCertificatesAndHostnamesVerification {
    * @return signature
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIGNATURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public TlsCertificatesAndHostnamesSchemasSignature getSignature() {
     return signature;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_SIGNATURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignature(TlsCertificatesAndHostnamesSchemasSignature signature) {
     this.signature = signature;
   }
@@ -177,10 +185,16 @@ public class TlsCertificatesAndHostnamesVerification {
    * @return validationMethod
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALIDATION_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public TlsCertificatesAndHostnamesSchemasValidationMethod getValidationMethod() {
     return validationMethod;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_VALIDATION_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidationMethod(TlsCertificatesAndHostnamesSchemasValidationMethod validationMethod) {
     this.validationMethod = validationMethod;
   }
@@ -196,10 +210,16 @@ public class TlsCertificatesAndHostnamesVerification {
    * @return verificationInfo
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public TlsCertificatesAndHostnamesVerificationInfo getVerificationInfo() {
     return verificationInfo;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationInfo(TlsCertificatesAndHostnamesVerificationInfo verificationInfo) {
     this.verificationInfo = verificationInfo;
   }
@@ -215,10 +235,16 @@ public class TlsCertificatesAndHostnamesVerification {
    * @return verificationStatus
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getVerificationStatus() {
     return verificationStatus;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationStatus(Boolean verificationStatus) {
     this.verificationStatus = verificationStatus;
   }
@@ -234,16 +260,24 @@ public class TlsCertificatesAndHostnamesVerification {
    * @return verificationType
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public TlsCertificatesAndHostnamesVerificationType getVerificationType() {
     return verificationType;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_VERIFICATION_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationType(TlsCertificatesAndHostnamesVerificationType verificationType) {
     this.verificationType = verificationType;
   }
 
 
-
+  /**
+   * Return true if this tls-certificates-and-hostnames_verification object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -295,125 +329,79 @@ public class TlsCertificatesAndHostnamesVerification {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("brand_check");
-    openapiFields.add("cert_pack_uuid");
-    openapiFields.add("certificate_status");
-    openapiFields.add("signature");
-    openapiFields.add("validation_method");
-    openapiFields.add("verification_info");
-    openapiFields.add("verification_status");
-    openapiFields.add("verification_type");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("certificate_status");
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TlsCertificatesAndHostnamesVerification
-  */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TlsCertificatesAndHostnamesVerification.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TlsCertificatesAndHostnamesVerification is not found in the empty JSON string", TlsCertificatesAndHostnamesVerification.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TlsCertificatesAndHostnamesVerification.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TlsCertificatesAndHostnamesVerification` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TlsCertificatesAndHostnamesVerification.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("cert_pack_uuid") != null && !jsonObj.get("cert_pack_uuid").isJsonNull()) && !jsonObj.get("cert_pack_uuid").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cert_pack_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cert_pack_uuid").toString()));
-      }
-      // validate the required field `certificate_status`
-      TlsCertificatesAndHostnamesCertificateStatus.validateJsonElement(jsonObj.get("certificate_status"));
-      // validate the optional field `signature`
-      if (jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) {
-        TlsCertificatesAndHostnamesSchemasSignature.validateJsonElement(jsonObj.get("signature"));
-      }
-      // validate the optional field `validation_method`
-      if (jsonObj.get("validation_method") != null && !jsonObj.get("validation_method").isJsonNull()) {
-        TlsCertificatesAndHostnamesSchemasValidationMethod.validateJsonElement(jsonObj.get("validation_method"));
-      }
-      // validate the optional field `verification_info`
-      if (jsonObj.get("verification_info") != null && !jsonObj.get("verification_info").isJsonNull()) {
-        TlsCertificatesAndHostnamesVerificationInfo.validateJsonElement(jsonObj.get("verification_info"));
-      }
-      // validate the optional field `verification_type`
-      if (jsonObj.get("verification_type") != null && !jsonObj.get("verification_type").isJsonNull()) {
-        TlsCertificatesAndHostnamesVerificationType.validateJsonElement(jsonObj.get("verification_type"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TlsCertificatesAndHostnamesVerification.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TlsCertificatesAndHostnamesVerification' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TlsCertificatesAndHostnamesVerification> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TlsCertificatesAndHostnamesVerification.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TlsCertificatesAndHostnamesVerification>() {
-           @Override
-           public void write(JsonWriter out, TlsCertificatesAndHostnamesVerification value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TlsCertificatesAndHostnamesVerification read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
     }
-  }
 
- /**
-  * Create an instance of TlsCertificatesAndHostnamesVerification given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TlsCertificatesAndHostnamesVerification
-  * @throws IOException if the JSON string is invalid with respect to TlsCertificatesAndHostnamesVerification
-  */
-  public static TlsCertificatesAndHostnamesVerification fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TlsCertificatesAndHostnamesVerification.class);
-  }
+    StringJoiner joiner = new StringJoiner("&");
 
- /**
-  * Convert an instance of TlsCertificatesAndHostnamesVerification to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+    // add `brand_check` to the URL query string
+    if (getBrandCheck() != null) {
+      joiner.add(String.format("%sbrand_check%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBrandCheck()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `cert_pack_uuid` to the URL query string
+    if (getCertPackUuid() != null) {
+      joiner.add(String.format("%scert_pack_uuid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCertPackUuid()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `certificate_status` to the URL query string
+    if (getCertificateStatus() != null) {
+      joiner.add(String.format("%scertificate_status%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCertificateStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `signature` to the URL query string
+    if (getSignature() != null) {
+      joiner.add(String.format("%ssignature%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSignature()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `validation_method` to the URL query string
+    if (getValidationMethod() != null) {
+      joiner.add(String.format("%svalidation_method%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getValidationMethod()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `verification_info` to the URL query string
+    if (getVerificationInfo() != null) {
+      joiner.add(getVerificationInfo().toUrlQueryString(prefix + "verification_info" + suffix));
+    }
+
+    // add `verification_status` to the URL query string
+    if (getVerificationStatus() != null) {
+      joiner.add(String.format("%sverification_status%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVerificationStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `verification_type` to the URL query string
+    if (getVerificationType() != null) {
+      joiner.add(String.format("%sverification_type%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVerificationType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
   }
 }
 

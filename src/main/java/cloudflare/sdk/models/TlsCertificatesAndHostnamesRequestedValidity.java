@@ -13,21 +13,22 @@
 
 package cloudflare.sdk.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
 import java.math.BigDecimal;
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.JsonElement;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * The number of days for which the certificate should be valid.
  */
-@JsonAdapter(TlsCertificatesAndHostnamesRequestedValidity.Adapter.class)
 public enum TlsCertificatesAndHostnamesRequestedValidity {
   
   NUMBER_7(new BigDecimal("7")),
@@ -50,6 +51,7 @@ public enum TlsCertificatesAndHostnamesRequestedValidity {
     this.value = value;
   }
 
+  @JsonValue
   public BigDecimal getValue() {
     return value;
   }
@@ -59,6 +61,7 @@ public enum TlsCertificatesAndHostnamesRequestedValidity {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static TlsCertificatesAndHostnamesRequestedValidity fromValue(BigDecimal value) {
     for (TlsCertificatesAndHostnamesRequestedValidity b : TlsCertificatesAndHostnamesRequestedValidity.values()) {
       if (b.value.equals(value)) {
@@ -68,22 +71,19 @@ public enum TlsCertificatesAndHostnamesRequestedValidity {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 
-  public static class Adapter extends TypeAdapter<TlsCertificatesAndHostnamesRequestedValidity> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final TlsCertificatesAndHostnamesRequestedValidity enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    if (prefix == null) {
+      prefix = "";
     }
 
-    @Override
-    public TlsCertificatesAndHostnamesRequestedValidity read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return TlsCertificatesAndHostnamesRequestedValidity.fromValue(new BigDecimal(value));
-    }
+    return String.format("%s=%s", prefix, this.toString());
   }
 
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    TlsCertificatesAndHostnamesRequestedValidity.fromValue(new BigDecimal(value));
-  }
 }
 

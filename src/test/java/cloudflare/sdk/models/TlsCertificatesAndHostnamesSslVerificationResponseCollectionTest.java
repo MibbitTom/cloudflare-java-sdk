@@ -14,29 +14,29 @@
 package cloudflare.sdk.models;
 
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesVerification;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesSslVerificationResponseCollection
  */
-public class TlsCertificatesAndHostnamesSslVerificationResponseCollectionTest {
+class TlsCertificatesAndHostnamesSslVerificationResponseCollectionTest {
     private final TlsCertificatesAndHostnamesSslVerificationResponseCollection model = new TlsCertificatesAndHostnamesSslVerificationResponseCollection();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesSslVerificationResponseCollection
      */
     @Test
-    public void testTlsCertificatesAndHostnamesSslVerificationResponseCollection() {
+    void testTlsCertificatesAndHostnamesSslVerificationResponseCollection() {
         // TODO: test TlsCertificatesAndHostnamesSslVerificationResponseCollection
     }
 
@@ -44,7 +44,7 @@ public class TlsCertificatesAndHostnamesSslVerificationResponseCollectionTest {
      * Test the property 'result'
      */
     @Test
-    public void resultTest() {
+    void resultTest() {
         // TODO: test result
     }
 

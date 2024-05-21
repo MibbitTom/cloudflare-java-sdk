@@ -13,20 +13,22 @@
 
 package cloudflare.sdk.models;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesApiResponseSingleAllOfResult
  */
-public class TlsCertificatesAndHostnamesApiResponseSingleAllOfResultTest {
+class TlsCertificatesAndHostnamesApiResponseSingleAllOfResultTest {
     private final TlsCertificatesAndHostnamesApiResponseSingleAllOfResult model = new TlsCertificatesAndHostnamesApiResponseSingleAllOfResult();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesApiResponseSingleAllOfResult
      */
     @Test
-    public void testTlsCertificatesAndHostnamesApiResponseSingleAllOfResult() {
+    void testTlsCertificatesAndHostnamesApiResponseSingleAllOfResult() {
         // TODO: test TlsCertificatesAndHostnamesApiResponseSingleAllOfResult
     }
 

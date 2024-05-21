@@ -13,123 +13,102 @@
 
 package cloudflare.sdk.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonParseException;
-
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import cloudflare.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:31:20.290775906+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T10:12:24.693742223+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@JsonDeserialize(using=TlsCertificatesAndHostnamesApiResponseSingleAllOfResult.TlsCertificatesAndHostnamesApiResponseSingleAllOfResultDeserializer.class)
+@JsonSerialize(using = TlsCertificatesAndHostnamesApiResponseSingleAllOfResult.TlsCertificatesAndHostnamesApiResponseSingleAllOfResultSerializer.class)
 public class TlsCertificatesAndHostnamesApiResponseSingleAllOfResult extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(TlsCertificatesAndHostnamesApiResponseSingleAllOfResult.class.getName());
 
-    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-        @SuppressWarnings("unchecked")
+    public static class TlsCertificatesAndHostnamesApiResponseSingleAllOfResultSerializer extends StdSerializer<TlsCertificatesAndHostnamesApiResponseSingleAllOfResult> {
+        public TlsCertificatesAndHostnamesApiResponseSingleAllOfResultSerializer(Class<TlsCertificatesAndHostnamesApiResponseSingleAllOfResult> t) {
+            super(t);
+        }
+
+        public TlsCertificatesAndHostnamesApiResponseSingleAllOfResultSerializer() {
+            this(null);
+        }
+
         @Override
-        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!TlsCertificatesAndHostnamesApiResponseSingleAllOfResult.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'TlsCertificatesAndHostnamesApiResponseSingleAllOfResult' and its subtypes
+        public void serialize(TlsCertificatesAndHostnamesApiResponseSingleAllOfResult value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+            jgen.writeObject(value.getActualInstance());
+        }
+    }
+
+    public static class TlsCertificatesAndHostnamesApiResponseSingleAllOfResultDeserializer extends StdDeserializer<TlsCertificatesAndHostnamesApiResponseSingleAllOfResult> {
+        public TlsCertificatesAndHostnamesApiResponseSingleAllOfResultDeserializer() {
+            this(TlsCertificatesAndHostnamesApiResponseSingleAllOfResult.class);
+        }
+
+        public TlsCertificatesAndHostnamesApiResponseSingleAllOfResultDeserializer(Class<?> vc) {
+            super(vc);
+        }
+
+        @Override
+        public TlsCertificatesAndHostnamesApiResponseSingleAllOfResult deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+            JsonNode tree = jp.readValueAsTree();
+
+            Object deserialized = null;
+            // deserialize Object
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(Object.class);
+                TlsCertificatesAndHostnamesApiResponseSingleAllOfResult ret = new TlsCertificatesAndHostnamesApiResponseSingleAllOfResult();
+                ret.setActualInstance(deserialized);
+                return ret;
+            } catch (Exception e) {
+                // deserialization failed, continue, log to help debugging
+                log.log(Level.FINER, "Input data does not match 'TlsCertificatesAndHostnamesApiResponseSingleAllOfResult'", e);
             }
-            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<Object> adapterObject = gson.getDelegateAdapter(this, TypeToken.get(Object.class));
-            final TypeAdapter<String> adapterString = gson.getDelegateAdapter(this, TypeToken.get(String.class));
 
-            return (TypeAdapter<T>) new TypeAdapter<TlsCertificatesAndHostnamesApiResponseSingleAllOfResult>() {
-                @Override
-                public void write(JsonWriter out, TlsCertificatesAndHostnamesApiResponseSingleAllOfResult value) throws IOException {
-                    if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
-                        return;
-                    }
+            // deserialize String
+            try {
+                deserialized = tree.traverse(jp.getCodec()).readValueAs(String.class);
+                TlsCertificatesAndHostnamesApiResponseSingleAllOfResult ret = new TlsCertificatesAndHostnamesApiResponseSingleAllOfResult();
+                ret.setActualInstance(deserialized);
+                return ret;
+            } catch (Exception e) {
+                // deserialization failed, continue, log to help debugging
+                log.log(Level.FINER, "Input data does not match 'TlsCertificatesAndHostnamesApiResponseSingleAllOfResult'", e);
+            }
 
-                    // check if the actual instance is of the type `Object`
-                    if (value.getActualInstance() instanceof Object) {
-                        JsonPrimitive primitive = adapterObject.toJsonTree((Object)value.getActualInstance()).getAsJsonPrimitive();
-                        elementAdapter.write(out, primitive);
-                        return;
-                    }
-                    // check if the actual instance is of the type `String`
-                    if (value.getActualInstance() instanceof String) {
-                        JsonPrimitive primitive = adapterString.toJsonTree((String)value.getActualInstance()).getAsJsonPrimitive();
-                        elementAdapter.write(out, primitive);
-                        return;
-                    }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: Object, String");
-                }
+            throw new IOException(String.format("Failed deserialization for TlsCertificatesAndHostnamesApiResponseSingleAllOfResult: no match found"));
+        }
 
-                @Override
-                public TlsCertificatesAndHostnamesApiResponseSingleAllOfResult read(JsonReader in) throws IOException {
-                    Object deserialized = null;
-                    JsonElement jsonElement = elementAdapter.read(in);
-
-                    ArrayList<String> errorMessages = new ArrayList<>();
-                    TypeAdapter actualAdapter = elementAdapter;
-
-                    // deserialize Object
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        if (!jsonElement.getAsJsonPrimitive().isNumber()) {
-                            throw new IllegalArgumentException(String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
-                        }
-                        actualAdapter = adapterObject;
-                        TlsCertificatesAndHostnamesApiResponseSingleAllOfResult ret = new TlsCertificatesAndHostnamesApiResponseSingleAllOfResult();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for Object failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'Object'", e);
-                    }
-                    // deserialize String
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        if (!jsonElement.getAsJsonPrimitive().isString()) {
-                            throw new IllegalArgumentException(String.format("Expected json element to be of type String in the JSON string but got `%s`", jsonElement.toString()));
-                        }
-                        actualAdapter = adapterString;
-                        TlsCertificatesAndHostnamesApiResponseSingleAllOfResult ret = new TlsCertificatesAndHostnamesApiResponseSingleAllOfResult();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for String failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'String'", e);
-                    }
-
-                    throw new IOException(String.format("Failed deserialization for TlsCertificatesAndHostnamesApiResponseSingleAllOfResult: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
-                }
-            }.nullSafe();
+        /**
+         * Handle deserialization of the 'null' value.
+         */
+        @Override
+        public TlsCertificatesAndHostnamesApiResponseSingleAllOfResult getNullValue(DeserializationContext ctxt) throws JsonMappingException {
+            throw new JsonMappingException(ctxt.getParser(), "TlsCertificatesAndHostnamesApiResponseSingleAllOfResult cannot be null");
         }
     }
 
@@ -153,6 +132,7 @@ public class TlsCertificatesAndHostnamesApiResponseSingleAllOfResult extends Abs
     static {
         schemas.put("Object", Object.class);
         schemas.put("String", String.class);
+        JSON.registerDescendants(TlsCertificatesAndHostnamesApiResponseSingleAllOfResult.class, Collections.unmodifiableMap(schemas));
     }
 
     @Override
@@ -166,15 +146,16 @@ public class TlsCertificatesAndHostnamesApiResponseSingleAllOfResult extends Abs
      * Object, String
      *
      * It could be an instance of the 'anyOf' schemas.
+     * The anyOf child schemas may themselves be a composed schema (allOf, anyOf, anyOf).
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof Object) {
+        if (JSON.isInstanceOf(Object.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof String) {
+        if (JSON.isInstanceOf(String.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -188,7 +169,6 @@ public class TlsCertificatesAndHostnamesApiResponseSingleAllOfResult extends Abs
      *
      * @return The actual instance (Object, String)
      */
-    @SuppressWarnings("unchecked")
     @Override
     public Object getActualInstance() {
         return super.getActualInstance();
@@ -204,6 +184,7 @@ public class TlsCertificatesAndHostnamesApiResponseSingleAllOfResult extends Abs
     public Object getObject() throws ClassCastException {
         return (Object)super.getActualInstance();
     }
+
     /**
      * Get the actual instance of `String`. If the actual instance is not `String`,
      * the ClassCastException will be thrown.
@@ -215,56 +196,42 @@ public class TlsCertificatesAndHostnamesApiResponseSingleAllOfResult extends Abs
         return (String)super.getActualInstance();
     }
 
-    /**
-     * Validates the JSON Element and throws an exception if issues found
-     *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to TlsCertificatesAndHostnamesApiResponseSingleAllOfResult
-     */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        // validate anyOf schemas one by one
-        ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with Object
-        try {
-            if (!jsonElement.getAsJsonPrimitive().isNumber()) {
-                throw new IllegalArgumentException(String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
-            }
-            return;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for Object failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        // validate the json string with String
-        try {
-            if (!jsonElement.getAsJsonPrimitive().isString()) {
-                throw new IllegalArgumentException(String.format("Expected json element to be of type String in the JSON string but got `%s`", jsonElement.toString()));
-            }
-            return;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for String failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        throw new IOException(String.format("The JSON string is invalid for TlsCertificatesAndHostnamesApiResponseSingleAllOfResult with anyOf schemas: Object, String. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
     }
 
-    /**
-     * Create an instance of TlsCertificatesAndHostnamesApiResponseSingleAllOfResult given an JSON string
-     *
-     * @param jsonString JSON string
-     * @return An instance of TlsCertificatesAndHostnamesApiResponseSingleAllOfResult
-     * @throws IOException if the JSON string is invalid with respect to TlsCertificatesAndHostnamesApiResponseSingleAllOfResult
-     */
-    public static TlsCertificatesAndHostnamesApiResponseSingleAllOfResult fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, TlsCertificatesAndHostnamesApiResponseSingleAllOfResult.class);
-    }
+    StringJoiner joiner = new StringJoiner("&");
 
-    /**
-     * Convert an instance of TlsCertificatesAndHostnamesApiResponseSingleAllOfResult to an JSON string
-     *
-     * @return JSON string
-     */
-    public String toJson() {
-        return JSON.getGson().toJson(this);
-    }
+    return null;
+  }
+
 }
 

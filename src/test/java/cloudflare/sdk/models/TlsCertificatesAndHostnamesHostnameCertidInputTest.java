@@ -13,28 +13,31 @@
 
 package cloudflare.sdk.models;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesHostnameCertidInput
  */
-public class TlsCertificatesAndHostnamesHostnameCertidInputTest {
+class TlsCertificatesAndHostnamesHostnameCertidInputTest {
     private final TlsCertificatesAndHostnamesHostnameCertidInput model = new TlsCertificatesAndHostnamesHostnameCertidInput();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesHostnameCertidInput
      */
     @Test
-    public void testTlsCertificatesAndHostnamesHostnameCertidInput() {
+    void testTlsCertificatesAndHostnamesHostnameCertidInput() {
         // TODO: test TlsCertificatesAndHostnamesHostnameCertidInput
     }
 
@@ -42,7 +45,7 @@ public class TlsCertificatesAndHostnamesHostnameCertidInputTest {
      * Test the property 'certId'
      */
     @Test
-    public void certIdTest() {
+    void certIdTest() {
         // TODO: test certId
     }
 
@@ -50,7 +53,7 @@ public class TlsCertificatesAndHostnamesHostnameCertidInputTest {
      * Test the property 'enabled'
      */
     @Test
-    public void enabledTest() {
+    void enabledTest() {
         // TODO: test enabled
     }
 
@@ -58,7 +61,7 @@ public class TlsCertificatesAndHostnamesHostnameCertidInputTest {
      * Test the property 'hostname'
      */
     @Test
-    public void hostnameTest() {
+    void hostnameTest() {
         // TODO: test hostname
     }
 

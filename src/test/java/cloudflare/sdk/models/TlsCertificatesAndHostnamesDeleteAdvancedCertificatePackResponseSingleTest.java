@@ -13,31 +13,31 @@
 
 package cloudflare.sdk.models;
 
-import cloudflare.sdk.models.AaaMessagesInner;
 import cloudflare.sdk.models.CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import cloudflare.sdk.models.TlsCertificatesAndHostnamesMessagesInner;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesDeleteAdvancedCertificatePackResponseSingle
  */
-public class TlsCertificatesAndHostnamesDeleteAdvancedCertificatePackResponseSingleTest {
+class TlsCertificatesAndHostnamesDeleteAdvancedCertificatePackResponseSingleTest {
     private final TlsCertificatesAndHostnamesDeleteAdvancedCertificatePackResponseSingle model = new TlsCertificatesAndHostnamesDeleteAdvancedCertificatePackResponseSingle();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesDeleteAdvancedCertificatePackResponseSingle
      */
     @Test
-    public void testTlsCertificatesAndHostnamesDeleteAdvancedCertificatePackResponseSingle() {
+    void testTlsCertificatesAndHostnamesDeleteAdvancedCertificatePackResponseSingle() {
         // TODO: test TlsCertificatesAndHostnamesDeleteAdvancedCertificatePackResponseSingle
     }
 
@@ -45,7 +45,7 @@ public class TlsCertificatesAndHostnamesDeleteAdvancedCertificatePackResponseSin
      * Test the property 'errors'
      */
     @Test
-    public void errorsTest() {
+    void errorsTest() {
         // TODO: test errors
     }
 
@@ -53,24 +53,24 @@ public class TlsCertificatesAndHostnamesDeleteAdvancedCertificatePackResponseSin
      * Test the property 'messages'
      */
     @Test
-    public void messagesTest() {
+    void messagesTest() {
         // TODO: test messages
-    }
-
-    /**
-     * Test the property 'result'
-     */
-    @Test
-    public void resultTest() {
-        // TODO: test result
     }
 
     /**
      * Test the property 'success'
      */
     @Test
-    public void successTest() {
+    void successTest() {
         // TODO: test success
+    }
+
+    /**
+     * Test the property 'result'
+     */
+    @Test
+    void resultTest() {
+        // TODO: test result
     }
 
 }

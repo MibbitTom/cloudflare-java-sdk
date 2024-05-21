@@ -13,29 +13,30 @@
 
 package cloudflare.sdk.models;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesSslsettings
  */
-public class TlsCertificatesAndHostnamesSslsettingsTest {
+class TlsCertificatesAndHostnamesSslsettingsTest {
     private final TlsCertificatesAndHostnamesSslsettings model = new TlsCertificatesAndHostnamesSslsettings();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesSslsettings
      */
     @Test
-    public void testTlsCertificatesAndHostnamesSslsettings() {
+    void testTlsCertificatesAndHostnamesSslsettings() {
         // TODO: test TlsCertificatesAndHostnamesSslsettings
     }
 
@@ -43,7 +44,7 @@ public class TlsCertificatesAndHostnamesSslsettingsTest {
      * Test the property 'ciphers'
      */
     @Test
-    public void ciphersTest() {
+    void ciphersTest() {
         // TODO: test ciphers
     }
 
@@ -51,7 +52,7 @@ public class TlsCertificatesAndHostnamesSslsettingsTest {
      * Test the property 'earlyHints'
      */
     @Test
-    public void earlyHintsTest() {
+    void earlyHintsTest() {
         // TODO: test earlyHints
     }
 
@@ -59,7 +60,7 @@ public class TlsCertificatesAndHostnamesSslsettingsTest {
      * Test the property 'http2'
      */
     @Test
-    public void http2Test() {
+    void http2Test() {
         // TODO: test http2
     }
 
@@ -67,7 +68,7 @@ public class TlsCertificatesAndHostnamesSslsettingsTest {
      * Test the property 'minTlsVersion'
      */
     @Test
-    public void minTlsVersionTest() {
+    void minTlsVersionTest() {
         // TODO: test minTlsVersion
     }
 
@@ -75,7 +76,7 @@ public class TlsCertificatesAndHostnamesSslsettingsTest {
      * Test the property 'tls13'
      */
     @Test
-    public void tls13Test() {
+    void tls13Test() {
         // TODO: test tls13
     }
 

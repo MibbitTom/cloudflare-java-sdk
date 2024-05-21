@@ -14,27 +14,27 @@
 package cloudflare.sdk.models;
 
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesOwnershipVerificationOneOf;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesOwnershipVerification
  */
-public class TlsCertificatesAndHostnamesOwnershipVerificationTest {
+class TlsCertificatesAndHostnamesOwnershipVerificationTest {
     private final TlsCertificatesAndHostnamesOwnershipVerification model = new TlsCertificatesAndHostnamesOwnershipVerification();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesOwnershipVerification
      */
     @Test
-    public void testTlsCertificatesAndHostnamesOwnershipVerification() {
+    void testTlsCertificatesAndHostnamesOwnershipVerification() {
         // TODO: test TlsCertificatesAndHostnamesOwnershipVerification
     }
 
@@ -42,7 +42,7 @@ public class TlsCertificatesAndHostnamesOwnershipVerificationTest {
      * Test the property 'name'
      */
     @Test
-    public void nameTest() {
+    void nameTest() {
         // TODO: test name
     }
 
@@ -50,7 +50,7 @@ public class TlsCertificatesAndHostnamesOwnershipVerificationTest {
      * Test the property 'type'
      */
     @Test
-    public void typeTest() {
+    void typeTest() {
         // TODO: test type
     }
 
@@ -58,7 +58,7 @@ public class TlsCertificatesAndHostnamesOwnershipVerificationTest {
      * Test the property 'value'
      */
     @Test
-    public void valueTest() {
+    void valueTest() {
         // TODO: test value
     }
 

@@ -15,27 +15,27 @@ package cloudflare.sdk.models;
 
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesCertificateAuthority;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesSslsettings;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesSslpostOneOf
  */
-public class TlsCertificatesAndHostnamesSslpostOneOfTest {
+class TlsCertificatesAndHostnamesSslpostOneOfTest {
     private final TlsCertificatesAndHostnamesSslpostOneOf model = new TlsCertificatesAndHostnamesSslpostOneOf();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesSslpostOneOf
      */
     @Test
-    public void testTlsCertificatesAndHostnamesSslpostOneOf() {
+    void testTlsCertificatesAndHostnamesSslpostOneOf() {
         // TODO: test TlsCertificatesAndHostnamesSslpostOneOf
     }
 
@@ -43,7 +43,7 @@ public class TlsCertificatesAndHostnamesSslpostOneOfTest {
      * Test the property 'bundleMethod'
      */
     @Test
-    public void bundleMethodTest() {
+    void bundleMethodTest() {
         // TODO: test bundleMethod
     }
 
@@ -51,7 +51,7 @@ public class TlsCertificatesAndHostnamesSslpostOneOfTest {
      * Test the property 'certificateAuthority'
      */
     @Test
-    public void certificateAuthorityTest() {
+    void certificateAuthorityTest() {
         // TODO: test certificateAuthority
     }
 
@@ -59,7 +59,7 @@ public class TlsCertificatesAndHostnamesSslpostOneOfTest {
      * Test the property 'customCertificate'
      */
     @Test
-    public void customCertificateTest() {
+    void customCertificateTest() {
         // TODO: test customCertificate
     }
 
@@ -67,7 +67,7 @@ public class TlsCertificatesAndHostnamesSslpostOneOfTest {
      * Test the property 'customKey'
      */
     @Test
-    public void customKeyTest() {
+    void customKeyTest() {
         // TODO: test customKey
     }
 
@@ -75,7 +75,7 @@ public class TlsCertificatesAndHostnamesSslpostOneOfTest {
      * Test the property 'method'
      */
     @Test
-    public void methodTest() {
+    void methodTest() {
         // TODO: test method
     }
 
@@ -83,7 +83,7 @@ public class TlsCertificatesAndHostnamesSslpostOneOfTest {
      * Test the property 'settings'
      */
     @Test
-    public void settingsTest() {
+    void settingsTest() {
         // TODO: test settings
     }
 
@@ -91,7 +91,7 @@ public class TlsCertificatesAndHostnamesSslpostOneOfTest {
      * Test the property 'type'
      */
     @Test
-    public void typeTest() {
+    void typeTest() {
         // TODO: test type
     }
 
@@ -99,7 +99,7 @@ public class TlsCertificatesAndHostnamesSslpostOneOfTest {
      * Test the property 'wildcard'
      */
     @Test
-    public void wildcardTest() {
+    void wildcardTest() {
         // TODO: test wildcard
     }
 

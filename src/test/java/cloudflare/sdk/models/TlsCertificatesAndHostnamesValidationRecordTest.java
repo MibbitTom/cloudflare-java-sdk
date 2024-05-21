@@ -13,29 +13,29 @@
 
 package cloudflare.sdk.models;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesValidationRecord
  */
-public class TlsCertificatesAndHostnamesValidationRecordTest {
+class TlsCertificatesAndHostnamesValidationRecordTest {
     private final TlsCertificatesAndHostnamesValidationRecord model = new TlsCertificatesAndHostnamesValidationRecord();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesValidationRecord
      */
     @Test
-    public void testTlsCertificatesAndHostnamesValidationRecord() {
+    void testTlsCertificatesAndHostnamesValidationRecord() {
         // TODO: test TlsCertificatesAndHostnamesValidationRecord
     }
 
@@ -43,7 +43,7 @@ public class TlsCertificatesAndHostnamesValidationRecordTest {
      * Test the property 'emails'
      */
     @Test
-    public void emailsTest() {
+    void emailsTest() {
         // TODO: test emails
     }
 
@@ -51,7 +51,7 @@ public class TlsCertificatesAndHostnamesValidationRecordTest {
      * Test the property 'httpBody'
      */
     @Test
-    public void httpBodyTest() {
+    void httpBodyTest() {
         // TODO: test httpBody
     }
 
@@ -59,7 +59,7 @@ public class TlsCertificatesAndHostnamesValidationRecordTest {
      * Test the property 'httpUrl'
      */
     @Test
-    public void httpUrlTest() {
+    void httpUrlTest() {
         // TODO: test httpUrl
     }
 
@@ -67,7 +67,7 @@ public class TlsCertificatesAndHostnamesValidationRecordTest {
      * Test the property 'txtName'
      */
     @Test
-    public void txtNameTest() {
+    void txtNameTest() {
         // TODO: test txtName
     }
 
@@ -75,7 +75,7 @@ public class TlsCertificatesAndHostnamesValidationRecordTest {
      * Test the property 'txtValue'
      */
     @Test
-    public void txtValueTest() {
+    void txtValueTest() {
         // TODO: test txtValue
     }
 

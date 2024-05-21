@@ -13,125 +13,113 @@
 
 package cloudflare.sdk.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullComponentsSchemasStatus;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import cloudflare.JSON;
 
 /**
  * TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:31:20.290775906+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@JsonPropertyOrder({
+  TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.JSON_PROPERTY_CERT_ID,
+  TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.JSON_PROPERTY_CERTIFICATE,
+  TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.JSON_PROPERTY_ENABLED,
+  TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.JSON_PROPERTY_HOSTNAME,
+  TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.JSON_PROPERTY_ID,
+  TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.JSON_PROPERTY_PRIVATE_KEY,
+  TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.JSON_PROPERTY_CERT_STATUS,
+  TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.JSON_PROPERTY_CERT_UPDATED_AT,
+  TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.JSON_PROPERTY_CERT_UPLOADED_ON,
+  TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.JSON_PROPERTY_CREATED_AT,
+  TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.JSON_PROPERTY_EXPIRES_ON,
+  TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.JSON_PROPERTY_ISSUER,
+  TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.JSON_PROPERTY_SERIAL_NUMBER,
+  TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.JSON_PROPERTY_SIGNATURE,
+  TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.JSON_PROPERTY_STATUS,
+  TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.JSON_PROPERTY_UPDATED_AT
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T10:12:24.693742223+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull {
-  public static final String SERIALIZED_NAME_CERT_ID = "cert_id";
-  @SerializedName(SERIALIZED_NAME_CERT_ID)
+  public static final String JSON_PROPERTY_CERT_ID = "cert_id";
   private String certId;
 
-  public static final String SERIALIZED_NAME_CERTIFICATE = "certificate";
-  @SerializedName(SERIALIZED_NAME_CERTIFICATE)
+  public static final String JSON_PROPERTY_CERTIFICATE = "certificate";
   private String certificate;
 
-  public static final String SERIALIZED_NAME_ENABLED = "enabled";
-  @SerializedName(SERIALIZED_NAME_ENABLED)
-  private Boolean enabled;
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private JsonNullable<Boolean> enabled = JsonNullable.<Boolean>undefined();
 
-  public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
-  @SerializedName(SERIALIZED_NAME_HOSTNAME)
+  public static final String JSON_PROPERTY_HOSTNAME = "hostname";
   private String hostname;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String SERIALIZED_NAME_PRIVATE_KEY = "private_key";
-  @SerializedName(SERIALIZED_NAME_PRIVATE_KEY)
+  public static final String JSON_PROPERTY_PRIVATE_KEY = "private_key";
   private String privateKey;
 
-  public static final String SERIALIZED_NAME_CERT_STATUS = "cert_status";
-  @SerializedName(SERIALIZED_NAME_CERT_STATUS)
+  public static final String JSON_PROPERTY_CERT_STATUS = "cert_status";
   private TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullComponentsSchemasStatus certStatus;
 
-  public static final String SERIALIZED_NAME_CERT_UPDATED_AT = "cert_updated_at";
-  @SerializedName(SERIALIZED_NAME_CERT_UPDATED_AT)
+  public static final String JSON_PROPERTY_CERT_UPDATED_AT = "cert_updated_at";
   private OffsetDateTime certUpdatedAt;
 
-  public static final String SERIALIZED_NAME_CERT_UPLOADED_ON = "cert_uploaded_on";
-  @SerializedName(SERIALIZED_NAME_CERT_UPLOADED_ON)
+  public static final String JSON_PROPERTY_CERT_UPLOADED_ON = "cert_uploaded_on";
   private OffsetDateTime certUploadedOn;
 
-  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
-  public static final String SERIALIZED_NAME_EXPIRES_ON = "expires_on";
-  @SerializedName(SERIALIZED_NAME_EXPIRES_ON)
+  public static final String JSON_PROPERTY_EXPIRES_ON = "expires_on";
   private OffsetDateTime expiresOn;
 
-  public static final String SERIALIZED_NAME_ISSUER = "issuer";
-  @SerializedName(SERIALIZED_NAME_ISSUER)
+  public static final String JSON_PROPERTY_ISSUER = "issuer";
   private String issuer;
 
-  public static final String SERIALIZED_NAME_SERIAL_NUMBER = "serial_number";
-  @SerializedName(SERIALIZED_NAME_SERIAL_NUMBER)
+  public static final String JSON_PROPERTY_SERIAL_NUMBER = "serial_number";
   private String serialNumber;
 
-  public static final String SERIALIZED_NAME_SIGNATURE = "signature";
-  @SerializedName(SERIALIZED_NAME_SIGNATURE)
+  public static final String JSON_PROPERTY_SIGNATURE = "signature";
   private String signature;
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String JSON_PROPERTY_STATUS = "status";
   private TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullComponentsSchemasStatus status;
 
-  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
-  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
   private OffsetDateTime updatedAt;
 
-  public TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull() {
+  public TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull() { 
   }
 
+  @JsonCreator
   public TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull(
-     String certId, 
-     String id, 
-     OffsetDateTime certUpdatedAt, 
-     OffsetDateTime createdAt, 
-     OffsetDateTime expiresOn, 
-     String issuer, 
-     String signature, 
-     OffsetDateTime updatedAt
+    @JsonProperty(JSON_PROPERTY_CERT_ID) String certId, 
+    @JsonProperty(JSON_PROPERTY_ID) String id, 
+    @JsonProperty(JSON_PROPERTY_CERT_UPDATED_AT) OffsetDateTime certUpdatedAt, 
+    @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt, 
+    @JsonProperty(JSON_PROPERTY_EXPIRES_ON) OffsetDateTime expiresOn, 
+    @JsonProperty(JSON_PROPERTY_ISSUER) String issuer, 
+    @JsonProperty(JSON_PROPERTY_SIGNATURE) String signature, 
+    @JsonProperty(JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt
   ) {
-    this();
+  this();
     this.certId = certId;
     this.id = id;
     this.certUpdatedAt = certUpdatedAt;
@@ -147,9 +135,13 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull {
    * @return certId
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CERT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getCertId() {
     return certId;
   }
+
 
 
 
@@ -163,17 +155,23 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull {
    * @return certificate
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CERTIFICATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getCertificate() {
     return certificate;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CERTIFICATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCertificate(String certificate) {
     this.certificate = certificate;
   }
 
 
   public TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull enabled(Boolean enabled) {
-    this.enabled = enabled;
+    this.enabled = JsonNullable.<Boolean>of(enabled);
     return this;
   }
 
@@ -182,12 +180,26 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull {
    * @return enabled
   **/
   @javax.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getEnabled() {
+        return enabled.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getEnabled_JsonNullable() {
     return enabled;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  public void setEnabled_JsonNullable(JsonNullable<Boolean> enabled) {
+    this.enabled = enabled;
   }
 
   public void setEnabled(Boolean enabled) {
-    this.enabled = enabled;
+    this.enabled = JsonNullable.<Boolean>of(enabled);
   }
 
 
@@ -201,10 +213,16 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull {
    * @return hostname
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HOSTNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getHostname() {
     return hostname;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_HOSTNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHostname(String hostname) {
     this.hostname = hostname;
   }
@@ -215,9 +233,13 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull {
    * @return id
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getId() {
     return id;
   }
+
 
 
 
@@ -231,10 +253,16 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull {
    * @return privateKey
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRIVATE_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getPrivateKey() {
     return privateKey;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_PRIVATE_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrivateKey(String privateKey) {
     this.privateKey = privateKey;
   }
@@ -250,10 +278,16 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull {
    * @return certStatus
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CERT_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullComponentsSchemasStatus getCertStatus() {
     return certStatus;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CERT_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCertStatus(TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullComponentsSchemasStatus certStatus) {
     this.certStatus = certStatus;
   }
@@ -264,9 +298,13 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull {
    * @return certUpdatedAt
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CERT_UPDATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public OffsetDateTime getCertUpdatedAt() {
     return certUpdatedAt;
   }
+
 
 
 
@@ -280,10 +318,16 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull {
    * @return certUploadedOn
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CERT_UPLOADED_ON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public OffsetDateTime getCertUploadedOn() {
     return certUploadedOn;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CERT_UPLOADED_ON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCertUploadedOn(OffsetDateTime certUploadedOn) {
     this.certUploadedOn = certUploadedOn;
   }
@@ -294,9 +338,13 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull {
    * @return createdAt
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
+
 
 
 
@@ -305,9 +353,13 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull {
    * @return expiresOn
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXPIRES_ON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public OffsetDateTime getExpiresOn() {
     return expiresOn;
   }
+
 
 
 
@@ -316,9 +368,13 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull {
    * @return issuer
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ISSUER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getIssuer() {
     return issuer;
   }
+
 
 
 
@@ -332,10 +388,16 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull {
    * @return serialNumber
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getSerialNumber() {
     return serialNumber;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSerialNumber(String serialNumber) {
     this.serialNumber = serialNumber;
   }
@@ -346,9 +408,13 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull {
    * @return signature
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIGNATURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getSignature() {
     return signature;
   }
+
 
 
 
@@ -362,10 +428,16 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull {
    * @return status
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullComponentsSchemasStatus getStatus() {
     return status;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullComponentsSchemasStatus status) {
     this.status = status;
   }
@@ -376,6 +448,9 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull {
    * @return updatedAt
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
@@ -383,6 +458,9 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull {
 
 
 
+  /**
+   * Return true if this tls-certificates-and-hostnames_hostname-authenticated-origin-pull object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -394,7 +472,7 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull {
     TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull tlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull = (TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull) o;
     return Objects.equals(this.certId, tlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.certId) &&
         Objects.equals(this.certificate, tlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.certificate) &&
-        Objects.equals(this.enabled, tlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.enabled) &&
+        equalsNullable(this.enabled, tlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.enabled) &&
         Objects.equals(this.hostname, tlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.hostname) &&
         Objects.equals(this.id, tlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.id) &&
         Objects.equals(this.privateKey, tlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.privateKey) &&
@@ -416,7 +494,7 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certId, certificate, enabled, hostname, id, privateKey, certStatus, certUpdatedAt, certUploadedOn, createdAt, expiresOn, issuer, serialNumber, signature, status, updatedAt);
+    return Objects.hash(certId, certificate, hashCodeNullable(enabled), hostname, id, privateKey, certStatus, certUpdatedAt, certUploadedOn, createdAt, expiresOn, issuer, serialNumber, signature, status, updatedAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -461,134 +539,109 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("cert_id");
-    openapiFields.add("cert_status");
-    openapiFields.add("cert_updated_at");
-    openapiFields.add("cert_uploaded_on");
-    openapiFields.add("certificate");
-    openapiFields.add("created_at");
-    openapiFields.add("enabled");
-    openapiFields.add("expires_on");
-    openapiFields.add("hostname");
-    openapiFields.add("issuer");
-    openapiFields.add("serial_number");
-    openapiFields.add("signature");
-    openapiFields.add("status");
-    openapiFields.add("updated_at");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull
-  */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull is not found in the empty JSON string", TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("cert_id") != null && !jsonObj.get("cert_id").isJsonNull()) && !jsonObj.get("cert_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cert_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cert_id").toString()));
-      }
-      if ((jsonObj.get("certificate") != null && !jsonObj.get("certificate").isJsonNull()) && !jsonObj.get("certificate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate").toString()));
-      }
-      if ((jsonObj.get("hostname") != null && !jsonObj.get("hostname").isJsonNull()) && !jsonObj.get("hostname").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));
-      }
-      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if ((jsonObj.get("private_key") != null && !jsonObj.get("private_key").isJsonNull()) && !jsonObj.get("private_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `private_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("private_key").toString()));
-      }
-      // validate the optional field `cert_status`
-      if (jsonObj.get("cert_status") != null && !jsonObj.get("cert_status").isJsonNull()) {
-        TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullComponentsSchemasStatus.validateJsonElement(jsonObj.get("cert_status"));
-      }
-      if ((jsonObj.get("issuer") != null && !jsonObj.get("issuer").isJsonNull()) && !jsonObj.get("issuer").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuer").toString()));
-      }
-      if ((jsonObj.get("serial_number") != null && !jsonObj.get("serial_number").isJsonNull()) && !jsonObj.get("serial_number").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `serial_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serial_number").toString()));
-      }
-      if ((jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) && !jsonObj.get("signature").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
-      }
-      // validate the optional field `status`
-      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
-        TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullComponentsSchemasStatus.validateJsonElement(jsonObj.get("status"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull>() {
-           @Override
-           public void write(JsonWriter out, TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
     }
-  }
 
- /**
-  * Create an instance of TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull
-  * @throws IOException if the JSON string is invalid with respect to TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull
-  */
-  public static TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull.class);
-  }
+    StringJoiner joiner = new StringJoiner("&");
 
- /**
-  * Convert an instance of TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+    // add `cert_id` to the URL query string
+    if (getCertId() != null) {
+      joiner.add(String.format("%scert_id%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCertId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `cert_status` to the URL query string
+    if (getCertStatus() != null) {
+      joiner.add(String.format("%scert_status%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCertStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `cert_updated_at` to the URL query string
+    if (getCertUpdatedAt() != null) {
+      joiner.add(String.format("%scert_updated_at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCertUpdatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `cert_uploaded_on` to the URL query string
+    if (getCertUploadedOn() != null) {
+      joiner.add(String.format("%scert_uploaded_on%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCertUploadedOn()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `certificate` to the URL query string
+    if (getCertificate() != null) {
+      joiner.add(String.format("%scertificate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCertificate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `created_at` to the URL query string
+    if (getCreatedAt() != null) {
+      joiner.add(String.format("%screated_at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `enabled` to the URL query string
+    if (getEnabled() != null) {
+      joiner.add(String.format("%senabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEnabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `expires_on` to the URL query string
+    if (getExpiresOn() != null) {
+      joiner.add(String.format("%sexpires_on%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpiresOn()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `hostname` to the URL query string
+    if (getHostname() != null) {
+      joiner.add(String.format("%shostname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHostname()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `issuer` to the URL query string
+    if (getIssuer() != null) {
+      joiner.add(String.format("%sissuer%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIssuer()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `serial_number` to the URL query string
+    if (getSerialNumber() != null) {
+      joiner.add(String.format("%sserial_number%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSerialNumber()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `signature` to the URL query string
+    if (getSignature() != null) {
+      joiner.add(String.format("%ssignature%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSignature()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `status` to the URL query string
+    if (getStatus() != null) {
+      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `updated_at` to the URL query string
+    if (getUpdatedAt() != null) {
+      joiner.add(String.format("%supdated_at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
   }
 }
 

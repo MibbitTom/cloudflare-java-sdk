@@ -13,27 +13,27 @@
 
 package cloudflare.sdk.models;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesAssociationObject
  */
-public class TlsCertificatesAndHostnamesAssociationObjectTest {
+class TlsCertificatesAndHostnamesAssociationObjectTest {
     private final TlsCertificatesAndHostnamesAssociationObject model = new TlsCertificatesAndHostnamesAssociationObject();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesAssociationObject
      */
     @Test
-    public void testTlsCertificatesAndHostnamesAssociationObject() {
+    void testTlsCertificatesAndHostnamesAssociationObject() {
         // TODO: test TlsCertificatesAndHostnamesAssociationObject
     }
 
@@ -41,7 +41,7 @@ public class TlsCertificatesAndHostnamesAssociationObjectTest {
      * Test the property 'service'
      */
     @Test
-    public void serviceTest() {
+    void serviceTest() {
         // TODO: test service
     }
 
@@ -49,7 +49,7 @@ public class TlsCertificatesAndHostnamesAssociationObjectTest {
      * Test the property 'status'
      */
     @Test
-    public void statusTest() {
+    void statusTest() {
         // TODO: test status
     }
 

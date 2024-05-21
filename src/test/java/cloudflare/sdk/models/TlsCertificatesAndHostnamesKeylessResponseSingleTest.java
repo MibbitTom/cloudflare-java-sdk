@@ -13,30 +13,30 @@
 
 package cloudflare.sdk.models;
 
-import cloudflare.sdk.models.AaaMessagesInner;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import cloudflare.sdk.models.TlsCertificatesAndHostnamesMessagesInner;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesKeylessResponseSingle
  */
-public class TlsCertificatesAndHostnamesKeylessResponseSingleTest {
+class TlsCertificatesAndHostnamesKeylessResponseSingleTest {
     private final TlsCertificatesAndHostnamesKeylessResponseSingle model = new TlsCertificatesAndHostnamesKeylessResponseSingle();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesKeylessResponseSingle
      */
     @Test
-    public void testTlsCertificatesAndHostnamesKeylessResponseSingle() {
+    void testTlsCertificatesAndHostnamesKeylessResponseSingle() {
         // TODO: test TlsCertificatesAndHostnamesKeylessResponseSingle
     }
 
@@ -44,7 +44,7 @@ public class TlsCertificatesAndHostnamesKeylessResponseSingleTest {
      * Test the property 'errors'
      */
     @Test
-    public void errorsTest() {
+    void errorsTest() {
         // TODO: test errors
     }
 
@@ -52,24 +52,24 @@ public class TlsCertificatesAndHostnamesKeylessResponseSingleTest {
      * Test the property 'messages'
      */
     @Test
-    public void messagesTest() {
+    void messagesTest() {
         // TODO: test messages
-    }
-
-    /**
-     * Test the property 'result'
-     */
-    @Test
-    public void resultTest() {
-        // TODO: test result
     }
 
     /**
      * Test the property 'success'
      */
     @Test
-    public void successTest() {
+    void successTest() {
         // TODO: test success
+    }
+
+    /**
+     * Test the property 'result'
+     */
+    @Test
+    void resultTest() {
+        // TODO: test result
     }
 
 }

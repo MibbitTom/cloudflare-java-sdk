@@ -15,30 +15,30 @@ package cloudflare.sdk.models;
 
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesRequestType;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesRequestedValidity;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesCertificates
  */
-public class TlsCertificatesAndHostnamesCertificatesTest {
+class TlsCertificatesAndHostnamesCertificatesTest {
     private final TlsCertificatesAndHostnamesCertificates model = new TlsCertificatesAndHostnamesCertificates();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesCertificates
      */
     @Test
-    public void testTlsCertificatesAndHostnamesCertificates() {
+    void testTlsCertificatesAndHostnamesCertificates() {
         // TODO: test TlsCertificatesAndHostnamesCertificates
     }
 
@@ -46,7 +46,7 @@ public class TlsCertificatesAndHostnamesCertificatesTest {
      * Test the property 'certificate'
      */
     @Test
-    public void certificateTest() {
+    void certificateTest() {
         // TODO: test certificate
     }
 
@@ -54,7 +54,7 @@ public class TlsCertificatesAndHostnamesCertificatesTest {
      * Test the property 'csr'
      */
     @Test
-    public void csrTest() {
+    void csrTest() {
         // TODO: test csr
     }
 
@@ -62,7 +62,7 @@ public class TlsCertificatesAndHostnamesCertificatesTest {
      * Test the property 'expiresOn'
      */
     @Test
-    public void expiresOnTest() {
+    void expiresOnTest() {
         // TODO: test expiresOn
     }
 
@@ -70,7 +70,7 @@ public class TlsCertificatesAndHostnamesCertificatesTest {
      * Test the property 'hostnames'
      */
     @Test
-    public void hostnamesTest() {
+    void hostnamesTest() {
         // TODO: test hostnames
     }
 
@@ -78,7 +78,7 @@ public class TlsCertificatesAndHostnamesCertificatesTest {
      * Test the property 'id'
      */
     @Test
-    public void idTest() {
+    void idTest() {
         // TODO: test id
     }
 
@@ -86,7 +86,7 @@ public class TlsCertificatesAndHostnamesCertificatesTest {
      * Test the property 'requestType'
      */
     @Test
-    public void requestTypeTest() {
+    void requestTypeTest() {
         // TODO: test requestType
     }
 
@@ -94,7 +94,7 @@ public class TlsCertificatesAndHostnamesCertificatesTest {
      * Test the property 'requestedValidity'
      */
     @Test
-    public void requestedValidityTest() {
+    void requestedValidityTest() {
         // TODO: test requestedValidity
     }
 

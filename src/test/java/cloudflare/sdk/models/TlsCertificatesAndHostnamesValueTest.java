@@ -13,22 +13,24 @@
 
 package cloudflare.sdk.models;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.math.BigDecimal;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesValue
  */
-public class TlsCertificatesAndHostnamesValueTest {
+class TlsCertificatesAndHostnamesValueTest {
     private final TlsCertificatesAndHostnamesValue model = new TlsCertificatesAndHostnamesValue();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesValue
      */
     @Test
-    public void testTlsCertificatesAndHostnamesValue() {
+    void testTlsCertificatesAndHostnamesValue() {
         // TODO: test TlsCertificatesAndHostnamesValue
     }
 

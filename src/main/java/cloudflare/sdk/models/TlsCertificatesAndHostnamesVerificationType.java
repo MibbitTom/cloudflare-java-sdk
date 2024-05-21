@@ -13,20 +13,21 @@
 
 package cloudflare.sdk.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.JsonElement;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Method of verification.
  */
-@JsonAdapter(TlsCertificatesAndHostnamesVerificationType.Adapter.class)
 public enum TlsCertificatesAndHostnamesVerificationType {
   
   CNAME("cname"),
@@ -39,6 +40,7 @@ public enum TlsCertificatesAndHostnamesVerificationType {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -48,6 +50,7 @@ public enum TlsCertificatesAndHostnamesVerificationType {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static TlsCertificatesAndHostnamesVerificationType fromValue(String value) {
     for (TlsCertificatesAndHostnamesVerificationType b : TlsCertificatesAndHostnamesVerificationType.values()) {
       if (b.value.equals(value)) {
@@ -57,22 +60,19 @@ public enum TlsCertificatesAndHostnamesVerificationType {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 
-  public static class Adapter extends TypeAdapter<TlsCertificatesAndHostnamesVerificationType> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final TlsCertificatesAndHostnamesVerificationType enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    if (prefix == null) {
+      prefix = "";
     }
 
-    @Override
-    public TlsCertificatesAndHostnamesVerificationType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return TlsCertificatesAndHostnamesVerificationType.fromValue(value);
-    }
+    return String.format("%s=%s", prefix, this.toString());
   }
 
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    TlsCertificatesAndHostnamesVerificationType.fromValue(value);
-  }
 }
 

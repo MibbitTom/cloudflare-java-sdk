@@ -13,30 +13,30 @@
 
 package cloudflare.sdk.models;
 
-import cloudflare.sdk.models.AaaMessagesInner;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import cloudflare.sdk.models.TlsCertificatesAndHostnamesMessagesInner;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse
  */
-public class CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponseTest {
+class CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponseTest {
     private final CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse model = new CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse();
 
     /**
      * Model tests for CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse
      */
     @Test
-    public void testCustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse() {
+    void testCustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse() {
         // TODO: test CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse
     }
 
@@ -44,7 +44,7 @@ public class CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificat
      * Test the property 'errors'
      */
     @Test
-    public void errorsTest() {
+    void errorsTest() {
         // TODO: test errors
     }
 
@@ -52,7 +52,7 @@ public class CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificat
      * Test the property 'messages'
      */
     @Test
-    public void messagesTest() {
+    void messagesTest() {
         // TODO: test messages
     }
 
@@ -60,7 +60,7 @@ public class CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificat
      * Test the property 'result'
      */
     @Test
-    public void resultTest() {
+    void resultTest() {
         // TODO: test result
     }
 
@@ -68,7 +68,7 @@ public class CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificat
      * Test the property 'success'
      */
     @Test
-    public void successTest() {
+    void successTest() {
         // TODO: test success
     }
 
@@ -76,7 +76,7 @@ public class CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificat
      * Test the property 'id'
      */
     @Test
-    public void idTest() {
+    void idTest() {
         // TODO: test id
     }
 

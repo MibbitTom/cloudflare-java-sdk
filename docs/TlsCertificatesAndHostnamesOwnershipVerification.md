@@ -4,21 +4,27 @@
 
 This is a record which can be placed to activate a hostname.
 
-## Properties
+## oneOf schemas
+* [TlsCertificatesAndHostnamesOwnershipVerificationOneOf](TlsCertificatesAndHostnamesOwnershipVerificationOneOf.md)
 
-| Name | Type | Description | Notes |
-|------------ | ------------- | ------------- | -------------|
-|**name** | **String** | DNS Name for record. |  [optional] |
-|**type** | [**TypeEnum**](#TypeEnum) | DNS Record type. |  [optional] |
-|**value** | **String** | Content for the record. |  [optional] |
+## Example
+```java
+// Import classes:
+import cloudflare.sdk.models.TlsCertificatesAndHostnamesOwnershipVerification;
+import cloudflare.sdk.models.TlsCertificatesAndHostnamesOwnershipVerificationOneOf;
 
+public class Example {
+    public static void main(String[] args) {
+        TlsCertificatesAndHostnamesOwnershipVerification exampleTlsCertificatesAndHostnamesOwnershipVerification = new TlsCertificatesAndHostnamesOwnershipVerification();
 
-
-## Enum: TypeEnum
-
-| Name | Value |
-|---- | -----|
-| TXT | &quot;txt&quot; |
-
+        // create a new TlsCertificatesAndHostnamesOwnershipVerificationOneOf
+        TlsCertificatesAndHostnamesOwnershipVerificationOneOf exampleTlsCertificatesAndHostnamesOwnershipVerificationOneOf = new TlsCertificatesAndHostnamesOwnershipVerificationOneOf();
+        // set TlsCertificatesAndHostnamesOwnershipVerification to TlsCertificatesAndHostnamesOwnershipVerificationOneOf
+        exampleTlsCertificatesAndHostnamesOwnershipVerification.setActualInstance(exampleTlsCertificatesAndHostnamesOwnershipVerificationOneOf);
+        // to get back the TlsCertificatesAndHostnamesOwnershipVerificationOneOf set earlier
+        TlsCertificatesAndHostnamesOwnershipVerificationOneOf testTlsCertificatesAndHostnamesOwnershipVerificationOneOf = (TlsCertificatesAndHostnamesOwnershipVerificationOneOf) exampleTlsCertificatesAndHostnamesOwnershipVerification.getActualInstance();
+    }
+}
+```
 
 

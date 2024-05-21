@@ -13,54 +13,42 @@
 
 package cloudflare.sdk.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import cloudflare.JSON;
 
 /**
  * SSL specific settings.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:31:20.290775906+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@JsonPropertyOrder({
+  TlsCertificatesAndHostnamesSslsettings.JSON_PROPERTY_CIPHERS,
+  TlsCertificatesAndHostnamesSslsettings.JSON_PROPERTY_EARLY_HINTS,
+  TlsCertificatesAndHostnamesSslsettings.JSON_PROPERTY_HTTP2,
+  TlsCertificatesAndHostnamesSslsettings.JSON_PROPERTY_MIN_TLS_VERSION,
+  TlsCertificatesAndHostnamesSslsettings.JSON_PROPERTY_TLS13
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T10:12:24.693742223+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class TlsCertificatesAndHostnamesSslsettings {
-  public static final String SERIALIZED_NAME_CIPHERS = "ciphers";
-  @SerializedName(SERIALIZED_NAME_CIPHERS)
+  public static final String JSON_PROPERTY_CIPHERS = "ciphers";
   private Set<String> ciphers = new LinkedHashSet<>();
 
   /**
    * Whether or not Early Hints is enabled.
    */
-  @JsonAdapter(EarlyHintsEnum.Adapter.class)
   public enum EarlyHintsEnum {
     ON("on"),
     
@@ -72,6 +60,7 @@ public class TlsCertificatesAndHostnamesSslsettings {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -81,6 +70,7 @@ public class TlsCertificatesAndHostnamesSslsettings {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static EarlyHintsEnum fromValue(String value) {
       for (EarlyHintsEnum b : EarlyHintsEnum.values()) {
         if (b.value.equals(value)) {
@@ -89,34 +79,14 @@ public class TlsCertificatesAndHostnamesSslsettings {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<EarlyHintsEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final EarlyHintsEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public EarlyHintsEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return EarlyHintsEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      EarlyHintsEnum.fromValue(value);
-    }
   }
 
-  public static final String SERIALIZED_NAME_EARLY_HINTS = "early_hints";
-  @SerializedName(SERIALIZED_NAME_EARLY_HINTS)
+  public static final String JSON_PROPERTY_EARLY_HINTS = "early_hints";
   private EarlyHintsEnum earlyHints;
 
   /**
    * Whether or not HTTP2 is enabled.
    */
-  @JsonAdapter(Http2Enum.Adapter.class)
   public enum Http2Enum {
     ON("on"),
     
@@ -128,6 +98,7 @@ public class TlsCertificatesAndHostnamesSslsettings {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -137,6 +108,7 @@ public class TlsCertificatesAndHostnamesSslsettings {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static Http2Enum fromValue(String value) {
       for (Http2Enum b : Http2Enum.values()) {
         if (b.value.equals(value)) {
@@ -145,34 +117,14 @@ public class TlsCertificatesAndHostnamesSslsettings {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<Http2Enum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final Http2Enum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public Http2Enum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return Http2Enum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      Http2Enum.fromValue(value);
-    }
   }
 
-  public static final String SERIALIZED_NAME_HTTP2 = "http2";
-  @SerializedName(SERIALIZED_NAME_HTTP2)
+  public static final String JSON_PROPERTY_HTTP2 = "http2";
   private Http2Enum http2;
 
   /**
    * The minimum TLS version supported.
    */
-  @JsonAdapter(MinTlsVersionEnum.Adapter.class)
   public enum MinTlsVersionEnum {
     _0("1.0"),
     
@@ -188,6 +140,7 @@ public class TlsCertificatesAndHostnamesSslsettings {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -197,6 +150,7 @@ public class TlsCertificatesAndHostnamesSslsettings {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static MinTlsVersionEnum fromValue(String value) {
       for (MinTlsVersionEnum b : MinTlsVersionEnum.values()) {
         if (b.value.equals(value)) {
@@ -205,34 +159,14 @@ public class TlsCertificatesAndHostnamesSslsettings {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<MinTlsVersionEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final MinTlsVersionEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public MinTlsVersionEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return MinTlsVersionEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      MinTlsVersionEnum.fromValue(value);
-    }
   }
 
-  public static final String SERIALIZED_NAME_MIN_TLS_VERSION = "min_tls_version";
-  @SerializedName(SERIALIZED_NAME_MIN_TLS_VERSION)
+  public static final String JSON_PROPERTY_MIN_TLS_VERSION = "min_tls_version";
   private MinTlsVersionEnum minTlsVersion;
 
   /**
    * Whether or not TLS 1.3 is enabled.
    */
-  @JsonAdapter(Tls13Enum.Adapter.class)
   public enum Tls13Enum {
     ON("on"),
     
@@ -244,6 +178,7 @@ public class TlsCertificatesAndHostnamesSslsettings {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -253,6 +188,7 @@ public class TlsCertificatesAndHostnamesSslsettings {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static Tls13Enum fromValue(String value) {
       for (Tls13Enum b : Tls13Enum.values()) {
         if (b.value.equals(value)) {
@@ -261,31 +197,12 @@ public class TlsCertificatesAndHostnamesSslsettings {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<Tls13Enum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final Tls13Enum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public Tls13Enum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return Tls13Enum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      Tls13Enum.fromValue(value);
-    }
   }
 
-  public static final String SERIALIZED_NAME_TLS13 = "tls_1_3";
-  @SerializedName(SERIALIZED_NAME_TLS13)
+  public static final String JSON_PROPERTY_TLS13 = "tls_1_3";
   private Tls13Enum tls13;
 
-  public TlsCertificatesAndHostnamesSslsettings() {
+  public TlsCertificatesAndHostnamesSslsettings() { 
   }
 
   public TlsCertificatesAndHostnamesSslsettings ciphers(Set<String> ciphers) {
@@ -306,10 +223,17 @@ public class TlsCertificatesAndHostnamesSslsettings {
    * @return ciphers
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CIPHERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Set<String> getCiphers() {
     return ciphers;
   }
 
+
+  @JsonDeserialize(as = LinkedHashSet.class)
+  @JsonProperty(JSON_PROPERTY_CIPHERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCiphers(Set<String> ciphers) {
     this.ciphers = ciphers;
   }
@@ -325,10 +249,16 @@ public class TlsCertificatesAndHostnamesSslsettings {
    * @return earlyHints
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EARLY_HINTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public EarlyHintsEnum getEarlyHints() {
     return earlyHints;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_EARLY_HINTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEarlyHints(EarlyHintsEnum earlyHints) {
     this.earlyHints = earlyHints;
   }
@@ -344,10 +274,16 @@ public class TlsCertificatesAndHostnamesSslsettings {
    * @return http2
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HTTP2)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Http2Enum getHttp2() {
     return http2;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_HTTP2)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHttp2(Http2Enum http2) {
     this.http2 = http2;
   }
@@ -363,10 +299,16 @@ public class TlsCertificatesAndHostnamesSslsettings {
    * @return minTlsVersion
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MIN_TLS_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public MinTlsVersionEnum getMinTlsVersion() {
     return minTlsVersion;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_MIN_TLS_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMinTlsVersion(MinTlsVersionEnum minTlsVersion) {
     this.minTlsVersion = minTlsVersion;
   }
@@ -382,16 +324,24 @@ public class TlsCertificatesAndHostnamesSslsettings {
    * @return tls13
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TLS13)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Tls13Enum getTls13() {
     return tls13;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TLS13)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTls13(Tls13Enum tls13) {
     this.tls13 = tls13;
   }
 
 
-
+  /**
+   * Return true if this tls-certificates-and-hostnames_sslsettings object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -437,125 +387,70 @@ public class TlsCertificatesAndHostnamesSslsettings {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("ciphers");
-    openapiFields.add("early_hints");
-    openapiFields.add("http2");
-    openapiFields.add("min_tls_version");
-    openapiFields.add("tls_1_3");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TlsCertificatesAndHostnamesSslsettings
-  */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TlsCertificatesAndHostnamesSslsettings.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TlsCertificatesAndHostnamesSslsettings is not found in the empty JSON string", TlsCertificatesAndHostnamesSslsettings.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TlsCertificatesAndHostnamesSslsettings.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TlsCertificatesAndHostnamesSslsettings` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("ciphers") != null && !jsonObj.get("ciphers").isJsonNull() && !jsonObj.get("ciphers").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ciphers` to be an array in the JSON string but got `%s`", jsonObj.get("ciphers").toString()));
-      }
-      if ((jsonObj.get("early_hints") != null && !jsonObj.get("early_hints").isJsonNull()) && !jsonObj.get("early_hints").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `early_hints` to be a primitive type in the JSON string but got `%s`", jsonObj.get("early_hints").toString()));
-      }
-      // validate the optional field `early_hints`
-      if (jsonObj.get("early_hints") != null && !jsonObj.get("early_hints").isJsonNull()) {
-        EarlyHintsEnum.validateJsonElement(jsonObj.get("early_hints"));
-      }
-      if ((jsonObj.get("http2") != null && !jsonObj.get("http2").isJsonNull()) && !jsonObj.get("http2").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `http2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("http2").toString()));
-      }
-      // validate the optional field `http2`
-      if (jsonObj.get("http2") != null && !jsonObj.get("http2").isJsonNull()) {
-        Http2Enum.validateJsonElement(jsonObj.get("http2"));
-      }
-      if ((jsonObj.get("min_tls_version") != null && !jsonObj.get("min_tls_version").isJsonNull()) && !jsonObj.get("min_tls_version").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `min_tls_version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("min_tls_version").toString()));
-      }
-      // validate the optional field `min_tls_version`
-      if (jsonObj.get("min_tls_version") != null && !jsonObj.get("min_tls_version").isJsonNull()) {
-        MinTlsVersionEnum.validateJsonElement(jsonObj.get("min_tls_version"));
-      }
-      if ((jsonObj.get("tls_1_3") != null && !jsonObj.get("tls_1_3").isJsonNull()) && !jsonObj.get("tls_1_3").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tls_1_3` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tls_1_3").toString()));
-      }
-      // validate the optional field `tls_1_3`
-      if (jsonObj.get("tls_1_3") != null && !jsonObj.get("tls_1_3").isJsonNull()) {
-        Tls13Enum.validateJsonElement(jsonObj.get("tls_1_3"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TlsCertificatesAndHostnamesSslsettings.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TlsCertificatesAndHostnamesSslsettings' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TlsCertificatesAndHostnamesSslsettings> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TlsCertificatesAndHostnamesSslsettings.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TlsCertificatesAndHostnamesSslsettings>() {
-           @Override
-           public void write(JsonWriter out, TlsCertificatesAndHostnamesSslsettings value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TlsCertificatesAndHostnamesSslsettings read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
     }
-  }
 
- /**
-  * Create an instance of TlsCertificatesAndHostnamesSslsettings given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TlsCertificatesAndHostnamesSslsettings
-  * @throws IOException if the JSON string is invalid with respect to TlsCertificatesAndHostnamesSslsettings
-  */
-  public static TlsCertificatesAndHostnamesSslsettings fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TlsCertificatesAndHostnamesSslsettings.class);
-  }
+    StringJoiner joiner = new StringJoiner("&");
 
- /**
-  * Convert an instance of TlsCertificatesAndHostnamesSslsettings to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+    // add `ciphers` to the URL query string
+    if (getCiphers() != null) {
+      int i = 0;
+      for (String _item : getCiphers()) {
+        joiner.add(String.format("%sciphers%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+      i++;
+    }
+
+    // add `early_hints` to the URL query string
+    if (getEarlyHints() != null) {
+      joiner.add(String.format("%searly_hints%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEarlyHints()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `http2` to the URL query string
+    if (getHttp2() != null) {
+      joiner.add(String.format("%shttp2%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHttp2()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `min_tls_version` to the URL query string
+    if (getMinTlsVersion() != null) {
+      joiner.add(String.format("%smin_tls_version%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMinTlsVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `tls_1_3` to the URL query string
+    if (getTls13() != null) {
+      joiner.add(String.format("%stls_1_3%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTls13()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
   }
 }
 

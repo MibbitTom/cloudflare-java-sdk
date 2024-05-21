@@ -13,29 +13,32 @@
 
 package cloudflare.sdk.models;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAllOfResultInfo
  */
-public class TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAllOfResultInfoTest {
+class TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAllOfResultInfoTest {
     private final TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAllOfResultInfo model = new TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAllOfResultInfo();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAllOfResultInfo
      */
     @Test
-    public void testTlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAllOfResultInfo() {
+    void testTlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAllOfResultInfo() {
         // TODO: test TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAllOfResultInfo
     }
 
@@ -43,7 +46,7 @@ public class TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAll
      * Test the property 'count'
      */
     @Test
-    public void countTest() {
+    void countTest() {
         // TODO: test count
     }
 
@@ -51,7 +54,7 @@ public class TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAll
      * Test the property 'page'
      */
     @Test
-    public void pageTest() {
+    void pageTest() {
         // TODO: test page
     }
 
@@ -59,7 +62,7 @@ public class TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAll
      * Test the property 'perPage'
      */
     @Test
-    public void perPageTest() {
+    void perPageTest() {
         // TODO: test perPage
     }
 
@@ -67,7 +70,7 @@ public class TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAll
      * Test the property 'totalCount'
      */
     @Test
-    public void totalCountTest() {
+    void totalCountTest() {
         // TODO: test totalCount
     }
 
@@ -75,7 +78,7 @@ public class TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAll
      * Test the property 'totalPages'
      */
     @Test
-    public void totalPagesTest() {
+    void totalPagesTest() {
         // TODO: test totalPages
     }
 

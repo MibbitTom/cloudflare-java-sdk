@@ -13,77 +13,65 @@
 
 package cloudflare.sdk.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import cloudflare.sdk.models.AaaMessagesInner;
+import java.util.Map;
+import java.util.HashMap;
+import cloudflare.sdk.models.TlsCertificatesAndHostnamesMessagesInner;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesResultInfo;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import cloudflare.JSON;
 
 /**
  * TlsCertificatesAndHostnamesApiResponseCollection
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:31:20.290775906+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@JsonPropertyOrder({
+  TlsCertificatesAndHostnamesApiResponseCollection.JSON_PROPERTY_ERRORS,
+  TlsCertificatesAndHostnamesApiResponseCollection.JSON_PROPERTY_MESSAGES,
+  TlsCertificatesAndHostnamesApiResponseCollection.JSON_PROPERTY_SUCCESS,
+  TlsCertificatesAndHostnamesApiResponseCollection.JSON_PROPERTY_RESULT,
+  TlsCertificatesAndHostnamesApiResponseCollection.JSON_PROPERTY_RESULT_INFO
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T10:12:24.693742223+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class TlsCertificatesAndHostnamesApiResponseCollection {
-  public static final String SERIALIZED_NAME_ERRORS = "errors";
-  @SerializedName(SERIALIZED_NAME_ERRORS)
-  private List<AaaMessagesInner> errors = new ArrayList<>();
+  public static final String JSON_PROPERTY_ERRORS = "errors";
+  private List<TlsCertificatesAndHostnamesMessagesInner> errors = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_MESSAGES = "messages";
-  @SerializedName(SERIALIZED_NAME_MESSAGES)
-  private List<AaaMessagesInner> messages = new ArrayList<>();
+  public static final String JSON_PROPERTY_MESSAGES = "messages";
+  private List<TlsCertificatesAndHostnamesMessagesInner> messages = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_RESULT = "result";
-  @SerializedName(SERIALIZED_NAME_RESULT)
-  private List<Object> result;
-
-  public static final String SERIALIZED_NAME_SUCCESS = "success";
-  @SerializedName(SERIALIZED_NAME_SUCCESS)
+  public static final String JSON_PROPERTY_SUCCESS = "success";
   private Boolean success;
 
-  public static final String SERIALIZED_NAME_RESULT_INFO = "result_info";
-  @SerializedName(SERIALIZED_NAME_RESULT_INFO)
+  public static final String JSON_PROPERTY_RESULT = "result";
+  private JsonNullable<List<Object>> result = JsonNullable.<List<Object>>undefined();
+
+  public static final String JSON_PROPERTY_RESULT_INFO = "result_info";
   private TlsCertificatesAndHostnamesResultInfo resultInfo;
 
-  public TlsCertificatesAndHostnamesApiResponseCollection() {
+  public TlsCertificatesAndHostnamesApiResponseCollection() { 
   }
 
-  public TlsCertificatesAndHostnamesApiResponseCollection errors(List<AaaMessagesInner> errors) {
+  public TlsCertificatesAndHostnamesApiResponseCollection errors(List<TlsCertificatesAndHostnamesMessagesInner> errors) {
     this.errors = errors;
     return this;
   }
 
-  public TlsCertificatesAndHostnamesApiResponseCollection addErrorsItem(AaaMessagesInner errorsItem) {
+  public TlsCertificatesAndHostnamesApiResponseCollection addErrorsItem(TlsCertificatesAndHostnamesMessagesInner errorsItem) {
     if (this.errors == null) {
       this.errors = new ArrayList<>();
     }
@@ -96,21 +84,27 @@ public class TlsCertificatesAndHostnamesApiResponseCollection {
    * @return errors
   **/
   @javax.annotation.Nonnull
-  public List<AaaMessagesInner> getErrors() {
+  @JsonProperty(JSON_PROPERTY_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<TlsCertificatesAndHostnamesMessagesInner> getErrors() {
     return errors;
   }
 
-  public void setErrors(List<AaaMessagesInner> errors) {
+
+  @JsonProperty(JSON_PROPERTY_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setErrors(List<TlsCertificatesAndHostnamesMessagesInner> errors) {
     this.errors = errors;
   }
 
 
-  public TlsCertificatesAndHostnamesApiResponseCollection messages(List<AaaMessagesInner> messages) {
+  public TlsCertificatesAndHostnamesApiResponseCollection messages(List<TlsCertificatesAndHostnamesMessagesInner> messages) {
     this.messages = messages;
     return this;
   }
 
-  public TlsCertificatesAndHostnamesApiResponseCollection addMessagesItem(AaaMessagesInner messagesItem) {
+  public TlsCertificatesAndHostnamesApiResponseCollection addMessagesItem(TlsCertificatesAndHostnamesMessagesInner messagesItem) {
     if (this.messages == null) {
       this.messages = new ArrayList<>();
     }
@@ -123,39 +117,18 @@ public class TlsCertificatesAndHostnamesApiResponseCollection {
    * @return messages
   **/
   @javax.annotation.Nonnull
-  public List<AaaMessagesInner> getMessages() {
+  @JsonProperty(JSON_PROPERTY_MESSAGES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<TlsCertificatesAndHostnamesMessagesInner> getMessages() {
     return messages;
   }
 
-  public void setMessages(List<AaaMessagesInner> messages) {
+
+  @JsonProperty(JSON_PROPERTY_MESSAGES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setMessages(List<TlsCertificatesAndHostnamesMessagesInner> messages) {
     this.messages = messages;
-  }
-
-
-  public TlsCertificatesAndHostnamesApiResponseCollection result(List<Object> result) {
-    this.result = result;
-    return this;
-  }
-
-  public TlsCertificatesAndHostnamesApiResponseCollection addResultItem(Object resultItem) {
-    if (this.result == null) {
-      this.result = new ArrayList<>();
-    }
-    this.result.add(resultItem);
-    return this;
-  }
-
-   /**
-   * Get result
-   * @return result
-  **/
-  @javax.annotation.Nullable
-  public List<Object> getResult() {
-    return result;
-  }
-
-  public void setResult(List<Object> result) {
-    this.result = result;
   }
 
 
@@ -169,12 +142,63 @@ public class TlsCertificatesAndHostnamesApiResponseCollection {
    * @return success
   **/
   @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SUCCESS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getSuccess() {
     return success;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_SUCCESS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSuccess(Boolean success) {
     this.success = success;
+  }
+
+
+  public TlsCertificatesAndHostnamesApiResponseCollection result(List<Object> result) {
+    this.result = JsonNullable.<List<Object>>of(result);
+    return this;
+  }
+
+  public TlsCertificatesAndHostnamesApiResponseCollection addResultItem(Object resultItem) {
+    if (this.result == null || !this.result.isPresent()) {
+      this.result = JsonNullable.<List<Object>>of(new ArrayList<>());
+    }
+    try {
+      this.result.get().add(resultItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+   /**
+   * Get result
+   * @return result
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public List<Object> getResult() {
+        return result.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<Object>> getResult_JsonNullable() {
+    return result;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_RESULT)
+  public void setResult_JsonNullable(JsonNullable<List<Object>> result) {
+    this.result = result;
+  }
+
+  public void setResult(List<Object> result) {
+    this.result = JsonNullable.<List<Object>>of(result);
   }
 
 
@@ -188,16 +212,24 @@ public class TlsCertificatesAndHostnamesApiResponseCollection {
    * @return resultInfo
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESULT_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public TlsCertificatesAndHostnamesResultInfo getResultInfo() {
     return resultInfo;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_RESULT_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultInfo(TlsCertificatesAndHostnamesResultInfo resultInfo) {
     this.resultInfo = resultInfo;
   }
 
 
-
+  /**
+   * Return true if this tls-certificates-and-hostnames_api-response-collection object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -209,14 +241,25 @@ public class TlsCertificatesAndHostnamesApiResponseCollection {
     TlsCertificatesAndHostnamesApiResponseCollection tlsCertificatesAndHostnamesApiResponseCollection = (TlsCertificatesAndHostnamesApiResponseCollection) o;
     return Objects.equals(this.errors, tlsCertificatesAndHostnamesApiResponseCollection.errors) &&
         Objects.equals(this.messages, tlsCertificatesAndHostnamesApiResponseCollection.messages) &&
-        Objects.equals(this.result, tlsCertificatesAndHostnamesApiResponseCollection.result) &&
         Objects.equals(this.success, tlsCertificatesAndHostnamesApiResponseCollection.success) &&
+        equalsNullable(this.result, tlsCertificatesAndHostnamesApiResponseCollection.result) &&
         Objects.equals(this.resultInfo, tlsCertificatesAndHostnamesApiResponseCollection.resultInfo);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors, messages, result, success, resultInfo);
+    return Objects.hash(errors, messages, success, hashCodeNullable(result), resultInfo);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -225,8 +268,8 @@ public class TlsCertificatesAndHostnamesApiResponseCollection {
     sb.append("class TlsCertificatesAndHostnamesApiResponseCollection {\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
-    sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    resultInfo: ").append(toIndentedString(resultInfo)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -243,134 +286,78 @@ public class TlsCertificatesAndHostnamesApiResponseCollection {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("errors");
-    openapiFields.add("messages");
-    openapiFields.add("result");
-    openapiFields.add("success");
-    openapiFields.add("result_info");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("errors");
-    openapiRequiredFields.add("messages");
-    openapiRequiredFields.add("result");
-    openapiRequiredFields.add("success");
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TlsCertificatesAndHostnamesApiResponseCollection
-  */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TlsCertificatesAndHostnamesApiResponseCollection.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TlsCertificatesAndHostnamesApiResponseCollection is not found in the empty JSON string", TlsCertificatesAndHostnamesApiResponseCollection.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TlsCertificatesAndHostnamesApiResponseCollection.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TlsCertificatesAndHostnamesApiResponseCollection` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TlsCertificatesAndHostnamesApiResponseCollection.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("errors").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `errors` to be an array in the JSON string but got `%s`", jsonObj.get("errors").toString()));
-      }
-
-      JsonArray jsonArrayerrors = jsonObj.getAsJsonArray("errors");
-      // validate the required field `errors` (array)
-      for (int i = 0; i < jsonArrayerrors.size(); i++) {
-        AaaMessagesInner.validateJsonElement(jsonArrayerrors.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("messages").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `messages` to be an array in the JSON string but got `%s`", jsonObj.get("messages").toString()));
-      }
-
-      JsonArray jsonArraymessages = jsonObj.getAsJsonArray("messages");
-      // validate the required field `messages` (array)
-      for (int i = 0; i < jsonArraymessages.size(); i++) {
-        AaaMessagesInner.validateJsonElement(jsonArraymessages.get(i));
-      };
-      // ensure the required json array is present
-      if (jsonObj.get("result") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("result").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `result` to be an array in the JSON string but got `%s`", jsonObj.get("result").toString()));
-      }
-      // validate the optional field `result_info`
-      if (jsonObj.get("result_info") != null && !jsonObj.get("result_info").isJsonNull()) {
-        TlsCertificatesAndHostnamesResultInfo.validateJsonElement(jsonObj.get("result_info"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TlsCertificatesAndHostnamesApiResponseCollection.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TlsCertificatesAndHostnamesApiResponseCollection' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TlsCertificatesAndHostnamesApiResponseCollection> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TlsCertificatesAndHostnamesApiResponseCollection.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TlsCertificatesAndHostnamesApiResponseCollection>() {
-           @Override
-           public void write(JsonWriter out, TlsCertificatesAndHostnamesApiResponseCollection value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TlsCertificatesAndHostnamesApiResponseCollection read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
     }
-  }
 
- /**
-  * Create an instance of TlsCertificatesAndHostnamesApiResponseCollection given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TlsCertificatesAndHostnamesApiResponseCollection
-  * @throws IOException if the JSON string is invalid with respect to TlsCertificatesAndHostnamesApiResponseCollection
-  */
-  public static TlsCertificatesAndHostnamesApiResponseCollection fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TlsCertificatesAndHostnamesApiResponseCollection.class);
-  }
+    StringJoiner joiner = new StringJoiner("&");
 
- /**
-  * Convert an instance of TlsCertificatesAndHostnamesApiResponseCollection to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+    // add `errors` to the URL query string
+    if (getErrors() != null) {
+      for (int i = 0; i < getErrors().size(); i++) {
+        if (getErrors().get(i) != null) {
+          joiner.add(getErrors().get(i).toUrlQueryString(String.format("%serrors%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `messages` to the URL query string
+    if (getMessages() != null) {
+      for (int i = 0; i < getMessages().size(); i++) {
+        if (getMessages().get(i) != null) {
+          joiner.add(getMessages().get(i).toUrlQueryString(String.format("%smessages%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `success` to the URL query string
+    if (getSuccess() != null) {
+      joiner.add(String.format("%ssuccess%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSuccess()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `result` to the URL query string
+    if (getResult() != null) {
+      for (int i = 0; i < getResult().size(); i++) {
+        joiner.add(String.format("%sresult%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(getResult().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
+    // add `result_info` to the URL query string
+    if (getResultInfo() != null) {
+      joiner.add(getResultInfo().toUrlQueryString(prefix + "result_info" + suffix));
+    }
+
+    return joiner.toString();
   }
 }
 

@@ -7,9 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**errors** | [**List&lt;AaaMessagesInner&gt;**](AaaMessagesInner.md) |  |  |
-|**messages** | [**List&lt;AaaMessagesInner&gt;**](AaaMessagesInner.md) |  |  |
-|**result** | [**PageShieldApiResponseSingleAllOfResult**](PageShieldApiResponseSingleAllOfResult.md) |  |  |
+|**errors** | [**List&lt;TlsCertificatesAndHostnamesMessagesInner&gt;**](TlsCertificatesAndHostnamesMessagesInner.md) |  |  |
+|**messages** | [**List&lt;TlsCertificatesAndHostnamesMessagesInner&gt;**](TlsCertificatesAndHostnamesMessagesInner.md) |  |  |
 |**success** | **Boolean** | Whether the API call was successful |  |
 
 

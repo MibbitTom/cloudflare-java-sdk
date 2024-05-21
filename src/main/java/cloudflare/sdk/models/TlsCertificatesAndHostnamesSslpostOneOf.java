@@ -13,50 +13,41 @@
 
 package cloudflare.sdk.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesCertificateAuthority;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesSslsettings;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import cloudflare.JSON;
 
 /**
  * TlsCertificatesAndHostnamesSslpostOneOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:31:20.290775906+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@JsonPropertyOrder({
+  TlsCertificatesAndHostnamesSslpostOneOf.JSON_PROPERTY_BUNDLE_METHOD,
+  TlsCertificatesAndHostnamesSslpostOneOf.JSON_PROPERTY_CERTIFICATE_AUTHORITY,
+  TlsCertificatesAndHostnamesSslpostOneOf.JSON_PROPERTY_CUSTOM_CERTIFICATE,
+  TlsCertificatesAndHostnamesSslpostOneOf.JSON_PROPERTY_CUSTOM_KEY,
+  TlsCertificatesAndHostnamesSslpostOneOf.JSON_PROPERTY_METHOD,
+  TlsCertificatesAndHostnamesSslpostOneOf.JSON_PROPERTY_SETTINGS,
+  TlsCertificatesAndHostnamesSslpostOneOf.JSON_PROPERTY_TYPE,
+  TlsCertificatesAndHostnamesSslpostOneOf.JSON_PROPERTY_WILDCARD
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T10:12:24.693742223+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class TlsCertificatesAndHostnamesSslpostOneOf {
   /**
    * A ubiquitous bundle has the highest probability of being verified everywhere, even by clients using outdated or unusual trust stores. An optimal bundle uses the shortest chain and newest intermediates. And the force bundle verifies the chain, but does not otherwise modify it.
    */
-  @JsonAdapter(BundleMethodEnum.Adapter.class)
   public enum BundleMethodEnum {
     UBIQUITOUS("ubiquitous"),
     
@@ -70,6 +61,7 @@ public class TlsCertificatesAndHostnamesSslpostOneOf {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -79,6 +71,7 @@ public class TlsCertificatesAndHostnamesSslpostOneOf {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static BundleMethodEnum fromValue(String value) {
       for (BundleMethodEnum b : BundleMethodEnum.values()) {
         if (b.value.equals(value)) {
@@ -87,46 +80,23 @@ public class TlsCertificatesAndHostnamesSslpostOneOf {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<BundleMethodEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final BundleMethodEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public BundleMethodEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return BundleMethodEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      BundleMethodEnum.fromValue(value);
-    }
   }
 
-  public static final String SERIALIZED_NAME_BUNDLE_METHOD = "bundle_method";
-  @SerializedName(SERIALIZED_NAME_BUNDLE_METHOD)
+  public static final String JSON_PROPERTY_BUNDLE_METHOD = "bundle_method";
   private BundleMethodEnum bundleMethod = BundleMethodEnum.UBIQUITOUS;
 
-  public static final String SERIALIZED_NAME_CERTIFICATE_AUTHORITY = "certificate_authority";
-  @SerializedName(SERIALIZED_NAME_CERTIFICATE_AUTHORITY)
+  public static final String JSON_PROPERTY_CERTIFICATE_AUTHORITY = "certificate_authority";
   private TlsCertificatesAndHostnamesCertificateAuthority certificateAuthority;
 
-  public static final String SERIALIZED_NAME_CUSTOM_CERTIFICATE = "custom_certificate";
-  @SerializedName(SERIALIZED_NAME_CUSTOM_CERTIFICATE)
+  public static final String JSON_PROPERTY_CUSTOM_CERTIFICATE = "custom_certificate";
   private String customCertificate;
 
-  public static final String SERIALIZED_NAME_CUSTOM_KEY = "custom_key";
-  @SerializedName(SERIALIZED_NAME_CUSTOM_KEY)
+  public static final String JSON_PROPERTY_CUSTOM_KEY = "custom_key";
   private String customKey;
 
   /**
    * Domain control validation (DCV) method used for this hostname.
    */
-  @JsonAdapter(MethodEnum.Adapter.class)
   public enum MethodEnum {
     HTTP("http"),
     
@@ -140,6 +110,7 @@ public class TlsCertificatesAndHostnamesSslpostOneOf {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -149,6 +120,7 @@ public class TlsCertificatesAndHostnamesSslpostOneOf {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static MethodEnum fromValue(String value) {
       for (MethodEnum b : MethodEnum.values()) {
         if (b.value.equals(value)) {
@@ -157,38 +129,17 @@ public class TlsCertificatesAndHostnamesSslpostOneOf {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<MethodEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final MethodEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public MethodEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return MethodEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      MethodEnum.fromValue(value);
-    }
   }
 
-  public static final String SERIALIZED_NAME_METHOD = "method";
-  @SerializedName(SERIALIZED_NAME_METHOD)
+  public static final String JSON_PROPERTY_METHOD = "method";
   private MethodEnum method;
 
-  public static final String SERIALIZED_NAME_SETTINGS = "settings";
-  @SerializedName(SERIALIZED_NAME_SETTINGS)
+  public static final String JSON_PROPERTY_SETTINGS = "settings";
   private TlsCertificatesAndHostnamesSslsettings settings;
 
   /**
    * Level of validation to be used for this hostname. Domain validation (dv) must be used.
    */
-  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     DV("dv");
 
@@ -198,6 +149,7 @@ public class TlsCertificatesAndHostnamesSslpostOneOf {
       this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -207,6 +159,7 @@ public class TlsCertificatesAndHostnamesSslpostOneOf {
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
         if (b.value.equals(value)) {
@@ -215,35 +168,15 @@ public class TlsCertificatesAndHostnamesSslpostOneOf {
       }
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      TypeEnum.fromValue(value);
-    }
   }
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
-  public static final String SERIALIZED_NAME_WILDCARD = "wildcard";
-  @SerializedName(SERIALIZED_NAME_WILDCARD)
+  public static final String JSON_PROPERTY_WILDCARD = "wildcard";
   private Boolean wildcard;
 
-  public TlsCertificatesAndHostnamesSslpostOneOf() {
+  public TlsCertificatesAndHostnamesSslpostOneOf() { 
   }
 
   public TlsCertificatesAndHostnamesSslpostOneOf bundleMethod(BundleMethodEnum bundleMethod) {
@@ -256,10 +189,16 @@ public class TlsCertificatesAndHostnamesSslpostOneOf {
    * @return bundleMethod
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BUNDLE_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public BundleMethodEnum getBundleMethod() {
     return bundleMethod;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_BUNDLE_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBundleMethod(BundleMethodEnum bundleMethod) {
     this.bundleMethod = bundleMethod;
   }
@@ -275,10 +214,16 @@ public class TlsCertificatesAndHostnamesSslpostOneOf {
    * @return certificateAuthority
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CERTIFICATE_AUTHORITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public TlsCertificatesAndHostnamesCertificateAuthority getCertificateAuthority() {
     return certificateAuthority;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CERTIFICATE_AUTHORITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCertificateAuthority(TlsCertificatesAndHostnamesCertificateAuthority certificateAuthority) {
     this.certificateAuthority = certificateAuthority;
   }
@@ -294,10 +239,16 @@ public class TlsCertificatesAndHostnamesSslpostOneOf {
    * @return customCertificate
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_CERTIFICATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getCustomCertificate() {
     return customCertificate;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_CERTIFICATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomCertificate(String customCertificate) {
     this.customCertificate = customCertificate;
   }
@@ -313,10 +264,16 @@ public class TlsCertificatesAndHostnamesSslpostOneOf {
    * @return customKey
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getCustomKey() {
     return customKey;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomKey(String customKey) {
     this.customKey = customKey;
   }
@@ -332,10 +289,16 @@ public class TlsCertificatesAndHostnamesSslpostOneOf {
    * @return method
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public MethodEnum getMethod() {
     return method;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMethod(MethodEnum method) {
     this.method = method;
   }
@@ -351,10 +314,16 @@ public class TlsCertificatesAndHostnamesSslpostOneOf {
    * @return settings
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public TlsCertificatesAndHostnamesSslsettings getSettings() {
     return settings;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSettings(TlsCertificatesAndHostnamesSslsettings settings) {
     this.settings = settings;
   }
@@ -370,10 +339,16 @@ public class TlsCertificatesAndHostnamesSslpostOneOf {
    * @return type
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public TypeEnum getType() {
     return type;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
@@ -389,16 +364,24 @@ public class TlsCertificatesAndHostnamesSslpostOneOf {
    * @return wildcard
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WILDCARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getWildcard() {
     return wildcard;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_WILDCARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWildcard(Boolean wildcard) {
     this.wildcard = wildcard;
   }
 
 
-
+  /**
+   * Return true if this tls_certificates_and_hostnames_sslpost_oneOf object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -450,131 +433,79 @@ public class TlsCertificatesAndHostnamesSslpostOneOf {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("bundle_method");
-    openapiFields.add("certificate_authority");
-    openapiFields.add("custom_certificate");
-    openapiFields.add("custom_key");
-    openapiFields.add("method");
-    openapiFields.add("settings");
-    openapiFields.add("type");
-    openapiFields.add("wildcard");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TlsCertificatesAndHostnamesSslpostOneOf
-  */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TlsCertificatesAndHostnamesSslpostOneOf.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TlsCertificatesAndHostnamesSslpostOneOf is not found in the empty JSON string", TlsCertificatesAndHostnamesSslpostOneOf.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TlsCertificatesAndHostnamesSslpostOneOf.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TlsCertificatesAndHostnamesSslpostOneOf` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("bundle_method") != null && !jsonObj.get("bundle_method").isJsonNull()) && !jsonObj.get("bundle_method").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bundle_method` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bundle_method").toString()));
-      }
-      // validate the optional field `bundle_method`
-      if (jsonObj.get("bundle_method") != null && !jsonObj.get("bundle_method").isJsonNull()) {
-        BundleMethodEnum.validateJsonElement(jsonObj.get("bundle_method"));
-      }
-      // validate the optional field `certificate_authority`
-      if (jsonObj.get("certificate_authority") != null && !jsonObj.get("certificate_authority").isJsonNull()) {
-        TlsCertificatesAndHostnamesCertificateAuthority.validateJsonElement(jsonObj.get("certificate_authority"));
-      }
-      if ((jsonObj.get("custom_certificate") != null && !jsonObj.get("custom_certificate").isJsonNull()) && !jsonObj.get("custom_certificate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `custom_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_certificate").toString()));
-      }
-      if ((jsonObj.get("custom_key") != null && !jsonObj.get("custom_key").isJsonNull()) && !jsonObj.get("custom_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `custom_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom_key").toString()));
-      }
-      if ((jsonObj.get("method") != null && !jsonObj.get("method").isJsonNull()) && !jsonObj.get("method").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `method` to be a primitive type in the JSON string but got `%s`", jsonObj.get("method").toString()));
-      }
-      // validate the optional field `method`
-      if (jsonObj.get("method") != null && !jsonObj.get("method").isJsonNull()) {
-        MethodEnum.validateJsonElement(jsonObj.get("method"));
-      }
-      // validate the optional field `settings`
-      if (jsonObj.get("settings") != null && !jsonObj.get("settings").isJsonNull()) {
-        TlsCertificatesAndHostnamesSslsettings.validateJsonElement(jsonObj.get("settings"));
-      }
-      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      // validate the optional field `type`
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
-        TypeEnum.validateJsonElement(jsonObj.get("type"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TlsCertificatesAndHostnamesSslpostOneOf.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TlsCertificatesAndHostnamesSslpostOneOf' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TlsCertificatesAndHostnamesSslpostOneOf> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TlsCertificatesAndHostnamesSslpostOneOf.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TlsCertificatesAndHostnamesSslpostOneOf>() {
-           @Override
-           public void write(JsonWriter out, TlsCertificatesAndHostnamesSslpostOneOf value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TlsCertificatesAndHostnamesSslpostOneOf read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
     }
-  }
 
- /**
-  * Create an instance of TlsCertificatesAndHostnamesSslpostOneOf given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TlsCertificatesAndHostnamesSslpostOneOf
-  * @throws IOException if the JSON string is invalid with respect to TlsCertificatesAndHostnamesSslpostOneOf
-  */
-  public static TlsCertificatesAndHostnamesSslpostOneOf fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TlsCertificatesAndHostnamesSslpostOneOf.class);
-  }
+    StringJoiner joiner = new StringJoiner("&");
 
- /**
-  * Convert an instance of TlsCertificatesAndHostnamesSslpostOneOf to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+    // add `bundle_method` to the URL query string
+    if (getBundleMethod() != null) {
+      joiner.add(String.format("%sbundle_method%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBundleMethod()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `certificate_authority` to the URL query string
+    if (getCertificateAuthority() != null) {
+      joiner.add(String.format("%scertificate_authority%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCertificateAuthority()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `custom_certificate` to the URL query string
+    if (getCustomCertificate() != null) {
+      joiner.add(String.format("%scustom_certificate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCustomCertificate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `custom_key` to the URL query string
+    if (getCustomKey() != null) {
+      joiner.add(String.format("%scustom_key%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCustomKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `method` to the URL query string
+    if (getMethod() != null) {
+      joiner.add(String.format("%smethod%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMethod()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `settings` to the URL query string
+    if (getSettings() != null) {
+      joiner.add(getSettings().toUrlQueryString(prefix + "settings" + suffix));
+    }
+
+    // add `type` to the URL query string
+    if (getType() != null) {
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `wildcard` to the URL query string
+    if (getWildcard() != null) {
+      joiner.add(String.format("%swildcard%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getWildcard()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
   }
 }
 

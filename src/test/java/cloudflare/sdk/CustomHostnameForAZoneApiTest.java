@@ -15,96 +15,78 @@ package cloudflare.sdk;
 
 import cloudflare.ApiException;
 import java.math.BigDecimal;
-import cloudflare.sdk.models.CustomHostnameForAZoneCreateCustomHostname4XXResponse;
-import cloudflare.sdk.models.CustomHostnameForAZoneCreateCustomHostnameRequest;
+import cloudflare.sdk.models.CreateCustomHostname4XXResponse;
+import cloudflare.sdk.models.CreateCustomHostnameRequest;
 import cloudflare.sdk.models.CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response;
 import cloudflare.sdk.models.CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse;
-import cloudflare.sdk.models.CustomHostnameForAZoneEditCustomHostnameRequest;
-import cloudflare.sdk.models.CustomHostnameForAZoneListCustomHostnames4XXResponse;
+import cloudflare.sdk.models.ListCustomHostnames4XXResponse;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesCustomHostnameResponseCollection;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesCustomHostnameResponseSingle;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.junit.Ignore;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
 
 /**
  * API tests for CustomHostnameForAZoneApi
  */
-@Disabled
+@Ignore
 public class CustomHostnameForAZoneApiTest {
 
     private final CustomHostnameForAZoneApi api = new CustomHostnameForAZoneApi();
 
+    
     /**
      * Create Custom Hostname
      *
      * Add a new custom hostname and request that an SSL certificate be issued for it. One of three validation methods—http, txt, email—should be used, with &#39;http&#39; recommended if the CNAME is already in place (or will be soon). Specifying &#39;email&#39; will send an email to the WHOIS contacts on file for the base domain plus hostmaster, postmaster, webmaster, admin, administrator. If http is used and the domain is not already pointing to the Managed CNAME host, the PATCH method must be used once it is (to complete validation).
      *
-     * @throws ApiException if the Api call fails
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
-    public void customHostnameForAZoneCreateCustomHostnameTest() throws ApiException {
+    public void createCustomHostnameTest() throws ApiException {
         String zoneId = null;
-        CustomHostnameForAZoneCreateCustomHostnameRequest customHostnameForAZoneCreateCustomHostnameRequest = null;
-        TlsCertificatesAndHostnamesCustomHostnameResponseSingle response = api.customHostnameForAZoneCreateCustomHostname(zoneId, customHostnameForAZoneCreateCustomHostnameRequest);
+        CreateCustomHostnameRequest createCustomHostnameRequest = null;
+        TlsCertificatesAndHostnamesCustomHostnameResponseSingle response = 
+        api.createCustomHostname(zoneId, createCustomHostnameRequest);
+        
         // TODO: test validations
     }
-
-    /**
-     * Custom Hostname Details
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void customHostnameForAZoneCustomHostnameDetailsTest() throws ApiException {
-        String customHostnameId = null;
-        String zoneId = null;
-        TlsCertificatesAndHostnamesCustomHostnameResponseSingle response = api.customHostnameForAZoneCustomHostnameDetails(customHostnameId, zoneId);
-        // TODO: test validations
-    }
-
+    
     /**
      * Delete Custom Hostname (and any issued SSL certificates)
      *
-     * @throws ApiException if the Api call fails
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
     public void customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificatesTest() throws ApiException {
         String customHostnameId = null;
         String zoneId = null;
-        CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response response = api.customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates(customHostnameId, zoneId);
+        CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response response = 
+        api.customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates(customHostnameId, zoneId);
+        
         // TODO: test validations
     }
-
-    /**
-     * Edit Custom Hostname
-     *
-     * Modify SSL configuration for a custom hostname. When sent with SSL config that matches existing config, used to indicate that hostname should pass domain control validation (DCV). Can also be used to change validation type, e.g., from &#39;http&#39; to &#39;email&#39;.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void customHostnameForAZoneEditCustomHostnameTest() throws ApiException {
-        String customHostnameId = null;
-        String zoneId = null;
-        CustomHostnameForAZoneEditCustomHostnameRequest customHostnameForAZoneEditCustomHostnameRequest = null;
-        TlsCertificatesAndHostnamesCustomHostnameResponseSingle response = api.customHostnameForAZoneEditCustomHostname(customHostnameId, zoneId, customHostnameForAZoneEditCustomHostnameRequest);
-        // TODO: test validations
-    }
-
+    
     /**
      * List Custom Hostnames
      *
      * List, search, sort, and filter all of your custom hostnames.
      *
-     * @throws ApiException if the Api call fails
+     * @throws ApiException
+     *          if the Api call fails
      */
     @Test
-    public void customHostnameForAZoneListCustomHostnamesTest() throws ApiException {
+    public void listCustomHostnamesTest() throws ApiException {
         String zoneId = null;
         String hostname = null;
         String id = null;
@@ -113,8 +95,10 @@ public class CustomHostnameForAZoneApiTest {
         String order = null;
         String direction = null;
         BigDecimal ssl = null;
-        TlsCertificatesAndHostnamesCustomHostnameResponseCollection response = api.customHostnameForAZoneListCustomHostnames(zoneId, hostname, id, page, perPage, order, direction, ssl);
+        TlsCertificatesAndHostnamesCustomHostnameResponseCollection response = 
+        api.listCustomHostnames(zoneId, hostname, id, page, perPage, order, direction, ssl);
+        
         // TODO: test validations
     }
-
+    
 }

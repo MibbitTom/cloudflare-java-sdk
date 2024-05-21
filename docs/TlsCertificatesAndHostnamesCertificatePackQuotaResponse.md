@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**errors** | [**List&lt;AaaMessagesInner&gt;**](AaaMessagesInner.md) |  |  |
-|**messages** | [**List&lt;AaaMessagesInner&gt;**](AaaMessagesInner.md) |  |  |
-|**result** | [**TlsCertificatesAndHostnamesCertificatePackQuotaResponseAllOfResult**](TlsCertificatesAndHostnamesCertificatePackQuotaResponseAllOfResult.md) |  |  |
+|**errors** | [**List&lt;TlsCertificatesAndHostnamesMessagesInner&gt;**](TlsCertificatesAndHostnamesMessagesInner.md) |  |  |
+|**messages** | [**List&lt;TlsCertificatesAndHostnamesMessagesInner&gt;**](TlsCertificatesAndHostnamesMessagesInner.md) |  |  |
 |**success** | **Boolean** | Whether the API call was successful |  |
+|**result** | [**TlsCertificatesAndHostnamesCertificatePackQuotaResponseAllOfResult**](TlsCertificatesAndHostnamesCertificatePackQuotaResponseAllOfResult.md) |  |  [optional] |
 
 
 

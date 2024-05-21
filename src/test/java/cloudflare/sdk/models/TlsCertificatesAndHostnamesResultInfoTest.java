@@ -13,28 +13,28 @@
 
 package cloudflare.sdk.models;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.math.BigDecimal;
 import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesResultInfo
  */
-public class TlsCertificatesAndHostnamesResultInfoTest {
+class TlsCertificatesAndHostnamesResultInfoTest {
     private final TlsCertificatesAndHostnamesResultInfo model = new TlsCertificatesAndHostnamesResultInfo();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesResultInfo
      */
     @Test
-    public void testTlsCertificatesAndHostnamesResultInfo() {
+    void testTlsCertificatesAndHostnamesResultInfo() {
         // TODO: test TlsCertificatesAndHostnamesResultInfo
     }
 
@@ -42,7 +42,7 @@ public class TlsCertificatesAndHostnamesResultInfoTest {
      * Test the property 'count'
      */
     @Test
-    public void countTest() {
+    void countTest() {
         // TODO: test count
     }
 
@@ -50,7 +50,7 @@ public class TlsCertificatesAndHostnamesResultInfoTest {
      * Test the property 'page'
      */
     @Test
-    public void pageTest() {
+    void pageTest() {
         // TODO: test page
     }
 
@@ -58,7 +58,7 @@ public class TlsCertificatesAndHostnamesResultInfoTest {
      * Test the property 'perPage'
      */
     @Test
-    public void perPageTest() {
+    void perPageTest() {
         // TODO: test perPage
     }
 
@@ -66,7 +66,7 @@ public class TlsCertificatesAndHostnamesResultInfoTest {
      * Test the property 'totalCount'
      */
     @Test
-    public void totalCountTest() {
+    void totalCountTest() {
         // TODO: test totalCount
     }
 

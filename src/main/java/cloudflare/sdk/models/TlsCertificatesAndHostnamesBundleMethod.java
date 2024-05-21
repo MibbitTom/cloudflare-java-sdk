@@ -13,20 +13,21 @@
 
 package cloudflare.sdk.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.JsonElement;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * A ubiquitous bundle has the highest probability of being verified everywhere, even by clients using outdated or unusual trust stores. An optimal bundle uses the shortest chain and newest intermediates. And the force bundle verifies the chain, but does not otherwise modify it.
  */
-@JsonAdapter(TlsCertificatesAndHostnamesBundleMethod.Adapter.class)
 public enum TlsCertificatesAndHostnamesBundleMethod {
   
   UBIQUITOUS("ubiquitous"),
@@ -41,6 +42,7 @@ public enum TlsCertificatesAndHostnamesBundleMethod {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -50,6 +52,7 @@ public enum TlsCertificatesAndHostnamesBundleMethod {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static TlsCertificatesAndHostnamesBundleMethod fromValue(String value) {
     for (TlsCertificatesAndHostnamesBundleMethod b : TlsCertificatesAndHostnamesBundleMethod.values()) {
       if (b.value.equals(value)) {
@@ -59,22 +62,19 @@ public enum TlsCertificatesAndHostnamesBundleMethod {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 
-  public static class Adapter extends TypeAdapter<TlsCertificatesAndHostnamesBundleMethod> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final TlsCertificatesAndHostnamesBundleMethod enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    if (prefix == null) {
+      prefix = "";
     }
 
-    @Override
-    public TlsCertificatesAndHostnamesBundleMethod read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return TlsCertificatesAndHostnamesBundleMethod.fromValue(value);
-    }
+    return String.format("%s=%s", prefix, this.toString());
   }
 
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    TlsCertificatesAndHostnamesBundleMethod.fromValue(value);
-  }
 }
 

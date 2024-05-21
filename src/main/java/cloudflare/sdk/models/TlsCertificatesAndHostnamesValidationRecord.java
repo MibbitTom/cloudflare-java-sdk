@@ -13,67 +13,51 @@
 
 package cloudflare.sdk.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import cloudflare.JSON;
 
 /**
  * Certificate&#39;s required validation record.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:31:20.290775906+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@JsonPropertyOrder({
+  TlsCertificatesAndHostnamesValidationRecord.JSON_PROPERTY_EMAILS,
+  TlsCertificatesAndHostnamesValidationRecord.JSON_PROPERTY_HTTP_BODY,
+  TlsCertificatesAndHostnamesValidationRecord.JSON_PROPERTY_HTTP_URL,
+  TlsCertificatesAndHostnamesValidationRecord.JSON_PROPERTY_TXT_NAME,
+  TlsCertificatesAndHostnamesValidationRecord.JSON_PROPERTY_TXT_VALUE
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T10:12:24.693742223+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class TlsCertificatesAndHostnamesValidationRecord {
-  public static final String SERIALIZED_NAME_EMAILS = "emails";
-  @SerializedName(SERIALIZED_NAME_EMAILS)
+  public static final String JSON_PROPERTY_EMAILS = "emails";
   private List<Object> emails = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_HTTP_BODY = "http_body";
-  @SerializedName(SERIALIZED_NAME_HTTP_BODY)
+  public static final String JSON_PROPERTY_HTTP_BODY = "http_body";
   private String httpBody;
 
-  public static final String SERIALIZED_NAME_HTTP_URL = "http_url";
-  @SerializedName(SERIALIZED_NAME_HTTP_URL)
+  public static final String JSON_PROPERTY_HTTP_URL = "http_url";
   private String httpUrl;
 
-  public static final String SERIALIZED_NAME_TXT_NAME = "txt_name";
-  @SerializedName(SERIALIZED_NAME_TXT_NAME)
+  public static final String JSON_PROPERTY_TXT_NAME = "txt_name";
   private String txtName;
 
-  public static final String SERIALIZED_NAME_TXT_VALUE = "txt_value";
-  @SerializedName(SERIALIZED_NAME_TXT_VALUE)
+  public static final String JSON_PROPERTY_TXT_VALUE = "txt_value";
   private String txtValue;
 
-  public TlsCertificatesAndHostnamesValidationRecord() {
+  public TlsCertificatesAndHostnamesValidationRecord() { 
   }
 
   public TlsCertificatesAndHostnamesValidationRecord emails(List<Object> emails) {
@@ -94,10 +78,16 @@ public class TlsCertificatesAndHostnamesValidationRecord {
    * @return emails
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EMAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<Object> getEmails() {
     return emails;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_EMAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmails(List<Object> emails) {
     this.emails = emails;
   }
@@ -113,10 +103,16 @@ public class TlsCertificatesAndHostnamesValidationRecord {
    * @return httpBody
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HTTP_BODY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getHttpBody() {
     return httpBody;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_HTTP_BODY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHttpBody(String httpBody) {
     this.httpBody = httpBody;
   }
@@ -132,10 +128,16 @@ public class TlsCertificatesAndHostnamesValidationRecord {
    * @return httpUrl
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HTTP_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getHttpUrl() {
     return httpUrl;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_HTTP_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHttpUrl(String httpUrl) {
     this.httpUrl = httpUrl;
   }
@@ -151,10 +153,16 @@ public class TlsCertificatesAndHostnamesValidationRecord {
    * @return txtName
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TXT_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTxtName() {
     return txtName;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TXT_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTxtName(String txtName) {
     this.txtName = txtName;
   }
@@ -170,16 +178,24 @@ public class TlsCertificatesAndHostnamesValidationRecord {
    * @return txtValue
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TXT_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTxtValue() {
     return txtValue;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TXT_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTxtValue(String txtValue) {
     this.txtValue = txtValue;
   }
 
 
-
+  /**
+   * Return true if this tls-certificates-and-hostnames_validation_record object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -225,109 +241,68 @@ public class TlsCertificatesAndHostnamesValidationRecord {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("emails");
-    openapiFields.add("http_body");
-    openapiFields.add("http_url");
-    openapiFields.add("txt_name");
-    openapiFields.add("txt_value");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TlsCertificatesAndHostnamesValidationRecord
-  */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TlsCertificatesAndHostnamesValidationRecord.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TlsCertificatesAndHostnamesValidationRecord is not found in the empty JSON string", TlsCertificatesAndHostnamesValidationRecord.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TlsCertificatesAndHostnamesValidationRecord.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TlsCertificatesAndHostnamesValidationRecord` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("emails") != null && !jsonObj.get("emails").isJsonNull() && !jsonObj.get("emails").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `emails` to be an array in the JSON string but got `%s`", jsonObj.get("emails").toString()));
-      }
-      if ((jsonObj.get("http_body") != null && !jsonObj.get("http_body").isJsonNull()) && !jsonObj.get("http_body").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `http_body` to be a primitive type in the JSON string but got `%s`", jsonObj.get("http_body").toString()));
-      }
-      if ((jsonObj.get("http_url") != null && !jsonObj.get("http_url").isJsonNull()) && !jsonObj.get("http_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `http_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("http_url").toString()));
-      }
-      if ((jsonObj.get("txt_name") != null && !jsonObj.get("txt_name").isJsonNull()) && !jsonObj.get("txt_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `txt_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("txt_name").toString()));
-      }
-      if ((jsonObj.get("txt_value") != null && !jsonObj.get("txt_value").isJsonNull()) && !jsonObj.get("txt_value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `txt_value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("txt_value").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TlsCertificatesAndHostnamesValidationRecord.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TlsCertificatesAndHostnamesValidationRecord' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TlsCertificatesAndHostnamesValidationRecord> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TlsCertificatesAndHostnamesValidationRecord.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TlsCertificatesAndHostnamesValidationRecord>() {
-           @Override
-           public void write(JsonWriter out, TlsCertificatesAndHostnamesValidationRecord value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TlsCertificatesAndHostnamesValidationRecord read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
     }
-  }
 
- /**
-  * Create an instance of TlsCertificatesAndHostnamesValidationRecord given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TlsCertificatesAndHostnamesValidationRecord
-  * @throws IOException if the JSON string is invalid with respect to TlsCertificatesAndHostnamesValidationRecord
-  */
-  public static TlsCertificatesAndHostnamesValidationRecord fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TlsCertificatesAndHostnamesValidationRecord.class);
-  }
+    StringJoiner joiner = new StringJoiner("&");
 
- /**
-  * Convert an instance of TlsCertificatesAndHostnamesValidationRecord to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+    // add `emails` to the URL query string
+    if (getEmails() != null) {
+      for (int i = 0; i < getEmails().size(); i++) {
+        joiner.add(String.format("%semails%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(getEmails().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
+    // add `http_body` to the URL query string
+    if (getHttpBody() != null) {
+      joiner.add(String.format("%shttp_body%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHttpBody()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `http_url` to the URL query string
+    if (getHttpUrl() != null) {
+      joiner.add(String.format("%shttp_url%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHttpUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `txt_name` to the URL query string
+    if (getTxtName() != null) {
+      joiner.add(String.format("%stxt_name%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTxtName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `txt_value` to the URL query string
+    if (getTxtValue() != null) {
+      joiner.add(String.format("%stxt_value%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTxtValue()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
   }
 }
 

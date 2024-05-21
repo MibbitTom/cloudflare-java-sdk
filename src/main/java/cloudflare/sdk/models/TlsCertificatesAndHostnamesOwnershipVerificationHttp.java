@@ -13,118 +13,127 @@
 
 package cloudflare.sdk.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-
+import com.fasterxml.jackson.core.type.TypeReference;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonParseException;
-
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import cloudflare.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:31:20.290775906+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T10:12:24.693742223+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@JsonDeserialize(using = TlsCertificatesAndHostnamesOwnershipVerificationHttp.TlsCertificatesAndHostnamesOwnershipVerificationHttpDeserializer.class)
+@JsonSerialize(using = TlsCertificatesAndHostnamesOwnershipVerificationHttp.TlsCertificatesAndHostnamesOwnershipVerificationHttpSerializer.class)
 public class TlsCertificatesAndHostnamesOwnershipVerificationHttp extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(TlsCertificatesAndHostnamesOwnershipVerificationHttp.class.getName());
 
-    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-        @SuppressWarnings("unchecked")
+    public static class TlsCertificatesAndHostnamesOwnershipVerificationHttpSerializer extends StdSerializer<TlsCertificatesAndHostnamesOwnershipVerificationHttp> {
+        public TlsCertificatesAndHostnamesOwnershipVerificationHttpSerializer(Class<TlsCertificatesAndHostnamesOwnershipVerificationHttp> t) {
+            super(t);
+        }
+
+        public TlsCertificatesAndHostnamesOwnershipVerificationHttpSerializer() {
+            this(null);
+        }
+
         @Override
-        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!TlsCertificatesAndHostnamesOwnershipVerificationHttp.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'TlsCertificatesAndHostnamesOwnershipVerificationHttp' and its subtypes
+        public void serialize(TlsCertificatesAndHostnamesOwnershipVerificationHttp value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+            jgen.writeObject(value.getActualInstance());
+        }
+    }
+
+    public static class TlsCertificatesAndHostnamesOwnershipVerificationHttpDeserializer extends StdDeserializer<TlsCertificatesAndHostnamesOwnershipVerificationHttp> {
+        public TlsCertificatesAndHostnamesOwnershipVerificationHttpDeserializer() {
+            this(TlsCertificatesAndHostnamesOwnershipVerificationHttp.class);
+        }
+
+        public TlsCertificatesAndHostnamesOwnershipVerificationHttpDeserializer(Class<?> vc) {
+            super(vc);
+        }
+
+        @Override
+        public TlsCertificatesAndHostnamesOwnershipVerificationHttp deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+            JsonNode tree = jp.readValueAsTree();
+            Object deserialized = null;
+            boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+            int match = 0;
+            JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+            // deserialize TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.class.equals(Integer.class) || TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.class.equals(Long.class) || TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.class.equals(Float.class) || TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.class.equals(Double.class) || TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.class.equals(Boolean.class) || TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.class.equals(Integer.class) || TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.class.equals(Float.class) || TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf'", e);
             }
-            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf> adapterTlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf = gson.getDelegateAdapter(this, TypeToken.get(TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.class));
 
-            return (TypeAdapter<T>) new TypeAdapter<TlsCertificatesAndHostnamesOwnershipVerificationHttp>() {
-                @Override
-                public void write(JsonWriter out, TlsCertificatesAndHostnamesOwnershipVerificationHttp value) throws IOException {
-                    if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
-                        return;
-                    }
+            if (match == 1) {
+                TlsCertificatesAndHostnamesOwnershipVerificationHttp ret = new TlsCertificatesAndHostnamesOwnershipVerificationHttp();
+                ret.setActualInstance(deserialized);
+                return ret;
+            }
+            throw new IOException(String.format("Failed deserialization for TlsCertificatesAndHostnamesOwnershipVerificationHttp: %d classes match result, expected 1", match));
+        }
 
-                    // check if the actual instance is of the type `TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf`
-                    if (value.getActualInstance() instanceof TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf) {
-                        JsonElement element = adapterTlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.toJsonTree((TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf");
-                }
-
-                @Override
-                public TlsCertificatesAndHostnamesOwnershipVerificationHttp read(JsonReader in) throws IOException {
-                    Object deserialized = null;
-                    JsonElement jsonElement = elementAdapter.read(in);
-
-                    int match = 0;
-                    ArrayList<String> errorMessages = new ArrayList<>();
-                    TypeAdapter actualAdapter = elementAdapter;
-
-                    // deserialize TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.validateJsonElement(jsonElement);
-                        actualAdapter = adapterTlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf'", e);
-                    }
-
-                    if (match == 1) {
-                        TlsCertificatesAndHostnamesOwnershipVerificationHttp ret = new TlsCertificatesAndHostnamesOwnershipVerificationHttp();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    }
-
-                    throw new IOException(String.format("Failed deserialization for TlsCertificatesAndHostnamesOwnershipVerificationHttp: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonElement.toString()));
-                }
-            }.nullSafe();
+        /**
+         * Handle deserialization of the 'null' value.
+         */
+        @Override
+        public TlsCertificatesAndHostnamesOwnershipVerificationHttp getNullValue(DeserializationContext ctxt) throws JsonMappingException {
+            throw new JsonMappingException(ctxt.getParser(), "TlsCertificatesAndHostnamesOwnershipVerificationHttp cannot be null");
         }
     }
 
     // store a list of schema names defined in oneOf
-    public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
+    public static final Map<String, Class<?>> schemas = new HashMap<>();
 
     public TlsCertificatesAndHostnamesOwnershipVerificationHttp() {
         super("oneOf", Boolean.FALSE);
@@ -137,6 +146,7 @@ public class TlsCertificatesAndHostnamesOwnershipVerificationHttp extends Abstra
 
     static {
         schemas.put("TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf", TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.class);
+        JSON.registerDescendants(TlsCertificatesAndHostnamesOwnershipVerificationHttp.class, Collections.unmodifiableMap(schemas));
     }
 
     @Override
@@ -150,10 +160,11 @@ public class TlsCertificatesAndHostnamesOwnershipVerificationHttp extends Abstra
      * TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf
      *
      * It could be an instance of the 'oneOf' schemas.
+     * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf) {
+        if (JSON.isInstanceOf(TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -167,7 +178,6 @@ public class TlsCertificatesAndHostnamesOwnershipVerificationHttp extends Abstra
      *
      * @return The actual instance (TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf)
      */
-    @SuppressWarnings("unchecked")
     @Override
     public Object getActualInstance() {
         return super.getActualInstance();
@@ -184,47 +194,48 @@ public class TlsCertificatesAndHostnamesOwnershipVerificationHttp extends Abstra
         return (TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf)super.getActualInstance();
     }
 
-    /**
-     * Validates the JSON Element and throws an exception if issues found
-     *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to TlsCertificatesAndHostnamesOwnershipVerificationHttp
-     */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        // validate oneOf schemas one by one
-        int validCount = 0;
-        ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf
-        try {
-            TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.validateJsonElement(jsonElement);
-            validCount++;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        if (validCount != 1) {
-            throw new IOException(String.format("The JSON string is invalid for TlsCertificatesAndHostnamesOwnershipVerificationHttp with oneOf schemas: TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
-        }
+
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
     }
 
-    /**
-     * Create an instance of TlsCertificatesAndHostnamesOwnershipVerificationHttp given an JSON string
-     *
-     * @param jsonString JSON string
-     * @return An instance of TlsCertificatesAndHostnamesOwnershipVerificationHttp
-     * @throws IOException if the JSON string is invalid with respect to TlsCertificatesAndHostnamesOwnershipVerificationHttp
-     */
-    public static TlsCertificatesAndHostnamesOwnershipVerificationHttp fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, TlsCertificatesAndHostnamesOwnershipVerificationHttp.class);
-    }
+    StringJoiner joiner = new StringJoiner("&");
 
-    /**
-     * Convert an instance of TlsCertificatesAndHostnamesOwnershipVerificationHttp to an JSON string
-     *
-     * @return JSON string
-     */
-    public String toJson() {
-        return JSON.getGson().toJson(this);
+    if (getActualInstance() instanceof TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf) {
+        if (getActualInstance() != null) {
+          joiner.add(((TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf)getActualInstance()).toUrlQueryString(prefix + "one_of_0" + suffix));
+        }
+        return joiner.toString();
     }
+    return null;
+  }
+
 }
 

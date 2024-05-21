@@ -17,30 +17,30 @@ import cloudflare.sdk.models.TlsCertificatesAndHostnamesCertificateAuthority;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesSslOneOfValidationErrorsInner;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesSslsettings;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesValidationRecord;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesSslOneOf
  */
-public class TlsCertificatesAndHostnamesSslOneOfTest {
+class TlsCertificatesAndHostnamesSslOneOfTest {
     private final TlsCertificatesAndHostnamesSslOneOf model = new TlsCertificatesAndHostnamesSslOneOf();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesSslOneOf
      */
     @Test
-    public void testTlsCertificatesAndHostnamesSslOneOf() {
+    void testTlsCertificatesAndHostnamesSslOneOf() {
         // TODO: test TlsCertificatesAndHostnamesSslOneOf
     }
 
@@ -48,7 +48,7 @@ public class TlsCertificatesAndHostnamesSslOneOfTest {
      * Test the property 'bundleMethod'
      */
     @Test
-    public void bundleMethodTest() {
+    void bundleMethodTest() {
         // TODO: test bundleMethod
     }
 
@@ -56,7 +56,7 @@ public class TlsCertificatesAndHostnamesSslOneOfTest {
      * Test the property 'certificateAuthority'
      */
     @Test
-    public void certificateAuthorityTest() {
+    void certificateAuthorityTest() {
         // TODO: test certificateAuthority
     }
 
@@ -64,7 +64,7 @@ public class TlsCertificatesAndHostnamesSslOneOfTest {
      * Test the property 'customCertificate'
      */
     @Test
-    public void customCertificateTest() {
+    void customCertificateTest() {
         // TODO: test customCertificate
     }
 
@@ -72,7 +72,7 @@ public class TlsCertificatesAndHostnamesSslOneOfTest {
      * Test the property 'customCsrId'
      */
     @Test
-    public void customCsrIdTest() {
+    void customCsrIdTest() {
         // TODO: test customCsrId
     }
 
@@ -80,7 +80,7 @@ public class TlsCertificatesAndHostnamesSslOneOfTest {
      * Test the property 'customKey'
      */
     @Test
-    public void customKeyTest() {
+    void customKeyTest() {
         // TODO: test customKey
     }
 
@@ -88,7 +88,7 @@ public class TlsCertificatesAndHostnamesSslOneOfTest {
      * Test the property 'expiresOn'
      */
     @Test
-    public void expiresOnTest() {
+    void expiresOnTest() {
         // TODO: test expiresOn
     }
 
@@ -96,7 +96,7 @@ public class TlsCertificatesAndHostnamesSslOneOfTest {
      * Test the property 'hosts'
      */
     @Test
-    public void hostsTest() {
+    void hostsTest() {
         // TODO: test hosts
     }
 
@@ -104,7 +104,7 @@ public class TlsCertificatesAndHostnamesSslOneOfTest {
      * Test the property 'id'
      */
     @Test
-    public void idTest() {
+    void idTest() {
         // TODO: test id
     }
 
@@ -112,7 +112,7 @@ public class TlsCertificatesAndHostnamesSslOneOfTest {
      * Test the property 'issuer'
      */
     @Test
-    public void issuerTest() {
+    void issuerTest() {
         // TODO: test issuer
     }
 
@@ -120,7 +120,7 @@ public class TlsCertificatesAndHostnamesSslOneOfTest {
      * Test the property 'method'
      */
     @Test
-    public void methodTest() {
+    void methodTest() {
         // TODO: test method
     }
 
@@ -128,7 +128,7 @@ public class TlsCertificatesAndHostnamesSslOneOfTest {
      * Test the property 'serialNumber'
      */
     @Test
-    public void serialNumberTest() {
+    void serialNumberTest() {
         // TODO: test serialNumber
     }
 
@@ -136,7 +136,7 @@ public class TlsCertificatesAndHostnamesSslOneOfTest {
      * Test the property 'settings'
      */
     @Test
-    public void settingsTest() {
+    void settingsTest() {
         // TODO: test settings
     }
 
@@ -144,7 +144,7 @@ public class TlsCertificatesAndHostnamesSslOneOfTest {
      * Test the property 'signature'
      */
     @Test
-    public void signatureTest() {
+    void signatureTest() {
         // TODO: test signature
     }
 
@@ -152,7 +152,7 @@ public class TlsCertificatesAndHostnamesSslOneOfTest {
      * Test the property 'status'
      */
     @Test
-    public void statusTest() {
+    void statusTest() {
         // TODO: test status
     }
 
@@ -160,7 +160,7 @@ public class TlsCertificatesAndHostnamesSslOneOfTest {
      * Test the property 'type'
      */
     @Test
-    public void typeTest() {
+    void typeTest() {
         // TODO: test type
     }
 
@@ -168,7 +168,7 @@ public class TlsCertificatesAndHostnamesSslOneOfTest {
      * Test the property 'uploadedOn'
      */
     @Test
-    public void uploadedOnTest() {
+    void uploadedOnTest() {
         // TODO: test uploadedOn
     }
 
@@ -176,7 +176,7 @@ public class TlsCertificatesAndHostnamesSslOneOfTest {
      * Test the property 'validationErrors'
      */
     @Test
-    public void validationErrorsTest() {
+    void validationErrorsTest() {
         // TODO: test validationErrors
     }
 
@@ -184,7 +184,7 @@ public class TlsCertificatesAndHostnamesSslOneOfTest {
      * Test the property 'validationRecords'
      */
     @Test
-    public void validationRecordsTest() {
+    void validationRecordsTest() {
         // TODO: test validationRecords
     }
 
@@ -192,7 +192,7 @@ public class TlsCertificatesAndHostnamesSslOneOfTest {
      * Test the property 'wildcard'
      */
     @Test
-    public void wildcardTest() {
+    void wildcardTest() {
         // TODO: test wildcard
     }
 

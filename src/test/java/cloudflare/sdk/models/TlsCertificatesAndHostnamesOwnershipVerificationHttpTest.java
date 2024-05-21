@@ -14,27 +14,27 @@
 package cloudflare.sdk.models;
 
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesOwnershipVerificationHttp
  */
-public class TlsCertificatesAndHostnamesOwnershipVerificationHttpTest {
+class TlsCertificatesAndHostnamesOwnershipVerificationHttpTest {
     private final TlsCertificatesAndHostnamesOwnershipVerificationHttp model = new TlsCertificatesAndHostnamesOwnershipVerificationHttp();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesOwnershipVerificationHttp
      */
     @Test
-    public void testTlsCertificatesAndHostnamesOwnershipVerificationHttp() {
+    void testTlsCertificatesAndHostnamesOwnershipVerificationHttp() {
         // TODO: test TlsCertificatesAndHostnamesOwnershipVerificationHttp
     }
 
@@ -42,7 +42,7 @@ public class TlsCertificatesAndHostnamesOwnershipVerificationHttpTest {
      * Test the property 'httpBody'
      */
     @Test
-    public void httpBodyTest() {
+    void httpBodyTest() {
         // TODO: test httpBody
     }
 
@@ -50,7 +50,7 @@ public class TlsCertificatesAndHostnamesOwnershipVerificationHttpTest {
      * Test the property 'httpUrl'
      */
     @Test
-    public void httpUrlTest() {
+    void httpUrlTest() {
         // TODO: test httpUrl
     }
 

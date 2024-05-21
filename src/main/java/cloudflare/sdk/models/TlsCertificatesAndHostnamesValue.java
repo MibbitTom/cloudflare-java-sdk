@@ -13,166 +13,175 @@
 
 package cloudflare.sdk.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.math.BigDecimal;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-
+import com.fasterxml.jackson.core.type.TypeReference;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonParseException;
-
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import cloudflare.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:31:20.290775906+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T10:12:24.693742223+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@JsonDeserialize(using = TlsCertificatesAndHostnamesValue.TlsCertificatesAndHostnamesValueDeserializer.class)
+@JsonSerialize(using = TlsCertificatesAndHostnamesValue.TlsCertificatesAndHostnamesValueSerializer.class)
 public class TlsCertificatesAndHostnamesValue extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(TlsCertificatesAndHostnamesValue.class.getName());
 
-    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-        @SuppressWarnings("unchecked")
+    public static class TlsCertificatesAndHostnamesValueSerializer extends StdSerializer<TlsCertificatesAndHostnamesValue> {
+        public TlsCertificatesAndHostnamesValueSerializer(Class<TlsCertificatesAndHostnamesValue> t) {
+            super(t);
+        }
+
+        public TlsCertificatesAndHostnamesValueSerializer() {
+            this(null);
+        }
+
         @Override
-        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!TlsCertificatesAndHostnamesValue.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'TlsCertificatesAndHostnamesValue' and its subtypes
+        public void serialize(TlsCertificatesAndHostnamesValue value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+            jgen.writeObject(value.getActualInstance());
+        }
+    }
+
+    public static class TlsCertificatesAndHostnamesValueDeserializer extends StdDeserializer<TlsCertificatesAndHostnamesValue> {
+        public TlsCertificatesAndHostnamesValueDeserializer() {
+            this(TlsCertificatesAndHostnamesValue.class);
+        }
+
+        public TlsCertificatesAndHostnamesValueDeserializer(Class<?> vc) {
+            super(vc);
+        }
+
+        @Override
+        public TlsCertificatesAndHostnamesValue deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+            JsonNode tree = jp.readValueAsTree();
+            Object deserialized = null;
+            boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+            int match = 0;
+            JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+            // deserialize BigDecimal
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (BigDecimal.class.equals(Integer.class) || BigDecimal.class.equals(Long.class) || BigDecimal.class.equals(Float.class) || BigDecimal.class.equals(Double.class) || BigDecimal.class.equals(Boolean.class) || BigDecimal.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((BigDecimal.class.equals(Integer.class) || BigDecimal.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((BigDecimal.class.equals(Float.class) || BigDecimal.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (BigDecimal.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (BigDecimal.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(BigDecimal.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'BigDecimal'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'BigDecimal'", e);
             }
-            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<BigDecimal> adapterBigDecimal = gson.getDelegateAdapter(this, TypeToken.get(BigDecimal.class));
-            final TypeAdapter<String> adapterString = gson.getDelegateAdapter(this, TypeToken.get(String.class));
 
-            final Type typeInstance = new TypeToken<List<String>>(){}.getType();
-            final TypeAdapter<List<String>> adapterListString = (TypeAdapter<List<String>>) gson.getDelegateAdapter(this, TypeToken.get(typeInstance));
-
-            return (TypeAdapter<T>) new TypeAdapter<TlsCertificatesAndHostnamesValue>() {
-                @Override
-                public void write(JsonWriter out, TlsCertificatesAndHostnamesValue value) throws IOException {
-                    if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
-                        return;
+            // deserialize List<String>
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (List<String>.class.equals(Integer.class) || List<String>.class.equals(Long.class) || List<String>.class.equals(Float.class) || List<String>.class.equals(Double.class) || List<String>.class.equals(Boolean.class) || List<String>.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((List<String>.class.equals(Integer.class) || List<String>.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((List<String>.class.equals(Float.class) || List<String>.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (List<String>.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (List<String>.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
-
-                    // check if the actual instance is of the type `BigDecimal`
-                    if (value.getActualInstance() instanceof BigDecimal) {
-                        JsonElement element = adapterBigDecimal.toJsonTree((BigDecimal)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    // check if the actual instance is of the type `String`
-                    if (value.getActualInstance() instanceof String) {
-                        JsonPrimitive primitive = adapterString.toJsonTree((String)value.getActualInstance()).getAsJsonPrimitive();
-                        elementAdapter.write(out, primitive);
-                        return;
-                    }
-                    // check if the actual instance is of the type `List<String>`
-                    if (value.getActualInstance() instanceof List<?>) {
-                        JsonPrimitive primitive = adapterListString.toJsonTree((List<String>)value.getActualInstance()).getAsJsonPrimitive();
-                        elementAdapter.write(out, primitive);
-                        return;
-                    }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: BigDecimal, List<String>, String");
                 }
-
-                @Override
-                public TlsCertificatesAndHostnamesValue read(JsonReader in) throws IOException {
-                    Object deserialized = null;
-                    JsonElement jsonElement = elementAdapter.read(in);
-
-                    int match = 0;
-                    ArrayList<String> errorMessages = new ArrayList<>();
-                    TypeAdapter actualAdapter = elementAdapter;
-
-                    // deserialize BigDecimal
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        if (!jsonElement.getAsJsonPrimitive().isNumber()) {
-                            throw new IllegalArgumentException(String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
-                        }
-                        actualAdapter = adapterBigDecimal;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'BigDecimal'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for BigDecimal failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'BigDecimal'", e);
-                    }
-                    // deserialize String
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        if (!jsonElement.getAsJsonPrimitive().isString()) {
-                            throw new IllegalArgumentException(String.format("Expected json element to be of type String in the JSON string but got `%s`", jsonElement.toString()));
-                        }
-                        actualAdapter = adapterString;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'String'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for String failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'String'", e);
-                    }
-                    // deserialize List<String>
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        if (!jsonElement.isJsonArray()) {
-                            throw new IllegalArgumentException(String.format("Expected json element to be a array type in the JSON string but got `%s`", jsonElement.toString()));
-                        }
-
-                        JsonArray array = jsonElement.getAsJsonArray();
-                        // validate array items
-                        for(JsonElement element : array) {
-                            if (!element.getAsJsonPrimitive().isString()) {
-                                throw new IllegalArgumentException(String.format("Expected array items to be of type String in the JSON string but got `%s`", jsonElement.toString()));
-                            }
-                        }
-                        actualAdapter = adapterListString;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'List<String>'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for List<String> failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'List<String>'", e);
-                    }
-
-                    if (match == 1) {
-                        TlsCertificatesAndHostnamesValue ret = new TlsCertificatesAndHostnamesValue();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    }
-
-                    throw new IOException(String.format("Failed deserialization for TlsCertificatesAndHostnamesValue: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonElement.toString()));
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(List<String>.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'List<String>'");
                 }
-            }.nullSafe();
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'List<String>'", e);
+            }
+
+            // deserialize String
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (String.class.equals(Integer.class) || String.class.equals(Long.class) || String.class.equals(Float.class) || String.class.equals(Double.class) || String.class.equals(Boolean.class) || String.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((String.class.equals(Integer.class) || String.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((String.class.equals(Float.class) || String.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (String.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (String.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(String.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'String'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'String'", e);
+            }
+
+            if (match == 1) {
+                TlsCertificatesAndHostnamesValue ret = new TlsCertificatesAndHostnamesValue();
+                ret.setActualInstance(deserialized);
+                return ret;
+            }
+            throw new IOException(String.format("Failed deserialization for TlsCertificatesAndHostnamesValue: %d classes match result, expected 1", match));
+        }
+
+        /**
+         * Handle deserialization of the 'null' value.
+         */
+        @Override
+        public TlsCertificatesAndHostnamesValue getNullValue(DeserializationContext ctxt) throws JsonMappingException {
+            throw new JsonMappingException(ctxt.getParser(), "TlsCertificatesAndHostnamesValue cannot be null");
         }
     }
 
     // store a list of schema names defined in oneOf
-    public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
+    public static final Map<String, Class<?>> schemas = new HashMap<>();
 
     public TlsCertificatesAndHostnamesValue() {
         super("oneOf", Boolean.FALSE);
@@ -195,8 +204,9 @@ public class TlsCertificatesAndHostnamesValue extends AbstractOpenApiSchema {
 
     static {
         schemas.put("BigDecimal", BigDecimal.class);
+        schemas.put("List<String>", List<String>.class);
         schemas.put("String", String.class);
-        schemas.put("List<String>", List.class);
+        JSON.registerDescendants(TlsCertificatesAndHostnamesValue.class, Collections.unmodifiableMap(schemas));
     }
 
     @Override
@@ -210,25 +220,23 @@ public class TlsCertificatesAndHostnamesValue extends AbstractOpenApiSchema {
      * BigDecimal, List<String>, String
      *
      * It could be an instance of the 'oneOf' schemas.
+     * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof BigDecimal) {
+        if (JSON.isInstanceOf(BigDecimal.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof String) {
+        if (JSON.isInstanceOf(List<String>.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof List<?>) {
-            List<?> list = (List<?>) instance;
-            if (list.get(0) instanceof String) {
-                super.setActualInstance(instance);
-                return;
-            }
+        if (JSON.isInstanceOf(String.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
         }
 
         throw new RuntimeException("Invalid instance type. Must be BigDecimal, List<String>, String");
@@ -240,7 +248,6 @@ public class TlsCertificatesAndHostnamesValue extends AbstractOpenApiSchema {
      *
      * @return The actual instance (BigDecimal, List<String>, String)
      */
-    @SuppressWarnings("unchecked")
     @Override
     public Object getActualInstance() {
         return super.getActualInstance();
@@ -256,6 +263,18 @@ public class TlsCertificatesAndHostnamesValue extends AbstractOpenApiSchema {
     public BigDecimal getBigDecimal() throws ClassCastException {
         return (BigDecimal)super.getActualInstance();
     }
+
+    /**
+     * Get the actual instance of `List<String>`. If the actual instance is not `List<String>`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `List<String>`
+     * @throws ClassCastException if the instance is not `List<String>`
+     */
+    public List<String> getList<String>() throws ClassCastException {
+        return (List<String>)super.getActualInstance();
+    }
+
     /**
      * Get the actual instance of `String`. If the actual instance is not `String`,
      * the ClassCastException will be thrown.
@@ -266,87 +285,65 @@ public class TlsCertificatesAndHostnamesValue extends AbstractOpenApiSchema {
     public String getString() throws ClassCastException {
         return (String)super.getActualInstance();
     }
-    /**
-     * Get the actual instance of `List<String>`. If the actual instance is not `List<String>`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `List<String>`
-     * @throws ClassCastException if the instance is not `List<String>`
-     */
-    public List<String> getListString() throws ClassCastException {
-        return (List<String>)super.getActualInstance();
+
+
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
     }
 
-    /**
-     * Validates the JSON Element and throws an exception if issues found
-     *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to TlsCertificatesAndHostnamesValue
-     */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        // validate oneOf schemas one by one
-        int validCount = 0;
-        ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with BigDecimal
-        try {
-            if (!jsonElement.getAsJsonPrimitive().isNumber()) {
-                throw new IllegalArgumentException(String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
-            }
-            validCount++;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for BigDecimal failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        // validate the json string with String
-        try {
-            if (!jsonElement.getAsJsonPrimitive().isString()) {
-                throw new IllegalArgumentException(String.format("Expected json element to be of type String in the JSON string but got `%s`", jsonElement.toString()));
-            }
-            validCount++;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for String failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        // validate the json string with List<String>
-        try {
-            if (!jsonElement.isJsonArray()) {
-                throw new IllegalArgumentException(String.format("Expected json element to be a array type in the JSON string but got `%s`", jsonElement.toString()));
-            }
-            JsonArray array = jsonElement.getAsJsonArray();
-            // validate array items
-            for(JsonElement element : array) {
-                if (!element.getAsJsonPrimitive().isString()) {
-                    throw new IllegalArgumentException(String.format("Expected array items to be of type String in the JSON string but got `%s`", jsonElement.toString()));
-                }
-            }
-            validCount++;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for List<String> failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        if (validCount != 1) {
-            throw new IOException(String.format("The JSON string is invalid for TlsCertificatesAndHostnamesValue with oneOf schemas: BigDecimal, List<String>, String. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
-        }
-    }
+    StringJoiner joiner = new StringJoiner("&");
 
-    /**
-     * Create an instance of TlsCertificatesAndHostnamesValue given an JSON string
-     *
-     * @param jsonString JSON string
-     * @return An instance of TlsCertificatesAndHostnamesValue
-     * @throws IOException if the JSON string is invalid with respect to TlsCertificatesAndHostnamesValue
-     */
-    public static TlsCertificatesAndHostnamesValue fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, TlsCertificatesAndHostnamesValue.class);
+    if (getActualInstance() instanceof BigDecimal) {
+        if (getActualInstance() != null) {
+          joiner.add(String.format("%sone_of_0%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getActualInstance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+        return joiner.toString();
     }
+    if (getActualInstance() instanceof String) {
+        if (getActualInstance() != null) {
+          joiner.add(String.format("%sone_of_1%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getActualInstance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+        return joiner.toString();
+    }
+    if (getActualInstance() instanceof List<String>) {
+        if (getActualInstance() != null) {
+          for (int i = 0; i < ((List<String>)getActualInstance()).size(); i++) {
+            joiner.add(String.format("%sone_of_2%s%s=%s", prefix, suffix,
+                "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+                URLEncoder.encode(String.valueOf(getActualInstance().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+          }
+        }
+        return joiner.toString();
+    }
+    return null;
+  }
 
-    /**
-     * Convert an instance of TlsCertificatesAndHostnamesValue to an JSON string
-     *
-     * @return JSON string
-     */
-    public String toJson() {
-        return JSON.getGson().toJson(this);
-    }
 }
 

@@ -13,70 +13,57 @@
 
 package cloudflare.sdk.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import cloudflare.JSON;
 
 /**
  * TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:31:20.290775906+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@JsonPropertyOrder({
+  TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo.JSON_PROPERTY_COUNT,
+  TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo.JSON_PROPERTY_PAGE,
+  TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo.JSON_PROPERTY_PER_PAGE,
+  TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo.JSON_PROPERTY_TOTAL_COUNT,
+  TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo.JSON_PROPERTY_TOTAL_PAGES
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T10:12:24.693742223+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo {
-  public static final String SERIALIZED_NAME_COUNT = "count";
-  @SerializedName(SERIALIZED_NAME_COUNT)
-  private Object count = null;
+  public static final String JSON_PROPERTY_COUNT = "count";
+  private JsonNullable<Object> count = JsonNullable.<Object>of(null);
 
-  public static final String SERIALIZED_NAME_PAGE = "page";
-  @SerializedName(SERIALIZED_NAME_PAGE)
-  private Object page = null;
+  public static final String JSON_PROPERTY_PAGE = "page";
+  private JsonNullable<Object> page = JsonNullable.<Object>of(null);
 
-  public static final String SERIALIZED_NAME_PER_PAGE = "per_page";
-  @SerializedName(SERIALIZED_NAME_PER_PAGE)
-  private Object perPage = null;
+  public static final String JSON_PROPERTY_PER_PAGE = "per_page";
+  private JsonNullable<Object> perPage = JsonNullable.<Object>of(null);
 
-  public static final String SERIALIZED_NAME_TOTAL_COUNT = "total_count";
-  @SerializedName(SERIALIZED_NAME_TOTAL_COUNT)
-  private Object totalCount = null;
+  public static final String JSON_PROPERTY_TOTAL_COUNT = "total_count";
+  private JsonNullable<Object> totalCount = JsonNullable.<Object>of(null);
 
-  public static final String SERIALIZED_NAME_TOTAL_PAGES = "total_pages";
-  @SerializedName(SERIALIZED_NAME_TOTAL_PAGES)
-  private Object totalPages = null;
+  public static final String JSON_PROPERTY_TOTAL_PAGES = "total_pages";
+  private JsonNullable<Object> totalPages = JsonNullable.<Object>of(null);
 
-  public TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo() {
+  public TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo() { 
   }
 
   public TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo count(Object count) {
-    this.count = count;
+    this.count = JsonNullable.<Object>of(count);
     return this;
   }
 
@@ -85,17 +72,31 @@ public class TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertifica
    * @return count
   **/
   @javax.annotation.Nullable
+  @JsonIgnore
+
   public Object getCount() {
+        return count.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Object> getCount_JsonNullable() {
     return count;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_COUNT)
+  public void setCount_JsonNullable(JsonNullable<Object> count) {
+    this.count = count;
   }
 
   public void setCount(Object count) {
-    this.count = count;
+    this.count = JsonNullable.<Object>of(count);
   }
 
 
   public TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo page(Object page) {
-    this.page = page;
+    this.page = JsonNullable.<Object>of(page);
     return this;
   }
 
@@ -104,17 +105,31 @@ public class TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertifica
    * @return page
   **/
   @javax.annotation.Nullable
+  @JsonIgnore
+
   public Object getPage() {
+        return page.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Object> getPage_JsonNullable() {
     return page;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PAGE)
+  public void setPage_JsonNullable(JsonNullable<Object> page) {
+    this.page = page;
   }
 
   public void setPage(Object page) {
-    this.page = page;
+    this.page = JsonNullable.<Object>of(page);
   }
 
 
   public TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo perPage(Object perPage) {
-    this.perPage = perPage;
+    this.perPage = JsonNullable.<Object>of(perPage);
     return this;
   }
 
@@ -123,17 +138,31 @@ public class TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertifica
    * @return perPage
   **/
   @javax.annotation.Nullable
+  @JsonIgnore
+
   public Object getPerPage() {
+        return perPage.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PER_PAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Object> getPerPage_JsonNullable() {
     return perPage;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PER_PAGE)
+  public void setPerPage_JsonNullable(JsonNullable<Object> perPage) {
+    this.perPage = perPage;
   }
 
   public void setPerPage(Object perPage) {
-    this.perPage = perPage;
+    this.perPage = JsonNullable.<Object>of(perPage);
   }
 
 
   public TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo totalCount(Object totalCount) {
-    this.totalCount = totalCount;
+    this.totalCount = JsonNullable.<Object>of(totalCount);
     return this;
   }
 
@@ -142,17 +171,31 @@ public class TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertifica
    * @return totalCount
   **/
   @javax.annotation.Nullable
+  @JsonIgnore
+
   public Object getTotalCount() {
+        return totalCount.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Object> getTotalCount_JsonNullable() {
     return totalCount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
+  public void setTotalCount_JsonNullable(JsonNullable<Object> totalCount) {
+    this.totalCount = totalCount;
   }
 
   public void setTotalCount(Object totalCount) {
-    this.totalCount = totalCount;
+    this.totalCount = JsonNullable.<Object>of(totalCount);
   }
 
 
   public TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo totalPages(Object totalPages) {
-    this.totalPages = totalPages;
+    this.totalPages = JsonNullable.<Object>of(totalPages);
     return this;
   }
 
@@ -161,16 +204,32 @@ public class TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertifica
    * @return totalPages
   **/
   @javax.annotation.Nullable
+  @JsonIgnore
+
   public Object getTotalPages() {
-    return totalPages;
+        return totalPages.orElse(null);
   }
 
-  public void setTotalPages(Object totalPages) {
+  @JsonProperty(JSON_PROPERTY_TOTAL_PAGES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Object> getTotalPages_JsonNullable() {
+    return totalPages;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TOTAL_PAGES)
+  public void setTotalPages_JsonNullable(JsonNullable<Object> totalPages) {
     this.totalPages = totalPages;
   }
 
+  public void setTotalPages(Object totalPages) {
+    this.totalPages = JsonNullable.<Object>of(totalPages);
+  }
 
 
+  /**
+   * Return true if this tls_certificates_and_hostnames_mtls_management_components_schemas_certificate_response_collection_allOf_result_info object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -180,11 +239,11 @@ public class TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertifica
       return false;
     }
     TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo tlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo = (TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo) o;
-    return Objects.equals(this.count, tlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo.count) &&
-        Objects.equals(this.page, tlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo.page) &&
-        Objects.equals(this.perPage, tlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo.perPage) &&
-        Objects.equals(this.totalCount, tlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo.totalCount) &&
-        Objects.equals(this.totalPages, tlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo.totalPages);
+    return equalsNullable(this.count, tlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo.count) &&
+        equalsNullable(this.page, tlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo.page) &&
+        equalsNullable(this.perPage, tlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo.perPage) &&
+        equalsNullable(this.totalCount, tlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo.totalCount) &&
+        equalsNullable(this.totalPages, tlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo.totalPages);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -193,7 +252,7 @@ public class TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertifica
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, page, perPage, totalCount, totalPages);
+    return Objects.hash(hashCodeNullable(count), hashCodeNullable(page), hashCodeNullable(perPage), hashCodeNullable(totalCount), hashCodeNullable(totalPages));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -227,93 +286,64 @@ public class TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertifica
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("count");
-    openapiFields.add("page");
-    openapiFields.add("per_page");
-    openapiFields.add("total_count");
-    openapiFields.add("total_pages");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo
-  */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo is not found in the empty JSON string", TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo>() {
-           @Override
-           public void write(JsonWriter out, TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
     }
-  }
 
- /**
-  * Create an instance of TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo
-  * @throws IOException if the JSON string is invalid with respect to TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo
-  */
-  public static TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo.class);
-  }
+    StringJoiner joiner = new StringJoiner("&");
 
- /**
-  * Convert an instance of TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+    // add `count` to the URL query string
+    if (getCount() != null) {
+      joiner.add(String.format("%scount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `page` to the URL query string
+    if (getPage() != null) {
+      joiner.add(String.format("%spage%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `per_page` to the URL query string
+    if (getPerPage() != null) {
+      joiner.add(String.format("%sper_page%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPerPage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `total_count` to the URL query string
+    if (getTotalCount() != null) {
+      joiner.add(String.format("%stotal_count%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTotalCount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `total_pages` to the URL query string
+    if (getTotalPages() != null) {
+      joiner.add(String.format("%stotal_pages%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTotalPages()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
   }
 }
 

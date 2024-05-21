@@ -13,20 +13,21 @@
 
 package cloudflare.sdk.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.JsonElement;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Status of the hostname&#39;s activation.
  */
-@JsonAdapter(TlsCertificatesAndHostnamesComponentsSchemasStatus.Adapter.class)
 public enum TlsCertificatesAndHostnamesComponentsSchemasStatus {
   
   ACTIVE("active"),
@@ -67,6 +68,7 @@ public enum TlsCertificatesAndHostnamesComponentsSchemasStatus {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -76,6 +78,7 @@ public enum TlsCertificatesAndHostnamesComponentsSchemasStatus {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static TlsCertificatesAndHostnamesComponentsSchemasStatus fromValue(String value) {
     for (TlsCertificatesAndHostnamesComponentsSchemasStatus b : TlsCertificatesAndHostnamesComponentsSchemasStatus.values()) {
       if (b.value.equals(value)) {
@@ -85,22 +88,19 @@ public enum TlsCertificatesAndHostnamesComponentsSchemasStatus {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 
-  public static class Adapter extends TypeAdapter<TlsCertificatesAndHostnamesComponentsSchemasStatus> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final TlsCertificatesAndHostnamesComponentsSchemasStatus enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    if (prefix == null) {
+      prefix = "";
     }
 
-    @Override
-    public TlsCertificatesAndHostnamesComponentsSchemasStatus read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return TlsCertificatesAndHostnamesComponentsSchemasStatus.fromValue(value);
-    }
+    return String.format("%s=%s", prefix, this.toString());
   }
 
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    TlsCertificatesAndHostnamesComponentsSchemasStatus.fromValue(value);
-  }
 }
 

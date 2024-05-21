@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**errors** | [**List&lt;AaaMessagesInner&gt;**](AaaMessagesInner.md) |  |  |
-|**messages** | [**List&lt;AaaMessagesInner&gt;**](AaaMessagesInner.md) |  |  |
-|**result** | [**List&lt;TlsCertificatesAndHostnamesZoneAuthenticatedOriginPull&gt;**](TlsCertificatesAndHostnamesZoneAuthenticatedOriginPull.md) |  |  |
+|**errors** | [**List&lt;TlsCertificatesAndHostnamesMessagesInner&gt;**](TlsCertificatesAndHostnamesMessagesInner.md) |  |  |
+|**messages** | [**List&lt;TlsCertificatesAndHostnamesMessagesInner&gt;**](TlsCertificatesAndHostnamesMessagesInner.md) |  |  |
 |**success** | **Boolean** | Whether the API call was successful |  |
+|**result** | [**List&lt;TlsCertificatesAndHostnamesZoneAuthenticatedOriginPull&gt;**](TlsCertificatesAndHostnamesZoneAuthenticatedOriginPull.md) |  |  [optional] |
 |**resultInfo** | [**TlsCertificatesAndHostnamesResultInfo**](TlsCertificatesAndHostnamesResultInfo.md) |  |  [optional] |
 
 

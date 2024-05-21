@@ -13,59 +13,45 @@
 
 package cloudflare.sdk.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import cloudflare.sdk.models.AaaMessagesInner;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import cloudflare.sdk.models.TlsCertificatesAndHostnamesMessagesInner;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import cloudflare.JSON;
 
 /**
  * CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:31:20.290775906+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@JsonPropertyOrder({
+  CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse.JSON_PROPERTY_ERRORS,
+  CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse.JSON_PROPERTY_MESSAGES,
+  CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse.JSON_PROPERTY_RESULT,
+  CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse.JSON_PROPERTY_SUCCESS,
+  CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse.JSON_PROPERTY_ID
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T10:12:24.693742223+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse {
-  public static final String SERIALIZED_NAME_ERRORS = "errors";
-  @SerializedName(SERIALIZED_NAME_ERRORS)
-  private List<AaaMessagesInner> errors;
+  public static final String JSON_PROPERTY_ERRORS = "errors";
+  private List<TlsCertificatesAndHostnamesMessagesInner> errors;
 
-  public static final String SERIALIZED_NAME_MESSAGES = "messages";
-  @SerializedName(SERIALIZED_NAME_MESSAGES)
-  private List<AaaMessagesInner> messages;
+  public static final String JSON_PROPERTY_MESSAGES = "messages";
+  private List<TlsCertificatesAndHostnamesMessagesInner> messages;
 
   /**
    * Gets or Sets result
    */
-  @JsonAdapter(ResultEnum.Adapter.class)
   public enum ResultEnum {
     NULL("null");
 
@@ -75,6 +61,7 @@ public class CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificat
       this.value = value;
     }
 
+    @JsonValue
     public Object getValue() {
       return value;
     }
@@ -84,6 +71,7 @@ public class CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificat
       return String.valueOf(value);
     }
 
+    @JsonCreator
     public static ResultEnum fromValue(Object value) {
       for (ResultEnum b : ResultEnum.values()) {
         if (b.value.equals(value)) {
@@ -92,54 +80,34 @@ public class CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificat
       }
       return null;
     }
-
-    public static class Adapter extends TypeAdapter<ResultEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ResultEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ResultEnum read(final JsonReader jsonReader) throws IOException {
-        Object value =  jsonReader.nextObject();
-        return ResultEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      Object value = jsonElement.getAsObject();
-      ResultEnum.fromValue(value);
-    }
   }
 
-  public static final String SERIALIZED_NAME_RESULT = "result";
-  @SerializedName(SERIALIZED_NAME_RESULT)
+  public static final String JSON_PROPERTY_RESULT = "result";
   private ResultEnum result;
 
-  public static final String SERIALIZED_NAME_SUCCESS = "success";
-  @SerializedName(SERIALIZED_NAME_SUCCESS)
+  public static final String JSON_PROPERTY_SUCCESS = "success";
   private Boolean success;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse() {
+  public CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse() { 
   }
 
+  @JsonCreator
   public CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse(
-     String id
+    @JsonProperty(JSON_PROPERTY_ID) String id
   ) {
-    this();
+  this();
     this.id = id;
   }
 
-  public CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse errors(List<AaaMessagesInner> errors) {
+  public CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse errors(List<TlsCertificatesAndHostnamesMessagesInner> errors) {
     this.errors = errors;
     return this;
   }
 
-  public CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse addErrorsItem(AaaMessagesInner errorsItem) {
+  public CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse addErrorsItem(TlsCertificatesAndHostnamesMessagesInner errorsItem) {
     if (this.errors == null) {
       this.errors = new ArrayList<>();
     }
@@ -152,21 +120,27 @@ public class CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificat
    * @return errors
   **/
   @javax.annotation.Nonnull
-  public List<AaaMessagesInner> getErrors() {
+  @JsonProperty(JSON_PROPERTY_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<TlsCertificatesAndHostnamesMessagesInner> getErrors() {
     return errors;
   }
 
-  public void setErrors(List<AaaMessagesInner> errors) {
+
+  @JsonProperty(JSON_PROPERTY_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setErrors(List<TlsCertificatesAndHostnamesMessagesInner> errors) {
     this.errors = errors;
   }
 
 
-  public CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse messages(List<AaaMessagesInner> messages) {
+  public CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse messages(List<TlsCertificatesAndHostnamesMessagesInner> messages) {
     this.messages = messages;
     return this;
   }
 
-  public CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse addMessagesItem(AaaMessagesInner messagesItem) {
+  public CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse addMessagesItem(TlsCertificatesAndHostnamesMessagesInner messagesItem) {
     if (this.messages == null) {
       this.messages = new ArrayList<>();
     }
@@ -179,11 +153,17 @@ public class CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificat
    * @return messages
   **/
   @javax.annotation.Nonnull
-  public List<AaaMessagesInner> getMessages() {
+  @JsonProperty(JSON_PROPERTY_MESSAGES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<TlsCertificatesAndHostnamesMessagesInner> getMessages() {
     return messages;
   }
 
-  public void setMessages(List<AaaMessagesInner> messages) {
+
+  @JsonProperty(JSON_PROPERTY_MESSAGES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setMessages(List<TlsCertificatesAndHostnamesMessagesInner> messages) {
     this.messages = messages;
   }
 
@@ -198,10 +178,16 @@ public class CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificat
    * @return result
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public ResultEnum getResult() {
     return result;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setResult(ResultEnum result) {
     this.result = result;
   }
@@ -217,10 +203,16 @@ public class CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificat
    * @return success
   **/
   @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SUCCESS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getSuccess() {
     return success;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_SUCCESS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSuccess(Boolean success) {
     this.success = success;
   }
@@ -231,6 +223,9 @@ public class CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificat
    * @return id
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getId() {
     return id;
   }
@@ -238,6 +233,9 @@ public class CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificat
 
 
 
+  /**
+   * Return true if this custom_hostname_for_a_zone_delete_custom_hostname___and_any_issued_ssl_certificates__4XX_response object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -283,129 +281,74 @@ public class CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificat
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("errors");
-    openapiFields.add("messages");
-    openapiFields.add("result");
-    openapiFields.add("success");
-    openapiFields.add("id");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("errors");
-    openapiRequiredFields.add("messages");
-    openapiRequiredFields.add("result");
-    openapiRequiredFields.add("success");
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse
-  */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse is not found in the empty JSON string", CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("errors").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `errors` to be an array in the JSON string but got `%s`", jsonObj.get("errors").toString()));
-      }
-
-      JsonArray jsonArrayerrors = jsonObj.getAsJsonArray("errors");
-      // validate the required field `errors` (array)
-      for (int i = 0; i < jsonArrayerrors.size(); i++) {
-        AaaMessagesInner.validateJsonElement(jsonArrayerrors.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("messages").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `messages` to be an array in the JSON string but got `%s`", jsonObj.get("messages").toString()));
-      }
-
-      JsonArray jsonArraymessages = jsonObj.getAsJsonArray("messages");
-      // validate the required field `messages` (array)
-      for (int i = 0; i < jsonArraymessages.size(); i++) {
-        AaaMessagesInner.validateJsonElement(jsonArraymessages.get(i));
-      };
-      // validate the required field `result`
-      ResultEnum.validateJsonElement(jsonObj.get("result"));
-      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse>() {
-           @Override
-           public void write(JsonWriter out, CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
     }
-  }
 
- /**
-  * Create an instance of CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse
-  * @throws IOException if the JSON string is invalid with respect to CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse
-  */
-  public static CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse.class);
-  }
+    StringJoiner joiner = new StringJoiner("&");
 
- /**
-  * Convert an instance of CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+    // add `errors` to the URL query string
+    if (getErrors() != null) {
+      for (int i = 0; i < getErrors().size(); i++) {
+        if (getErrors().get(i) != null) {
+          joiner.add(getErrors().get(i).toUrlQueryString(String.format("%serrors%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `messages` to the URL query string
+    if (getMessages() != null) {
+      for (int i = 0; i < getMessages().size(); i++) {
+        if (getMessages().get(i) != null) {
+          joiner.add(getMessages().get(i).toUrlQueryString(String.format("%smessages%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `result` to the URL query string
+    if (getResult() != null) {
+      joiner.add(String.format("%sresult%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getResult()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `success` to the URL query string
+    if (getSuccess() != null) {
+      joiner.add(String.format("%ssuccess%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSuccess()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `id` to the URL query string
+    if (getId() != null) {
+      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
   }
 }
 

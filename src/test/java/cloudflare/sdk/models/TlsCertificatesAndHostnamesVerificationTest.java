@@ -18,27 +18,27 @@ import cloudflare.sdk.models.TlsCertificatesAndHostnamesSchemasSignature;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesSchemasValidationMethod;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesVerificationInfo;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesVerificationType;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesVerification
  */
-public class TlsCertificatesAndHostnamesVerificationTest {
+class TlsCertificatesAndHostnamesVerificationTest {
     private final TlsCertificatesAndHostnamesVerification model = new TlsCertificatesAndHostnamesVerification();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesVerification
      */
     @Test
-    public void testTlsCertificatesAndHostnamesVerification() {
+    void testTlsCertificatesAndHostnamesVerification() {
         // TODO: test TlsCertificatesAndHostnamesVerification
     }
 
@@ -46,7 +46,7 @@ public class TlsCertificatesAndHostnamesVerificationTest {
      * Test the property 'brandCheck'
      */
     @Test
-    public void brandCheckTest() {
+    void brandCheckTest() {
         // TODO: test brandCheck
     }
 
@@ -54,7 +54,7 @@ public class TlsCertificatesAndHostnamesVerificationTest {
      * Test the property 'certPackUuid'
      */
     @Test
-    public void certPackUuidTest() {
+    void certPackUuidTest() {
         // TODO: test certPackUuid
     }
 
@@ -62,7 +62,7 @@ public class TlsCertificatesAndHostnamesVerificationTest {
      * Test the property 'certificateStatus'
      */
     @Test
-    public void certificateStatusTest() {
+    void certificateStatusTest() {
         // TODO: test certificateStatus
     }
 
@@ -70,7 +70,7 @@ public class TlsCertificatesAndHostnamesVerificationTest {
      * Test the property 'signature'
      */
     @Test
-    public void signatureTest() {
+    void signatureTest() {
         // TODO: test signature
     }
 
@@ -78,7 +78,7 @@ public class TlsCertificatesAndHostnamesVerificationTest {
      * Test the property 'validationMethod'
      */
     @Test
-    public void validationMethodTest() {
+    void validationMethodTest() {
         // TODO: test validationMethod
     }
 
@@ -86,7 +86,7 @@ public class TlsCertificatesAndHostnamesVerificationTest {
      * Test the property 'verificationInfo'
      */
     @Test
-    public void verificationInfoTest() {
+    void verificationInfoTest() {
         // TODO: test verificationInfo
     }
 
@@ -94,7 +94,7 @@ public class TlsCertificatesAndHostnamesVerificationTest {
      * Test the property 'verificationStatus'
      */
     @Test
-    public void verificationStatusTest() {
+    void verificationStatusTest() {
         // TODO: test verificationStatus
     }
 
@@ -102,7 +102,7 @@ public class TlsCertificatesAndHostnamesVerificationTest {
      * Test the property 'verificationType'
      */
     @Test
-    public void verificationTypeTest() {
+    void verificationTypeTest() {
         // TODO: test verificationType
     }
 

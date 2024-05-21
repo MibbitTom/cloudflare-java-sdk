@@ -10,816 +10,361 @@
  * Do not edit the class manually.
  */
 
-
 package cloudflare.sdk;
 
-import cloudflare.ApiCallback;
 import cloudflare.ApiClient;
 import cloudflare.ApiException;
 import cloudflare.ApiResponse;
-import cloudflare.Configuration;
 import cloudflare.Pair;
-import cloudflare.ProgressRequestBody;
-import cloudflare.ProgressResponseBody;
-
-import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
 
 import java.math.BigDecimal;
-import cloudflare.sdk.models.CustomHostnameForAZoneCreateCustomHostname4XXResponse;
-import cloudflare.sdk.models.CustomHostnameForAZoneCreateCustomHostnameRequest;
+import cloudflare.sdk.models.CreateCustomHostname4XXResponse;
+import cloudflare.sdk.models.CreateCustomHostnameRequest;
 import cloudflare.sdk.models.CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response;
 import cloudflare.sdk.models.CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates4XXResponse;
-import cloudflare.sdk.models.CustomHostnameForAZoneEditCustomHostnameRequest;
-import cloudflare.sdk.models.CustomHostnameForAZoneListCustomHostnames4XXResponse;
+import cloudflare.sdk.models.ListCustomHostnames4XXResponse;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesCustomHostnameResponseCollection;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesCustomHostnameResponseSingle;
 
-import java.lang.reflect.Type;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.InputStream;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.http.HttpRequest;
+import java.nio.channels.Channels;
+import java.nio.channels.Pipe;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.time.Duration;
+
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.StringJoiner;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.function.Consumer;
 
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T10:12:24.693742223+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class CustomHostnameForAZoneApi {
-    private ApiClient localVarApiClient;
-    private int localHostIndex;
-    private String localCustomBaseUrl;
+  private final HttpClient memberVarHttpClient;
+  private final ObjectMapper memberVarObjectMapper;
+  private final String memberVarBaseUri;
+  private final Consumer<HttpRequest.Builder> memberVarInterceptor;
+  private final Duration memberVarReadTimeout;
+  private final Consumer<HttpResponse<InputStream>> memberVarResponseInterceptor;
+  private final Consumer<HttpResponse<String>> memberVarAsyncResponseInterceptor;
 
-    public CustomHostnameForAZoneApi() {
-        this(Configuration.getDefaultApiClient());
+  public CustomHostnameForAZoneApi() {
+    this(new ApiClient());
+  }
+
+  public CustomHostnameForAZoneApi(ApiClient apiClient) {
+    memberVarHttpClient = apiClient.getHttpClient();
+    memberVarObjectMapper = apiClient.getObjectMapper();
+    memberVarBaseUri = apiClient.getBaseUri();
+    memberVarInterceptor = apiClient.getRequestInterceptor();
+    memberVarReadTimeout = apiClient.getReadTimeout();
+    memberVarResponseInterceptor = apiClient.getResponseInterceptor();
+    memberVarAsyncResponseInterceptor = apiClient.getAsyncResponseInterceptor();
+  }
+
+  protected ApiException getApiException(String operationId, HttpResponse<InputStream> response) throws IOException {
+    String body = response.body() == null ? null : new String(response.body().readAllBytes());
+    String message = formatExceptionMessage(operationId, response.statusCode(), body);
+    return new ApiException(response.statusCode(), message, response.headers(), body);
+  }
+
+  private String formatExceptionMessage(String operationId, int statusCode, String body) {
+    if (body == null || body.isEmpty()) {
+      body = "[no body]";
     }
+    return operationId + " call failed with: " + statusCode + " - " + body;
+  }
 
-    public CustomHostnameForAZoneApi(ApiClient apiClient) {
-        this.localVarApiClient = apiClient;
-    }
+  /**
+   * Create Custom Hostname
+   * Add a new custom hostname and request that an SSL certificate be issued for it. One of three validation methods—http, txt, email—should be used, with &#39;http&#39; recommended if the CNAME is already in place (or will be soon). Specifying &#39;email&#39; will send an email to the WHOIS contacts on file for the base domain plus hostmaster, postmaster, webmaster, admin, administrator. If http is used and the domain is not already pointing to the Managed CNAME host, the PATCH method must be used once it is (to complete validation).
+   * @param zoneId  (required)
+   * @param createCustomHostnameRequest  (required)
+   * @return TlsCertificatesAndHostnamesCustomHostnameResponseSingle
+   * @throws ApiException if fails to make API call
+   */
+  public TlsCertificatesAndHostnamesCustomHostnameResponseSingle createCustomHostname(String zoneId, CreateCustomHostnameRequest createCustomHostnameRequest) throws ApiException {
+    ApiResponse<TlsCertificatesAndHostnamesCustomHostnameResponseSingle> localVarResponse = createCustomHostnameWithHttpInfo(zoneId, createCustomHostnameRequest);
+    return localVarResponse.getData();
+  }
 
-    public ApiClient getApiClient() {
-        return localVarApiClient;
-    }
-
-    public void setApiClient(ApiClient apiClient) {
-        this.localVarApiClient = apiClient;
-    }
-
-    public int getHostIndex() {
-        return localHostIndex;
-    }
-
-    public void setHostIndex(int hostIndex) {
-        this.localHostIndex = hostIndex;
-    }
-
-    public String getCustomBaseUrl() {
-        return localCustomBaseUrl;
-    }
-
-    public void setCustomBaseUrl(String customBaseUrl) {
-        this.localCustomBaseUrl = customBaseUrl;
-    }
-
-    /**
-     * Build call for customHostnameForAZoneCreateCustomHostname
-     * @param zoneId  (required)
-     * @param customHostnameForAZoneCreateCustomHostnameRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Create Custom Hostname response </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Create Custom Hostname response failure </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call customHostnameForAZoneCreateCustomHostnameCall(String zoneId, CustomHostnameForAZoneCreateCustomHostnameRequest customHostnameForAZoneCreateCustomHostnameRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
+  /**
+   * Create Custom Hostname
+   * Add a new custom hostname and request that an SSL certificate be issued for it. One of three validation methods—http, txt, email—should be used, with &#39;http&#39; recommended if the CNAME is already in place (or will be soon). Specifying &#39;email&#39; will send an email to the WHOIS contacts on file for the base domain plus hostmaster, postmaster, webmaster, admin, administrator. If http is used and the domain is not already pointing to the Managed CNAME host, the PATCH method must be used once it is (to complete validation).
+   * @param zoneId  (required)
+   * @param createCustomHostnameRequest  (required)
+   * @return ApiResponse&lt;TlsCertificatesAndHostnamesCustomHostnameResponseSingle&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<TlsCertificatesAndHostnamesCustomHostnameResponseSingle> createCustomHostnameWithHttpInfo(String zoneId, CreateCustomHostnameRequest createCustomHostnameRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createCustomHostnameRequestBuilder(zoneId, createCustomHostnameRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createCustomHostname", localVarResponse);
         }
+        return new ApiResponse<TlsCertificatesAndHostnamesCustomHostnameResponseSingle>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<TlsCertificatesAndHostnamesCustomHostnameResponseSingle>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
 
-        Object localVarPostBody = customHostnameForAZoneCreateCustomHostnameRequest;
-
-        // create path and map variables
-        String localVarPath = "/zones/{zone_id}/custom_hostnames"
-            .replace("{" + "zone_id" + "}", localVarApiClient.escapeString(zoneId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "api_key", "api_email" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+  private HttpRequest.Builder createCustomHostnameRequestBuilder(String zoneId, CreateCustomHostnameRequest createCustomHostnameRequest) throws ApiException {
+    // verify the required parameter 'zoneId' is set
+    if (zoneId == null) {
+      throw new ApiException(400, "Missing the required parameter 'zoneId' when calling createCustomHostname");
+    }
+    // verify the required parameter 'createCustomHostnameRequest' is set
+    if (createCustomHostnameRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createCustomHostnameRequest' when calling createCustomHostname");
     }
 
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call customHostnameForAZoneCreateCustomHostnameValidateBeforeCall(String zoneId, CustomHostnameForAZoneCreateCustomHostnameRequest customHostnameForAZoneCreateCustomHostnameRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'zoneId' is set
-        if (zoneId == null) {
-            throw new ApiException("Missing the required parameter 'zoneId' when calling customHostnameForAZoneCreateCustomHostname(Async)");
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/zones/{zone_id}/custom_hostnames"
+        .replace("{zone_id}", ApiClient.urlEncode(zoneId.toString()));
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(createCustomHostnameRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Delete Custom Hostname (and any issued SSL certificates)
+   * 
+   * @param customHostnameId  (required)
+   * @param zoneId  (required)
+   * @return CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response
+   * @throws ApiException if fails to make API call
+   */
+  public CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates(String customHostnameId, String zoneId) throws ApiException {
+    ApiResponse<CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response> localVarResponse = customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificatesWithHttpInfo(customHostnameId, zoneId);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Delete Custom Hostname (and any issued SSL certificates)
+   * 
+   * @param customHostnameId  (required)
+   * @param zoneId  (required)
+   * @return ApiResponse&lt;CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response> customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificatesWithHttpInfo(String customHostnameId, String zoneId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificatesRequestBuilder(customHostnameId, zoneId);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates", localVarResponse);
         }
+        return new ApiResponse<CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
 
-        // verify the required parameter 'customHostnameForAZoneCreateCustomHostnameRequest' is set
-        if (customHostnameForAZoneCreateCustomHostnameRequest == null) {
-            throw new ApiException("Missing the required parameter 'customHostnameForAZoneCreateCustomHostnameRequest' when calling customHostnameForAZoneCreateCustomHostname(Async)");
-        }
-
-        return customHostnameForAZoneCreateCustomHostnameCall(zoneId, customHostnameForAZoneCreateCustomHostnameRequest, _callback);
-
+  private HttpRequest.Builder customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificatesRequestBuilder(String customHostnameId, String zoneId) throws ApiException {
+    // verify the required parameter 'customHostnameId' is set
+    if (customHostnameId == null) {
+      throw new ApiException(400, "Missing the required parameter 'customHostnameId' when calling customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates");
+    }
+    // verify the required parameter 'zoneId' is set
+    if (zoneId == null) {
+      throw new ApiException(400, "Missing the required parameter 'zoneId' when calling customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates");
     }
 
-    /**
-     * Create Custom Hostname
-     * Add a new custom hostname and request that an SSL certificate be issued for it. One of three validation methods—http, txt, email—should be used, with &#39;http&#39; recommended if the CNAME is already in place (or will be soon). Specifying &#39;email&#39; will send an email to the WHOIS contacts on file for the base domain plus hostmaster, postmaster, webmaster, admin, administrator. If http is used and the domain is not already pointing to the Managed CNAME host, the PATCH method must be used once it is (to complete validation).
-     * @param zoneId  (required)
-     * @param customHostnameForAZoneCreateCustomHostnameRequest  (required)
-     * @return TlsCertificatesAndHostnamesCustomHostnameResponseSingle
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Create Custom Hostname response </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Create Custom Hostname response failure </td><td>  -  </td></tr>
-     </table>
-     */
-    public TlsCertificatesAndHostnamesCustomHostnameResponseSingle customHostnameForAZoneCreateCustomHostname(String zoneId, CustomHostnameForAZoneCreateCustomHostnameRequest customHostnameForAZoneCreateCustomHostnameRequest) throws ApiException {
-        ApiResponse<TlsCertificatesAndHostnamesCustomHostnameResponseSingle> localVarResp = customHostnameForAZoneCreateCustomHostnameWithHttpInfo(zoneId, customHostnameForAZoneCreateCustomHostnameRequest);
-        return localVarResp.getData();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/zones/{zone_id}/custom_hostnames/{custom_hostname_id}"
+        .replace("{custom_hostname_id}", ApiClient.urlEncode(customHostnameId.toString()))
+        .replace("{zone_id}", ApiClient.urlEncode(zoneId.toString()));
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * List Custom Hostnames
+   * List, search, sort, and filter all of your custom hostnames.
+   * @param zoneId  (required)
+   * @param hostname  (optional)
+   * @param id  (optional)
+   * @param page  (optional, default to 1)
+   * @param perPage  (optional, default to 20)
+   * @param order  (optional, default to ssl)
+   * @param direction  (optional)
+   * @param ssl  (optional)
+   * @return TlsCertificatesAndHostnamesCustomHostnameResponseCollection
+   * @throws ApiException if fails to make API call
+   */
+  public TlsCertificatesAndHostnamesCustomHostnameResponseCollection listCustomHostnames(String zoneId, String hostname, String id, BigDecimal page, BigDecimal perPage, String order, String direction, BigDecimal ssl) throws ApiException {
+    ApiResponse<TlsCertificatesAndHostnamesCustomHostnameResponseCollection> localVarResponse = listCustomHostnamesWithHttpInfo(zoneId, hostname, id, page, perPage, order, direction, ssl);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * List Custom Hostnames
+   * List, search, sort, and filter all of your custom hostnames.
+   * @param zoneId  (required)
+   * @param hostname  (optional)
+   * @param id  (optional)
+   * @param page  (optional, default to 1)
+   * @param perPage  (optional, default to 20)
+   * @param order  (optional, default to ssl)
+   * @param direction  (optional)
+   * @param ssl  (optional)
+   * @return ApiResponse&lt;TlsCertificatesAndHostnamesCustomHostnameResponseCollection&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<TlsCertificatesAndHostnamesCustomHostnameResponseCollection> listCustomHostnamesWithHttpInfo(String zoneId, String hostname, String id, BigDecimal page, BigDecimal perPage, String order, String direction, BigDecimal ssl) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listCustomHostnamesRequestBuilder(zoneId, hostname, id, page, perPage, order, direction, ssl);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listCustomHostnames", localVarResponse);
+        }
+        return new ApiResponse<TlsCertificatesAndHostnamesCustomHostnameResponseCollection>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<TlsCertificatesAndHostnamesCustomHostnameResponseCollection>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listCustomHostnamesRequestBuilder(String zoneId, String hostname, String id, BigDecimal page, BigDecimal perPage, String order, String direction, BigDecimal ssl) throws ApiException {
+    // verify the required parameter 'zoneId' is set
+    if (zoneId == null) {
+      throw new ApiException(400, "Missing the required parameter 'zoneId' when calling listCustomHostnames");
     }
 
-    /**
-     * Create Custom Hostname
-     * Add a new custom hostname and request that an SSL certificate be issued for it. One of three validation methods—http, txt, email—should be used, with &#39;http&#39; recommended if the CNAME is already in place (or will be soon). Specifying &#39;email&#39; will send an email to the WHOIS contacts on file for the base domain plus hostmaster, postmaster, webmaster, admin, administrator. If http is used and the domain is not already pointing to the Managed CNAME host, the PATCH method must be used once it is (to complete validation).
-     * @param zoneId  (required)
-     * @param customHostnameForAZoneCreateCustomHostnameRequest  (required)
-     * @return ApiResponse&lt;TlsCertificatesAndHostnamesCustomHostnameResponseSingle&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Create Custom Hostname response </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Create Custom Hostname response failure </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<TlsCertificatesAndHostnamesCustomHostnameResponseSingle> customHostnameForAZoneCreateCustomHostnameWithHttpInfo(String zoneId, CustomHostnameForAZoneCreateCustomHostnameRequest customHostnameForAZoneCreateCustomHostnameRequest) throws ApiException {
-        okhttp3.Call localVarCall = customHostnameForAZoneCreateCustomHostnameValidateBeforeCall(zoneId, customHostnameForAZoneCreateCustomHostnameRequest, null);
-        Type localVarReturnType = new TypeToken<TlsCertificatesAndHostnamesCustomHostnameResponseSingle>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/zones/{zone_id}/custom_hostnames"
+        .replace("{zone_id}", ApiClient.urlEncode(zoneId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "hostname";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("hostname", hostname));
+    localVarQueryParameterBaseName = "id";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("id", id));
+    localVarQueryParameterBaseName = "page";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("page", page));
+    localVarQueryParameterBaseName = "per_page";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("per_page", perPage));
+    localVarQueryParameterBaseName = "order";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("order", order));
+    localVarQueryParameterBaseName = "direction";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("direction", direction));
+    localVarQueryParameterBaseName = "ssl";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("ssl", ssl));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
     }
 
-    /**
-     * Create Custom Hostname (asynchronously)
-     * Add a new custom hostname and request that an SSL certificate be issued for it. One of three validation methods—http, txt, email—should be used, with &#39;http&#39; recommended if the CNAME is already in place (or will be soon). Specifying &#39;email&#39; will send an email to the WHOIS contacts on file for the base domain plus hostmaster, postmaster, webmaster, admin, administrator. If http is used and the domain is not already pointing to the Managed CNAME host, the PATCH method must be used once it is (to complete validation).
-     * @param zoneId  (required)
-     * @param customHostnameForAZoneCreateCustomHostnameRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Create Custom Hostname response </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Create Custom Hostname response failure </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call customHostnameForAZoneCreateCustomHostnameAsync(String zoneId, CustomHostnameForAZoneCreateCustomHostnameRequest customHostnameForAZoneCreateCustomHostnameRequest, final ApiCallback<TlsCertificatesAndHostnamesCustomHostnameResponseSingle> _callback) throws ApiException {
+    localVarRequestBuilder.header("Accept", "application/json");
 
-        okhttp3.Call localVarCall = customHostnameForAZoneCreateCustomHostnameValidateBeforeCall(zoneId, customHostnameForAZoneCreateCustomHostnameRequest, _callback);
-        Type localVarReturnType = new TypeToken<TlsCertificatesAndHostnamesCustomHostnameResponseSingle>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
-    /**
-     * Build call for customHostnameForAZoneCustomHostnameDetails
-     * @param customHostnameId  (required)
-     * @param zoneId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Custom Hostname Details response </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Custom Hostname Details response failure </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call customHostnameForAZoneCustomHostnameDetailsCall(String customHostnameId, String zoneId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/zones/{zone_id}/custom_hostnames/{custom_hostname_id}"
-            .replace("{" + "custom_hostname_id" + "}", localVarApiClient.escapeString(customHostnameId.toString()))
-            .replace("{" + "zone_id" + "}", localVarApiClient.escapeString(zoneId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "api_key", "api_email" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
     }
+    return localVarRequestBuilder;
+  }
 
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call customHostnameForAZoneCustomHostnameDetailsValidateBeforeCall(String customHostnameId, String zoneId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'customHostnameId' is set
-        if (customHostnameId == null) {
-            throw new ApiException("Missing the required parameter 'customHostnameId' when calling customHostnameForAZoneCustomHostnameDetails(Async)");
-        }
-
-        // verify the required parameter 'zoneId' is set
-        if (zoneId == null) {
-            throw new ApiException("Missing the required parameter 'zoneId' when calling customHostnameForAZoneCustomHostnameDetails(Async)");
-        }
-
-        return customHostnameForAZoneCustomHostnameDetailsCall(customHostnameId, zoneId, _callback);
-
-    }
-
-    /**
-     * Custom Hostname Details
-     * 
-     * @param customHostnameId  (required)
-     * @param zoneId  (required)
-     * @return TlsCertificatesAndHostnamesCustomHostnameResponseSingle
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Custom Hostname Details response </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Custom Hostname Details response failure </td><td>  -  </td></tr>
-     </table>
-     */
-    public TlsCertificatesAndHostnamesCustomHostnameResponseSingle customHostnameForAZoneCustomHostnameDetails(String customHostnameId, String zoneId) throws ApiException {
-        ApiResponse<TlsCertificatesAndHostnamesCustomHostnameResponseSingle> localVarResp = customHostnameForAZoneCustomHostnameDetailsWithHttpInfo(customHostnameId, zoneId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Custom Hostname Details
-     * 
-     * @param customHostnameId  (required)
-     * @param zoneId  (required)
-     * @return ApiResponse&lt;TlsCertificatesAndHostnamesCustomHostnameResponseSingle&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Custom Hostname Details response </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Custom Hostname Details response failure </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<TlsCertificatesAndHostnamesCustomHostnameResponseSingle> customHostnameForAZoneCustomHostnameDetailsWithHttpInfo(String customHostnameId, String zoneId) throws ApiException {
-        okhttp3.Call localVarCall = customHostnameForAZoneCustomHostnameDetailsValidateBeforeCall(customHostnameId, zoneId, null);
-        Type localVarReturnType = new TypeToken<TlsCertificatesAndHostnamesCustomHostnameResponseSingle>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Custom Hostname Details (asynchronously)
-     * 
-     * @param customHostnameId  (required)
-     * @param zoneId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Custom Hostname Details response </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Custom Hostname Details response failure </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call customHostnameForAZoneCustomHostnameDetailsAsync(String customHostnameId, String zoneId, final ApiCallback<TlsCertificatesAndHostnamesCustomHostnameResponseSingle> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = customHostnameForAZoneCustomHostnameDetailsValidateBeforeCall(customHostnameId, zoneId, _callback);
-        Type localVarReturnType = new TypeToken<TlsCertificatesAndHostnamesCustomHostnameResponseSingle>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates
-     * @param customHostnameId  (required)
-     * @param zoneId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Delete Custom Hostname (and any issued SSL certificates) response </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Delete Custom Hostname (and any issued SSL certificates) response failure </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificatesCall(String customHostnameId, String zoneId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/zones/{zone_id}/custom_hostnames/{custom_hostname_id}"
-            .replace("{" + "custom_hostname_id" + "}", localVarApiClient.escapeString(customHostnameId.toString()))
-            .replace("{" + "zone_id" + "}", localVarApiClient.escapeString(zoneId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "api_key", "api_email" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificatesValidateBeforeCall(String customHostnameId, String zoneId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'customHostnameId' is set
-        if (customHostnameId == null) {
-            throw new ApiException("Missing the required parameter 'customHostnameId' when calling customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates(Async)");
-        }
-
-        // verify the required parameter 'zoneId' is set
-        if (zoneId == null) {
-            throw new ApiException("Missing the required parameter 'zoneId' when calling customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates(Async)");
-        }
-
-        return customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificatesCall(customHostnameId, zoneId, _callback);
-
-    }
-
-    /**
-     * Delete Custom Hostname (and any issued SSL certificates)
-     * 
-     * @param customHostnameId  (required)
-     * @param zoneId  (required)
-     * @return CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Delete Custom Hostname (and any issued SSL certificates) response </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Delete Custom Hostname (and any issued SSL certificates) response failure </td><td>  -  </td></tr>
-     </table>
-     */
-    public CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates(String customHostnameId, String zoneId) throws ApiException {
-        ApiResponse<CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response> localVarResp = customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificatesWithHttpInfo(customHostnameId, zoneId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete Custom Hostname (and any issued SSL certificates)
-     * 
-     * @param customHostnameId  (required)
-     * @param zoneId  (required)
-     * @return ApiResponse&lt;CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Delete Custom Hostname (and any issued SSL certificates) response </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Delete Custom Hostname (and any issued SSL certificates) response failure </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response> customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificatesWithHttpInfo(String customHostnameId, String zoneId) throws ApiException {
-        okhttp3.Call localVarCall = customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificatesValidateBeforeCall(customHostnameId, zoneId, null);
-        Type localVarReturnType = new TypeToken<CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Delete Custom Hostname (and any issued SSL certificates) (asynchronously)
-     * 
-     * @param customHostnameId  (required)
-     * @param zoneId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Delete Custom Hostname (and any issued SSL certificates) response </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Delete Custom Hostname (and any issued SSL certificates) response failure </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificatesAsync(String customHostnameId, String zoneId, final ApiCallback<CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = customHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificatesValidateBeforeCall(customHostnameId, zoneId, _callback);
-        Type localVarReturnType = new TypeToken<CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for customHostnameForAZoneEditCustomHostname
-     * @param customHostnameId  (required)
-     * @param zoneId  (required)
-     * @param customHostnameForAZoneEditCustomHostnameRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Edit Custom Hostname response </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Edit Custom Hostname response failure </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call customHostnameForAZoneEditCustomHostnameCall(String customHostnameId, String zoneId, CustomHostnameForAZoneEditCustomHostnameRequest customHostnameForAZoneEditCustomHostnameRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = customHostnameForAZoneEditCustomHostnameRequest;
-
-        // create path and map variables
-        String localVarPath = "/zones/{zone_id}/custom_hostnames/{custom_hostname_id}"
-            .replace("{" + "custom_hostname_id" + "}", localVarApiClient.escapeString(customHostnameId.toString()))
-            .replace("{" + "zone_id" + "}", localVarApiClient.escapeString(zoneId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "api_key", "api_email" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call customHostnameForAZoneEditCustomHostnameValidateBeforeCall(String customHostnameId, String zoneId, CustomHostnameForAZoneEditCustomHostnameRequest customHostnameForAZoneEditCustomHostnameRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'customHostnameId' is set
-        if (customHostnameId == null) {
-            throw new ApiException("Missing the required parameter 'customHostnameId' when calling customHostnameForAZoneEditCustomHostname(Async)");
-        }
-
-        // verify the required parameter 'zoneId' is set
-        if (zoneId == null) {
-            throw new ApiException("Missing the required parameter 'zoneId' when calling customHostnameForAZoneEditCustomHostname(Async)");
-        }
-
-        // verify the required parameter 'customHostnameForAZoneEditCustomHostnameRequest' is set
-        if (customHostnameForAZoneEditCustomHostnameRequest == null) {
-            throw new ApiException("Missing the required parameter 'customHostnameForAZoneEditCustomHostnameRequest' when calling customHostnameForAZoneEditCustomHostname(Async)");
-        }
-
-        return customHostnameForAZoneEditCustomHostnameCall(customHostnameId, zoneId, customHostnameForAZoneEditCustomHostnameRequest, _callback);
-
-    }
-
-    /**
-     * Edit Custom Hostname
-     * Modify SSL configuration for a custom hostname. When sent with SSL config that matches existing config, used to indicate that hostname should pass domain control validation (DCV). Can also be used to change validation type, e.g., from &#39;http&#39; to &#39;email&#39;.
-     * @param customHostnameId  (required)
-     * @param zoneId  (required)
-     * @param customHostnameForAZoneEditCustomHostnameRequest  (required)
-     * @return TlsCertificatesAndHostnamesCustomHostnameResponseSingle
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Edit Custom Hostname response </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Edit Custom Hostname response failure </td><td>  -  </td></tr>
-     </table>
-     */
-    public TlsCertificatesAndHostnamesCustomHostnameResponseSingle customHostnameForAZoneEditCustomHostname(String customHostnameId, String zoneId, CustomHostnameForAZoneEditCustomHostnameRequest customHostnameForAZoneEditCustomHostnameRequest) throws ApiException {
-        ApiResponse<TlsCertificatesAndHostnamesCustomHostnameResponseSingle> localVarResp = customHostnameForAZoneEditCustomHostnameWithHttpInfo(customHostnameId, zoneId, customHostnameForAZoneEditCustomHostnameRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Edit Custom Hostname
-     * Modify SSL configuration for a custom hostname. When sent with SSL config that matches existing config, used to indicate that hostname should pass domain control validation (DCV). Can also be used to change validation type, e.g., from &#39;http&#39; to &#39;email&#39;.
-     * @param customHostnameId  (required)
-     * @param zoneId  (required)
-     * @param customHostnameForAZoneEditCustomHostnameRequest  (required)
-     * @return ApiResponse&lt;TlsCertificatesAndHostnamesCustomHostnameResponseSingle&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Edit Custom Hostname response </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Edit Custom Hostname response failure </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<TlsCertificatesAndHostnamesCustomHostnameResponseSingle> customHostnameForAZoneEditCustomHostnameWithHttpInfo(String customHostnameId, String zoneId, CustomHostnameForAZoneEditCustomHostnameRequest customHostnameForAZoneEditCustomHostnameRequest) throws ApiException {
-        okhttp3.Call localVarCall = customHostnameForAZoneEditCustomHostnameValidateBeforeCall(customHostnameId, zoneId, customHostnameForAZoneEditCustomHostnameRequest, null);
-        Type localVarReturnType = new TypeToken<TlsCertificatesAndHostnamesCustomHostnameResponseSingle>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Edit Custom Hostname (asynchronously)
-     * Modify SSL configuration for a custom hostname. When sent with SSL config that matches existing config, used to indicate that hostname should pass domain control validation (DCV). Can also be used to change validation type, e.g., from &#39;http&#39; to &#39;email&#39;.
-     * @param customHostnameId  (required)
-     * @param zoneId  (required)
-     * @param customHostnameForAZoneEditCustomHostnameRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Edit Custom Hostname response </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> Edit Custom Hostname response failure </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call customHostnameForAZoneEditCustomHostnameAsync(String customHostnameId, String zoneId, CustomHostnameForAZoneEditCustomHostnameRequest customHostnameForAZoneEditCustomHostnameRequest, final ApiCallback<TlsCertificatesAndHostnamesCustomHostnameResponseSingle> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = customHostnameForAZoneEditCustomHostnameValidateBeforeCall(customHostnameId, zoneId, customHostnameForAZoneEditCustomHostnameRequest, _callback);
-        Type localVarReturnType = new TypeToken<TlsCertificatesAndHostnamesCustomHostnameResponseSingle>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for customHostnameForAZoneListCustomHostnames
-     * @param zoneId  (required)
-     * @param hostname  (optional)
-     * @param id  (optional)
-     * @param page  (optional, default to 1)
-     * @param perPage  (optional, default to 20)
-     * @param order  (optional, default to ssl)
-     * @param direction  (optional)
-     * @param ssl  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List Custom Hostnames response </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> List Custom Hostnames response failure </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call customHostnameForAZoneListCustomHostnamesCall(String zoneId, String hostname, String id, BigDecimal page, BigDecimal perPage, String order, String direction, BigDecimal ssl, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/zones/{zone_id}/custom_hostnames"
-            .replace("{" + "zone_id" + "}", localVarApiClient.escapeString(zoneId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (hostname != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("hostname", hostname));
-        }
-
-        if (id != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("id", id));
-        }
-
-        if (page != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
-        }
-
-        if (perPage != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("per_page", perPage));
-        }
-
-        if (order != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
-        }
-
-        if (direction != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("direction", direction));
-        }
-
-        if (ssl != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ssl", ssl));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "api_key", "api_email" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call customHostnameForAZoneListCustomHostnamesValidateBeforeCall(String zoneId, String hostname, String id, BigDecimal page, BigDecimal perPage, String order, String direction, BigDecimal ssl, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'zoneId' is set
-        if (zoneId == null) {
-            throw new ApiException("Missing the required parameter 'zoneId' when calling customHostnameForAZoneListCustomHostnames(Async)");
-        }
-
-        return customHostnameForAZoneListCustomHostnamesCall(zoneId, hostname, id, page, perPage, order, direction, ssl, _callback);
-
-    }
-
-    /**
-     * List Custom Hostnames
-     * List, search, sort, and filter all of your custom hostnames.
-     * @param zoneId  (required)
-     * @param hostname  (optional)
-     * @param id  (optional)
-     * @param page  (optional, default to 1)
-     * @param perPage  (optional, default to 20)
-     * @param order  (optional, default to ssl)
-     * @param direction  (optional)
-     * @param ssl  (optional)
-     * @return TlsCertificatesAndHostnamesCustomHostnameResponseCollection
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List Custom Hostnames response </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> List Custom Hostnames response failure </td><td>  -  </td></tr>
-     </table>
-     */
-    public TlsCertificatesAndHostnamesCustomHostnameResponseCollection customHostnameForAZoneListCustomHostnames(String zoneId, String hostname, String id, BigDecimal page, BigDecimal perPage, String order, String direction, BigDecimal ssl) throws ApiException {
-        ApiResponse<TlsCertificatesAndHostnamesCustomHostnameResponseCollection> localVarResp = customHostnameForAZoneListCustomHostnamesWithHttpInfo(zoneId, hostname, id, page, perPage, order, direction, ssl);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List Custom Hostnames
-     * List, search, sort, and filter all of your custom hostnames.
-     * @param zoneId  (required)
-     * @param hostname  (optional)
-     * @param id  (optional)
-     * @param page  (optional, default to 1)
-     * @param perPage  (optional, default to 20)
-     * @param order  (optional, default to ssl)
-     * @param direction  (optional)
-     * @param ssl  (optional)
-     * @return ApiResponse&lt;TlsCertificatesAndHostnamesCustomHostnameResponseCollection&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List Custom Hostnames response </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> List Custom Hostnames response failure </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<TlsCertificatesAndHostnamesCustomHostnameResponseCollection> customHostnameForAZoneListCustomHostnamesWithHttpInfo(String zoneId, String hostname, String id, BigDecimal page, BigDecimal perPage, String order, String direction, BigDecimal ssl) throws ApiException {
-        okhttp3.Call localVarCall = customHostnameForAZoneListCustomHostnamesValidateBeforeCall(zoneId, hostname, id, page, perPage, order, direction, ssl, null);
-        Type localVarReturnType = new TypeToken<TlsCertificatesAndHostnamesCustomHostnameResponseCollection>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * List Custom Hostnames (asynchronously)
-     * List, search, sort, and filter all of your custom hostnames.
-     * @param zoneId  (required)
-     * @param hostname  (optional)
-     * @param id  (optional)
-     * @param page  (optional, default to 1)
-     * @param perPage  (optional, default to 20)
-     * @param order  (optional, default to ssl)
-     * @param direction  (optional)
-     * @param ssl  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List Custom Hostnames response </td><td>  -  </td></tr>
-        <tr><td> 4XX </td><td> List Custom Hostnames response failure </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call customHostnameForAZoneListCustomHostnamesAsync(String zoneId, String hostname, String id, BigDecimal page, BigDecimal perPage, String order, String direction, BigDecimal ssl, final ApiCallback<TlsCertificatesAndHostnamesCustomHostnameResponseCollection> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = customHostnameForAZoneListCustomHostnamesValidateBeforeCall(zoneId, hostname, id, page, perPage, order, direction, ssl, _callback);
-        Type localVarReturnType = new TypeToken<TlsCertificatesAndHostnamesCustomHostnameResponseCollection>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
 }

@@ -14,27 +14,27 @@
 package cloudflare.sdk.models;
 
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesQuota;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesCertificatePackQuotaResponseAllOfResult
  */
-public class TlsCertificatesAndHostnamesCertificatePackQuotaResponseAllOfResultTest {
+class TlsCertificatesAndHostnamesCertificatePackQuotaResponseAllOfResultTest {
     private final TlsCertificatesAndHostnamesCertificatePackQuotaResponseAllOfResult model = new TlsCertificatesAndHostnamesCertificatePackQuotaResponseAllOfResult();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesCertificatePackQuotaResponseAllOfResult
      */
     @Test
-    public void testTlsCertificatesAndHostnamesCertificatePackQuotaResponseAllOfResult() {
+    void testTlsCertificatesAndHostnamesCertificatePackQuotaResponseAllOfResult() {
         // TODO: test TlsCertificatesAndHostnamesCertificatePackQuotaResponseAllOfResult
     }
 
@@ -42,7 +42,7 @@ public class TlsCertificatesAndHostnamesCertificatePackQuotaResponseAllOfResultT
      * Test the property 'advanced'
      */
     @Test
-    public void advancedTest() {
+    void advancedTest() {
         // TODO: test advanced
     }
 

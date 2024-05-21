@@ -13,53 +13,37 @@
 
 package cloudflare.sdk.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-import java.util.Arrays;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import cloudflare.JSON;
 
 /**
  * TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:31:20.290775906+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@JsonPropertyOrder({
+  TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.JSON_PROPERTY_HTTP_BODY,
+  TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.JSON_PROPERTY_HTTP_URL
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T10:12:24.693742223+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf {
-  public static final String SERIALIZED_NAME_HTTP_BODY = "http_body";
-  @SerializedName(SERIALIZED_NAME_HTTP_BODY)
+  public static final String JSON_PROPERTY_HTTP_BODY = "http_body";
   private String httpBody;
 
-  public static final String SERIALIZED_NAME_HTTP_URL = "http_url";
-  @SerializedName(SERIALIZED_NAME_HTTP_URL)
+  public static final String JSON_PROPERTY_HTTP_URL = "http_url";
   private String httpUrl;
 
-  public TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf() {
+  public TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf() { 
   }
 
   public TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf httpBody(String httpBody) {
@@ -72,10 +56,16 @@ public class TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf {
    * @return httpBody
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HTTP_BODY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getHttpBody() {
     return httpBody;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_HTTP_BODY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHttpBody(String httpBody) {
     this.httpBody = httpBody;
   }
@@ -91,16 +81,24 @@ public class TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf {
    * @return httpUrl
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HTTP_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getHttpUrl() {
     return httpUrl;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_HTTP_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHttpUrl(String httpUrl) {
     this.httpUrl = httpUrl;
   }
 
 
-
+  /**
+   * Return true if this tls_certificates_and_hostnames_ownership_verification_http_oneOf object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -140,96 +138,49 @@ public class TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("http_body");
-    openapiFields.add("http_url");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf
-  */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf is not found in the empty JSON string", TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("http_body") != null && !jsonObj.get("http_body").isJsonNull()) && !jsonObj.get("http_body").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `http_body` to be a primitive type in the JSON string but got `%s`", jsonObj.get("http_body").toString()));
-      }
-      if ((jsonObj.get("http_url") != null && !jsonObj.get("http_url").isJsonNull()) && !jsonObj.get("http_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `http_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("http_url").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf>() {
-           @Override
-           public void write(JsonWriter out, TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
     }
-  }
 
- /**
-  * Create an instance of TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf
-  * @throws IOException if the JSON string is invalid with respect to TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf
-  */
-  public static TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf.class);
-  }
+    StringJoiner joiner = new StringJoiner("&");
 
- /**
-  * Convert an instance of TlsCertificatesAndHostnamesOwnershipVerificationHttpOneOf to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+    // add `http_body` to the URL query string
+    if (getHttpBody() != null) {
+      joiner.add(String.format("%shttp_body%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHttpBody()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `http_url` to the URL query string
+    if (getHttpUrl() != null) {
+      joiner.add(String.format("%shttp_url%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHttpUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
   }
 }
 

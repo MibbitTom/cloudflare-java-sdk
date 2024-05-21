@@ -17,31 +17,31 @@ import cloudflare.sdk.models.TlsCertificatesAndHostnamesBundleMethod;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesGeoRestrictions;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesKeylessCertificate;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesStatus;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesCustomCertificate
  */
-public class TlsCertificatesAndHostnamesCustomCertificateTest {
+class TlsCertificatesAndHostnamesCustomCertificateTest {
     private final TlsCertificatesAndHostnamesCustomCertificate model = new TlsCertificatesAndHostnamesCustomCertificate();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesCustomCertificate
      */
     @Test
-    public void testTlsCertificatesAndHostnamesCustomCertificate() {
+    void testTlsCertificatesAndHostnamesCustomCertificate() {
         // TODO: test TlsCertificatesAndHostnamesCustomCertificate
     }
 
@@ -49,7 +49,7 @@ public class TlsCertificatesAndHostnamesCustomCertificateTest {
      * Test the property 'bundleMethod'
      */
     @Test
-    public void bundleMethodTest() {
+    void bundleMethodTest() {
         // TODO: test bundleMethod
     }
 
@@ -57,7 +57,7 @@ public class TlsCertificatesAndHostnamesCustomCertificateTest {
      * Test the property 'expiresOn'
      */
     @Test
-    public void expiresOnTest() {
+    void expiresOnTest() {
         // TODO: test expiresOn
     }
 
@@ -65,7 +65,7 @@ public class TlsCertificatesAndHostnamesCustomCertificateTest {
      * Test the property 'geoRestrictions'
      */
     @Test
-    public void geoRestrictionsTest() {
+    void geoRestrictionsTest() {
         // TODO: test geoRestrictions
     }
 
@@ -73,7 +73,7 @@ public class TlsCertificatesAndHostnamesCustomCertificateTest {
      * Test the property 'hosts'
      */
     @Test
-    public void hostsTest() {
+    void hostsTest() {
         // TODO: test hosts
     }
 
@@ -81,7 +81,7 @@ public class TlsCertificatesAndHostnamesCustomCertificateTest {
      * Test the property 'id'
      */
     @Test
-    public void idTest() {
+    void idTest() {
         // TODO: test id
     }
 
@@ -89,7 +89,7 @@ public class TlsCertificatesAndHostnamesCustomCertificateTest {
      * Test the property 'issuer'
      */
     @Test
-    public void issuerTest() {
+    void issuerTest() {
         // TODO: test issuer
     }
 
@@ -97,7 +97,7 @@ public class TlsCertificatesAndHostnamesCustomCertificateTest {
      * Test the property 'keylessServer'
      */
     @Test
-    public void keylessServerTest() {
+    void keylessServerTest() {
         // TODO: test keylessServer
     }
 
@@ -105,7 +105,7 @@ public class TlsCertificatesAndHostnamesCustomCertificateTest {
      * Test the property 'modifiedOn'
      */
     @Test
-    public void modifiedOnTest() {
+    void modifiedOnTest() {
         // TODO: test modifiedOn
     }
 
@@ -113,7 +113,7 @@ public class TlsCertificatesAndHostnamesCustomCertificateTest {
      * Test the property 'policy'
      */
     @Test
-    public void policyTest() {
+    void policyTest() {
         // TODO: test policy
     }
 
@@ -121,7 +121,7 @@ public class TlsCertificatesAndHostnamesCustomCertificateTest {
      * Test the property 'priority'
      */
     @Test
-    public void priorityTest() {
+    void priorityTest() {
         // TODO: test priority
     }
 
@@ -129,7 +129,7 @@ public class TlsCertificatesAndHostnamesCustomCertificateTest {
      * Test the property 'signature'
      */
     @Test
-    public void signatureTest() {
+    void signatureTest() {
         // TODO: test signature
     }
 
@@ -137,7 +137,7 @@ public class TlsCertificatesAndHostnamesCustomCertificateTest {
      * Test the property 'status'
      */
     @Test
-    public void statusTest() {
+    void statusTest() {
         // TODO: test status
     }
 
@@ -145,7 +145,7 @@ public class TlsCertificatesAndHostnamesCustomCertificateTest {
      * Test the property 'uploadedOn'
      */
     @Test
-    public void uploadedOnTest() {
+    void uploadedOnTest() {
         // TODO: test uploadedOn
     }
 
@@ -153,7 +153,7 @@ public class TlsCertificatesAndHostnamesCustomCertificateTest {
      * Test the property 'zoneId'
      */
     @Test
-    public void zoneIdTest() {
+    void zoneIdTest() {
         // TODO: test zoneId
     }
 

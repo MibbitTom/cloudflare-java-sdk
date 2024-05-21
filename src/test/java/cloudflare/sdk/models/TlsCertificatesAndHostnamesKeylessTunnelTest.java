@@ -13,27 +13,27 @@
 
 package cloudflare.sdk.models;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesKeylessTunnel
  */
-public class TlsCertificatesAndHostnamesKeylessTunnelTest {
+class TlsCertificatesAndHostnamesKeylessTunnelTest {
     private final TlsCertificatesAndHostnamesKeylessTunnel model = new TlsCertificatesAndHostnamesKeylessTunnel();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesKeylessTunnel
      */
     @Test
-    public void testTlsCertificatesAndHostnamesKeylessTunnel() {
+    void testTlsCertificatesAndHostnamesKeylessTunnel() {
         // TODO: test TlsCertificatesAndHostnamesKeylessTunnel
     }
 
@@ -41,7 +41,7 @@ public class TlsCertificatesAndHostnamesKeylessTunnelTest {
      * Test the property 'privateIp'
      */
     @Test
-    public void privateIpTest() {
+    void privateIpTest() {
         // TODO: test privateIp
     }
 
@@ -49,7 +49,7 @@ public class TlsCertificatesAndHostnamesKeylessTunnelTest {
      * Test the property 'vnetId'
      */
     @Test
-    public void vnetIdTest() {
+    void vnetIdTest() {
         // TODO: test vnetId
     }
 

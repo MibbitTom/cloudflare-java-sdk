@@ -13,32 +13,32 @@
 
 package cloudflare.sdk.models;
 
-import cloudflare.sdk.models.AaaMessagesInner;
+import cloudflare.sdk.models.TlsCertificatesAndHostnamesMessagesInner;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAllOfResult;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAllOfResultInfo;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollection
  */
-public class TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionTest {
+class TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionTest {
     private final TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollection model = new TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollection();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollection
      */
     @Test
-    public void testTlsCertificatesAndHostnamesPerHostnameSettingsResponseCollection() {
+    void testTlsCertificatesAndHostnamesPerHostnameSettingsResponseCollection() {
         // TODO: test TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollection
     }
 
@@ -46,7 +46,7 @@ public class TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionTes
      * Test the property 'errors'
      */
     @Test
-    public void errorsTest() {
+    void errorsTest() {
         // TODO: test errors
     }
 
@@ -54,31 +54,31 @@ public class TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionTes
      * Test the property 'messages'
      */
     @Test
-    public void messagesTest() {
+    void messagesTest() {
         // TODO: test messages
-    }
-
-    /**
-     * Test the property 'result'
-     */
-    @Test
-    public void resultTest() {
-        // TODO: test result
     }
 
     /**
      * Test the property 'success'
      */
     @Test
-    public void successTest() {
+    void successTest() {
         // TODO: test success
+    }
+
+    /**
+     * Test the property 'result'
+     */
+    @Test
+    void resultTest() {
+        // TODO: test result
     }
 
     /**
      * Test the property 'resultInfo'
      */
     @Test
-    public void resultInfoTest() {
+    void resultInfoTest() {
         // TODO: test resultInfo
     }
 

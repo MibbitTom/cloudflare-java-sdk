@@ -18,30 +18,30 @@ import cloudflare.sdk.models.TlsCertificatesAndHostnamesCustomMetadata;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesOwnershipVerification;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesOwnershipVerificationHttp;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesSsl;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesCustomhostname
  */
-public class TlsCertificatesAndHostnamesCustomhostnameTest {
+class TlsCertificatesAndHostnamesCustomhostnameTest {
     private final TlsCertificatesAndHostnamesCustomhostname model = new TlsCertificatesAndHostnamesCustomhostname();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesCustomhostname
      */
     @Test
-    public void testTlsCertificatesAndHostnamesCustomhostname() {
+    void testTlsCertificatesAndHostnamesCustomhostname() {
         // TODO: test TlsCertificatesAndHostnamesCustomhostname
     }
 
@@ -49,7 +49,7 @@ public class TlsCertificatesAndHostnamesCustomhostnameTest {
      * Test the property 'createdAt'
      */
     @Test
-    public void createdAtTest() {
+    void createdAtTest() {
         // TODO: test createdAt
     }
 
@@ -57,7 +57,7 @@ public class TlsCertificatesAndHostnamesCustomhostnameTest {
      * Test the property 'customMetadata'
      */
     @Test
-    public void customMetadataTest() {
+    void customMetadataTest() {
         // TODO: test customMetadata
     }
 
@@ -65,7 +65,7 @@ public class TlsCertificatesAndHostnamesCustomhostnameTest {
      * Test the property 'customOriginServer'
      */
     @Test
-    public void customOriginServerTest() {
+    void customOriginServerTest() {
         // TODO: test customOriginServer
     }
 
@@ -73,7 +73,7 @@ public class TlsCertificatesAndHostnamesCustomhostnameTest {
      * Test the property 'customOriginSni'
      */
     @Test
-    public void customOriginSniTest() {
+    void customOriginSniTest() {
         // TODO: test customOriginSni
     }
 
@@ -81,7 +81,7 @@ public class TlsCertificatesAndHostnamesCustomhostnameTest {
      * Test the property 'hostname'
      */
     @Test
-    public void hostnameTest() {
+    void hostnameTest() {
         // TODO: test hostname
     }
 
@@ -89,7 +89,7 @@ public class TlsCertificatesAndHostnamesCustomhostnameTest {
      * Test the property 'id'
      */
     @Test
-    public void idTest() {
+    void idTest() {
         // TODO: test id
     }
 
@@ -97,7 +97,7 @@ public class TlsCertificatesAndHostnamesCustomhostnameTest {
      * Test the property 'ownershipVerification'
      */
     @Test
-    public void ownershipVerificationTest() {
+    void ownershipVerificationTest() {
         // TODO: test ownershipVerification
     }
 
@@ -105,7 +105,7 @@ public class TlsCertificatesAndHostnamesCustomhostnameTest {
      * Test the property 'ownershipVerificationHttp'
      */
     @Test
-    public void ownershipVerificationHttpTest() {
+    void ownershipVerificationHttpTest() {
         // TODO: test ownershipVerificationHttp
     }
 
@@ -113,7 +113,7 @@ public class TlsCertificatesAndHostnamesCustomhostnameTest {
      * Test the property 'ssl'
      */
     @Test
-    public void sslTest() {
+    void sslTest() {
         // TODO: test ssl
     }
 
@@ -121,7 +121,7 @@ public class TlsCertificatesAndHostnamesCustomhostnameTest {
      * Test the property 'status'
      */
     @Test
-    public void statusTest() {
+    void statusTest() {
         // TODO: test status
     }
 
@@ -129,7 +129,7 @@ public class TlsCertificatesAndHostnamesCustomhostnameTest {
      * Test the property 'verificationErrors'
      */
     @Test
-    public void verificationErrorsTest() {
+    void verificationErrorsTest() {
         // TODO: test verificationErrors
     }
 

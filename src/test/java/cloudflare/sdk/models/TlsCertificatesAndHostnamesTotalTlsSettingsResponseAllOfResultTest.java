@@ -15,27 +15,27 @@ package cloudflare.sdk.models;
 
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesComponentsSchemasCertificateAuthority;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesSchemasValidityDays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesTotalTlsSettingsResponseAllOfResult
  */
-public class TlsCertificatesAndHostnamesTotalTlsSettingsResponseAllOfResultTest {
+class TlsCertificatesAndHostnamesTotalTlsSettingsResponseAllOfResultTest {
     private final TlsCertificatesAndHostnamesTotalTlsSettingsResponseAllOfResult model = new TlsCertificatesAndHostnamesTotalTlsSettingsResponseAllOfResult();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesTotalTlsSettingsResponseAllOfResult
      */
     @Test
-    public void testTlsCertificatesAndHostnamesTotalTlsSettingsResponseAllOfResult() {
+    void testTlsCertificatesAndHostnamesTotalTlsSettingsResponseAllOfResult() {
         // TODO: test TlsCertificatesAndHostnamesTotalTlsSettingsResponseAllOfResult
     }
 
@@ -43,7 +43,7 @@ public class TlsCertificatesAndHostnamesTotalTlsSettingsResponseAllOfResultTest 
      * Test the property 'certificateAuthority'
      */
     @Test
-    public void certificateAuthorityTest() {
+    void certificateAuthorityTest() {
         // TODO: test certificateAuthority
     }
 
@@ -51,7 +51,7 @@ public class TlsCertificatesAndHostnamesTotalTlsSettingsResponseAllOfResultTest 
      * Test the property 'enabled'
      */
     @Test
-    public void enabledTest() {
+    void enabledTest() {
         // TODO: test enabled
     }
 
@@ -59,7 +59,7 @@ public class TlsCertificatesAndHostnamesTotalTlsSettingsResponseAllOfResultTest 
      * Test the property 'validityDays'
      */
     @Test
-    public void validityDaysTest() {
+    void validityDaysTest() {
         // TODO: test validityDays
     }
 

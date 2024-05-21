@@ -15,31 +15,31 @@ package cloudflare.sdk.models;
 
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesKeylessTunnel;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesSchemasStatus;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesBase
  */
-public class TlsCertificatesAndHostnamesBaseTest {
+class TlsCertificatesAndHostnamesBaseTest {
     private final TlsCertificatesAndHostnamesBase model = new TlsCertificatesAndHostnamesBase();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesBase
      */
     @Test
-    public void testTlsCertificatesAndHostnamesBase() {
+    void testTlsCertificatesAndHostnamesBase() {
         // TODO: test TlsCertificatesAndHostnamesBase
     }
 
@@ -47,7 +47,7 @@ public class TlsCertificatesAndHostnamesBaseTest {
      * Test the property 'createdOn'
      */
     @Test
-    public void createdOnTest() {
+    void createdOnTest() {
         // TODO: test createdOn
     }
 
@@ -55,7 +55,7 @@ public class TlsCertificatesAndHostnamesBaseTest {
      * Test the property 'enabled'
      */
     @Test
-    public void enabledTest() {
+    void enabledTest() {
         // TODO: test enabled
     }
 
@@ -63,7 +63,7 @@ public class TlsCertificatesAndHostnamesBaseTest {
      * Test the property 'host'
      */
     @Test
-    public void hostTest() {
+    void hostTest() {
         // TODO: test host
     }
 
@@ -71,7 +71,7 @@ public class TlsCertificatesAndHostnamesBaseTest {
      * Test the property 'id'
      */
     @Test
-    public void idTest() {
+    void idTest() {
         // TODO: test id
     }
 
@@ -79,7 +79,7 @@ public class TlsCertificatesAndHostnamesBaseTest {
      * Test the property 'modifiedOn'
      */
     @Test
-    public void modifiedOnTest() {
+    void modifiedOnTest() {
         // TODO: test modifiedOn
     }
 
@@ -87,7 +87,7 @@ public class TlsCertificatesAndHostnamesBaseTest {
      * Test the property 'name'
      */
     @Test
-    public void nameTest() {
+    void nameTest() {
         // TODO: test name
     }
 
@@ -95,7 +95,7 @@ public class TlsCertificatesAndHostnamesBaseTest {
      * Test the property 'permissions'
      */
     @Test
-    public void permissionsTest() {
+    void permissionsTest() {
         // TODO: test permissions
     }
 
@@ -103,7 +103,7 @@ public class TlsCertificatesAndHostnamesBaseTest {
      * Test the property 'port'
      */
     @Test
-    public void portTest() {
+    void portTest() {
         // TODO: test port
     }
 
@@ -111,7 +111,7 @@ public class TlsCertificatesAndHostnamesBaseTest {
      * Test the property 'status'
      */
     @Test
-    public void statusTest() {
+    void statusTest() {
         // TODO: test status
     }
 
@@ -119,7 +119,7 @@ public class TlsCertificatesAndHostnamesBaseTest {
      * Test the property 'tunnel'
      */
     @Test
-    public void tunnelTest() {
+    void tunnelTest() {
         // TODO: test tunnel
     }
 

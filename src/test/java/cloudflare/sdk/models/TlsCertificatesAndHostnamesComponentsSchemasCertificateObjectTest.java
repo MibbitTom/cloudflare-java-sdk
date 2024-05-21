@@ -13,28 +13,28 @@
 
 package cloudflare.sdk.models;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesComponentsSchemasCertificateObject
  */
-public class TlsCertificatesAndHostnamesComponentsSchemasCertificateObjectTest {
+class TlsCertificatesAndHostnamesComponentsSchemasCertificateObjectTest {
     private final TlsCertificatesAndHostnamesComponentsSchemasCertificateObject model = new TlsCertificatesAndHostnamesComponentsSchemasCertificateObject();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesComponentsSchemasCertificateObject
      */
     @Test
-    public void testTlsCertificatesAndHostnamesComponentsSchemasCertificateObject() {
+    void testTlsCertificatesAndHostnamesComponentsSchemasCertificateObject() {
         // TODO: test TlsCertificatesAndHostnamesComponentsSchemasCertificateObject
     }
 
@@ -42,7 +42,7 @@ public class TlsCertificatesAndHostnamesComponentsSchemasCertificateObjectTest {
      * Test the property 'ca'
      */
     @Test
-    public void caTest() {
+    void caTest() {
         // TODO: test ca
     }
 
@@ -50,7 +50,7 @@ public class TlsCertificatesAndHostnamesComponentsSchemasCertificateObjectTest {
      * Test the property 'certificates'
      */
     @Test
-    public void certificatesTest() {
+    void certificatesTest() {
         // TODO: test certificates
     }
 
@@ -58,7 +58,7 @@ public class TlsCertificatesAndHostnamesComponentsSchemasCertificateObjectTest {
      * Test the property 'expiresOn'
      */
     @Test
-    public void expiresOnTest() {
+    void expiresOnTest() {
         // TODO: test expiresOn
     }
 
@@ -66,7 +66,7 @@ public class TlsCertificatesAndHostnamesComponentsSchemasCertificateObjectTest {
      * Test the property 'id'
      */
     @Test
-    public void idTest() {
+    void idTest() {
         // TODO: test id
     }
 
@@ -74,7 +74,7 @@ public class TlsCertificatesAndHostnamesComponentsSchemasCertificateObjectTest {
      * Test the property 'issuer'
      */
     @Test
-    public void issuerTest() {
+    void issuerTest() {
         // TODO: test issuer
     }
 
@@ -82,7 +82,7 @@ public class TlsCertificatesAndHostnamesComponentsSchemasCertificateObjectTest {
      * Test the property 'name'
      */
     @Test
-    public void nameTest() {
+    void nameTest() {
         // TODO: test name
     }
 
@@ -90,7 +90,7 @@ public class TlsCertificatesAndHostnamesComponentsSchemasCertificateObjectTest {
      * Test the property 'serialNumber'
      */
     @Test
-    public void serialNumberTest() {
+    void serialNumberTest() {
         // TODO: test serialNumber
     }
 
@@ -98,7 +98,7 @@ public class TlsCertificatesAndHostnamesComponentsSchemasCertificateObjectTest {
      * Test the property 'signature'
      */
     @Test
-    public void signatureTest() {
+    void signatureTest() {
         // TODO: test signature
     }
 
@@ -106,7 +106,7 @@ public class TlsCertificatesAndHostnamesComponentsSchemasCertificateObjectTest {
      * Test the property 'uploadedOn'
      */
     @Test
-    public void uploadedOnTest() {
+    void uploadedOnTest() {
         // TODO: test uploadedOn
     }
 

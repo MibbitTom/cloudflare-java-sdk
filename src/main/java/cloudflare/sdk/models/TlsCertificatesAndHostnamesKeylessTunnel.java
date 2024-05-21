@@ -13,53 +13,37 @@
 
 package cloudflare.sdk.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-import java.util.Arrays;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import cloudflare.JSON;
 
 /**
  * Configuration for using Keyless SSL through a Cloudflare Tunnel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:31:20.290775906+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@JsonPropertyOrder({
+  TlsCertificatesAndHostnamesKeylessTunnel.JSON_PROPERTY_PRIVATE_IP,
+  TlsCertificatesAndHostnamesKeylessTunnel.JSON_PROPERTY_VNET_ID
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T10:12:24.693742223+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class TlsCertificatesAndHostnamesKeylessTunnel {
-  public static final String SERIALIZED_NAME_PRIVATE_IP = "private_ip";
-  @SerializedName(SERIALIZED_NAME_PRIVATE_IP)
+  public static final String JSON_PROPERTY_PRIVATE_IP = "private_ip";
   private String privateIp;
 
-  public static final String SERIALIZED_NAME_VNET_ID = "vnet_id";
-  @SerializedName(SERIALIZED_NAME_VNET_ID)
+  public static final String JSON_PROPERTY_VNET_ID = "vnet_id";
   private String vnetId;
 
-  public TlsCertificatesAndHostnamesKeylessTunnel() {
+  public TlsCertificatesAndHostnamesKeylessTunnel() { 
   }
 
   public TlsCertificatesAndHostnamesKeylessTunnel privateIp(String privateIp) {
@@ -72,10 +56,16 @@ public class TlsCertificatesAndHostnamesKeylessTunnel {
    * @return privateIp
   **/
   @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PRIVATE_IP)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getPrivateIp() {
     return privateIp;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_PRIVATE_IP)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPrivateIp(String privateIp) {
     this.privateIp = privateIp;
   }
@@ -91,16 +81,24 @@ public class TlsCertificatesAndHostnamesKeylessTunnel {
    * @return vnetId
   **/
   @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_VNET_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getVnetId() {
     return vnetId;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_VNET_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVnetId(String vnetId) {
     this.vnetId = vnetId;
   }
 
 
-
+  /**
+   * Return true if this tls-certificates-and-hostnames_keyless_tunnel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -140,105 +138,49 @@ public class TlsCertificatesAndHostnamesKeylessTunnel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("private_ip");
-    openapiFields.add("vnet_id");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("private_ip");
-    openapiRequiredFields.add("vnet_id");
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TlsCertificatesAndHostnamesKeylessTunnel
-  */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TlsCertificatesAndHostnamesKeylessTunnel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TlsCertificatesAndHostnamesKeylessTunnel is not found in the empty JSON string", TlsCertificatesAndHostnamesKeylessTunnel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TlsCertificatesAndHostnamesKeylessTunnel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TlsCertificatesAndHostnamesKeylessTunnel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TlsCertificatesAndHostnamesKeylessTunnel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("private_ip").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `private_ip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("private_ip").toString()));
-      }
-      if (!jsonObj.get("vnet_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `vnet_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vnet_id").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TlsCertificatesAndHostnamesKeylessTunnel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TlsCertificatesAndHostnamesKeylessTunnel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TlsCertificatesAndHostnamesKeylessTunnel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TlsCertificatesAndHostnamesKeylessTunnel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TlsCertificatesAndHostnamesKeylessTunnel>() {
-           @Override
-           public void write(JsonWriter out, TlsCertificatesAndHostnamesKeylessTunnel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TlsCertificatesAndHostnamesKeylessTunnel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
     }
-  }
 
- /**
-  * Create an instance of TlsCertificatesAndHostnamesKeylessTunnel given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TlsCertificatesAndHostnamesKeylessTunnel
-  * @throws IOException if the JSON string is invalid with respect to TlsCertificatesAndHostnamesKeylessTunnel
-  */
-  public static TlsCertificatesAndHostnamesKeylessTunnel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TlsCertificatesAndHostnamesKeylessTunnel.class);
-  }
+    StringJoiner joiner = new StringJoiner("&");
 
- /**
-  * Convert an instance of TlsCertificatesAndHostnamesKeylessTunnel to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+    // add `private_ip` to the URL query string
+    if (getPrivateIp() != null) {
+      joiner.add(String.format("%sprivate_ip%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPrivateIp()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `vnet_id` to the URL query string
+    if (getVnetId() != null) {
+      joiner.add(String.format("%svnet_id%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVnetId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
   }
 }
 

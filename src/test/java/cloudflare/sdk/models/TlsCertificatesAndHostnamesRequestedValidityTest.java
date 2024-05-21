@@ -14,19 +14,19 @@
 package cloudflare.sdk.models;
 
 import java.math.BigDecimal;
-import com.google.gson.annotations.SerializedName;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesRequestedValidity
  */
-public class TlsCertificatesAndHostnamesRequestedValidityTest {
+class TlsCertificatesAndHostnamesRequestedValidityTest {
     /**
      * Model tests for TlsCertificatesAndHostnamesRequestedValidity
      */
     @Test
-    public void testTlsCertificatesAndHostnamesRequestedValidity() {
+    void testTlsCertificatesAndHostnamesRequestedValidity() {
         // TODO: test TlsCertificatesAndHostnamesRequestedValidity
     }
 

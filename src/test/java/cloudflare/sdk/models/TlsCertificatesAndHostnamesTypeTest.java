@@ -13,19 +13,19 @@
 
 package cloudflare.sdk.models;
 
-import com.google.gson.annotations.SerializedName;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesType
  */
-public class TlsCertificatesAndHostnamesTypeTest {
+class TlsCertificatesAndHostnamesTypeTest {
     /**
      * Model tests for TlsCertificatesAndHostnamesType
      */
     @Test
-    public void testTlsCertificatesAndHostnamesType() {
+    void testTlsCertificatesAndHostnamesType() {
         // TODO: test TlsCertificatesAndHostnamesType
     }
 

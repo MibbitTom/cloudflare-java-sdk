@@ -13,31 +13,30 @@
 
 package cloudflare.sdk.models;
 
-import cloudflare.sdk.models.AaaMessagesInner;
-import cloudflare.sdk.models.PageShieldApiResponseSingleAllOfResult;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import cloudflare.sdk.models.TlsCertificatesAndHostnamesMessagesInner;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesApiResponseCommon
  */
-public class TlsCertificatesAndHostnamesApiResponseCommonTest {
+class TlsCertificatesAndHostnamesApiResponseCommonTest {
     private final TlsCertificatesAndHostnamesApiResponseCommon model = new TlsCertificatesAndHostnamesApiResponseCommon();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesApiResponseCommon
      */
     @Test
-    public void testTlsCertificatesAndHostnamesApiResponseCommon() {
+    void testTlsCertificatesAndHostnamesApiResponseCommon() {
         // TODO: test TlsCertificatesAndHostnamesApiResponseCommon
     }
 
@@ -45,7 +44,7 @@ public class TlsCertificatesAndHostnamesApiResponseCommonTest {
      * Test the property 'errors'
      */
     @Test
-    public void errorsTest() {
+    void errorsTest() {
         // TODO: test errors
     }
 
@@ -53,23 +52,15 @@ public class TlsCertificatesAndHostnamesApiResponseCommonTest {
      * Test the property 'messages'
      */
     @Test
-    public void messagesTest() {
+    void messagesTest() {
         // TODO: test messages
-    }
-
-    /**
-     * Test the property 'result'
-     */
-    @Test
-    public void resultTest() {
-        // TODO: test result
     }
 
     /**
      * Test the property 'success'
      */
     @Test
-    public void successTest() {
+    void successTest() {
         // TODO: test success
     }
 

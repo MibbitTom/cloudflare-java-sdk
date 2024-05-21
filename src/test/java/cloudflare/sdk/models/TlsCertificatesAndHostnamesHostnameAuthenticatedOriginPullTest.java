@@ -14,29 +14,32 @@
 package cloudflare.sdk.models;
 
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullComponentsSchemasStatus;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull
  */
-public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullTest {
+class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullTest {
     private final TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull model = new TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull
      */
     @Test
-    public void testTlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull() {
+    void testTlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull() {
         // TODO: test TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPull
     }
 
@@ -44,7 +47,7 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullTest {
      * Test the property 'certId'
      */
     @Test
-    public void certIdTest() {
+    void certIdTest() {
         // TODO: test certId
     }
 
@@ -52,7 +55,7 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullTest {
      * Test the property 'certStatus'
      */
     @Test
-    public void certStatusTest() {
+    void certStatusTest() {
         // TODO: test certStatus
     }
 
@@ -60,7 +63,7 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullTest {
      * Test the property 'certUpdatedAt'
      */
     @Test
-    public void certUpdatedAtTest() {
+    void certUpdatedAtTest() {
         // TODO: test certUpdatedAt
     }
 
@@ -68,7 +71,7 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullTest {
      * Test the property 'certUploadedOn'
      */
     @Test
-    public void certUploadedOnTest() {
+    void certUploadedOnTest() {
         // TODO: test certUploadedOn
     }
 
@@ -76,7 +79,7 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullTest {
      * Test the property 'certificate'
      */
     @Test
-    public void certificateTest() {
+    void certificateTest() {
         // TODO: test certificate
     }
 
@@ -84,7 +87,7 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullTest {
      * Test the property 'createdAt'
      */
     @Test
-    public void createdAtTest() {
+    void createdAtTest() {
         // TODO: test createdAt
     }
 
@@ -92,7 +95,7 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullTest {
      * Test the property 'enabled'
      */
     @Test
-    public void enabledTest() {
+    void enabledTest() {
         // TODO: test enabled
     }
 
@@ -100,7 +103,7 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullTest {
      * Test the property 'expiresOn'
      */
     @Test
-    public void expiresOnTest() {
+    void expiresOnTest() {
         // TODO: test expiresOn
     }
 
@@ -108,7 +111,7 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullTest {
      * Test the property 'hostname'
      */
     @Test
-    public void hostnameTest() {
+    void hostnameTest() {
         // TODO: test hostname
     }
 
@@ -116,7 +119,7 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullTest {
      * Test the property 'issuer'
      */
     @Test
-    public void issuerTest() {
+    void issuerTest() {
         // TODO: test issuer
     }
 
@@ -124,7 +127,7 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullTest {
      * Test the property 'serialNumber'
      */
     @Test
-    public void serialNumberTest() {
+    void serialNumberTest() {
         // TODO: test serialNumber
     }
 
@@ -132,7 +135,7 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullTest {
      * Test the property 'signature'
      */
     @Test
-    public void signatureTest() {
+    void signatureTest() {
         // TODO: test signature
     }
 
@@ -140,7 +143,7 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullTest {
      * Test the property 'status'
      */
     @Test
-    public void statusTest() {
+    void statusTest() {
         // TODO: test status
     }
 
@@ -148,7 +151,7 @@ public class TlsCertificatesAndHostnamesHostnameAuthenticatedOriginPullTest {
      * Test the property 'updatedAt'
      */
     @Test
-    public void updatedAtTest() {
+    void updatedAtTest() {
         // TODO: test updatedAt
     }
 

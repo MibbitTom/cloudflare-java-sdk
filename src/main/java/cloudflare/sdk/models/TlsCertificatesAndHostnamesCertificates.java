@@ -13,86 +13,71 @@
 
 package cloudflare.sdk.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesRequestType;
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesRequestedValidity;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import cloudflare.JSON;
 
 /**
  * TlsCertificatesAndHostnamesCertificates
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:31:20.290775906+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@JsonPropertyOrder({
+  TlsCertificatesAndHostnamesCertificates.JSON_PROPERTY_CERTIFICATE,
+  TlsCertificatesAndHostnamesCertificates.JSON_PROPERTY_CSR,
+  TlsCertificatesAndHostnamesCertificates.JSON_PROPERTY_EXPIRES_ON,
+  TlsCertificatesAndHostnamesCertificates.JSON_PROPERTY_HOSTNAMES,
+  TlsCertificatesAndHostnamesCertificates.JSON_PROPERTY_ID,
+  TlsCertificatesAndHostnamesCertificates.JSON_PROPERTY_REQUEST_TYPE,
+  TlsCertificatesAndHostnamesCertificates.JSON_PROPERTY_REQUESTED_VALIDITY
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T10:12:24.693742223+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class TlsCertificatesAndHostnamesCertificates {
-  public static final String SERIALIZED_NAME_CERTIFICATE = "certificate";
-  @SerializedName(SERIALIZED_NAME_CERTIFICATE)
+  public static final String JSON_PROPERTY_CERTIFICATE = "certificate";
   private String certificate;
 
-  public static final String SERIALIZED_NAME_CSR = "csr";
-  @SerializedName(SERIALIZED_NAME_CSR)
+  public static final String JSON_PROPERTY_CSR = "csr";
   private String csr;
 
-  public static final String SERIALIZED_NAME_EXPIRES_ON = "expires_on";
-  @SerializedName(SERIALIZED_NAME_EXPIRES_ON)
+  public static final String JSON_PROPERTY_EXPIRES_ON = "expires_on";
   private OffsetDateTime expiresOn;
 
-  public static final String SERIALIZED_NAME_HOSTNAMES = "hostnames";
-  @SerializedName(SERIALIZED_NAME_HOSTNAMES)
+  public static final String JSON_PROPERTY_HOSTNAMES = "hostnames";
   private List<Object> hostnames = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String SERIALIZED_NAME_REQUEST_TYPE = "request_type";
-  @SerializedName(SERIALIZED_NAME_REQUEST_TYPE)
+  public static final String JSON_PROPERTY_REQUEST_TYPE = "request_type";
   private TlsCertificatesAndHostnamesRequestType requestType;
 
-  public static final String SERIALIZED_NAME_REQUESTED_VALIDITY = "requested_validity";
-  @SerializedName(SERIALIZED_NAME_REQUESTED_VALIDITY)
+  public static final String JSON_PROPERTY_REQUESTED_VALIDITY = "requested_validity";
   private TlsCertificatesAndHostnamesRequestedValidity requestedValidity = TlsCertificatesAndHostnamesRequestedValidity.NUMBER_5475;
 
-  public TlsCertificatesAndHostnamesCertificates() {
+  public TlsCertificatesAndHostnamesCertificates() { 
   }
 
+  @JsonCreator
   public TlsCertificatesAndHostnamesCertificates(
-     String certificate, 
-     OffsetDateTime expiresOn, 
-     String id
+    @JsonProperty(JSON_PROPERTY_CERTIFICATE) String certificate, 
+    @JsonProperty(JSON_PROPERTY_EXPIRES_ON) OffsetDateTime expiresOn, 
+    @JsonProperty(JSON_PROPERTY_ID) String id
   ) {
-    this();
+  this();
     this.certificate = certificate;
     this.expiresOn = expiresOn;
     this.id = id;
@@ -103,9 +88,13 @@ public class TlsCertificatesAndHostnamesCertificates {
    * @return certificate
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CERTIFICATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getCertificate() {
     return certificate;
   }
+
 
 
 
@@ -119,10 +108,16 @@ public class TlsCertificatesAndHostnamesCertificates {
    * @return csr
   **/
   @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CSR)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getCsr() {
     return csr;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CSR)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCsr(String csr) {
     this.csr = csr;
   }
@@ -133,9 +128,13 @@ public class TlsCertificatesAndHostnamesCertificates {
    * @return expiresOn
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXPIRES_ON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public OffsetDateTime getExpiresOn() {
     return expiresOn;
   }
+
 
 
 
@@ -157,10 +156,16 @@ public class TlsCertificatesAndHostnamesCertificates {
    * @return hostnames
   **/
   @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_HOSTNAMES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<Object> getHostnames() {
     return hostnames;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_HOSTNAMES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHostnames(List<Object> hostnames) {
     this.hostnames = hostnames;
   }
@@ -171,9 +176,13 @@ public class TlsCertificatesAndHostnamesCertificates {
    * @return id
   **/
   @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getId() {
     return id;
   }
+
 
 
 
@@ -187,10 +196,16 @@ public class TlsCertificatesAndHostnamesCertificates {
    * @return requestType
   **/
   @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public TlsCertificatesAndHostnamesRequestType getRequestType() {
     return requestType;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRequestType(TlsCertificatesAndHostnamesRequestType requestType) {
     this.requestType = requestType;
   }
@@ -206,16 +221,24 @@ public class TlsCertificatesAndHostnamesCertificates {
    * @return requestedValidity
   **/
   @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_REQUESTED_VALIDITY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public TlsCertificatesAndHostnamesRequestedValidity getRequestedValidity() {
     return requestedValidity;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_REQUESTED_VALIDITY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRequestedValidity(TlsCertificatesAndHostnamesRequestedValidity requestedValidity) {
     this.requestedValidity = requestedValidity;
   }
 
 
-
+  /**
+   * Return true if this tls-certificates-and-hostnames_certificates object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -265,125 +288,78 @@ public class TlsCertificatesAndHostnamesCertificates {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("certificate");
-    openapiFields.add("csr");
-    openapiFields.add("expires_on");
-    openapiFields.add("hostnames");
-    openapiFields.add("id");
-    openapiFields.add("request_type");
-    openapiFields.add("requested_validity");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("csr");
-    openapiRequiredFields.add("hostnames");
-    openapiRequiredFields.add("request_type");
-    openapiRequiredFields.add("requested_validity");
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TlsCertificatesAndHostnamesCertificates
-  */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TlsCertificatesAndHostnamesCertificates.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TlsCertificatesAndHostnamesCertificates is not found in the empty JSON string", TlsCertificatesAndHostnamesCertificates.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TlsCertificatesAndHostnamesCertificates.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TlsCertificatesAndHostnamesCertificates` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TlsCertificatesAndHostnamesCertificates.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("certificate") != null && !jsonObj.get("certificate").isJsonNull()) && !jsonObj.get("certificate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate").toString()));
-      }
-      if (!jsonObj.get("csr").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `csr` to be a primitive type in the JSON string but got `%s`", jsonObj.get("csr").toString()));
-      }
-      // ensure the required json array is present
-      if (jsonObj.get("hostnames") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("hostnames").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hostnames` to be an array in the JSON string but got `%s`", jsonObj.get("hostnames").toString()));
-      }
-      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      // validate the required field `request_type`
-      TlsCertificatesAndHostnamesRequestType.validateJsonElement(jsonObj.get("request_type"));
-      // validate the required field `requested_validity`
-      TlsCertificatesAndHostnamesRequestedValidity.validateJsonElement(jsonObj.get("requested_validity"));
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TlsCertificatesAndHostnamesCertificates.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TlsCertificatesAndHostnamesCertificates' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TlsCertificatesAndHostnamesCertificates> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TlsCertificatesAndHostnamesCertificates.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TlsCertificatesAndHostnamesCertificates>() {
-           @Override
-           public void write(JsonWriter out, TlsCertificatesAndHostnamesCertificates value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TlsCertificatesAndHostnamesCertificates read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
     }
-  }
 
- /**
-  * Create an instance of TlsCertificatesAndHostnamesCertificates given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TlsCertificatesAndHostnamesCertificates
-  * @throws IOException if the JSON string is invalid with respect to TlsCertificatesAndHostnamesCertificates
-  */
-  public static TlsCertificatesAndHostnamesCertificates fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TlsCertificatesAndHostnamesCertificates.class);
-  }
+    StringJoiner joiner = new StringJoiner("&");
 
- /**
-  * Convert an instance of TlsCertificatesAndHostnamesCertificates to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+    // add `certificate` to the URL query string
+    if (getCertificate() != null) {
+      joiner.add(String.format("%scertificate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCertificate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `csr` to the URL query string
+    if (getCsr() != null) {
+      joiner.add(String.format("%scsr%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCsr()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `expires_on` to the URL query string
+    if (getExpiresOn() != null) {
+      joiner.add(String.format("%sexpires_on%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpiresOn()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `hostnames` to the URL query string
+    if (getHostnames() != null) {
+      for (int i = 0; i < getHostnames().size(); i++) {
+        joiner.add(String.format("%shostnames%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(getHostnames().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
+    // add `id` to the URL query string
+    if (getId() != null) {
+      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `request_type` to the URL query string
+    if (getRequestType() != null) {
+      joiner.add(String.format("%srequest_type%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRequestType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `requested_validity` to the URL query string
+    if (getRequestedValidity() != null) {
+      joiner.add(String.format("%srequested_validity%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRequestedValidity()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    return joiner.toString();
   }
 }
 

@@ -13,28 +13,31 @@
 
 package cloudflare.sdk.models;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo
  */
-public class TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfoTest {
+class TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfoTest {
     private final TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo model = new TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo
      */
     @Test
-    public void testTlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo() {
+    void testTlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo() {
         // TODO: test TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertificateResponseCollectionAllOfResultInfo
     }
 
@@ -42,7 +45,7 @@ public class TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertifica
      * Test the property 'count'
      */
     @Test
-    public void countTest() {
+    void countTest() {
         // TODO: test count
     }
 
@@ -50,7 +53,7 @@ public class TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertifica
      * Test the property 'page'
      */
     @Test
-    public void pageTest() {
+    void pageTest() {
         // TODO: test page
     }
 
@@ -58,7 +61,7 @@ public class TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertifica
      * Test the property 'perPage'
      */
     @Test
-    public void perPageTest() {
+    void perPageTest() {
         // TODO: test perPage
     }
 
@@ -66,7 +69,7 @@ public class TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertifica
      * Test the property 'totalCount'
      */
     @Test
-    public void totalCountTest() {
+    void totalCountTest() {
         // TODO: test totalCount
     }
 
@@ -74,7 +77,7 @@ public class TlsCertificatesAndHostnamesMtlsManagementComponentsSchemasCertifica
      * Test the property 'totalPages'
      */
     @Test
-    public void totalPagesTest() {
+    void totalPagesTest() {
         // TODO: test totalPages
     }
 

@@ -13,27 +13,27 @@
 
 package cloudflare.sdk.models;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesVerificationInfo
  */
-public class TlsCertificatesAndHostnamesVerificationInfoTest {
+class TlsCertificatesAndHostnamesVerificationInfoTest {
     private final TlsCertificatesAndHostnamesVerificationInfo model = new TlsCertificatesAndHostnamesVerificationInfo();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesVerificationInfo
      */
     @Test
-    public void testTlsCertificatesAndHostnamesVerificationInfo() {
+    void testTlsCertificatesAndHostnamesVerificationInfo() {
         // TODO: test TlsCertificatesAndHostnamesVerificationInfo
     }
 
@@ -41,7 +41,7 @@ public class TlsCertificatesAndHostnamesVerificationInfoTest {
      * Test the property 'recordName'
      */
     @Test
-    public void recordNameTest() {
+    void recordNameTest() {
         // TODO: test recordName
     }
 
@@ -49,7 +49,7 @@ public class TlsCertificatesAndHostnamesVerificationInfoTest {
      * Test the property 'recordTarget'
      */
     @Test
-    public void recordTargetTest() {
+    void recordTargetTest() {
         // TODO: test recordTarget
     }
 

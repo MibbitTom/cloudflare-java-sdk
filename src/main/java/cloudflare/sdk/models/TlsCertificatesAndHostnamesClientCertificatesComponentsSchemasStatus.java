@@ -13,20 +13,21 @@
 
 package cloudflare.sdk.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.JsonElement;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Client Certificates may be active or revoked, and the pending_reactivation or pending_revocation represent in-progress asynchronous transitions
  */
-@JsonAdapter(TlsCertificatesAndHostnamesClientCertificatesComponentsSchemasStatus.Adapter.class)
 public enum TlsCertificatesAndHostnamesClientCertificatesComponentsSchemasStatus {
   
   ACTIVE("active"),
@@ -43,6 +44,7 @@ public enum TlsCertificatesAndHostnamesClientCertificatesComponentsSchemasStatus
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -52,6 +54,7 @@ public enum TlsCertificatesAndHostnamesClientCertificatesComponentsSchemasStatus
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static TlsCertificatesAndHostnamesClientCertificatesComponentsSchemasStatus fromValue(String value) {
     for (TlsCertificatesAndHostnamesClientCertificatesComponentsSchemasStatus b : TlsCertificatesAndHostnamesClientCertificatesComponentsSchemasStatus.values()) {
       if (b.value.equals(value)) {
@@ -61,22 +64,19 @@ public enum TlsCertificatesAndHostnamesClientCertificatesComponentsSchemasStatus
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 
-  public static class Adapter extends TypeAdapter<TlsCertificatesAndHostnamesClientCertificatesComponentsSchemasStatus> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final TlsCertificatesAndHostnamesClientCertificatesComponentsSchemasStatus enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    if (prefix == null) {
+      prefix = "";
     }
 
-    @Override
-    public TlsCertificatesAndHostnamesClientCertificatesComponentsSchemasStatus read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return TlsCertificatesAndHostnamesClientCertificatesComponentsSchemasStatus.fromValue(value);
-    }
+    return String.format("%s=%s", prefix, this.toString());
   }
 
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    TlsCertificatesAndHostnamesClientCertificatesComponentsSchemasStatus.fromValue(value);
-  }
 }
 

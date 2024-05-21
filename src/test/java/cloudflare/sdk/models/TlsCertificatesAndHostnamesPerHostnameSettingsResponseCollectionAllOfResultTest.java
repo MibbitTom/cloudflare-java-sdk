@@ -14,28 +14,28 @@
 package cloudflare.sdk.models;
 
 import cloudflare.sdk.models.TlsCertificatesAndHostnamesValue;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Model tests for TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAllOfResult
  */
-public class TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAllOfResultTest {
+class TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAllOfResultTest {
     private final TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAllOfResult model = new TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAllOfResult();
 
     /**
      * Model tests for TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAllOfResult
      */
     @Test
-    public void testTlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAllOfResult() {
+    void testTlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAllOfResult() {
         // TODO: test TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAllOfResult
     }
 
@@ -43,7 +43,7 @@ public class TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAll
      * Test the property 'createdAt'
      */
     @Test
-    public void createdAtTest() {
+    void createdAtTest() {
         // TODO: test createdAt
     }
 
@@ -51,7 +51,7 @@ public class TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAll
      * Test the property 'hostname'
      */
     @Test
-    public void hostnameTest() {
+    void hostnameTest() {
         // TODO: test hostname
     }
 
@@ -59,7 +59,7 @@ public class TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAll
      * Test the property 'status'
      */
     @Test
-    public void statusTest() {
+    void statusTest() {
         // TODO: test status
     }
 
@@ -67,7 +67,7 @@ public class TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAll
      * Test the property 'updatedAt'
      */
     @Test
-    public void updatedAtTest() {
+    void updatedAtTest() {
         // TODO: test updatedAt
     }
 
@@ -75,7 +75,7 @@ public class TlsCertificatesAndHostnamesPerHostnameSettingsResponseCollectionAll
      * Test the property 'value'
      */
     @Test
-    public void valueTest() {
+    void valueTest() {
         // TODO: test value
     }
 

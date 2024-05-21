@@ -13,73 +13,57 @@
 
 package cloudflare.sdk.models;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.StringJoiner;
 import java.util.Objects;
-import cloudflare.sdk.models.AaaMessagesInner;
+import java.util.Map;
+import java.util.HashMap;
 import cloudflare.sdk.models.CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import cloudflare.sdk.models.TlsCertificatesAndHostnamesMessagesInner;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import cloudflare.JSON;
 
 /**
  * TlsCertificatesAndHostnamesKeylessResponseSingleId
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-22T11:31:20.290775906+01:00[Europe/London]", comments = "Generator version: 7.5.0")
+@JsonPropertyOrder({
+  TlsCertificatesAndHostnamesKeylessResponseSingleId.JSON_PROPERTY_ERRORS,
+  TlsCertificatesAndHostnamesKeylessResponseSingleId.JSON_PROPERTY_MESSAGES,
+  TlsCertificatesAndHostnamesKeylessResponseSingleId.JSON_PROPERTY_SUCCESS,
+  TlsCertificatesAndHostnamesKeylessResponseSingleId.JSON_PROPERTY_RESULT
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-21T10:12:24.693742223+01:00[Europe/London]", comments = "Generator version: 7.5.0")
 public class TlsCertificatesAndHostnamesKeylessResponseSingleId {
-  public static final String SERIALIZED_NAME_ERRORS = "errors";
-  @SerializedName(SERIALIZED_NAME_ERRORS)
-  private List<AaaMessagesInner> errors = new ArrayList<>();
+  public static final String JSON_PROPERTY_ERRORS = "errors";
+  private List<TlsCertificatesAndHostnamesMessagesInner> errors = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_MESSAGES = "messages";
-  @SerializedName(SERIALIZED_NAME_MESSAGES)
-  private List<AaaMessagesInner> messages = new ArrayList<>();
+  public static final String JSON_PROPERTY_MESSAGES = "messages";
+  private List<TlsCertificatesAndHostnamesMessagesInner> messages = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_RESULT = "result";
-  @SerializedName(SERIALIZED_NAME_RESULT)
-  private CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response result;
-
-  public static final String SERIALIZED_NAME_SUCCESS = "success";
-  @SerializedName(SERIALIZED_NAME_SUCCESS)
+  public static final String JSON_PROPERTY_SUCCESS = "success";
   private Boolean success;
 
-  public TlsCertificatesAndHostnamesKeylessResponseSingleId() {
+  public static final String JSON_PROPERTY_RESULT = "result";
+  private CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response result;
+
+  public TlsCertificatesAndHostnamesKeylessResponseSingleId() { 
   }
 
-  public TlsCertificatesAndHostnamesKeylessResponseSingleId errors(List<AaaMessagesInner> errors) {
+  public TlsCertificatesAndHostnamesKeylessResponseSingleId errors(List<TlsCertificatesAndHostnamesMessagesInner> errors) {
     this.errors = errors;
     return this;
   }
 
-  public TlsCertificatesAndHostnamesKeylessResponseSingleId addErrorsItem(AaaMessagesInner errorsItem) {
+  public TlsCertificatesAndHostnamesKeylessResponseSingleId addErrorsItem(TlsCertificatesAndHostnamesMessagesInner errorsItem) {
     if (this.errors == null) {
       this.errors = new ArrayList<>();
     }
@@ -92,21 +76,27 @@ public class TlsCertificatesAndHostnamesKeylessResponseSingleId {
    * @return errors
   **/
   @javax.annotation.Nonnull
-  public List<AaaMessagesInner> getErrors() {
+  @JsonProperty(JSON_PROPERTY_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<TlsCertificatesAndHostnamesMessagesInner> getErrors() {
     return errors;
   }
 
-  public void setErrors(List<AaaMessagesInner> errors) {
+
+  @JsonProperty(JSON_PROPERTY_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setErrors(List<TlsCertificatesAndHostnamesMessagesInner> errors) {
     this.errors = errors;
   }
 
 
-  public TlsCertificatesAndHostnamesKeylessResponseSingleId messages(List<AaaMessagesInner> messages) {
+  public TlsCertificatesAndHostnamesKeylessResponseSingleId messages(List<TlsCertificatesAndHostnamesMessagesInner> messages) {
     this.messages = messages;
     return this;
   }
 
-  public TlsCertificatesAndHostnamesKeylessResponseSingleId addMessagesItem(AaaMessagesInner messagesItem) {
+  public TlsCertificatesAndHostnamesKeylessResponseSingleId addMessagesItem(TlsCertificatesAndHostnamesMessagesInner messagesItem) {
     if (this.messages == null) {
       this.messages = new ArrayList<>();
     }
@@ -119,31 +109,18 @@ public class TlsCertificatesAndHostnamesKeylessResponseSingleId {
    * @return messages
   **/
   @javax.annotation.Nonnull
-  public List<AaaMessagesInner> getMessages() {
+  @JsonProperty(JSON_PROPERTY_MESSAGES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<TlsCertificatesAndHostnamesMessagesInner> getMessages() {
     return messages;
   }
 
-  public void setMessages(List<AaaMessagesInner> messages) {
+
+  @JsonProperty(JSON_PROPERTY_MESSAGES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setMessages(List<TlsCertificatesAndHostnamesMessagesInner> messages) {
     this.messages = messages;
-  }
-
-
-  public TlsCertificatesAndHostnamesKeylessResponseSingleId result(CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response result) {
-    this.result = result;
-    return this;
-  }
-
-   /**
-   * Get result
-   * @return result
-  **/
-  @javax.annotation.Nonnull
-  public CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response getResult() {
-    return result;
-  }
-
-  public void setResult(CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response result) {
-    this.result = result;
   }
 
 
@@ -157,16 +134,49 @@ public class TlsCertificatesAndHostnamesKeylessResponseSingleId {
    * @return success
   **/
   @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SUCCESS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getSuccess() {
     return success;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_SUCCESS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSuccess(Boolean success) {
     this.success = success;
   }
 
 
+  public TlsCertificatesAndHostnamesKeylessResponseSingleId result(CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response result) {
+    this.result = result;
+    return this;
+  }
 
+   /**
+   * Get result
+   * @return result
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response getResult() {
+    return result;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setResult(CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response result) {
+    this.result = result;
+  }
+
+
+  /**
+   * Return true if this tls-certificates-and-hostnames_keyless_response_single_id object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -178,13 +188,13 @@ public class TlsCertificatesAndHostnamesKeylessResponseSingleId {
     TlsCertificatesAndHostnamesKeylessResponseSingleId tlsCertificatesAndHostnamesKeylessResponseSingleId = (TlsCertificatesAndHostnamesKeylessResponseSingleId) o;
     return Objects.equals(this.errors, tlsCertificatesAndHostnamesKeylessResponseSingleId.errors) &&
         Objects.equals(this.messages, tlsCertificatesAndHostnamesKeylessResponseSingleId.messages) &&
-        Objects.equals(this.result, tlsCertificatesAndHostnamesKeylessResponseSingleId.result) &&
-        Objects.equals(this.success, tlsCertificatesAndHostnamesKeylessResponseSingleId.success);
+        Objects.equals(this.success, tlsCertificatesAndHostnamesKeylessResponseSingleId.success) &&
+        Objects.equals(this.result, tlsCertificatesAndHostnamesKeylessResponseSingleId.result);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors, messages, result, success);
+    return Objects.hash(errors, messages, success, result);
   }
 
   @Override
@@ -193,8 +203,8 @@ public class TlsCertificatesAndHostnamesKeylessResponseSingleId {
     sb.append("class TlsCertificatesAndHostnamesKeylessResponseSingleId {\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
-    sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -210,125 +220,69 @@ public class TlsCertificatesAndHostnamesKeylessResponseSingleId {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("errors");
-    openapiFields.add("messages");
-    openapiFields.add("result");
-    openapiFields.add("success");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("errors");
-    openapiRequiredFields.add("messages");
-    openapiRequiredFields.add("result");
-    openapiRequiredFields.add("success");
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TlsCertificatesAndHostnamesKeylessResponseSingleId
-  */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TlsCertificatesAndHostnamesKeylessResponseSingleId.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TlsCertificatesAndHostnamesKeylessResponseSingleId is not found in the empty JSON string", TlsCertificatesAndHostnamesKeylessResponseSingleId.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TlsCertificatesAndHostnamesKeylessResponseSingleId.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TlsCertificatesAndHostnamesKeylessResponseSingleId` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TlsCertificatesAndHostnamesKeylessResponseSingleId.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("errors").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `errors` to be an array in the JSON string but got `%s`", jsonObj.get("errors").toString()));
-      }
-
-      JsonArray jsonArrayerrors = jsonObj.getAsJsonArray("errors");
-      // validate the required field `errors` (array)
-      for (int i = 0; i < jsonArrayerrors.size(); i++) {
-        AaaMessagesInner.validateJsonElement(jsonArrayerrors.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("messages").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `messages` to be an array in the JSON string but got `%s`", jsonObj.get("messages").toString()));
-      }
-
-      JsonArray jsonArraymessages = jsonObj.getAsJsonArray("messages");
-      // validate the required field `messages` (array)
-      for (int i = 0; i < jsonArraymessages.size(); i++) {
-        AaaMessagesInner.validateJsonElement(jsonArraymessages.get(i));
-      };
-      // validate the required field `result`
-      CustomHostnameForAZoneDeleteCustomHostnameAndAnyIssuedSslCertificates200Response.validateJsonElement(jsonObj.get("result"));
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TlsCertificatesAndHostnamesKeylessResponseSingleId.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TlsCertificatesAndHostnamesKeylessResponseSingleId' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TlsCertificatesAndHostnamesKeylessResponseSingleId> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TlsCertificatesAndHostnamesKeylessResponseSingleId.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TlsCertificatesAndHostnamesKeylessResponseSingleId>() {
-           @Override
-           public void write(JsonWriter out, TlsCertificatesAndHostnamesKeylessResponseSingleId value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TlsCertificatesAndHostnamesKeylessResponseSingleId read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
     }
-  }
 
- /**
-  * Create an instance of TlsCertificatesAndHostnamesKeylessResponseSingleId given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TlsCertificatesAndHostnamesKeylessResponseSingleId
-  * @throws IOException if the JSON string is invalid with respect to TlsCertificatesAndHostnamesKeylessResponseSingleId
-  */
-  public static TlsCertificatesAndHostnamesKeylessResponseSingleId fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TlsCertificatesAndHostnamesKeylessResponseSingleId.class);
-  }
+    StringJoiner joiner = new StringJoiner("&");
 
- /**
-  * Convert an instance of TlsCertificatesAndHostnamesKeylessResponseSingleId to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
+    // add `errors` to the URL query string
+    if (getErrors() != null) {
+      for (int i = 0; i < getErrors().size(); i++) {
+        if (getErrors().get(i) != null) {
+          joiner.add(getErrors().get(i).toUrlQueryString(String.format("%serrors%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `messages` to the URL query string
+    if (getMessages() != null) {
+      for (int i = 0; i < getMessages().size(); i++) {
+        if (getMessages().get(i) != null) {
+          joiner.add(getMessages().get(i).toUrlQueryString(String.format("%smessages%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `success` to the URL query string
+    if (getSuccess() != null) {
+      joiner.add(String.format("%ssuccess%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSuccess()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `result` to the URL query string
+    if (getResult() != null) {
+      joiner.add(getResult().toUrlQueryString(prefix + "result" + suffix));
+    }
+
+    return joiner.toString();
   }
 }
 
