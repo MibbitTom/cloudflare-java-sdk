@@ -1,0 +1,2726 @@
+components:
+  schemas:
+    tls-certificates-and-hostnames_advanced_certificate_pack_response_single:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              properties:
+                certificate_authority:
+                  $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_schemas-certificate_authority
+                cloudflare_branding:
+                  $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_cloudflare_branding
+                hosts:
+                  $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_schemas-hosts
+                id:
+                  $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_identifier
+                status:
+                  $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_certificate-packs_components-schemas-status
+                type:
+                  $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_advanced_type
+                validation_method:
+                  $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_validation_method
+                validity_days:
+                  $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_validity_days
+              type: object
+          type: object
+    tls-certificates-and-hostnames_advanced_type:
+      description: Type of certificate pack.
+      enum:
+        - advanced
+      example: advanced
+      type: string
+    tls-certificates-and-hostnames_api-response-collection:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-common
+        - properties:
+            result:
+              items: {}
+              nullable: true
+              type: array
+            result_info:
+              $ref: '#/components/schemas/tls-certificates-and-hostnames_result_info'
+      type: object
+    tls-certificates-and-hostnames_api-response-common:
+      properties:
+        errors:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_messages'
+        messages:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_messages'
+        success:
+          description: Whether the API call was successful
+          enum:
+            - true
+          example: true
+          type: boolean
+      required:
+        - success
+        - errors
+        - messages
+      type: object
+    tls-certificates-and-hostnames_api-response-common-failure:
+      properties:
+        errors:
+          allOf:
+            - $ref: '#/components/schemas/tls-certificates-and-hostnames_messages'
+          example:
+            - code: 7003
+              message: No route for the URI
+          minLength: 1
+        messages:
+          allOf:
+            - $ref: '#/components/schemas/tls-certificates-and-hostnames_messages'
+          example: []
+        result:
+          enum:
+            - null
+          nullable: true
+          type: object
+        success:
+          description: Whether the API call was successful
+          enum:
+            - false
+          example: false
+          type: boolean
+      required:
+        - success
+        - errors
+        - messages
+        - result
+      type: object
+    tls-certificates-and-hostnames_api-response-single:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-common
+        - properties:
+            result:
+              anyOf:
+                - type: object
+                - type: string
+      type: object
+    tls-certificates-and-hostnames_associationObject:
+      properties:
+        service:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_service'
+        status:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_mtls-management_components-schemas-status
+    tls-certificates-and-hostnames_association_response_collection:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-collection
+        - properties:
+            result:
+              items:
+                $ref: >-
+                  #/components/schemas/tls-certificates-and-hostnames_associationObject
+              type: array
+    tls-certificates-and-hostnames_base:
+      properties:
+        created_on:
+          description: When the Keyless SSL was created.
+          example: '2014-01-01T05:20:00Z'
+          format: date-time
+          readOnly: true
+          type: string
+        enabled:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_enabled'
+        host:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_host'
+        id:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_schemas-identifier
+        modified_on:
+          description: When the Keyless SSL was last modified.
+          example: '2014-01-01T05:20:00Z'
+          format: date-time
+          readOnly: true
+          type: string
+        name:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_name'
+        permissions:
+          description: >-
+            Available permissions for the Keyless SSL for the current user
+            requesting the item.
+          example:
+            - '#ssl:read'
+            - '#ssl:edit'
+          items: {}
+          readOnly: true
+          type: array
+        port:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_port'
+        status:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_schemas-status'
+        tunnel:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_keyless_tunnel'
+      required:
+        - id
+        - name
+        - host
+        - port
+        - status
+        - enabled
+        - permissions
+        - created_on
+        - modified_on
+      type: object
+    tls-certificates-and-hostnames_brand_check:
+      description: Certificate Authority is manually reviewing the order.
+      example: false
+      type: boolean
+    tls-certificates-and-hostnames_bundle_method:
+      default: ubiquitous
+      description: >-
+        A ubiquitous bundle has the highest probability of being verified
+        everywhere, even by clients using outdated or unusual trust stores. An
+        optimal bundle uses the shortest chain and newest intermediates. And the
+        force bundle verifies the chain, but does not otherwise modify it.
+      enum:
+        - ubiquitous
+        - optimal
+        - force
+      example: ubiquitous
+      type: string
+    tls-certificates-and-hostnames_ca:
+      description: Indicates whether the certificate is a CA or leaf certificate.
+      example: true
+      type: boolean
+    tls-certificates-and-hostnames_cert_id:
+      description: Certificate identifier tag.
+      example: 2458ce5a-0c35-4c7f-82c7-8e9487d3ff60
+      maxLength: 36
+      type: string
+    tls-certificates-and-hostnames_cert_pack_uuid:
+      description: Certificate Pack UUID.
+      example: a77f8bd7-3b47-46b4-a6f1-75cf98109948
+      type: string
+    tls-certificates-and-hostnames_certificate:
+      description: The zone's SSL certificate or certificate and the intermediate(s).
+      example: |
+        -----BEGIN CERTIFICATE-----
+        MIIDtTCCAp2gAwIBAgIJAMHAwfXZ5/PWMA0GCSqGSIb3DQEBCwUAMEUxCzAJBgNV
+        BAYTAkFVMRMwEQYDVQQIEwpTb21lLVN0YXRlMSEwHwYDVQQKExhJbnRlcm5ldCBX
+        aWRnaXRzIFB0eSBMdGQwHhcNMTYwODI0MTY0MzAxWhcNMTYxMTIyMTY0MzAxWjBF
+        MQswCQYDVQQGEwJBVTETMBEGA1UECBMKU29tZS1TdGF0ZTEhMB8GA1UEChMYSW50
+        ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+        CgKCAQEAwQHoetcl9+5ikGzV6cMzWtWPJHqXT3wpbEkRU9Yz7lgvddmGdtcGbg/1
+        CGZu0jJGkMoppoUo4c3dts3iwqRYmBikUP77wwY2QGmDZw2FvkJCJlKnabIRuGvB
+        KwzESIXgKk2016aTP6/dAjEHyo6SeoK8lkIySUvK0fyOVlsiEsCmOpidtnKX/a+5
+        0GjB79CJH4ER2lLVZnhePFR/zUOyPxZQQ4naHf7yu/b5jhO0f8fwt+pyFxIXjbEI
+        dZliWRkRMtzrHOJIhrmJ2A1J7iOrirbbwillwjjNVUWPf3IJ3M12S9pEewooaeO2
+        izNTERcG9HzAacbVRn2Y2SWIyT/18QIDAQABo4GnMIGkMB0GA1UdDgQWBBT/LbE4
+        9rWf288N6sJA5BRb6FJIGDB1BgNVHSMEbjBsgBT/LbE49rWf288N6sJA5BRb6FJI
+        GKFJpEcwRTELMAkGA1UEBhMCQVUxEzARBgNVBAgTClNvbWUtU3RhdGUxITAfBgNV
+        BAoTGEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZIIJAMHAwfXZ5/PWMAwGA1UdEwQF
+        MAMBAf8wDQYJKoZIhvcNAQELBQADggEBAHHFwl0tH0quUYZYO0dZYt4R7SJ0pCm2
+        2satiyzHl4OnXcHDpekAo7/a09c6Lz6AU83cKy/+x3/djYHXWba7HpEu0dR3ugQP
+        Mlr4zrhd9xKZ0KZKiYmtJH+ak4OM4L3FbT0owUZPyjLSlhMtJVcoRp5CJsjAMBUG
+        SvD8RX+T01wzox/Qb+lnnNnOlaWpqu8eoOenybxKp1a9ULzIVvN/LAcc+14vioFq
+        2swRWtmocBAs8QR9n4uvbpiYvS8eYueDCWMM4fvFfBhaDZ3N9IbtySh3SpFdQDhw
+        YbjM2rxXiyLGxB4Bol7QTv4zHif7Zt89FReT/NBy4rzaskDJY5L6xmY=
+        -----END CERTIFICATE-----
+      type: string
+    tls-certificates-and-hostnames_certificate-packs_components-schemas-status:
+      description: Status of certificate pack.
+      enum:
+        - initializing
+        - pending_validation
+        - deleted
+        - pending_issuance
+        - pending_deployment
+        - pending_deletion
+        - pending_expiration
+        - expired
+        - active
+        - initializing_timed_out
+        - validation_timed_out
+        - issuance_timed_out
+        - deployment_timed_out
+        - deletion_timed_out
+        - pending_cleanup
+        - staging_deployment
+        - staging_active
+        - deactivating
+        - inactive
+        - backup_issued
+        - holding_deployment
+      example: initializing
+      type: string
+    tls-certificates-and-hostnames_certificateObject:
+      properties:
+        certificate:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_zone-authenticated-origin-pull_components-schemas-certificate
+        expires_on:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_components-schemas-expires_on
+        id:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_identifier'
+        issuer:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_issuer'
+        signature:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_signature'
+        status:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_zone-authenticated-origin-pull_components-schemas-status
+        uploaded_on:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_schemas-uploaded_on
+    tls-certificates-and-hostnames_certificateObjectPost:
+      properties:
+        ca:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_ca'
+        certificates:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_schemas-certificates
+        expires_on:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_mtls-management_components-schemas-expires_on
+        id:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_identifier'
+        issuer:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_schemas-issuer'
+        name:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_schemas-name'
+        serial_number:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_schemas-serial_number
+        signature:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_signature'
+        updated_at:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_schemas-updated_at
+        uploaded_on:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_mtls-management_components-schemas-uploaded_on
+    tls-certificates-and-hostnames_certificate_analyze_response:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              type: object
+    tls-certificates-and-hostnames_certificate_authority:
+      description: The Certificate Authority that will issue the certificate
+      enum:
+        - digicert
+        - google
+        - lets_encrypt
+      example: google
+      type: string
+    tls-certificates-and-hostnames_certificate_pack_quota_response:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              properties:
+                advanced:
+                  $ref: '#/components/schemas/tls-certificates-and-hostnames_quota'
+              type: object
+          type: object
+    tls-certificates-and-hostnames_certificate_pack_response_collection:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-collection
+        - properties:
+            result:
+              items:
+                type: object
+              type: array
+    tls-certificates-and-hostnames_certificate_pack_response_single:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              type: object
+          type: object
+    tls-certificates-and-hostnames_certificate_response_collection:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-collection
+        - properties:
+            result:
+              items:
+                $ref: >-
+                  #/components/schemas/tls-certificates-and-hostnames_custom-certificate
+              type: array
+    tls-certificates-and-hostnames_certificate_response_id_only:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              properties:
+                id:
+                  $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_identifier
+              type: object
+    tls-certificates-and-hostnames_certificate_response_single:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              type: object
+    tls-certificates-and-hostnames_certificate_response_single_id:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_schemas-certificate_response_single
+        - properties:
+            result:
+              properties:
+                id:
+                  $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_identifier
+    tls-certificates-and-hostnames_certificate_response_single_post:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              allOf:
+                - $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_certificateObjectPost
+              type: object
+    tls-certificates-and-hostnames_certificate_status:
+      description: Current status of certificate.
+      enum:
+        - initializing
+        - authorizing
+        - active
+        - expired
+        - issuing
+        - timing_out
+        - pending_deployment
+      example: active
+      type: string
+    tls-certificates-and-hostnames_certificates:
+      properties:
+        certificate:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_components-schemas-certificate
+        csr:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_csr'
+        expires_on:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_schemas-expires_on
+        hostnames:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_hostnames'
+        id:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_identifier'
+        request_type:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_request_type'
+        requested_validity:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_requested_validity
+      required:
+        - hostnames
+        - csr
+        - requested_validity
+        - request_type
+      type: object
+    tls-certificates-and-hostnames_client-certificates_components-schemas-certificate:
+      description: The Client Certificate PEM
+      example: >-
+        -----BEGIN CERTIFICATE-----\nMIIDmDCCAoC...dhDDE\n-----END
+        CERTIFICATE-----
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_client-certificates_components-schemas-certificate_authority:
+      description: Certificate Authority used to issue the Client Certificate
+      properties:
+        id:
+          example: 568b6b74-7b0c-4755-8840-4e3b8c24adeb
+          type: string
+        name:
+          example: Cloudflare Managed CA for account
+          type: string
+      type: object
+    tls-certificates-and-hostnames_client-certificates_components-schemas-status:
+      description: >-
+        Client Certificates may be active or revoked, and the
+        pending_reactivation or pending_revocation represent in-progress
+        asynchronous transitions
+      enum:
+        - active
+        - pending_reactivation
+        - pending_revocation
+        - revoked
+      example: active
+    tls-certificates-and-hostnames_client_certificate:
+      properties:
+        certificate:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_client-certificates_components-schemas-certificate
+        certificate_authority:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_client-certificates_components-schemas-certificate_authority
+        common_name:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_common_name'
+        country:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_country'
+        csr:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_schemas-csr'
+        expires_on:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_expired_on'
+        fingerprint_sha256:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_fingerprint_sha256
+        id:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_identifier'
+        issued_on:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_issued_on'
+        location:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_location'
+        organization:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_organization'
+        organizational_unit:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_organizational_unit
+        serial_number:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_components-schemas-serial_number
+        signature:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_components-schemas-signature
+        ski:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_ski'
+        state:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_state'
+        status:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_client-certificates_components-schemas-status
+        validity_days:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_components-schemas-validity_days
+    tls-certificates-and-hostnames_client_certificate_response_collection:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-collection
+        - properties:
+            result:
+              items:
+                $ref: >-
+                  #/components/schemas/tls-certificates-and-hostnames_client_certificate
+              type: array
+    tls-certificates-and-hostnames_client_certificate_response_single:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              $ref: >-
+                #/components/schemas/tls-certificates-and-hostnames_client_certificate
+    tls-certificates-and-hostnames_cloudflare_branding:
+      description: >-
+        Whether or not to add Cloudflare Branding for the order.  This will add
+        sni.cloudflaressl.com as the Common Name if set true.
+      example: false
+      type: boolean
+    tls-certificates-and-hostnames_common_name:
+      description: Common Name of the Client Certificate
+      example: Cloudflare
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_components-schemas-certificate:
+      description: The Origin CA certificate. Will be newline-encoded.
+      example: |-
+        -----BEGIN CERTIFICATE-----
+        MIICvDCCAaQCAQAwdzELMAkGA1UEBhMCVVMxDTALBgNVBAgMBFV0YWgxDzANBgNV
+        BAcMBkxpbmRvbjEWMBQGA1UECgwNRGlnaUNlcnQgSW5jLjERMA8GA1UECwwIRGln
+        aUNlcnQxHTAbBgNVBAMMFGV4YW1wbGUuZGlnaWNlcnQuY29tMIIBIjANBgkqhkiG
+        9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8+To7d+2kPWeBv/orU3LVbJwDrSQbeKamCmo
+        wp5bqDxIwV20zqRb7APUOKYoVEFFOEQs6T6gImnIolhbiH6m4zgZ/CPvWBOkZc+c
+        1Po2EmvBz+AD5sBdT5kzGQA6NbWyZGldxRthNLOs1efOhdnWFuhI162qmcflgpiI
+        WDuwq4C9f+YkeJhNn9dF5+owm8cOQmDrV8NNdiTqin8q3qYAHHJRW28glJUCZkTZ
+        wIaSR6crBQ8TbYNE0dc+Caa3DOIkz1EOsHWzTx+n0zKfqcbgXi4DJx+C1bjptYPR
+        BPZL8DAeWuA8ebudVT44yEp82G96/Ggcf7F33xMxe0yc+Xa6owIDAQABoAAwDQYJ
+        KoZIhvcNAQEFBQADggEBAB0kcrFccSmFDmxox0Ne01UIqSsDqHgL+XmHTXJwre6D
+        hJSZwbvEtOK0G3+dr4Fs11WuUNt5qcLsx5a8uk4G6AKHMzuhLsJ7XZjgmQXGECpY
+        Q4mC3yT3ZoCGpIXbw+iP3lmEEXgaQL0Tx5LFl/okKbKYwIqNiyKWOMj7ZR/wxWg/
+        ZDGRs55xuoeLDJ/ZRFf9bI+IaCUd1YrfYcHIl3G87Av+r49YVwqRDT0VDV7uLgqn
+        29XI1PpVUNCPQGn9p/eX6Qo7vpDaPybRtA2R7XLKjQaF9oXWeCUqy1hvJac9QFO2
+        97Ob1alpHPoZ7mWiEuJwjBPii6a9M9G30nUo39lBi1w=
+        -----END CERTIFICATE-----
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_components-schemas-certificateObject:
+      properties:
+        ca:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_ca'
+        certificates:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_schemas-certificates
+        expires_on:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_mtls-management_components-schemas-expires_on
+        id:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_identifier'
+        issuer:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_schemas-issuer'
+        name:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_schemas-name'
+        serial_number:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_schemas-serial_number
+        signature:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_signature'
+        uploaded_on:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_mtls-management_components-schemas-uploaded_on
+    tls-certificates-and-hostnames_components-schemas-certificate_authority:
+      description: >-
+        The Certificate Authority that Total TLS certificates will be issued
+        through.
+      enum:
+        - google
+        - lets_encrypt
+      example: google
+      type: string
+    tls-certificates-and-hostnames_components-schemas-certificate_response_collection:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-collection
+        - properties:
+            result:
+              items:
+                $ref: >-
+                  #/components/schemas/tls-certificates-and-hostnames_zone-authenticated-origin-pull
+              type: array
+    tls-certificates-and-hostnames_components-schemas-certificate_response_single:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              $ref: >-
+                #/components/schemas/tls-certificates-and-hostnames_schemas-certificateObject
+    tls-certificates-and-hostnames_components-schemas-created_at:
+      description: >-
+        This is the time the tls setting was originally created for this
+        hostname.
+      example: '2023-07-10T20:01:50.219171Z'
+      format: date-time
+      type: string
+    tls-certificates-and-hostnames_components-schemas-enabled:
+      description: >-
+        If enabled, Total TLS will order a hostname specific TLS certificate for
+        any proxied A, AAAA, or CNAME record in your zone.
+      example: true
+      type: boolean
+    tls-certificates-and-hostnames_components-schemas-expires_on:
+      description: When the certificate from the authority expires.
+      example: '2100-01-01T05:20:00Z'
+      format: date-time
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_components-schemas-hostname:
+      description: The hostname for which the tls settings are set.
+      example: app.example.com
+      type: string
+    tls-certificates-and-hostnames_components-schemas-private_key:
+      description: The private key for the certificate
+      example: >-
+        -----BEGIN PRIVATE KEY-----
+
+        MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDEXDkcICRU3XBv9hiiPnBWIjgTQyowmVFxDr11mONgZB/cMYjE/OvQjvnpwNcOaSK16MOpAjNbELKRx2lZiVJaLRDCccqCxXwP/CrdRChcqGzo7mbNksMlcidrErb0LlEBKLFC2QjRmRKqB+YOs4TD8WsZu2S667A2fZmjRlaqOxFi1h62ee0P+TLU628UC/nl41JifSt5Evt7hMDHakemdwZblNYr2p6T3NQjdhjYXTtP4UmOGJBhJ7i7Kicg3d3CIgdTMbggSeGWqjndr4ldVnD96FN3cVT5uDFsn2CJXTFgdeBWoUnMS4VnUZzPWGf4vSBXC8qV7Ls+w46yT7T1AgMBAAECggEAQZnp/oqCeNPOR6l5S2L+1tfx0gWjZ78hJVteUpZ0iHSK7F6kKeOxyOird7vUXV0kmo+cJq+0hp0Ke4eam640FCpwKfYoSQ4/R3vgujGWJnaihCN5tv5sMet0XeJPuz5qE7ALoKCvwI6aXLHs20aAeZIDTQJ9QbGSGnJVzOWn+JDTidIgZpN57RpXfSAwnJPTQK/PN8i5z108hsaDOdEgGmxYZ7kYqMqzX20KXmth58LDfPixs5JGtS60iiKC/wOcGzkB2/AdTSojR76oEU77cANP/3zO25NG//whUdYlW0t0d7PgXxIeJe+xgYnamDQJx3qonVyt4H77ha0ObRAj9QKBgQDicZr+VTwFMnELP3a+FXGnjehRiuS1i7MXGKxNweCD+dFlML0FplSQS8Ro2n+d8lu8BBXGx0qm6VXu8Rhn7TAUL6q+PCgfarzxfIhacb/TZCqfieIHsMlVBfhV5HCXnk+kis0tuC/PRArcWTwDHJUJXkBhvkUsNswvQzavDPI7KwKBgQDd/WgLkj7A3X5fgIHZH/GbDSBiXwzKb+rF4ZCT2XFgG/OAW7vapfcX/w+v+5lBLyrocmOAS3PGGAhM5T3HLnUCQfnK4qgps1Lqibkc9Tmnsn60LanUjuUMsYv/zSw70tozbzhJ0pioEpWfRxRZBztO2Rr8Ntm7h6Fk701EXGNAXwKBgQCD1xsjy2J3sCerIdcz0u5qXLAPkeuZW+34m4/ucdwTWwc0gEz9lhsULFj9p4G351zLuiEnq+7mAWLcDJlmIO3mQt6JhiLiL9Y0T4pgBmxmWqKKYtAsJB0EmMY+1BNN44mBRqMxZFTJu1cLdhT/xstrOeoIPqytknYNanfTMZlzIwKBgHrLXe5oq0XMP8dcMneEcAUwsaU4pr6kQd3L9EmUkl5zl7J9C+DaxWAEuwzBw/iGutlxzRB+rD/7szu14wJ29EqXbDGKRzMp+se5/yfBjm7xEZ1hVPw7PwBShfqt57X/4Ktq7lwHnmH6RcGhc+P7WBc5iO/S94YAdIp8xOT3pf9JAoGAE0QkqJUY+5Mgr+fBO0VNV72ZoPveGpW+De59uhKAOnu1zljQCUtk59m6+DXfm0tNYKtawa5n8iN71Zh+s62xXSt3pYi1Y5CCCmv8Y4BhwIcPwXKk3zEvLgSHVTpC0bayA9aSO4bbZgVXa5w+Z0w/vvfp9DWo1IS3EnQRrz6WMYA=
+
+        -----END PRIVATE KEY-----
+      type: string
+    tls-certificates-and-hostnames_components-schemas-serial_number:
+      description: The serial number on the created Client Certificate.
+      example: 3bb94ff144ac567b9f75ad664b6c55f8d5e48182
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_components-schemas-signature:
+      description: The type of hash used for the Client Certificate..
+      example: SHA256WithRSA
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_components-schemas-status:
+      description: Status of the hostname's activation.
+      enum:
+        - active
+        - pending
+        - active_redeploying
+        - moved
+        - pending_deletion
+        - deleted
+        - pending_blocked
+        - pending_migration
+        - pending_provisioned
+        - test_pending
+        - test_active
+        - test_active_apex
+        - test_blocked
+        - test_failed
+        - provisioned
+        - blocked
+      example: pending
+    tls-certificates-and-hostnames_components-schemas-updated_at:
+      description: This is the time the tls setting was updated.
+      example: '2023-07-10T20:01:50.219171Z'
+      format: date-time
+      type: string
+    tls-certificates-and-hostnames_components-schemas-uploaded_on:
+      description: The time when the certificate was uploaded.
+      example: '2019-10-28T18:11:23.37411Z'
+      format: date-time
+      type: string
+    tls-certificates-and-hostnames_components-schemas-validation_method:
+      properties:
+        validation_method:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_validation_method_definition
+      required:
+        - validation_method
+      type: object
+    tls-certificates-and-hostnames_components-schemas-validity_days:
+      description: >-
+        The number of days the Client Certificate will be valid after the
+        issued_on date
+      example: 3650
+      type: integer
+    tls-certificates-and-hostnames_config:
+      items:
+        $ref: >-
+          #/components/schemas/tls-certificates-and-hostnames_hostname_certid_input
+      type: array
+    tls-certificates-and-hostnames_country:
+      description: Country, provided by the CSR
+      example: US
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_created_at:
+      description: This is the time the hostname was created.
+      example: '2020-02-06T18:11:23.531995Z'
+      format: date-time
+      type: string
+    tls-certificates-and-hostnames_csr:
+      description: The Certificate Signing Request (CSR). Must be newline-encoded.
+      example: |-
+        -----BEGIN CERTIFICATE REQUEST-----
+        MIICxzCCAa8CAQAwSDELMAkGA1UEBhMCVVMxFjAUBgNVBAgTDVNhbiBGcmFuY2lz
+        Y28xCzAJBgNVBAcTAkNBMRQwEgYDVQQDEwtleGFtcGxlLm5ldDCCASIwDQYJKoZI
+        hvcNAQEBBQADggEPADCCAQoCggEBALxejtu4b+jPdFeFi6OUsye8TYJQBm3WfCvL
+        Hu5EvijMO/4Z2TImwASbwUF7Ir8OLgH+mGlQZeqyNvGoSOMEaZVXcYfpR1hlVak8
+        4GGVr+04IGfOCqaBokaBFIwzclGZbzKmLGwIQioNxGfqFm6RGYGA3be2Je2iseBc
+        N8GV1wYmvYE0RR+yWweJCTJ157exyRzu7sVxaEW9F87zBQLyOnwXc64rflXslRqi
+        g7F7w5IaQYOl8yvmk/jEPCAha7fkiUfEpj4N12+oPRiMvleJF98chxjD4MH39c5I
+        uOslULhrWunfh7GB1jwWNA9y44H0snrf+xvoy2TcHmxvma9Eln8CAwEAAaA6MDgG
+        CSqGSIb3DQEJDjErMCkwJwYDVR0RBCAwHoILZXhhbXBsZS5uZXSCD3d3dy5leGFt
+        cGxlLm5ldDANBgkqhkiG9w0BAQsFAAOCAQEAcBaX6dOnI8ncARrI9ZSF2AJX+8mx
+        pTHY2+Y2C0VvrVDGMtbBRH8R9yMbqWtlxeeNGf//LeMkSKSFa4kbpdx226lfui8/
+        auRDBTJGx2R1ccUxmLZXx4my0W5iIMxunu+kez+BDlu7bTT2io0uXMRHue4i6quH
+        yc5ibxvbJMjR7dqbcanVE10/34oprzXQsJ/VmSuZNXtjbtSKDlmcpw6To/eeAJ+J
+        hXykcUihvHyG4A1m2R6qpANBjnA0pHexfwM/SgfzvpbvUg0T1ubmer8BgTwCKIWs
+        dcWYTthM51JIqRBfNqy4QcBnX+GY05yltEEswQI55wdiS3CjTTA67sdbcQ==
+        -----END CERTIFICATE REQUEST-----
+      type: string
+    tls-certificates-and-hostnames_custom-certificate:
+      properties:
+        bundle_method:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_bundle_method'
+        expires_on:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_expires_on'
+        geo_restrictions:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_geo_restrictions'
+        hosts:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_hosts'
+        id:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_identifier'
+        issuer:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_issuer'
+        keyless_server:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_keyless-certificate
+        modified_on:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_modified_on'
+        policy:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_policy'
+        priority:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_priority'
+        signature:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_signature'
+        status:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_status'
+        uploaded_on:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_uploaded_on'
+        zone_id:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_identifier'
+      required:
+        - id
+        - hosts
+        - issuer
+        - signature
+        - status
+        - bundle_method
+        - zone_id
+        - uploaded_on
+        - modified_on
+        - expires_on
+        - priority
+      type: object
+    tls-certificates-and-hostnames_custom-hostname:
+      allOf:
+        - $ref: '#/components/schemas/tls-certificates-and-hostnames_customhostname'
+      properties:
+        hostname:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_hostname'
+        id:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_identifier'
+        ssl:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_ssl'
+      required:
+        - id
+        - hostname
+        - ssl
+      type: object
+    tls-certificates-and-hostnames_custom_hostname_response_collection:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-collection
+        - properties:
+            result:
+              items:
+                $ref: >-
+                  #/components/schemas/tls-certificates-and-hostnames_custom-hostname
+              type: array
+    tls-certificates-and-hostnames_custom_hostname_response_single:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              allOf:
+                - $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_custom-hostname
+              type: object
+    tls-certificates-and-hostnames_custom_metadata:
+      anyOf:
+        - properties:
+            key:
+              description: Unique metadata for this hostname.
+              example: value
+              type: string
+          type: object
+      description: These are per-hostname (customer) settings.
+      type: object
+    tls-certificates-and-hostnames_custom_origin_server:
+      description: >-
+        a valid hostname that’s been added to your DNS zone as an A, AAAA, or
+        CNAME record.
+      example: origin2.example.com
+      type: string
+    tls-certificates-and-hostnames_custom_origin_sni:
+      description: >-
+        A hostname that will be sent to your custom origin server as SNI for TLS
+        handshake. This can be a valid subdomain of the zone or custom origin
+        server name or the string ':request_host_header:' which will cause the
+        host header in the request to be used as SNI. Not configurable with
+        default/fallback origin server.
+      example: sni.example.com
+      type: string
+    tls-certificates-and-hostnames_customhostname:
+      properties:
+        created_at:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_created_at'
+        custom_metadata:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_custom_metadata'
+        custom_origin_server:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_custom_origin_server
+        custom_origin_sni:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_custom_origin_sni
+        hostname:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_hostname'
+        id:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_identifier'
+        ownership_verification:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_ownership_verification
+        ownership_verification_http:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_ownership_verification_http
+        ssl:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_ssl'
+        status:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_components-schemas-status
+        verification_errors:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_verification_errors
+    tls-certificates-and-hostnames_dcv_delegation_response:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              allOf:
+                - $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_uuidObject
+              type: object
+    tls-certificates-and-hostnames_delete_advanced_certificate_pack_response_single:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              properties:
+                id:
+                  $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_identifier
+              type: object
+          type: object
+    tls-certificates-and-hostnames_enabled:
+      description: Whether or not the Keyless SSL is on or off.
+      example: false
+      readOnly: true
+      type: boolean
+    tls-certificates-and-hostnames_enabled_response:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              properties:
+                enabled:
+                  $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_zone-authenticated-origin-pull_components-schemas-enabled
+    tls-certificates-and-hostnames_enabled_write:
+      deprecated: true
+      description: Whether or not the Keyless SSL is on or off.
+      example: false
+      type: boolean
+    tls-certificates-and-hostnames_expired_on:
+      description: Date that the Client Certificate expires
+      example: '2033-02-20T23:18:00Z'
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_expires_on:
+      description: When the certificate from the authority expires.
+      example: '2016-01-01T05:20:00Z'
+      format: date-time
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_fallback_origin_response:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              type: object
+    tls-certificates-and-hostnames_fingerprint_sha256:
+      description: Unique identifier of the Client Certificate
+      example: 256c24690243359fb8cf139a125bd05ebf1d968b71e4caf330718e9f5c8a89ea
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_geo_restrictions:
+      description: >-
+        Specify the region where your private key can be held locally for
+        optimal TLS performance. HTTPS connections to any excluded data center
+        will still be fully encrypted, but will incur some latency while Keyless
+        SSL is used to complete the handshake with the nearest allowed data
+        center. Options allow distribution to only to U.S. data centers, only to
+        E.U. data centers, or only to highest security data centers. Default
+        distribution is to all Cloudflare datacenters, for optimal performance.
+      properties:
+        label:
+          enum:
+            - us
+            - eu
+            - highest_security
+          example: us
+      type: object
+    tls-certificates-and-hostnames_host:
+      description: The keyless SSL name.
+      example: example.com
+      format: hostname
+      maxLength: 253
+      type: string
+    tls-certificates-and-hostnames_hostname:
+      description: The custom hostname that will point to your hostname via CNAME.
+      example: app.example.com
+      maxLength: 255
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_hostname-authenticated-origin-pull:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_hostname_certid_object
+      properties:
+        cert_id:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_identifier'
+        certificate:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_hostname-authenticated-origin-pull_components-schemas-certificate
+        enabled:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_hostname-authenticated-origin-pull_components-schemas-enabled
+        hostname:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_schemas-hostname'
+        id:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_identifier'
+        private_key:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_schemas-private_key
+      type: object
+    tls-certificates-and-hostnames_hostname-authenticated-origin-pull_components-schemas-certificate:
+      description: The hostname certificate.
+      example: |
+        -----BEGIN CERTIFICATE-----
+        MIIDtTCCAp2gAwIBAgIJAMHAwfXZ5/PWMA0GCSqGSIb3DQEBCwUAMEUxCzAJBgNV
+        BAYTAkFVMRMwEQYDVQQIEwpTb21lLVN0YXRlMSEwHwYDVQQKExhJbnRlcm5ldCBX
+        aWRnaXRzIFB0eSBMdGQwHhcNMTYwODI0MTY0MzAxWhcNMTYxMTIyMTY0MzAxWjBF
+        MQswCQYDVQQGEwJBVTETMBEGA1UECBMKU29tZS1TdGF0ZTEhMB8GA1UEChMYSW50
+        ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+        CgKCAQEAwQHoetcl9+5ikGzV6cMzWtWPJHqXT3wpbEkRU9Yz7lgvddmGdtcGbg/1
+        CGZu0jJGkMoppoUo4c3dts3iwqRYmBikUP77wwY2QGmDZw2FvkJCJlKnabIRuGvB
+        KwzESIXgKk2016aTP6/dAjEHyo6SeoK8lkIySUvK0fyOVlsiEsCmOpidtnKX/a+5
+        0GjB79CJH4ER2lLVZnhePFR/zUOyPxZQQ4naHf7yu/b5jhO0f8fwt+pyFxIXjbEI
+        dZliWRkRMtzrHOJIhrmJ2A1J7iOrirbbwillwjjNVUWPf3IJ3M12S9pEewooaeO2
+        izNTERcG9HzAacbVRn2Y2SWIyT/18QIDAQABo4GnMIGkMB0GA1UdDgQWBBT/LbE4
+        9rWf288N6sJA5BRb6FJIGDB1BgNVHSMEbjBsgBT/LbE49rWf288N6sJA5BRb6FJI
+        GKFJpEcwRTELMAkGA1UEBhMCQVUxEzARBgNVBAgTClNvbWUtU3RhdGUxITAfBgNV
+        BAoTGEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZIIJAMHAwfXZ5/PWMAwGA1UdEwQF
+        MAMBAf8wDQYJKoZIhvcNAQELBQADggEBAHHFwl0tH0quUYZYO0dZYt4R7SJ0pCm2
+        2satiyzHl4OnXcHDpekAo7/a09c6Lz6AU83cKy/+x3/djYHXWba7HpEu0dR3ugQP
+        Mlr4zrhd9xKZ0KZKiYmtJH+ak4OM4L3FbT0owUZPyjLSlhMtJVcoRp5CJsjAMBUG
+        SvD8RX+T01wzox/Qb+lnnNnOlaWpqu8eoOenybxKp1a9ULzIVvN/LAcc+14vioFq
+        2swRWtmocBAs8QR9n4uvbpiYvS8eYueDCWMM4fvFfBhaDZ3N9IbtySh3SpFdQDhw
+        YbjM2rxXiyLGxB4Bol7QTv4zHif7Zt89FReT/NBy4rzaskDJY5L6xmY=
+        -----END CERTIFICATE-----
+      type: string
+    tls-certificates-and-hostnames_hostname-authenticated-origin-pull_components-schemas-certificate_response_collection:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-collection
+        - properties:
+            result:
+              items:
+                $ref: >-
+                  #/components/schemas/tls-certificates-and-hostnames_hostname-authenticated-origin-pull
+              type: array
+    tls-certificates-and-hostnames_hostname-authenticated-origin-pull_components-schemas-enabled:
+      description: >-
+        Indicates whether hostname-level authenticated origin pulls is enabled.
+        A null value voids the association.
+      example: true
+      nullable: true
+      type: boolean
+    tls-certificates-and-hostnames_hostname-authenticated-origin-pull_components-schemas-expires_on:
+      description: The date when the certificate expires.
+      example: '2100-01-01T05:20:00Z'
+      format: date-time
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_hostname-authenticated-origin-pull_components-schemas-status:
+      description: Status of the certificate or the association.
+      enum:
+        - initializing
+        - pending_deployment
+        - pending_deletion
+        - active
+        - deleted
+        - deployment_timed_out
+        - deletion_timed_out
+      example: active
+      readOnly: true
+    tls-certificates-and-hostnames_hostname-tls-settings_components-schemas-status:
+      description: Deployment status for the given tls setting.
+      example: pending_deployment
+      type: string
+    tls-certificates-and-hostnames_hostname_aop_response_collection:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-collection
+        - properties:
+            result:
+              items:
+                $ref: >-
+                  #/components/schemas/tls-certificates-and-hostnames_hostname-authenticated-origin-pull
+              type: array
+    tls-certificates-and-hostnames_hostname_aop_single_response:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              $ref: >-
+                #/components/schemas/tls-certificates-and-hostnames_hostname_certid_object
+    tls-certificates-and-hostnames_hostname_association:
+      properties:
+        hostnames:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_schemas-hostnames
+        mtls_certificate_id:
+          description: >-
+            The UUID for a certificate that was uploaded to the mTLS Certificate
+            Management endpoint. If no mtls_certificate_id is given, the
+            hostnames will be associated to your active Cloudflare Managed CA.
+          maxLength: 36
+          minLength: 36
+          type: string
+      type: object
+    tls-certificates-and-hostnames_hostname_associations_response:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              properties:
+                hostnames:
+                  $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_schemas-hostnames
+              type: object
+    tls-certificates-and-hostnames_hostname_certid_input:
+      properties:
+        cert_id:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_cert_id'
+        enabled:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_hostname-authenticated-origin-pull_components-schemas-enabled
+        hostname:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_schemas-hostname'
+      type: object
+    tls-certificates-and-hostnames_hostname_certid_object:
+      properties:
+        cert_id:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_identifier'
+        cert_status:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_hostname-authenticated-origin-pull_components-schemas-status
+        cert_updated_at:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_updated_at'
+        cert_uploaded_on:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_components-schemas-uploaded_on
+        certificate:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_hostname-authenticated-origin-pull_components-schemas-certificate
+        created_at:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_schemas-created_at
+        enabled:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_hostname-authenticated-origin-pull_components-schemas-enabled
+        expires_on:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_hostname-authenticated-origin-pull_components-schemas-expires_on
+        hostname:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_schemas-hostname'
+        issuer:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_issuer'
+        serial_number:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_serial_number'
+        signature:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_signature'
+        status:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_hostname-authenticated-origin-pull_components-schemas-status
+        updated_at:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_updated_at'
+    tls-certificates-and-hostnames_hostname_post:
+      description: The custom hostname that will point to your hostname via CNAME.
+      example: app.example.com
+      maxLength: 255
+      type: string
+    tls-certificates-and-hostnames_hostnames:
+      description: >-
+        Array of hostnames or wildcard names (e.g., *.example.com) bound to the
+        certificate.
+      example:
+        - example.com
+        - '*.example.com'
+      items: {}
+      type: array
+    tls-certificates-and-hostnames_hosts:
+      items:
+        description: The valid hosts for the certificates.
+        example: example.com
+        maxLength: 253
+        readOnly: true
+        type: string
+      type: array
+    tls-certificates-and-hostnames_identifier:
+      description: Identifier
+      example: 023e105f4ecef8ad9ca31a8372d0c353
+      maxLength: 32
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_issued_on:
+      description: Date that the Client Certificate was issued by the Certificate Authority
+      example: '2023-02-23T23:18:00Z'
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_issuer:
+      description: The certificate authority that issued the certificate.
+      example: GlobalSign
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_keyless-certificate:
+      allOf:
+        - $ref: '#/components/schemas/tls-certificates-and-hostnames_base'
+      type: object
+    tls-certificates-and-hostnames_keyless_private_ip:
+      description: Private IP of the Key Server Host
+      example: 10.0.0.1
+      type: string
+    tls-certificates-and-hostnames_keyless_response_collection:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-collection
+        - properties:
+            result:
+              items:
+                $ref: >-
+                  #/components/schemas/tls-certificates-and-hostnames_keyless-certificate
+              type: array
+    tls-certificates-and-hostnames_keyless_response_single:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              allOf:
+                - $ref: '#/components/schemas/tls-certificates-and-hostnames_base'
+              type: object
+    tls-certificates-and-hostnames_keyless_response_single_id:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              properties:
+                id:
+                  $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_identifier
+              type: object
+    tls-certificates-and-hostnames_keyless_tunnel:
+      description: Configuration for using Keyless SSL through a Cloudflare Tunnel
+      properties:
+        private_ip:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_keyless_private_ip
+        vnet_id:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_keyless_vnet_id'
+      required:
+        - private_ip
+        - vnet_id
+      type: object
+    tls-certificates-and-hostnames_keyless_vnet_id:
+      description: Cloudflare Tunnel Virtual Network ID
+      example: 7365377a-85a4-4390-9480-531ef7dc7a3c
+      type: string
+    tls-certificates-and-hostnames_location:
+      description: Location, provided by the CSR
+      example: Somewhere
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_messages:
+      example: []
+      items:
+        properties:
+          code:
+            minimum: 1000
+            type: integer
+          message:
+            type: string
+        required:
+          - code
+          - message
+        type: object
+        uniqueItems: true
+      type: array
+    tls-certificates-and-hostnames_modified_on:
+      description: When the certificate was last modified.
+      example: '2014-01-01T05:20:00Z'
+      format: date-time
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_mtls-management_components-schemas-certificate_response_collection:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-collection
+        - properties:
+            result:
+              items:
+                $ref: >-
+                  #/components/schemas/tls-certificates-and-hostnames_components-schemas-certificateObject
+              type: array
+        - properties:
+            result_info:
+              properties:
+                count:
+                  example: 1
+                page:
+                  example: 1
+                per_page:
+                  example: 50
+                total_count:
+                  example: 1
+                total_pages:
+                  example: 1
+              type: object
+    tls-certificates-and-hostnames_mtls-management_components-schemas-certificate_response_single:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              allOf:
+                - $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_components-schemas-certificateObject
+              type: object
+    tls-certificates-and-hostnames_mtls-management_components-schemas-expires_on:
+      description: When the certificate expires.
+      example: '2122-10-29T16:59:47Z'
+      format: date-time
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_mtls-management_components-schemas-status:
+      description: Certificate deployment status for the given service.
+      example: pending_deployment
+      type: string
+    tls-certificates-and-hostnames_mtls-management_components-schemas-uploaded_on:
+      description: This is the time the certificate was uploaded.
+      example: '2022-11-22T17:32:30.467938Z'
+      format: date-time
+      type: string
+    tls-certificates-and-hostnames_name:
+      description: The keyless SSL name.
+      example: example.com Keyless SSL
+      maxLength: 180
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_name_write:
+      description: The keyless SSL name.
+      example: example.com Keyless SSL
+      maxLength: 180
+      type: string
+    tls-certificates-and-hostnames_organization:
+      description: Organization, provided by the CSR
+      example: Organization
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_organizational_unit:
+      description: Organizational Unit, provided by the CSR
+      example: Organizational Unit
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_origin:
+      description: >-
+        Your origin hostname that requests to your custom hostnames will be sent
+        to.
+      example: fallback.example.com
+      maxLength: 255
+      type: string
+    tls-certificates-and-hostnames_ownership_verification:
+      description: This is a record which can be placed to activate a hostname.
+      oneOf:
+        - properties:
+            name:
+              description: DNS Name for record.
+              example: _cf-custom-hostname.app.example.com
+              type: string
+            type:
+              description: DNS Record type.
+              enum:
+                - txt
+              example: txt
+            value:
+              description: Content for the record.
+              example: 5cc07c04-ea62-4a5a-95f0-419334a875a4
+              type: string
+          type: object
+      type: object
+    tls-certificates-and-hostnames_ownership_verification_http:
+      description: >-
+        This presents the token to be served by the given http url to activate a
+        hostname.
+      oneOf:
+        - properties:
+            http_body:
+              description: Token to be served.
+              example: 5cc07c04-ea62-4a5a-95f0-419334a875a4
+              type: string
+            http_url:
+              description: >-
+                The HTTP URL that will be checked during custom hostname
+                verification and where the customer should host the token.
+              example: >-
+                http://custom.test.com/.well-known/cf-custom-hostname-challenge/0d89c70d-ad9f-4843-b99f-6cc0252067e9
+              type: string
+          type: object
+      type: object
+    tls-certificates-and-hostnames_per_hostname_settings_response:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              allOf:
+                - $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_settingObject
+              type: object
+    tls-certificates-and-hostnames_per_hostname_settings_response_collection:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-collection
+        - properties:
+            result:
+              items:
+                properties:
+                  created_at:
+                    $ref: >-
+                      #/components/schemas/tls-certificates-and-hostnames_components-schemas-created_at
+                  hostname:
+                    $ref: >-
+                      #/components/schemas/tls-certificates-and-hostnames_components-schemas-hostname
+                  status:
+                    $ref: >-
+                      #/components/schemas/tls-certificates-and-hostnames_hostname-tls-settings_components-schemas-status
+                  updated_at:
+                    $ref: >-
+                      #/components/schemas/tls-certificates-and-hostnames_components-schemas-updated_at
+                  value:
+                    $ref: '#/components/schemas/tls-certificates-and-hostnames_value'
+              type: array
+        - properties:
+            result_info:
+              properties:
+                count:
+                  example: 1
+                page:
+                  example: 1
+                per_page:
+                  example: 50
+                total_count:
+                  example: 1
+                total_pages:
+                  description: Total pages available of results
+                  example: 1
+                  type: number
+              type: object
+    tls-certificates-and-hostnames_per_hostname_settings_response_delete:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              allOf:
+                - $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_settingObjectDelete
+              type: object
+    tls-certificates-and-hostnames_policy:
+      description: >-
+        Specify the policy that determines the region where your private key
+        will be held locally. HTTPS connections to any excluded data center will
+        still be fully encrypted, but will incur some latency while Keyless SSL
+        is used to complete the handshake with the nearest allowed data center.
+        Any combination of countries, specified by their two letter country code
+        (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
+        can be chosen, such as 'country: IN', as well as 'region: EU' which
+        refers to the EU region. If there are too few data centers satisfying
+        the policy, it will be rejected.
+      example: '(country: US) or (region: EU)'
+      type: string
+    tls-certificates-and-hostnames_port:
+      default: 24008
+      description: >-
+        The keyless SSL port used to communicate between Cloudflare and the
+        client's Keyless SSL server.
+      example: 24008
+      maxLength: 65535
+      type: number
+    tls-certificates-and-hostnames_priority:
+      default: 20
+      description: >-
+        The order/priority in which the certificate will be used in a request.
+        The higher priority will break ties across overlapping 'legacy_custom'
+        certificates, but 'legacy_custom' certificates will always supercede
+        'sni_custom' certificates.
+      example: 1
+      type: number
+    tls-certificates-and-hostnames_private_key:
+      description: The zone's private key.
+      example: |
+        -----BEGIN RSA PRIVATE KEY-----
+        MIIEowIBAAKCAQEAwQHoetcl9+5ikGzV6cMzWtWPJHqXT3wpbEkRU9Yz7lgvddmG
+        dtcGbg/1CGZu0jJGkMoppoUo4c3dts3iwqRYmBikUP77wwY2QGmDZw2FvkJCJlKn
+        abIRuGvBKwzESIXgKk2016aTP6/dAjEHyo6SeoK8lkIySUvK0fyOVlsiEsCmOpid
+        tnKX/a+50GjB79CJH4ER2lLVZnhePFR/zUOyPxZQQ4naHf7yu/b5jhO0f8fwt+py
+        FxIXjbEIdZliWRkRMtzrHOJIhrmJ2A1J7iOrirbbwillwjjNVUWPf3IJ3M12S9pE
+        ewooaeO2izNTERcG9HzAacbVRn2Y2SWIyT/18QIDAQABAoIBACbhTYXBZYKmYPCb
+        HBR1IBlCQA2nLGf0qRuJNJZg5iEzXows/6tc8YymZkQE7nolapWsQ+upk2y5Xdp/
+        axiuprIs9JzkYK8Ox0r+dlwCG1kSW+UAbX0bQ/qUqlsTvU6muVuMP8vZYHxJ3wmb
+        +ufRBKztPTQ/rYWaYQcgC0RWI20HTFBMxlTAyNxYNWzX7RKFkGVVyB9RsAtmcc8g
+        +j4OdosbfNoJPS0HeIfNpAznDfHKdxDk2Yc1tV6RHBrC1ynyLE9+TaflIAdo2MVv
+        KLMLq51GqYKtgJFIlBRPQqKoyXdz3fGvXrTkf/WY9QNq0J1Vk5ERePZ54mN8iZB7
+        9lwy/AkCgYEA6FXzosxswaJ2wQLeoYc7ceaweX/SwTvxHgXzRyJIIT0eJWgx13Wo
+        /WA3Iziimsjf6qE+SI/8laxPp2A86VMaIt3Z3mJN/CqSVGw8LK2AQst+OwdPyDMu
+        iacE8lj/IFGC8mwNUAb9CzGU3JpU4PxxGFjS/eMtGeRXCWkK4NE+G08CgYEA1Kp9
+        N2JrVlqUz+gAX+LPmE9OEMAS9WQSQsfCHGogIFDGGcNf7+uwBM7GAaSJIP01zcoe
+        VAgWdzXCv3FLhsaZoJ6RyLOLay5phbu1iaTr4UNYm5WtYTzMzqh8l1+MFFDl9xDB
+        vULuCIIrglM5MeS/qnSg1uMoH2oVPj9TVst/ir8CgYEAxrI7Ws9Zc4Bt70N1As+U
+        lySjaEVZCMkqvHJ6TCuVZFfQoE0r0whdLdRLU2PsLFP+q7qaeZQqgBaNSKeVcDYR
+        9B+nY/jOmQoPewPVsp/vQTCnE/R81spu0mp0YI6cIheT1Z9zAy322svcc43JaWB7
+        mEbeqyLOP4Z4qSOcmghZBSECgYACvR9Xs0DGn+wCsW4vze/2ei77MD4OQvepPIFX
+        dFZtlBy5ADcgE9z0cuVB6CiL8DbdK5kwY9pGNr8HUCI03iHkW6Zs+0L0YmihfEVe
+        PG19PSzK9CaDdhD9KFZSbLyVFmWfxOt50H7YRTTiPMgjyFpfi5j2q348yVT0tEQS
+        fhRqaQKBgAcWPokmJ7EbYQGeMbS7HC8eWO/RyamlnSffdCdSc7ue3zdVJxpAkQ8W
+        qu80pEIF6raIQfAf8MXiiZ7auFOSnHQTXUbhCpvDLKi0Mwq3G8Pl07l+2s6dQG6T
+        lv6XTQaMyf6n1yjzL+fzDrH3qXMxHMO/b13EePXpDMpY7HQpoLDi
+        -----END RSA PRIVATE KEY-----
+      type: string
+    tls-certificates-and-hostnames_quota:
+      properties:
+        allocated:
+          description: Quantity Allocated.
+          type: integer
+        used:
+          description: Quantity Used.
+          type: integer
+      type: object
+    tls-certificates-and-hostnames_request_type:
+      description: >-
+        Signature type desired on certificate ("origin-rsa" (rsa), "origin-ecc"
+        (ecdsa), or "keyless-certificate" (for Keyless SSL servers).
+      enum:
+        - origin-rsa
+        - origin-ecc
+        - keyless-certificate
+      example: origin-rsa
+      type: string
+    tls-certificates-and-hostnames_requested_validity:
+      default: 5475
+      description: The number of days for which the certificate should be valid.
+      enum:
+        - 7
+        - 30
+        - 90
+        - 365
+        - 730
+        - 1095
+        - 5475
+      example: 5475
+      type: number
+    tls-certificates-and-hostnames_result_info:
+      properties:
+        count:
+          description: Total number of results for the requested service
+          example: 1
+          type: number
+        page:
+          description: Current page within paginated list of results
+          example: 1
+          type: number
+        per_page:
+          description: Number of results per page of results
+          example: 20
+          type: number
+        total_count:
+          description: Total results available without any search parameters
+          example: 2000
+          type: number
+      type: object
+    tls-certificates-and-hostnames_schemas-certificate:
+      description: The zone's SSL certificate or SSL certificate and intermediate(s).
+      example: >-
+        -----BEGIN CERTIFICATE-----
+        MIIDtTCCAp2gAwIBAgIJAM15n7fdxhRtMA0GCSqGSIb3DQEBBQUAMEUxCzAJBgNV
+        BAYTAlVTMRMwEQYDVQQIEwpTb21lLVN0YXRlMSEwHwYDVQQKExhJbnRlcm5ldCBX
+        aWRnaXRzIFB0eSBMdGQwHhcNMTQwMzExMTkyMTU5WhcNMTQwNDEwMTkyMTU5WjBF
+        MQswCQYDVQQGEwJVUzETMBEGA1UECBMKU29tZS1TdGF0ZTEhMB8GA1UEChMYSW50
+        ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+        CgKCAQEAvq3sKsHpeduJHimOK+fvQdKsI8z8A05MZyyLp2/R/GE8FjNv+hkVY1WQ
+        LIyTNNQH7CJecE1nbTfo8Y56S7x/rhxC6/DJ8MIulapFPnorq46KU6yRxiM0MQ3N
+        nTJHlHA2ozZta6YBBfVfhHWl1F0IfNbXCLKvGwWWMbCx43OfW6KTkbRnE6gFWKuO
+        fSO5h2u5TaWVuSIzBvYs7Vza6m+gtYAvKAJV2nSZ+eSEFPDo29corOy8+huEOUL8
+        5FAw4BFPsr1TlrlGPFitduQUHGrSL7skk1ESGza0to3bOtrodKei2s9bk5MXm7lZ
+        qI+WZJX4Zu9+mzZhc9pCVi8r/qlXuQIDAQABo4GnMIGkMB0GA1UdDgQWBBRvavf+
+        sWM4IwKiH9X9w1vl6nUVRDB1BgNVHSMEbjBsgBRvavf+sWM4IwKiH9X9w1vl6nUV
+        RKFJpEcwRTELMAkGA1UEBhMCVVMxEzARBgNVBAgTClNvbWUtU3RhdGUxITAfBgNV
+        BAoTGEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZIIJAM15n7fdxhRtMAwGA1UdEwQF
+        MAMBAf8wDQYJKoZIhvcNAQEFBQADggEBABY2ZzBaW0dMsAAT7tPJzrVWVzQx6KU4
+        UEBLudIlWPlkAwTnINCWR/8eNjCCmGA4heUdHmazdpPa8RzwOmc0NT1NQqzSyktt
+        vTqb4iHD7+8f9MqJ9/FssCfTtqr/Qst/hGH4Wmdf1EJ/6FqYAAb5iRlPgshFZxU8
+        uXtA8hWn6fK6eISD9HBdcAFToUvKNZ1BIDPvh9f95Ine8ar6yGd56TUNrHR8eHBs
+        ESxz5ddVR/oWRysNJ+aGAyYqHS8S/ttmC7r4XCAHqXptkHPCGRqkAhsterYhd4I8
+        /cBzejUobNCjjHFbtkAL/SjxZOLW+pNkZwfeYdM8iPkD54Uua1v2tdw= -----END
+        CERTIFICATE-----
+      type: string
+    tls-certificates-and-hostnames_schemas-certificateObject:
+      properties:
+        certificate:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_hostname-authenticated-origin-pull_components-schemas-certificate
+        expires_on:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_hostname-authenticated-origin-pull_components-schemas-expires_on
+        id:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_identifier'
+        issuer:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_issuer'
+        serial_number:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_serial_number'
+        signature:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_signature'
+        status:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_hostname-authenticated-origin-pull_components-schemas-status
+        uploaded_on:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_components-schemas-uploaded_on
+    tls-certificates-and-hostnames_schemas-certificate_authority:
+      description: >-
+        Certificate Authority selected for the order.  For information on any
+        certificate authority specific details or restrictions [see this page
+        for more
+        details.](https://developers.cloudflare.com/ssl/reference/certificate-authorities)
+      enum:
+        - google
+        - lets_encrypt
+      example: lets_encrypt
+      type: string
+    tls-certificates-and-hostnames_schemas-certificate_response_collection:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-collection
+        - properties:
+            result:
+              items:
+                $ref: >-
+                  #/components/schemas/tls-certificates-and-hostnames_certificates
+              type: array
+          type: object
+    tls-certificates-and-hostnames_schemas-certificate_response_single:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              type: object
+          type: object
+    tls-certificates-and-hostnames_schemas-certificates:
+      description: The uploaded root CA certificate.
+      example: >-
+        -----BEGIN CERTIFICATE-----
+
+        MIIDmDCCAoCgAwIBAgIUKTOAZNjcXVZRj4oQt0SHsl1c1vMwDQYJKoZIhvcNAQELBQAwUTELMAkGA1UEBhMCVVMxFjAUBgNVBAgMDVNhbiBGcmFuY2lzY28xEzARBgNVBAcMCkNhbGlmb3JuaWExFTATBgNVBAoMDEV4YW1wbGUgSW5jLjAgFw0yMjExMjIxNjU5NDdaGA8yMTIyMTAyOTE2NTk0N1owUTELMAkGA1UEBhMCVVMxFjAUBgNVBAgMDVNhbiBGcmFuY2lzY28xEzARBgNVBAcMCkNhbGlmb3JuaWExFTATBgNVBAoMDEV4YW1wbGUgSW5jLjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMRcORwgJFTdcG/2GKI+cFYiOBNDKjCZUXEOvXWY42BkH9wxiMT869CO+enA1w5pIrXow6kCM1sQspHHaVmJUlotEMJxyoLFfA/8Kt1EKFyobOjuZs2SwyVyJ2sStvQuUQEosULZCNGZEqoH5g6zhMPxaxm7ZLrrsDZ9maNGVqo7EWLWHrZ57Q/5MtTrbxQL+eXjUmJ9K3kS+3uEwMdqR6Z3BluU1ivanpPc1CN2GNhdO0/hSY4YkGEnuLsqJyDd3cIiB1MxuCBJ4ZaqOd2viV1WcP3oU3dxVPm4MWyfYIldMWB14FahScxLhWdRnM9YZ/i9IFcLypXsuz7DjrJPtPUCAwEAAaNmMGQwHQYDVR0OBBYEFP5JzLUawNF+c3AXsYTEWHh7z2czMB8GA1UdIwQYMBaAFP5JzLUawNF+c3AXsYTEWHh7z2czMA4GA1UdDwEB/wQEAwIBBjASBgNVHRMBAf8ECDAGAQH/AgEBMA0GCSqGSIb3DQEBCwUAA4IBAQBc+Be7NDhpE09y7hLPZGRPl1cSKBw4RI0XIv6rlbSTFs5EebpTGjhx/whNxwEZhB9HZ7111Oa1YlT8xkI9DshB78mjAHCKBAJ76moK8tkG0aqdYpJ4ZcJTVBB7l98Rvgc7zfTii7WemTy72deBbSeiEtXavm4EF0mWjHhQ5Nxpnp00Bqn5g1x8CyTDypgmugnep+xG+iFzNmTdsz7WI9T/7kDMXqB7M/FPWBORyS98OJqNDswCLF8bIZYwUBEe+bRHFomoShMzaC3tvim7WCb16noDkSTMlfKO4pnvKhpcVdSgwcruATV7y+W+Lvmz2OT/Gui4JhqeoTewsxndhDDE
+
+        -----END CERTIFICATE-----
+      type: string
+    tls-certificates-and-hostnames_schemas-created_at:
+      description: The time when the certificate was created.
+      example: '2100-01-01T05:20:00Z'
+      format: date-time
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_schemas-csr:
+      description: The Certificate Signing Request (CSR). Must be newline-encoded.
+      example: >-
+        -----BEGIN CERTIFICATE REQUEST-----\nMIICY....\n-----END CERTIFICATE
+        REQUEST-----\n
+      type: string
+    tls-certificates-and-hostnames_schemas-enabled:
+      description: >-
+        Disabling Universal SSL removes any currently active Universal SSL
+        certificates for your zone from the edge and prevents any future
+        Universal SSL certificates from being ordered. If there are no advanced
+        certificates or custom certificates uploaded for the domain, visitors
+        will be unable to access the domain over HTTPS.
+
+
+        By disabling Universal SSL, you understand that the following Cloudflare
+        settings and preferences will result in visitors being unable to visit
+        your domain unless you have uploaded a custom certificate or purchased
+        an advanced certificate.
+
+
+        * HSTS
+
+        * Always Use HTTPS
+
+        * Opportunistic Encryption
+
+        * Onion Routing
+
+        * Any Page Rules redirecting traffic to HTTPS
+
+
+        Similarly, any HTTP redirect to HTTPS at the origin while the Cloudflare
+        proxy is enabled will result in users being unable to visit your site
+        without a valid certificate at Cloudflare's edge.
+
+
+        If you do not have a valid custom or advanced certificate at
+        Cloudflare's edge and are unsure if any of the above Cloudflare settings
+        are enabled, or if any HTTP redirects exist at your origin, we advise
+        leaving Universal SSL enabled for your domain.
+      example: true
+      type: boolean
+    tls-certificates-and-hostnames_schemas-expires_on:
+      description: When the certificate will expire.
+      example: '2014-01-01T05:20:00.12345Z'
+      format: date-time
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_schemas-hostname:
+      description: >-
+        The hostname on the origin for which the client certificate uploaded
+        will be used.
+      example: app.example.com
+      maxLength: 255
+      type: string
+    tls-certificates-and-hostnames_schemas-hostnames:
+      items:
+        example: api.example.com
+        type: string
+      type: array
+    tls-certificates-and-hostnames_schemas-hosts:
+      description: >-
+        Comma separated list of valid host names for the certificate packs. Must
+        contain the zone apex, may not contain more than 50 hosts, and may not
+        be empty.
+      example:
+        - example.com
+        - '*.example.com'
+        - www.example.com
+      items:
+        type: string
+      type: array
+    tls-certificates-and-hostnames_schemas-identifier:
+      description: Keyless certificate identifier tag.
+      example: 4d2844d2ce78891c34d0b6c0535a291e
+      maxLength: 32
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_schemas-issuer:
+      description: The certificate authority that issued the certificate.
+      example: O=Example Inc.,L=California,ST=San Francisco,C=US
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_schemas-name:
+      description: >-
+        Optional unique name for the certificate. Only used for human
+        readability.
+      example: example_ca_cert
+      type: string
+    tls-certificates-and-hostnames_schemas-private_key:
+      description: The hostname certificate's private key.
+      example: |
+        -----BEGIN RSA PRIVATE KEY-----
+        MIIEowIBAAKCAQEAwQHoetcl9+5ikGzV6cMzWtWPJHqXT3wpbEkRU9Yz7lgvddmG
+        dtcGbg/1CGZu0jJGkMoppoUo4c3dts3iwqRYmBikUP77wwY2QGmDZw2FvkJCJlKn
+        abIRuGvBKwzESIXgKk2016aTP6/dAjEHyo6SeoK8lkIySUvK0fyOVlsiEsCmOpid
+        tnKX/a+50GjB79CJH4ER2lLVZnhePFR/zUOyPxZQQ4naHf7yu/b5jhO0f8fwt+py
+        FxIXjbEIdZliWRkRMtzrHOJIhrmJ2A1J7iOrirbbwillwjjNVUWPf3IJ3M12S9pE
+        ewooaeO2izNTERcG9HzAacbVRn2Y2SWIyT/18QIDAQABAoIBACbhTYXBZYKmYPCb
+        HBR1IBlCQA2nLGf0qRuJNJZg5iEzXows/6tc8YymZkQE7nolapWsQ+upk2y5Xdp/
+        axiuprIs9JzkYK8Ox0r+dlwCG1kSW+UAbX0bQ/qUqlsTvU6muVuMP8vZYHxJ3wmb
+        +ufRBKztPTQ/rYWaYQcgC0RWI20HTFBMxlTAyNxYNWzX7RKFkGVVyB9RsAtmcc8g
+        +j4OdosbfNoJPS0HeIfNpAznDfHKdxDk2Yc1tV6RHBrC1ynyLE9+TaflIAdo2MVv
+        KLMLq51GqYKtgJFIlBRPQqKoyXdz3fGvXrTkf/WY9QNq0J1Vk5ERePZ54mN8iZB7
+        9lwy/AkCgYEA6FXzosxswaJ2wQLeoYc7ceaweX/SwTvxHgXzRyJIIT0eJWgx13Wo
+        /WA3Iziimsjf6qE+SI/8laxPp2A86VMaIt3Z3mJN/CqSVGw8LK2AQst+OwdPyDMu
+        iacE8lj/IFGC8mwNUAb9CzGU3JpU4PxxGFjS/eMtGeRXCWkK4NE+G08CgYEA1Kp9
+        N2JrVlqUz+gAX+LPmE9OEMAS9WQSQsfCHGogIFDGGcNf7+uwBM7GAaSJIP01zcoe
+        VAgWdzXCv3FLhsaZoJ6RyLOLay5phbu1iaTr4UNYm5WtYTzMzqh8l1+MFFDl9xDB
+        vULuCIIrglM5MeS/qnSg1uMoH2oVPj9TVst/ir8CgYEAxrI7Ws9Zc4Bt70N1As+U
+        lySjaEVZCMkqvHJ6TCuVZFfQoE0r0whdLdRLU2PsLFP+q7qaeZQqgBaNSKeVcDYR
+        9B+nY/jOmQoPewPVsp/vQTCnE/R81spu0mp0YI6cIheT1Z9zAy322svcc43JaWB7
+        mEbeqyLOP4Z4qSOcmghZBSECgYACvR9Xs0DGn+wCsW4vze/2ei77MD4OQvepPIFX
+        dFZtlBy5ADcgE9z0cuVB6CiL8DbdK5kwY9pGNr8HUCI03iHkW6Zs+0L0YmihfEVe
+        PG19PSzK9CaDdhD9KFZSbLyVFmWfxOt50H7YRTTiPMgjyFpfi5j2q348yVT0tEQS
+        fhRqaQKBgAcWPokmJ7EbYQGeMbS7HC8eWO/RyamlnSffdCdSc7ue3zdVJxpAkQ8W
+        qu80pEIF6raIQfAf8MXiiZ7auFOSnHQTXUbhCpvDLKi0Mwq3G8Pl07l+2s6dQG6T
+        lv6XTQaMyf6n1yjzL+fzDrH3qXMxHMO/b13EePXpDMpY7HQpoLDi
+        -----END RSA PRIVATE KEY-----
+      type: string
+    tls-certificates-and-hostnames_schemas-serial_number:
+      description: The certificate serial number.
+      example: '235217144297995885180570755458463043449861756659'
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_schemas-signature:
+      description: Certificate's signature algorithm.
+      enum:
+        - ECDSAWithSHA256
+        - SHA1WithRSA
+        - SHA256WithRSA
+      type: string
+    tls-certificates-and-hostnames_schemas-status:
+      description: Status of the Keyless SSL.
+      enum:
+        - active
+        - deleted
+      example: active
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_schemas-updated_at:
+      description: This is the time the certificate was updated.
+      example: '2022-11-22T17:32:30.467938Z'
+      format: date-time
+      type: string
+    tls-certificates-and-hostnames_schemas-uploaded_on:
+      description: This is the time the certificate was uploaded.
+      example: '2019-10-28T18:11:23.37411Z'
+      format: date-time
+      type: string
+    tls-certificates-and-hostnames_schemas-validation_method:
+      description: Validation method in use for a certificate pack order.
+      enum:
+        - http
+        - cname
+        - txt
+      example: txt
+      type: string
+    tls-certificates-and-hostnames_schemas-validity_days:
+      description: The validity period in days for the certificates ordered via Total TLS.
+      enum:
+        - 90
+      type: integer
+    tls-certificates-and-hostnames_serial_number:
+      description: The serial number on the uploaded certificate.
+      example: '6743787633689793699141714808227354901'
+      type: string
+    tls-certificates-and-hostnames_service:
+      description: The service using the certificate.
+      example: gateway
+      type: string
+    tls-certificates-and-hostnames_settingObject:
+      properties:
+        created_at:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_components-schemas-created_at
+        hostname:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_components-schemas-hostname
+        status:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_hostname-tls-settings_components-schemas-status
+        updated_at:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_components-schemas-updated_at
+        value:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_value'
+    tls-certificates-and-hostnames_settingObjectDelete:
+      properties:
+        created_at:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_components-schemas-created_at
+        hostname:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_components-schemas-hostname
+        status:
+          example: pending_deletion
+        updated_at:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_components-schemas-updated_at
+        value:
+          example: ''
+    tls-certificates-and-hostnames_setting_id:
+      description: The TLS Setting name.
+      enum:
+        - ciphers
+        - min_tls_version
+        - http2
+      type: string
+    tls-certificates-and-hostnames_signature:
+      description: The type of hash used for the certificate.
+      example: SHA256WithRSA
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_ski:
+      description: Subject Key Identifier
+      example: 8e375af1389a069a0f921f8cc8e1eb12d784b949
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_ssl:
+      description: SSL properties for the custom hostname.
+      oneOf:
+        - properties:
+            bundle_method:
+              default: ubiquitous
+              description: >-
+                A ubiquitous bundle has the highest probability of being
+                verified everywhere, even by clients using outdated or unusual
+                trust stores. An optimal bundle uses the shortest chain and
+                newest intermediates. And the force bundle verifies the chain,
+                but does not otherwise modify it.
+              enum:
+                - ubiquitous
+                - optimal
+                - force
+              example: ubiquitous
+              type: string
+            certificate_authority:
+              $ref: >-
+                #/components/schemas/tls-certificates-and-hostnames_certificate_authority
+            custom_certificate:
+              description: If a custom uploaded certificate is used.
+              example: >-
+                -----BEGIN
+                CERTIFICATE-----\nMIIFJDCCBAygAwIBAgIQD0ifmj/Yi5NP/2gdUySbfzANBgkqhkiG9w0BAQsFADBN\nMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMScwJQYDVQQDEx5E...SzSHfXp5lnu/3V08I72q1QNzOCgY1XeL4GKVcj4or6cT6tX6oJH7ePPmfrBfqI/O\nOeH8gMJ+FuwtXYEPa4hBf38M5eU5xWG7\n-----END
+                CERTIFICATE-----\n
+              type: string
+            custom_csr_id:
+              description: The identifier for the Custom CSR that was used.
+              example: 7b163417-1d2b-4c84-a38a-2fb7a0cd7752
+              type: string
+            custom_key:
+              description: The key for a custom uploaded certificate.
+              example: |
+                -----BEGIN RSA PRIVATE KEY-----
+                MIIEowIBAAKCAQEAwQHoetcl9+5ikGzV6cMzWtWPJHqXT3wpbEkRU9Yz7lgvddmG
+                dtcGbg/1CGZu0jJGkMoppoUo4c3dts3iwqRYmBikUP77wwY2QGmDZw2FvkJCJlKn
+                abIRuGvBKwzESIXgKk2016aTP6/dAjEHyo6SeoK8lkIySUvK0fyOVlsiEsCmOpid
+                tnKX/a+50GjB79CJH4ER2lLVZnhePFR/zUOyPxZQQ4naHf7yu/b5jhO0f8fwt+py
+                FxIXjbEIdZliWRkRMtzrHOJIhrmJ2A1J7iOrirbbwillwjjNVUWPf3IJ3M12S9pE
+                ewooaeO2izNTERcG9HzAacbVRn2Y2SWIyT/18QIDAQABAoIBACbhTYXBZYKmYPCb
+                HBR1IBlCQA2nLGf0qRuJNJZg5iEzXows/6tc8YymZkQE7nolapWsQ+upk2y5Xdp/
+                axiuprIs9JzkYK8Ox0r+dlwCG1kSW+UAbX0bQ/qUqlsTvU6muVuMP8vZYHxJ3wmb
+                +ufRBKztPTQ/rYWaYQcgC0RWI20HTFBMxlTAyNxYNWzX7RKFkGVVyB9RsAtmcc8g
+                +j4OdosbfNoJPS0HeIfNpAznDfHKdxDk2Yc1tV6RHBrC1ynyLE9+TaflIAdo2MVv
+                KLMLq51GqYKtgJFIlBRPQqKoyXdz3fGvXrTkf/WY9QNq0J1Vk5ERePZ54mN8iZB7
+                9lwy/AkCgYEA6FXzosxswaJ2wQLeoYc7ceaweX/SwTvxHgXzRyJIIT0eJWgx13Wo
+                /WA3Iziimsjf6qE+SI/8laxPp2A86VMaIt3Z3mJN/CqSVGw8LK2AQst+OwdPyDMu
+                iacE8lj/IFGC8mwNUAb9CzGU3JpU4PxxGFjS/eMtGeRXCWkK4NE+G08CgYEA1Kp9
+                N2JrVlqUz+gAX+LPmE9OEMAS9WQSQsfCHGogIFDGGcNf7+uwBM7GAaSJIP01zcoe
+                VAgWdzXCv3FLhsaZoJ6RyLOLay5phbu1iaTr4UNYm5WtYTzMzqh8l1+MFFDl9xDB
+                vULuCIIrglM5MeS/qnSg1uMoH2oVPj9TVst/ir8CgYEAxrI7Ws9Zc4Bt70N1As+U
+                lySjaEVZCMkqvHJ6TCuVZFfQoE0r0whdLdRLU2PsLFP+q7qaeZQqgBaNSKeVcDYR
+                9B+nY/jOmQoPewPVsp/vQTCnE/R81spu0mp0YI6cIheT1Z9zAy322svcc43JaWB7
+                mEbeqyLOP4Z4qSOcmghZBSECgYACvR9Xs0DGn+wCsW4vze/2ei77MD4OQvepPIFX
+                dFZtlBy5ADcgE9z0cuVB6CiL8DbdK5kwY9pGNr8HUCI03iHkW6Zs+0L0YmihfEVe
+                PG19PSzK9CaDdhD9KFZSbLyVFmWfxOt50H7YRTTiPMgjyFpfi5j2q348yVT0tEQS
+                fhRqaQKBgAcWPokmJ7EbYQGeMbS7HC8eWO/RyamlnSffdCdSc7ue3zdVJxpAkQ8W
+                qu80pEIF6raIQfAf8MXiiZ7auFOSnHQTXUbhCpvDLKi0Mwq3G8Pl07l+2s6dQG6T
+                lv6XTQaMyf6n1yjzL+fzDrH3qXMxHMO/b13EePXpDMpY7HQpoLDi
+                -----END RSA PRIVATE KEY-----
+              type: string
+            expires_on:
+              description: The time the custom certificate expires on.
+              example: '2021-02-06T18:11:23.531995Z'
+              format: date-time
+              type: string
+            hosts:
+              description: A list of Hostnames on a custom uploaded certificate.
+              example:
+                - app.example.com
+                - '*.app.example.com'
+              items: {}
+              type: array
+            id:
+              description: Custom hostname SSL identifier tag.
+              example: 0d89c70d-ad9f-4843-b99f-6cc0252067e9
+              maxLength: 36
+              minLength: 36
+              type: string
+            issuer:
+              description: The issuer on a custom uploaded certificate.
+              example: DigiCertInc
+              type: string
+            method:
+              description: Domain control validation (DCV) method used for this hostname.
+              enum:
+                - http
+                - txt
+                - email
+              example: txt
+            serial_number:
+              description: The serial number on a custom uploaded certificate.
+              example: '6743787633689793699141714808227354901'
+              type: string
+            settings:
+              $ref: '#/components/schemas/tls-certificates-and-hostnames_sslsettings'
+            signature:
+              description: The signature on a custom uploaded certificate.
+              example: SHA256WithRSA
+              type: string
+            status:
+              description: Status of the hostname's SSL certificates.
+              enum:
+                - initializing
+                - pending_validation
+                - deleted
+                - pending_issuance
+                - pending_deployment
+                - pending_deletion
+                - pending_expiration
+                - expired
+                - active
+                - initializing_timed_out
+                - validation_timed_out
+                - issuance_timed_out
+                - deployment_timed_out
+                - deletion_timed_out
+                - pending_cleanup
+                - staging_deployment
+                - staging_active
+                - deactivating
+                - inactive
+                - backup_issued
+                - holding_deployment
+              example: pending_validation
+              readOnly: true
+            type:
+              description: >-
+                Level of validation to be used for this hostname. Domain
+                validation (dv) must be used.
+              enum:
+                - dv
+              example: dv
+              readOnly: true
+            uploaded_on:
+              description: The time the custom certificate was uploaded.
+              example: '2020-02-06T18:11:23.531995Z'
+              format: date-time
+              type: string
+            validation_errors:
+              description: >-
+                Domain validation errors that have been received by the
+                certificate authority (CA).
+              items:
+                properties:
+                  message:
+                    description: A domain validation error.
+                    example: SERVFAIL looking up CAA for app.example.com
+                    type: string
+                type: object
+              type: array
+            validation_records:
+              items:
+                $ref: >-
+                  #/components/schemas/tls-certificates-and-hostnames_validation_record
+              type: array
+            wildcard:
+              description: Indicates whether the certificate covers a wildcard.
+              example: false
+              type: boolean
+          type: object
+      type: object
+    tls-certificates-and-hostnames_ssl_universal_settings_response:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              $ref: '#/components/schemas/tls-certificates-and-hostnames_universal'
+    tls-certificates-and-hostnames_ssl_validation_method_response_collection:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              properties:
+                status:
+                  $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_validation_method_components-schemas-status
+                validation_method:
+                  $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_validation_method_definition
+    tls-certificates-and-hostnames_ssl_verification_response_collection:
+      allOf:
+        - properties:
+            result:
+              items:
+                $ref: >-
+                  #/components/schemas/tls-certificates-and-hostnames_verification
+              type: array
+    tls-certificates-and-hostnames_sslpost:
+      description: SSL properties used when creating the custom hostname.
+      oneOf:
+        - properties:
+            bundle_method:
+              default: ubiquitous
+              description: >-
+                A ubiquitous bundle has the highest probability of being
+                verified everywhere, even by clients using outdated or unusual
+                trust stores. An optimal bundle uses the shortest chain and
+                newest intermediates. And the force bundle verifies the chain,
+                but does not otherwise modify it.
+              enum:
+                - ubiquitous
+                - optimal
+                - force
+              example: ubiquitous
+              type: string
+            certificate_authority:
+              $ref: >-
+                #/components/schemas/tls-certificates-and-hostnames_certificate_authority
+            custom_certificate:
+              description: If a custom uploaded certificate is used.
+              example: >-
+                -----BEGIN
+                CERTIFICATE-----\nMIIFJDCCBAygAwIBAgIQD0ifmj/Yi5NP/2gdUySbfzANBgkqhkiG9w0BAQsFADBN\nMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMScwJQYDVQQDEx5E...SzSHfXp5lnu/3V08I72q1QNzOCgY1XeL4GKVcj4or6cT6tX6oJH7ePPmfrBfqI/O\nOeH8gMJ+FuwtXYEPa4hBf38M5eU5xWG7\n-----END
+                CERTIFICATE-----\n
+              type: string
+            custom_key:
+              description: The key for a custom uploaded certificate.
+              example: |
+                -----BEGIN RSA PRIVATE KEY-----
+                MIIEowIBAAKCAQEAwQHoetcl9+5ikGzV6cMzWtWPJHqXT3wpbEkRU9Yz7lgvddmG
+                dtcGbg/1CGZu0jJGkMoppoUo4c3dts3iwqRYmBikUP77wwY2QGmDZw2FvkJCJlKn
+                abIRuGvBKwzESIXgKk2016aTP6/dAjEHyo6SeoK8lkIySUvK0fyOVlsiEsCmOpid
+                tnKX/a+50GjB79CJH4ER2lLVZnhePFR/zUOyPxZQQ4naHf7yu/b5jhO0f8fwt+py
+                FxIXjbEIdZliWRkRMtzrHOJIhrmJ2A1J7iOrirbbwillwjjNVUWPf3IJ3M12S9pE
+                ewooaeO2izNTERcG9HzAacbVRn2Y2SWIyT/18QIDAQABAoIBACbhTYXBZYKmYPCb
+                HBR1IBlCQA2nLGf0qRuJNJZg5iEzXows/6tc8YymZkQE7nolapWsQ+upk2y5Xdp/
+                axiuprIs9JzkYK8Ox0r+dlwCG1kSW+UAbX0bQ/qUqlsTvU6muVuMP8vZYHxJ3wmb
+                +ufRBKztPTQ/rYWaYQcgC0RWI20HTFBMxlTAyNxYNWzX7RKFkGVVyB9RsAtmcc8g
+                +j4OdosbfNoJPS0HeIfNpAznDfHKdxDk2Yc1tV6RHBrC1ynyLE9+TaflIAdo2MVv
+                KLMLq51GqYKtgJFIlBRPQqKoyXdz3fGvXrTkf/WY9QNq0J1Vk5ERePZ54mN8iZB7
+                9lwy/AkCgYEA6FXzosxswaJ2wQLeoYc7ceaweX/SwTvxHgXzRyJIIT0eJWgx13Wo
+                /WA3Iziimsjf6qE+SI/8laxPp2A86VMaIt3Z3mJN/CqSVGw8LK2AQst+OwdPyDMu
+                iacE8lj/IFGC8mwNUAb9CzGU3JpU4PxxGFjS/eMtGeRXCWkK4NE+G08CgYEA1Kp9
+                N2JrVlqUz+gAX+LPmE9OEMAS9WQSQsfCHGogIFDGGcNf7+uwBM7GAaSJIP01zcoe
+                VAgWdzXCv3FLhsaZoJ6RyLOLay5phbu1iaTr4UNYm5WtYTzMzqh8l1+MFFDl9xDB
+                vULuCIIrglM5MeS/qnSg1uMoH2oVPj9TVst/ir8CgYEAxrI7Ws9Zc4Bt70N1As+U
+                lySjaEVZCMkqvHJ6TCuVZFfQoE0r0whdLdRLU2PsLFP+q7qaeZQqgBaNSKeVcDYR
+                9B+nY/jOmQoPewPVsp/vQTCnE/R81spu0mp0YI6cIheT1Z9zAy322svcc43JaWB7
+                mEbeqyLOP4Z4qSOcmghZBSECgYACvR9Xs0DGn+wCsW4vze/2ei77MD4OQvepPIFX
+                dFZtlBy5ADcgE9z0cuVB6CiL8DbdK5kwY9pGNr8HUCI03iHkW6Zs+0L0YmihfEVe
+                PG19PSzK9CaDdhD9KFZSbLyVFmWfxOt50H7YRTTiPMgjyFpfi5j2q348yVT0tEQS
+                fhRqaQKBgAcWPokmJ7EbYQGeMbS7HC8eWO/RyamlnSffdCdSc7ue3zdVJxpAkQ8W
+                qu80pEIF6raIQfAf8MXiiZ7auFOSnHQTXUbhCpvDLKi0Mwq3G8Pl07l+2s6dQG6T
+                lv6XTQaMyf6n1yjzL+fzDrH3qXMxHMO/b13EePXpDMpY7HQpoLDi
+                -----END RSA PRIVATE KEY-----
+              type: string
+            method:
+              description: Domain control validation (DCV) method used for this hostname.
+              enum:
+                - http
+                - txt
+                - email
+              example: http
+            settings:
+              $ref: '#/components/schemas/tls-certificates-and-hostnames_sslsettings'
+            type:
+              description: >-
+                Level of validation to be used for this hostname. Domain
+                validation (dv) must be used.
+              enum:
+                - dv
+              example: dv
+            wildcard:
+              description: Indicates whether the certificate covers a wildcard.
+              example: false
+              type: boolean
+          type: object
+      type: object
+    tls-certificates-and-hostnames_sslsettings:
+      description: SSL specific settings.
+      properties:
+        ciphers:
+          description: >-
+            An allowlist of ciphers for TLS termination. These ciphers must be
+            in the BoringSSL format.
+          example:
+            - ECDHE-RSA-AES128-GCM-SHA256
+            - AES128-SHA
+          items:
+            type: string
+          type: array
+          uniqueItems: true
+        early_hints:
+          description: Whether or not Early Hints is enabled.
+          enum:
+            - 'on'
+            - 'off'
+          example: 'on'
+        http2:
+          description: Whether or not HTTP2 is enabled.
+          enum:
+            - 'on'
+            - 'off'
+          example: 'on'
+        min_tls_version:
+          description: The minimum TLS version supported.
+          enum:
+            - '1.0'
+            - '1.1'
+            - '1.2'
+            - '1.3'
+          example: '1.2'
+        tls_1_3:
+          description: Whether or not TLS 1.3 is enabled.
+          enum:
+            - 'on'
+            - 'off'
+          example: 'on'
+      type: object
+    tls-certificates-and-hostnames_state:
+      description: State, provided by the CSR
+      example: CA
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_status:
+      description: Status of the zone's custom SSL.
+      enum:
+        - active
+        - expired
+        - deleted
+        - pending
+        - initializing
+      example: active
+      readOnly: true
+    tls-certificates-and-hostnames_total_tls_settings_response:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_api-response-single
+        - properties:
+            result:
+              properties:
+                certificate_authority:
+                  $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_components-schemas-certificate_authority
+                enabled:
+                  $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_components-schemas-enabled
+                validity_days:
+                  $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_schemas-validity_days
+    tls-certificates-and-hostnames_type:
+      default: legacy_custom
+      description: >-
+        The type 'legacy_custom' enables support for legacy clients which do not
+        include SNI in the TLS handshake.
+      enum:
+        - legacy_custom
+        - sni_custom
+      example: sni_custom
+      type: string
+    tls-certificates-and-hostnames_universal:
+      properties:
+        enabled:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_schemas-enabled'
+      type: object
+    tls-certificates-and-hostnames_updated_at:
+      description: The time when the certificate was updated.
+      example: '2100-01-01T05:20:00Z'
+      format: date-time
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_uploaded_on:
+      description: When the certificate was uploaded to Cloudflare.
+      example: '2014-01-01T05:20:00Z'
+      format: date-time
+      readOnly: true
+      type: string
+    tls-certificates-and-hostnames_uuid:
+      description: The DCV Delegation unique identifier.
+      example: abc123def456ghi7
+      type: string
+    tls-certificates-and-hostnames_uuidObject:
+      properties:
+        uuid:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_uuid'
+    tls-certificates-and-hostnames_validation_method:
+      description: Validation Method selected for the order.
+      enum:
+        - txt
+        - http
+        - email
+      example: txt
+      type: string
+    tls-certificates-and-hostnames_validation_method_components-schemas-status:
+      description: Result status.
+      example: pending_validation
+      type: string
+    tls-certificates-and-hostnames_validation_method_definition:
+      description: Desired validation method.
+      enum:
+        - http
+        - cname
+        - txt
+        - email
+      example: txt
+      type: string
+    tls-certificates-and-hostnames_validation_record:
+      description: Certificate's required validation record.
+      properties:
+        emails:
+          description: >-
+            The set of email addresses that the certificate authority (CA) will
+            use to complete domain validation.
+          example:
+            - administrator@example.com
+            - webmaster@example.com
+          items: {}
+          type: array
+        http_body:
+          description: >-
+            The content that the certificate authority (CA) will expect to find
+            at the http_url during the domain validation.
+          example: ca3-574923932a82475cb8592200f1a2a23d
+          type: string
+        http_url:
+          description: The url that will be checked during domain validation.
+          example: >-
+            http://app.example.com/.well-known/pki-validation/ca3-da12a1c25e7b48cf80408c6c1763b8a2.txt
+          type: string
+        txt_name:
+          description: >-
+            The hostname that the certificate authority (CA) will check for a
+            TXT record during domain validation .
+          example: _acme-challenge.app.example.com
+          type: string
+        txt_value:
+          description: >-
+            The TXT record that the certificate authority (CA) will check during
+            domain validation.
+          example: 810b7d5f01154524b961ba0cd578acc2
+          type: string
+      type: object
+    tls-certificates-and-hostnames_validity_days:
+      description: Validity Days selected for the order.
+      enum:
+        - 14
+        - 30
+        - 90
+        - 365
+      type: integer
+    tls-certificates-and-hostnames_value:
+      description: The tls setting value.
+      example:
+        - ECDHE-RSA-AES128-GCM-SHA256
+        - AES128-GCM-SHA256
+      oneOf:
+        - type: number
+        - type: string
+        - items:
+            type: string
+          type: array
+    tls-certificates-and-hostnames_verification:
+      properties:
+        brand_check:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_brand_check'
+        cert_pack_uuid:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_cert_pack_uuid'
+        certificate_status:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_certificate_status
+        signature:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_schemas-signature
+        validation_method:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_schemas-validation_method
+        verification_info:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_verification_info
+        verification_status:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_verification_status
+        verification_type:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_verification_type
+      required:
+        - certificate_status
+      type: object
+    tls-certificates-and-hostnames_verification_errors:
+      description: >-
+        These are errors that were encountered while trying to activate a
+        hostname.
+      example:
+        - >-
+          None of the A or AAAA records are owned by this account and the
+          pre-generated ownership verification token was not found.
+      items: {}
+      type: array
+    tls-certificates-and-hostnames_verification_info:
+      description: Certificate's required verification information.
+      properties:
+        record_name:
+          description: Name of CNAME record.
+          enum:
+            - record_name
+            - http_url
+            - cname
+            - txt_name
+          example: b3b90cfedd89a3e487d3e383c56c4267.example.com
+          format: hostname
+          type: string
+        record_target:
+          description: Target of CNAME record.
+          enum:
+            - record_value
+            - http_body
+            - cname_target
+            - txt_value
+          example: 6979be7e4cfc9e5c603e31df7efac9cc60fee82d.comodoca.com
+          format: hostname
+          type: string
+      type: object
+    tls-certificates-and-hostnames_verification_status:
+      description: >-
+        Status of the required verification information, omitted if verification
+        status is unknown.
+      example: true
+      type: boolean
+    tls-certificates-and-hostnames_verification_type:
+      description: Method of verification.
+      enum:
+        - cname
+        - meta tag
+      example: cname
+      type: string
+    tls-certificates-and-hostnames_zone-authenticated-origin-pull:
+      allOf:
+        - $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_certificateObject
+      properties:
+        certificate:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_zone-authenticated-origin-pull_components-schemas-certificate
+        enabled:
+          $ref: >-
+            #/components/schemas/tls-certificates-and-hostnames_zone-authenticated-origin-pull_components-schemas-enabled
+        id:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_identifier'
+        private_key:
+          $ref: '#/components/schemas/tls-certificates-and-hostnames_private_key'
+      type: object
+    tls-certificates-and-hostnames_zone-authenticated-origin-pull_components-schemas-certificate:
+      description: The zone's leaf certificate.
+      example: |
+        -----BEGIN CERTIFICATE-----
+        MIIDtTCCAp2gAwIBAgIJAMHAwfXZ5/PWMA0GCSqGSIb3DQEBCwUAMEUxCzAJBgNV
+        BAYTAkFVMRMwEQYDVQQIEwpTb21lLVN0YXRlMSEwHwYDVQQKExhJbnRlcm5ldCBX
+        aWRnaXRzIFB0eSBMdGQwHhcNMTYwODI0MTY0MzAxWhcNMTYxMTIyMTY0MzAxWjBF
+        MQswCQYDVQQGEwJBVTETMBEGA1UECBMKU29tZS1TdGF0ZTEhMB8GA1UEChMYSW50
+        ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+        CgKCAQEAwQHoetcl9+5ikGzV6cMzWtWPJHqXT3wpbEkRU9Yz7lgvddmGdtcGbg/1
+        CGZu0jJGkMoppoUo4c3dts3iwqRYmBikUP77wwY2QGmDZw2FvkJCJlKnabIRuGvB
+        KwzESIXgKk2016aTP6/dAjEHyo6SeoK8lkIySUvK0fyOVlsiEsCmOpidtnKX/a+5
+        0GjB79CJH4ER2lLVZnhePFR/zUOyPxZQQ4naHf7yu/b5jhO0f8fwt+pyFxIXjbEI
+        dZliWRkRMtzrHOJIhrmJ2A1J7iOrirbbwillwjjNVUWPf3IJ3M12S9pEewooaeO2
+        izNTERcG9HzAacbVRn2Y2SWIyT/18QIDAQABo4GnMIGkMB0GA1UdDgQWBBT/LbE4
+        9rWf288N6sJA5BRb6FJIGDB1BgNVHSMEbjBsgBT/LbE49rWf288N6sJA5BRb6FJI
+        GKFJpEcwRTELMAkGA1UEBhMCQVUxEzARBgNVBAgTClNvbWUtU3RhdGUxITAfBgNV
+        BAoTGEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZIIJAMHAwfXZ5/PWMAwGA1UdEwQF
+        MAMBAf8wDQYJKoZIhvcNAQELBQADggEBAHHFwl0tH0quUYZYO0dZYt4R7SJ0pCm2
+        2satiyzHl4OnXcHDpekAo7/a09c6Lz6AU83cKy/+x3/djYHXWba7HpEu0dR3ugQP
+        Mlr4zrhd9xKZ0KZKiYmtJH+ak4OM4L3FbT0owUZPyjLSlhMtJVcoRp5CJsjAMBUG
+        SvD8RX+T01wzox/Qb+lnnNnOlaWpqu8eoOenybxKp1a9ULzIVvN/LAcc+14vioFq
+        2swRWtmocBAs8QR9n4uvbpiYvS8eYueDCWMM4fvFfBhaDZ3N9IbtySh3SpFdQDhw
+        YbjM2rxXiyLGxB4Bol7QTv4zHif7Zt89FReT/NBy4rzaskDJY5L6xmY=
+        -----END CERTIFICATE-----
+      type: string
+    tls-certificates-and-hostnames_zone-authenticated-origin-pull_components-schemas-enabled:
+      description: Indicates whether zone-level authenticated origin pulls is enabled.
+      example: true
+      type: boolean
+    tls-certificates-and-hostnames_zone-authenticated-origin-pull_components-schemas-status:
+      description: Status of the certificate activation.
+      enum:
+        - initializing
+        - pending_deployment
+        - pending_deletion
+        - active
+        - deleted
+        - deployment_timed_out
+        - deletion_timed_out
+      example: active
+  securitySchemes:
+    api_email:
+      in: header
+      name: X-Auth-Email
+      type: apiKey
+    api_key:
+      in: header
+      name: X-Auth-Key
+      type: apiKey
+    api_token:
+      scheme: bearer
+      type: http
+    user_service_key:
+      in: header
+      name: X-Auth-User-Service-Key
+      type: apiKey
+info:
+  description: >-
+    To get started using Cloudflare's products and services via the API, refer
+    to [how to interact with
+    Cloudflare](https://developers.cloudflare.com/fundamentals/basic-tasks/interact-with-cloudflare/),
+    which covers using tools like
+    [Terraform](https://developers.cloudflare.com/terraform/#cloudflare-terraform)
+    and the [official
+    SDKs](https://developers.cloudflare.com/fundamentals/api/reference/sdks/) to
+    maintain your Cloudflare resources.
+
+
+    Using the Cloudflare API requires authentication so that Cloudflare knows
+    who is making requests and what permissions you have. Create an API token to
+    grant access to the API to perform actions.
+
+
+    To create an API token, from the Cloudflare dashboard, go to My Profile >
+    API Tokens and select Create Token. For more information on how to create
+    and troubleshoot API tokens, refer to
+
+    our [API fundamentals](https://developers.cloudflare.com/fundamentals/api/).
+
+
+    Totally new to Cloudflare? [Start
+    here](https://developers.cloudflare.com/fundamentals/get-started/).
+  license:
+    name: BSD-3-Clause
+    url: https://opensource.org/licenses/BSD-3-Clause
+  title: Cloudflare API
+  version: 4.0.0
+openapi: 3.0.3
+paths:
+  /zones/{zone_id}/custom_hostnames:
+    get:
+      description: List, search, sort, and filter all of your custom hostnames.
+      operationId: list-custom-hostnames
+      parameters:
+        - in: path
+          name: zone_id
+          required: true
+          schema:
+            $ref: '#/components/schemas/tls-certificates-and-hostnames_identifier'
+        - in: query
+          name: hostname
+          schema:
+            description: >-
+              Fully qualified domain name to match against. This parameter
+              cannot be used with the 'id' parameter.
+            example: app.example.com
+            maxLength: 255
+            type: string
+        - in: query
+          name: id
+          schema:
+            description: >-
+              Hostname ID to match against. This ID was generated and returned
+              during the initial custom_hostname creation. This parameter cannot
+              be used with the 'hostname' parameter.
+            example: 0d89c70d-ad9f-4843-b99f-6cc0252067e9
+            maxLength: 36
+            minLength: 36
+            type: string
+        - in: query
+          name: page
+          schema:
+            default: 1
+            description: Page number of paginated results.
+            minimum: 1
+            type: number
+        - in: query
+          name: per_page
+          schema:
+            default: 20
+            description: Number of hostnames per page.
+            maximum: 50
+            minimum: 5
+            type: number
+        - in: query
+          name: order
+          schema:
+            default: ssl
+            description: Field to order hostnames by.
+            enum:
+              - ssl
+              - ssl_status
+            example: ssl
+        - in: query
+          name: direction
+          schema:
+            description: Direction to order hostnames.
+            enum:
+              - asc
+              - desc
+            example: desc
+        - in: query
+          name: ssl
+          schema:
+            default: '0'
+            description: Whether to filter hostnames based on if they have SSL enabled.
+            enum:
+              - 0
+              - 1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/tls-certificates-and-hostnames_custom_hostname_response_collection
+          description: List Custom Hostnames response
+        4XX:
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: >-
+                      #/components/schemas/tls-certificates-and-hostnames_custom_hostname_response_collection
+                  - $ref: >-
+                      #/components/schemas/tls-certificates-and-hostnames_api-response-common-failure
+          description: List Custom Hostnames response failure
+      security:
+        - api_email: []
+          api_key: []
+      summary: List Custom Hostnames
+      tags:
+        - Custom Hostname for a Zone
+      x-cfPermissionsRequired:
+        enum:
+          - '#ssl:read'
+      x-cfPlanAvailability:
+        business: true
+        enterprise: true
+        free: true
+        pro: true
+    post:
+      description: >-
+        Add a new custom hostname and request that an SSL certificate be issued
+        for it. One of three validation methods—http, txt, email—should be used,
+        with 'http' recommended if the CNAME is already in place (or will be
+        soon). Specifying 'email' will send an email to the WHOIS contacts on
+        file for the base domain plus hostmaster, postmaster, webmaster, admin,
+        administrator. If http is used and the domain is not already pointing to
+        the Managed CNAME host, the PATCH method must be used once it is (to
+        complete validation).
+      operationId: create-custom-hostname
+      parameters:
+        - in: path
+          name: zone_id
+          required: true
+          schema:
+            $ref: '#/components/schemas/tls-certificates-and-hostnames_identifier'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                custom_metadata:
+                  $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_custom_metadata
+                hostname:
+                  $ref: >-
+                    #/components/schemas/tls-certificates-and-hostnames_hostname_post
+                ssl:
+                  $ref: '#/components/schemas/tls-certificates-and-hostnames_sslpost'
+              required:
+                - hostname
+                - ssl
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/tls-certificates-and-hostnames_custom_hostname_response_single
+          description: Create Custom Hostname response
+        4XX:
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: >-
+                      #/components/schemas/tls-certificates-and-hostnames_custom_hostname_response_single
+                  - $ref: >-
+                      #/components/schemas/tls-certificates-and-hostnames_api-response-common-failure
+          description: Create Custom Hostname response failure
+      security:
+        - api_email: []
+          api_key: []
+      summary: Create Custom Hostname
+      tags:
+        - Custom Hostname for a Zone
+      x-cfPermissionsRequired:
+        enum:
+          - '#ssl:edit'
+      x-cfPlanAvailability:
+        business: true
+        enterprise: true
+        free: true
+        pro: true
+  /zones/{zone_id}/custom_hostnames/{custom_hostname_id}:
+    delete:
+      operationId: >-
+        custom-hostname-for-a-zone-delete-custom-hostname-(-and-any-issued-ssl-certificates)
+      parameters:
+        - in: path
+          name: custom_hostname_id
+          required: true
+          schema:
+            $ref: '#/components/schemas/tls-certificates-and-hostnames_identifier'
+        - in: path
+          name: zone_id
+          required: true
+          schema:
+            $ref: '#/components/schemas/tls-certificates-and-hostnames_identifier'
+      requestBody:
+        content:
+          application/json: {}
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    $ref: >-
+                      #/components/schemas/tls-certificates-and-hostnames_identifier
+                type: object
+          description: Delete Custom Hostname (and any issued SSL certificates) response
+        4XX:
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - properties:
+                      id:
+                        $ref: >-
+                          #/components/schemas/tls-certificates-and-hostnames_identifier
+                    type: object
+                  - $ref: >-
+                      #/components/schemas/tls-certificates-and-hostnames_api-response-common-failure
+          description: >-
+            Delete Custom Hostname (and any issued SSL certificates) response
+            failure
+      security:
+        - api_email: []
+          api_key: []
+      summary: Delete Custom Hostname (and any issued SSL certificates)
+      tags:
+        - Custom Hostname for a Zone
+      x-cfPermissionsRequired:
+        enum:
+          - '#ssl:edit'
+      x-cfPlanAvailability:
+        business: true
+        enterprise: true
+        free: true
+        pro: true
+
+security:
+  - api_email: []
+    api_key: []
+  - api_token: []
+  - user_service_key: []
+servers:
+  - description: Client API
+    url: https://api.cloudflare.com/client/v4
